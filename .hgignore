@@ -1,0 +1,5 @@
+syntax: glob
+source/AKwin32/bin
+source/AKwin32/obj
+source/Framework/bin
+source/Framework/obj
