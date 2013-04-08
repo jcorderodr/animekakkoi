@@ -5,28 +5,29 @@ using System.Text;
 
 namespace Framework.entity
 {
-    public class Anime
+    public  class Anime : EntitySource
     {
 
-        public int Codigo { get; set; }
+        public ANIME_TYPE Category { get; set; }
 
-        public ANIME_STATE Estado { get; set; }
+        public int Episodes { get; set; }
 
-        public String Nombre { get; set; }
-
-        public int Captiulos { get; set; }
-
-        public String Comentario { get; set; }
-
-        //Agregar categoria/gusto/genero
+        public override string ToString()
+        {
+            return String.Format("{0} @ {3}, [Rat:{2} / {1}]", Name, State, Rating, Category);
+        }
 
     }
 
-    public enum ANIME_STATE
+    public enum ANIME_TYPE
     {
-        QUEUE = 1,
-        WATCHING = 2,
-        WATCHED = 3
+        SERIE = 1,
+        OVA = 2,
+        MOVIE = 3,
+        SPECIAL = 4,
+        WEB = 5
     }
+
+  
 
 }

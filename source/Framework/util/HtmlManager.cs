@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HtmlAgilityPack;
 
-namespace AKwin32.util
+namespace Framework.util
 {
-    public class Importer
+    public class HtmlManager
     {
+
+        
     }
 }
