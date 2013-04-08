@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AKwin32.forms
 {
-    public partial class frmBaseToolbox : Form
+    public partial class frmBaseToolbox : frmBase
     {
         public frmBaseToolbox()
         {

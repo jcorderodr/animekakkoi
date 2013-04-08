@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\MS_VS_rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net20\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -40,18 +44,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="data\Catalogo.cs" />
-    <Compile Include="repo\AnimeRepository.cs" />
-    <Compile Include="repo\Repository.cs" />
+    <Compile Include="data\AkData_types.cs" />
+    <Compile Include="data\IAkData.cs" />
+    <Compile Include="entity\entities_properties.cs" />
+    <Compile Include="entity\Entity.cs" />
+    <Compile Include="entity\EntityBase.cs" />
+    <Compile Include="entity\Manga.cs" />
+    <Compile Include="entity\User.cs" />
+    <Compile Include="io\Catalogo.cs" />
+    <Compile Include="io\Language.cs" />
+    <Compile Include="media\ISource.cs" />
+    <Compile Include="media\McAnime.cs" />
+    <Compile Include="media\SourceBase.cs" />
+    <Compile Include="repo\xml\AnimeRepository.cs" />
+    <Compile Include="repo\xml\MangaRepository.cs" />
+    <Compile Include="repo\xml\Repository.cs" />
     <Compile Include="entity\Anime.cs" />
     <Compile Include="io\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repo\xml\UserRepository.cs" />
+    <Compile Include="util\Expression.cs" />
+    <Compile Include="util\HtmlManager.cs" />
+    <Compile Include="util\Importer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="media\" />
+    <Folder Include="repo\sql\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Framework.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managementToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newAnimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,14 +41,19 @@
             this.newMangaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageMangaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.importerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mcAnimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mcAnimeKronosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.stripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -62,9 +69,22 @@
             // fileToolStripMenu
             // 
             this.fileToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersToolStripMenuItem,
+            this.toolStripSeparator3,
             this.exitToolStripMenuItem});
             this.fileToolStripMenu.Name = "fileToolStripMenu";
             resources.ApplyResources(this.fileToolStripMenu, "fileToolStripMenu");
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            resources.ApplyResources(this.usersToolStripMenuItem, "usersToolStripMenuItem");
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // exitToolStripMenuItem
             // 
@@ -104,11 +124,13 @@
             // 
             this.newMangaToolStripMenuItem.Name = "newMangaToolStripMenuItem";
             resources.ApplyResources(this.newMangaToolStripMenuItem, "newMangaToolStripMenuItem");
+            this.newMangaToolStripMenuItem.Click += new System.EventHandler(this.newMangaToolStripMenuItem_Click);
             // 
             // manageMangaToolStripMenuItem
             // 
             this.manageMangaToolStripMenuItem.Name = "manageMangaToolStripMenuItem";
             resources.ApplyResources(this.manageMangaToolStripMenuItem, "manageMangaToolStripMenuItem");
+            this.manageMangaToolStripMenuItem.Click += new System.EventHandler(this.manageMangaToolStripMenuItem_Click);
             // 
             // toolsToolStripMenu
             // 
@@ -120,21 +142,42 @@
             this.toolsToolStripMenu.Name = "toolsToolStripMenu";
             resources.ApplyResources(this.toolsToolStripMenu, "toolsToolStripMenu");
             // 
+            // importerToolStripMenuItem
+            // 
+            this.importerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mcAnimeToolStripMenuItem,
+            this.mcAnimeKronosToolStripMenuItem});
+            this.importerToolStripMenuItem.Name = "importerToolStripMenuItem";
+            resources.ApplyResources(this.importerToolStripMenuItem, "importerToolStripMenuItem");
+            // 
+            // mcAnimeToolStripMenuItem
+            // 
+            this.mcAnimeToolStripMenuItem.Name = "mcAnimeToolStripMenuItem";
+            resources.ApplyResources(this.mcAnimeToolStripMenuItem, "mcAnimeToolStripMenuItem");
+            this.mcAnimeToolStripMenuItem.Click += new System.EventHandler(this.mcAnimeToolStripMenuItem_Click);
+            // 
+            // mcAnimeKronosToolStripMenuItem
+            // 
+            this.mcAnimeKronosToolStripMenuItem.Name = "mcAnimeKronosToolStripMenuItem";
+            resources.ApplyResources(this.mcAnimeKronosToolStripMenuItem, "mcAnimeKronosToolStripMenuItem");
+            this.mcAnimeKronosToolStripMenuItem.Click += new System.EventHandler(this.mcAnimeKronosToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             resources.ApplyResources(this.preferencesToolStripMenuItem, "preferencesToolStripMenuItem");
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
-            // 
-            // importerToolStripMenuItem
-            // 
-            this.importerToolStripMenuItem.Name = "importerToolStripMenuItem";
-            resources.ApplyResources(this.importerToolStripMenuItem, "importerToolStripMenuItem");
-            this.importerToolStripMenuItem.Click += new System.EventHandler(this.importerToolStripMenuItem_Click);
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenu
             // 
@@ -148,26 +191,39 @@
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // aboutAkToolStripMenuItem
             // 
             this.aboutAkToolStripMenuItem.Name = "aboutAkToolStripMenuItem";
             resources.ApplyResources(this.aboutAkToolStripMenuItem, "aboutAkToolStripMenuItem");
+            this.aboutAkToolStripMenuItem.Click += new System.EventHandler(this.aboutAkToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
+            // statusStrip
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripStatusUser});
+            resources.ApplyResources(this.statusStrip, "statusStrip");
+            this.statusStrip.Name = "statusStrip";
+            // 
+            // stripStatusUser
+            // 
+            this.stripStatusUser.Name = "stripStatusUser";
+            resources.ApplyResources(this.stripStatusUser, "stripStatusUser");
             // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FrmMain";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +248,11 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutAkToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem mcAnimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mcAnimeKronosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel stripStatusUser;
     }
 }

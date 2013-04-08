@@ -60,6 +60,20 @@ namespace AKwin32.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap fav_media {
+            get {
+                object obj = ResourceManager.GetObject("fav_media", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap loader_blue {
+            get {
+                object obj = ResourceManager.GetObject("loader-blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to 
         ///AnimeKakkoi - version 0.1 Alpha -DEV
