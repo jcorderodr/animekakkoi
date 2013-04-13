@@ -68,6 +68,9 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bluegletek_128.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -165,6 +168,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="util\Configuration.cs" />
     <Compile Include="util\Expression.cs" />
+    <Compile Include="util\Language.cs" />
     <EmbeddedResource Include="forms\frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +245,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="forms\util\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fav-no_media.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bluegletek_128.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

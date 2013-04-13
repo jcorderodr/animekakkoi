@@ -16,6 +16,8 @@ namespace Framework.entity
 
         public String Comment { get; set; }
 
+        //public object Category { get; set; }
+
         //Add gusto/genero
 
         public override string ToString()

@@ -21,7 +21,7 @@ namespace Framework.entity
         /// <summary>
         /// Gets or sets an string that represent the progress in the format 1/2.
         /// </summary>
-        public string ChaptersString
+        public string ChapterString
         {
             get
             {

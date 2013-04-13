@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 
-namespace Framework.io
+namespace AKwin32.util
 {
+    [Obsolete]
     public class Language
     {
 
@@ -23,13 +24,6 @@ namespace Framework.io
 
         #region Properties
 
-        public Dictionary<string, string> ErrorsLibrary
-        {
-            get
-            {
-                return messagesLibrary;
-            }
-        }
 
         public Dictionary<string, string> MessagesLibrary
         {
@@ -87,11 +81,16 @@ namespace Framework.io
                 if (words[i].StartsWith(COMMENT_TAG))
                     continue;
 
-                messagesLibrary.Add(words[i].Trim(), words[++i].Trim());
+                if (words[i].Contains(MESSAGE_TAG))
+                    messagesLibrary.Add(words[i].Trim().Substring(MESSAGE_TAG.Length),
+                        words[++i].Trim());
+                else if (words[i].Contains(ERROR_TAG))
+                    messagesLibrary.Add(words[i].Trim().Substring(ERROR_TAG.Length),
+                        words[++i].Trim());
+
             }
 
         }
-
 
     }
 }

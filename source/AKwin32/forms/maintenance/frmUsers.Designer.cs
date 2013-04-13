@@ -31,12 +31,12 @@
             this.panelBase = new System.Windows.Forms.Panel();
             this.lblSources = new System.Windows.Forms.Label();
             this.listViewSources = new System.Windows.Forms.ListView();
+            this.sourceList = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cboxUsers = new System.Windows.Forms.ComboBox();
             this.lblUsers = new System.Windows.Forms.Label();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNewUser = new System.Windows.Forms.Button();
-            this.sourceList = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelBase.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,11 @@
             this.listViewSources.View = System.Windows.Forms.View.List;
             this.listViewSources.SelectedIndexChanged += new System.EventHandler(this.listViewSources_SelectedIndexChanged);
             this.listViewSources.Resize += new System.EventHandler(this.listViewSources_Resize);
+            // 
+            // sourceList
+            // 
+            this.sourceList.Text = "";
+            this.sourceList.Width = 120;
             // 
             // cboxUsers
             // 
@@ -126,10 +131,6 @@
             this.btnNewUser.Text = "new";
             this.btnNewUser.UseVisualStyleBackColor = true;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
-            // 
-            // sourceList
-            // 
-            this.sourceList.Text = "";
             // 
             // frmUsers
             // 

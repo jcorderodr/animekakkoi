@@ -16,11 +16,19 @@ namespace Framework.io
 
         public String Description { get; set; }
 
+        /// <summary>
+        /// Gets the valids types of entities.
+        /// </summary>
+        /// <returns></returns>
         public String[] GetEntitiesValidTypes()
         {
             return new string[] { "Anime", "Manga" };
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Catalog> GetEntitiesStateTypes()
         {
             List<Catalog> list = new List<Catalog>();
@@ -35,6 +43,10 @@ namespace Framework.io
             return list;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Catalog> GetAnimeCategoriesTypes()
         {
             List<Catalog> list = new List<Catalog>();
@@ -49,6 +61,10 @@ namespace Framework.io
             return list;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Catalog> GetMangaCategoriesTypes()
         {
             List<Catalog> list = new List<Catalog>();

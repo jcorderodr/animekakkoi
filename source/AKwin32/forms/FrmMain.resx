@@ -188,22 +188,35 @@
     <value>McAnime vKronos</value>
   </data>
   <data name="importerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="importerToolStripMenuItem.Text" xml:space="preserve">
     <value>importer</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 6</value>
+    <value>149, 6</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dataCheckerToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dataCheckerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="dataCheckerToolStripMenuItem.Text" xml:space="preserve">
+    <value>dataChecker</value>
+  </data>
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
   </data>
   <data name="preferencesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="preferencesToolStripMenuItem.Text" xml:space="preserve">
     <value>preferences</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
     <value>options</value>
@@ -238,7 +251,6 @@
   <data name="menuStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>509, 24</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -428,10 +440,22 @@
   <data name="&gt;&gt;stripStatusUser.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;dataCheckerToolStripMenuItem.Name" xml:space="preserve">
+    <value>dataCheckerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;dataCheckerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMain</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, AKwin32, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBase, AKwin32, Version=0.1.0.31177, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -104,11 +104,15 @@ namespace Framework.repo.xml
             return item;
         }
 
-        protected internal XElement ChangeItem(XElement item, ENTITY_STATE section)
+        protected internal XElement ChangeItem(XElement item)
         {
-            throw new NotImplementedException();
             string id = item.Attribute("id").Value;
-            this.GetParent(section).Elements("Anime").FirstOrDefault(c => c.Attribute("id").Value == id).ReplaceWith(item);
+            try
+            {
+                this.GetItemByID(item.Name.ToString(), id).ReplaceWith(item);
+                isDataModified = true;
+            }
+            catch (NullReferenceException) { return null; }
             return item;
         }
 
@@ -122,9 +126,15 @@ namespace Framework.repo.xml
             return list;
         }
 
-        protected internal XElement GetItemByID(string id)
+        protected internal XElement GetItemByID(string name, string id)
         {
-            throw new NotImplementedException();
+            XElement element;
+            foreach (XDocument doc in documentsContext.Values)
+            {
+                element = doc.Elements(io.Configuration.ApplicationName).Elements(name).FirstOrDefault(c => c.Attribute("id").Value == id);
+                if (element != null) return element;
+            }
+            return null;
         }
 
         protected internal int NewItemID
@@ -142,6 +152,25 @@ namespace Framework.repo.xml
                 this.Update();
                 isDataModified = false;
             }
+        }
+
+        protected internal void Remove(XElement item, ENTITY_STATE section)
+        {
+            string id = item.Attribute("id").Value;
+            XElement element = this.GetParent(section).Elements(item.Name.ToString()).FirstOrDefault(c => c.Attribute("id").Value == id);
+            if (element == null) return;
+            element.Remove();
+            this.Update();
+        }
+
+        protected internal void setModifiedState()
+        {
+            isDataModified = true;
+        }
+
+        protected internal void setModifiedState(bool isModified)
+        {
+            isDataModified = isModified;
         }
 
         #endregion
@@ -235,6 +264,8 @@ namespace Framework.repo.xml
 
         public abstract void Change(T item);
 
+        public abstract void Remove(T item);
+
         public abstract IList<T> GetAll();
 
         internal abstract T ToEntity(XElement item);
@@ -243,11 +274,7 @@ namespace Framework.repo.xml
 
         #endregion
 
-        [Obsolete]
-        internal List<XElement> getUsersData()
-        {
-            return akMainData.Element(io.Configuration.ApplicationName).Element("Users").Elements("User").ToList();
-        }
+
 
     }
 }

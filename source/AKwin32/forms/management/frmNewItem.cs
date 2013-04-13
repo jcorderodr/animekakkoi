@@ -24,13 +24,12 @@ namespace AKwin32.forms.management
         }
 
         #region GUI Events
-
-
+        
         private void frmNewItem_Load(object sender, EventArgs e)
         {
             if (entityType == null)
             {
-                MessageBox.Show(this, "entity missed", Program.AppTitle);
+                base.ShowError(this, Program.Language.ErrorsLibrary["entity_missed"]);
                 this.Close();
             }
             ((INewItem)this).DoVisualChanges();
@@ -41,16 +40,18 @@ namespace AKwin32.forms.management
             if (ValidateInput())
                 if (((INewItem)this).ToRegisterItem())
                 {
-                    MessageBox.Show(this, "an item has been saved", Program.AppTitle);
+                    base.ShowInformation(this,
+                     Program.Language.MessagesLibrary["items_saved"]);
                     CleanUIComponents();
                 }
                 else
-                    MessageBox.Show(this, "error has been detected.", Program.AppTitle);
+                    base.ShowError(this,
+                     Program.Language.ErrorsLibrary["items_error"]);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(this, "exit?", Program.AppTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult result = base.ShowQuestion(this, Program.Language.MessagesLibrary["exit_question"]);
             if (result == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
         }
@@ -61,7 +62,6 @@ namespace AKwin32.forms.management
 
             //if (ctrl.GetType() == typeof(TextBox))
             //    ctrl.Text = util.Expression.GetOnlyNumbersFromText(ctrl.Text) + "";
-
 
         }
 
@@ -122,7 +122,7 @@ namespace AKwin32.forms.management
 
             item.Comment = txt_Comment.Text;
             item.Rating = util.Expression.StringIfNull(txt_Rating.Text, 0);
-            item.ChaptersString = txt_Episodes.Text;
+            item.ChapterString = txt_Episodes.Text;
 
             Framework.repo.xml.MangaRepository repo;
             repo = new Framework.repo.xml.MangaRepository();

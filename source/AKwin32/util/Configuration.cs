@@ -12,9 +12,7 @@ namespace AKwin32.util
         public const String CompanyName = "BluegleTek Soft";
         public const String ApplicationName = "AnimeKakkoi";
 
-        /// <summary>
-        /// 
-        /// </summary>
+ 
         internal static String ApplicationDataFolder
         {
             get
@@ -41,5 +39,6 @@ namespace AKwin32.util
             System.Configuration.Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
             return config.AppSettings.Settings[key].Value;
         }
+
     }
 }

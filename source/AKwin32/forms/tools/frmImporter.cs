@@ -85,6 +85,7 @@ namespace AKwin32.forms.tools
                     if (source != null)
                     {
                         EndProcess();
+                        SaveSourceToUser();
                         lblType.Enabled = true;
                         Form_State = FORM_USING_STATE.READY;
                         btnAccept.Text = "save data";
@@ -131,8 +132,12 @@ namespace AKwin32.forms.tools
                 import.Type = this.ImportMethod;
                 source = import.GetSource(response, cbSourceType.SelectedItem.ToString(), ref mediaType);
             }
-            catch (Exception we) { MessageBox.Show(this,
-                "error in communication : " + we.StackTrace, "error: " + we.Message); }
+            catch (Exception we)
+            {
+                base.ShowError(this,
+                    String.Format("{1} : {0}",
+                    we.Message, Program.Language.MessagesLibrary["communication_failed"]));
+            }
         }
 
         private void EndProcess()
@@ -147,6 +152,11 @@ namespace AKwin32.forms.tools
                 default:
                     break;
             }
+        }
+
+        private void SaveSourceToUser()
+        {
+            Program.SystemUser.AddSource(link.AbsoluteUri);
         }
 
         private void ShowResult(List<object> list)

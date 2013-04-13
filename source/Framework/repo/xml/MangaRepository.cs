@@ -30,9 +30,22 @@ namespace Framework.repo.xml
             return count;
         }
 
-        public override void Change(Manga Item)
+        public override void Change(Manga item)
         {
-            throw new NotImplementedException();
+            base.ChangeItem(ToData(item));
+            base.Refresh();
+        }
+
+        public int Change(IList<Manga> elements)
+        {
+            int count = 0;
+            foreach (Manga item in elements)
+            {
+                base.ChangeItem(ToData(item));
+                count++;
+            }
+            base.Refresh();
+            return count;
         }
 
         public override IList<Manga> GetAll()
@@ -49,6 +62,16 @@ namespace Framework.repo.xml
             return list;
         }
 
+        public override void Remove(Manga item)
+        {
+            try
+            {
+                this.GetItemByID("Manga", item.Codigo+"").Remove();
+                base.setModifiedState();
+            }
+            catch { }
+        }
+
         internal override Manga ToEntity(XElement item)
         {
             Manga temp;
@@ -59,7 +82,7 @@ namespace Framework.repo.xml
                 State = (ENTITY_STATE)util.Expression.IfNull(item.Element("state").Value, 0),
                 Comment = item.Element("comment").Value
             };
-            temp.ChaptersString = item.Element("episode").Value;
+            temp.ChapterString = item.Element("episode").Value;
             temp.Codigo = util.Expression.IfNull(item.Attribute("id").Value, 0);
             temp.Favorite = Convert.ToBoolean(item.Attribute("fav").Value);
 
@@ -73,7 +96,7 @@ namespace Framework.repo.xml
             element.SetAttributeValue("id", item.Codigo);
             element.SetAttributeValue("category", (int)item.Category);
             element.SetAttributeValue("fav", item.Favorite);
-            element.Element("episode").SetValue(item.ChaptersString);
+            element.Element("episode").SetValue(item.ChapterString);
             element.Element("name").SetValue(item.Name);
             element.Element("state").SetValue((int)item.State);
             element.Element("rate").SetValue(item.Rating);
@@ -82,7 +105,7 @@ namespace Framework.repo.xml
             return element;
 
         }
-        
+
 
 
     }

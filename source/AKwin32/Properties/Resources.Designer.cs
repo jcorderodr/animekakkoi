@@ -67,6 +67,13 @@ namespace AKwin32.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap fav_no_media {
+            get {
+                object obj = ResourceManager.GetObject("fav-no_media", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap loader_blue {
             get {
                 object obj = ResourceManager.GetObject("loader-blue", resourceCulture);
@@ -76,9 +83,12 @@ namespace AKwin32.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to 
-        ///AnimeKakkoi - version 0.1 Alpha -DEV
+        ///AnimeKakkoi - version 0.1.000 Alpha -DEV
         ///
-        ///# Marzo ??, 2013
+        ///# Abril ??, 2013
+        ///-First Release
+        ///-Basics Functions
+        ///-Media Types Anime &amp; Manga
         ///
         ///
         ///#		Fin		#.

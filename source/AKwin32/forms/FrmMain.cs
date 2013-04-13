@@ -17,14 +17,23 @@ namespace AKwin32.forms
         public FrmMain()
         {
             InitializeComponent();
-
         }
+
+
+        #region GUI Events
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
             maintenance.frmUsers frmUsr = new maintenance.frmUsers();
             if (frmUsr.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) this.Close();
             this.OnPropertiesChange();
+        }
+
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing)
+                checkForExit();
         }
 
 
@@ -145,11 +154,15 @@ namespace AKwin32.forms
 
         #endregion
 
+        #endregion
+
 
         #region Functions
 
         private bool checkForExit()
         {
+            Framework.repo.xml.UserRepository repo = new Framework.repo.xml.UserRepository();
+            repo.Change(Program.SystemUser);
             return true;
         }
 
@@ -158,8 +171,9 @@ namespace AKwin32.forms
             stripStatusUser.Text = Program.SystemUser.Name;
         }
 
-
         #endregion
+
 
     }
 }
+
