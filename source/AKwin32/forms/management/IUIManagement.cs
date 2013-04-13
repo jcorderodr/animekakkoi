@@ -21,6 +21,22 @@ namespace AKwin32.forms.management
         void DoVisualChanges();
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ctrl">System.Windows.Forms.Control to set his value</param>
+        /// <param name="pName">Property's name</param>
+        /// <param name="entity">the entity to get or set value</param>
+        void InheritControlSelection(System.Windows.Forms.Control ctrl, string pName, object entity);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ctrl"></param>
+        /// <param name="p"></param>
+        /// <param name="entity"></param>
+        void InheritControlValidation(System.Windows.Forms.Control ctrl, System.Reflection.PropertyInfo p, object entity);
+
+        /// <summary>
         /// Fill the mainly UI components (dynamic data).
         /// </summary>
         void LoadDataToControls();
@@ -41,10 +57,8 @@ namespace AKwin32.forms.management
         /// </summary>
         void setReadOnlyMode();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        void SaveItemsToRepository();
+ 
+        void SaveItemsToRepository(bool newItems);
 
     }
 }

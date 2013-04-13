@@ -24,6 +24,7 @@ namespace Framework.repo.xml
         public override User Add(User item)
         {
             this.GetParent().Add(ToData(item));
+            base.setModifiedState();
             base.Refresh();
             return item;
         }
@@ -36,7 +37,9 @@ namespace Framework.repo.xml
 
         public override void Change(User item)
         {
-            throw new NotImplementedException();
+            this.GetParent().Elements().FirstOrDefault(c => c.Attribute("id").Value == item.Codigo+"").ReplaceWith( ToData(item));
+            base.setModifiedState();
+            base.Refresh();
         }
 
         public override IList<User> GetAll()
@@ -51,6 +54,11 @@ namespace Framework.repo.xml
             }
 
             return list;
+        }
+
+        public override void Remove(User item)
+        {
+            throw new NotImplementedException();
         }
 
         private XElement GetParent()

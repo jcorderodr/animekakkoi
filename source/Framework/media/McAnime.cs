@@ -243,7 +243,7 @@ namespace Framework.media
                     temp.Category = this.MangaTypeCategories[Expression.ToCapCase(aux)];
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
-                    temp.ChaptersString = aux;
+                    temp.ChapterString = aux;
 
                     temp.Comment = "";
 

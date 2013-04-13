@@ -28,6 +28,9 @@ namespace AKwin32.forms.tools
             }
         }
 
+
+        #region GUI Events
+
         private void frmInputRequest_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!isValidInput())
@@ -43,8 +46,8 @@ namespace AKwin32.forms.tools
             }
             else
             {
-                MessageBox.Show(this, "invalid input", Program.AppTitle, MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                base.ShowError(this,
+                      Program.Language.MessagesLibrary["invalid_input"]);
             }
         }
 
@@ -53,6 +56,8 @@ namespace AKwin32.forms.tools
             if (isValidInput())
                 this.Close();
         }
+
+        #endregion
 
         private bool isValidInput()
         {

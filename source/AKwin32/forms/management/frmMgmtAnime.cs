@@ -24,6 +24,31 @@ namespace AKwin32.forms.management
             repo = new Framework.repo.xml.AnimeRepository();
         }
 
+
+        #region GUI Events
+
+        void btnRemoveItem_Click(object sender, EventArgs e)
+        {
+            Anime anime = listViewItems.SelectedItems[0].Tag as Anime;
+            listViewItems.SelectedItems[0].Remove();
+            repo.Remove(anime);
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            if (this.Form_State != FORM_USING_STATE.EDITING)
+                this.Close();
+            //
+            dataSource.Clear();
+            foreach (ListViewItem item in listViewItems.Items)
+                dataSource.Add(ObjectToType(item.Tag));
+            ((IUIManagement)this).SaveItemsToRepository(false);
+            //
+            this.Close();
+        }
+
+        #endregion
+
         #region IUIManagement
 
         void IUIManagement.ConvertItemsToDefaultType()
@@ -34,9 +59,26 @@ namespace AKwin32.forms.management
 
         void IUIManagement.DoVisualChanges()
         {
-            cbBoxItemType.DataSource = catalog.GetEntitiesStateTypes();
-            cbBoxItemType.ValueMember = "Id";
-            cbBoxItemType.DisplayMember = "Value";
+            btnRemoveItem.Click += new EventHandler(btnRemoveItem_Click);
+            btnAccept.Click += new EventHandler(btnAccept_Click);
+
+            cb_Category.DataSource = catalog.GetAnimeCategoriesTypes();
+            cb_Category.ValueMember = "Id";
+            cb_Category.DisplayMember = "Value";
+        }
+
+        void IUIManagement.InheritControlSelection(System.Windows.Forms.Control ctrl, string pName, object entity)
+        {
+            
+        }
+
+        void IUIManagement.InheritControlValidation(Control ctrl, System.Reflection.PropertyInfo p, object entity)
+        {
+            if (p.PropertyType == typeof(ANIME_TYPE))
+            {
+                ANIME_TYPE s = (ANIME_TYPE)Enum.Parse(typeof(ANIME_TYPE), ctrl.Text);
+                p.SetValue(entity, (int)s, null);
+            }
         }
 
         void IUIManagement.LoadDataToControls()
@@ -73,11 +115,17 @@ namespace AKwin32.forms.management
             //throw new NotImplementedException();
         }
 
-        void IUIManagement.SaveItemsToRepository()
+        void IUIManagement.SaveItemsToRepository(bool newItems)
         {
-            int result = repo.AddRange(dataSource);
+            int result;
+            if (newItems)
+                result = repo.AddRange(dataSource);
+            else
+                result = repo.Change(dataSource);
+
             if (result != dataSource.Count)
-                MessageBox.Show(this, "just saved " + result, Program.AppTitle);
+                base.ShowInformation(this,
+                    Program.Language.MessagesLibrary["items_saved"] + String.Format(" ({0})", result));
 
         }
 
@@ -91,5 +139,6 @@ namespace AKwin32.forms.management
         }
 
         #endregion
+
     }
 }

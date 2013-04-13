@@ -38,7 +38,11 @@ namespace AKwin32.forms.maintenance
 
         private void frmUsers_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!isValid()) e.Cancel = true;
+            if (!isValid())
+            {
+                base.ShowError(this, Program.Language.ErrorsLibrary["select_user"]);
+                e.Cancel = true;
+            }
         }
 
 
@@ -74,16 +78,19 @@ namespace AKwin32.forms.maintenance
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             }
+            else
+                base.ShowError(this, Program.Language.ErrorsLibrary["select_user"]);
         }
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
             tools.frmInputRequest frmReq = new tools.frmInputRequest();
-            frmReq.SetUIProperties("new user", "new user's name", false);
+            frmReq.SetUIProperties("new user", "new user's name", !(Program.SystemUser == null));
             if (frmReq.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 repo.Add(new User { Name = frmReq.UserInput });
                 LoadControlsContent();
+                repo = null;
             }
         }
 
@@ -98,7 +105,8 @@ namespace AKwin32.forms.maintenance
 
         private void SizeLastColumn(ListView lv)
         {
-            listViewSources.Columns[listViewSources.Columns.Count - 1].Width = -2;
+            //listViewSources.Columns[listViewSources.Columns.Count - 1].Width = -2;
+            listViewSources.Columns[0].Width = listViewSources.Width - 2;
         }
 
         private bool isValid()

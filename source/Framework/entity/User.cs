@@ -18,8 +18,14 @@ namespace Framework.entity
         public void AddSource(string source)
         {
             List<string> aux = this.Sources.ToList();
-            aux.Add(source);
+            if (!aux.Contains(source))
+                aux.Add(source);
             this.Sources = aux.ToArray();
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} {1}, Sources {2}", Codigo, Name, Sources.Length);
         }
 
     }

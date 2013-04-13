@@ -37,7 +37,7 @@ namespace Framework.repo.xml
 
         public override void Change(Anime item)
         {
-            base.ChangeItem(ToData(item), item.State);
+            base.ChangeItem(ToData(item));
             base.Refresh();
             //return null;
         }
@@ -47,7 +47,7 @@ namespace Framework.repo.xml
             int count = 0;
             foreach (Anime item in elements)
             {
-                base.ChangeItem(ToData(item), item.State);
+                base.ChangeItem(ToData(item));
                 count++;
             }
             base.Refresh();
@@ -66,6 +66,11 @@ namespace Framework.repo.xml
             }
 
             return animes;
+        }
+
+        public override void Remove(Anime item)
+        {
+            base.Remove(ToData(item), item.State);
         }
 
 

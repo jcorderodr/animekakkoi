@@ -20,9 +20,6 @@ namespace AKwin32
             Application.SetCompatibleTextRenderingDefault(false);
 
             frmMain = new forms.FrmMain();
-            
-            //MessageBox.Show(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData));
-
             Application.Run(frmMain);
         }
 
@@ -37,10 +34,9 @@ namespace AKwin32
             }
         }
 
-//        public static String App
-
         public const String AppTitle = "AnimeKakkoi [DevPhase]";
 
+        internal static Framework.io.Language Language = new Framework.io.Language();
 
     }
 }

@@ -1,7 +1,10 @@
 
-AnimeKakkoi - version 0.1 Alpha -DEV
+AnimeKakkoi - version 0.1.000 Alpha -DEV
 
-# Marzo ??, 2013
+# Abril ??, 2013
+-First Release
+-Basics Functions
+-Media Types Anime & Manga
 
 
 #		Fin		#

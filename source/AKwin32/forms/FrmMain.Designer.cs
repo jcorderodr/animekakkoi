@@ -52,6 +52,8 @@
             this.aboutAkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dataCheckerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -137,6 +139,8 @@
             this.toolsToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importerToolStripMenuItem,
             this.toolStripSeparator2,
+            this.dataCheckerToolStripMenuItem,
+            this.toolStripSeparator4,
             this.preferencesToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenu.Name = "toolsToolStripMenu";
@@ -211,6 +215,16 @@
             this.stripStatusUser.Name = "stripStatusUser";
             resources.ApplyResources(this.stripStatusUser, "stripStatusUser");
             // 
+            // dataCheckerToolStripMenuItem
+            // 
+            resources.ApplyResources(this.dataCheckerToolStripMenuItem, "dataCheckerToolStripMenuItem");
+            this.dataCheckerToolStripMenuItem.Name = "dataCheckerToolStripMenuItem";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -219,6 +233,7 @@
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FrmMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -254,5 +269,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel stripStatusUser;
+        private System.Windows.Forms.ToolStripMenuItem dataCheckerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
