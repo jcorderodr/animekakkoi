@@ -60,6 +60,13 @@ namespace AKwin32.Properties {
             }
         }
         
+        internal static System.Drawing.Icon app_icon {
+            get {
+                object obj = ResourceManager.GetObject("app_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap fav_media {
             get {
                 object obj = ResourceManager.GetObject("fav_media", resourceCulture);
@@ -69,14 +76,14 @@ namespace AKwin32.Properties {
         
         internal static System.Drawing.Bitmap fav_no_media {
             get {
-                object obj = ResourceManager.GetObject("fav-no_media", resourceCulture);
+                object obj = ResourceManager.GetObject("fav_no_media", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         internal static System.Drawing.Bitmap loader_blue {
             get {
-                object obj = ResourceManager.GetObject("loader-blue", resourceCulture);
+                object obj = ResourceManager.GetObject("loader_blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

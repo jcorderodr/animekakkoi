@@ -21,6 +21,7 @@ namespace AKwin32.forms
         private void frmBase_Load(object sender, EventArgs e)
         {
             SetStyleToControl(this.Controls);
+            this.Icon = Properties.Resources.app_icon;
             this.Text = Program.AppTitle + " @ " + this.Text;
         }
 

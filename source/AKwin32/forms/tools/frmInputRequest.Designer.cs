@@ -99,6 +99,7 @@
             this.Name = "frmInputRequest";
             this.Text = "";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInputRequest_FormClosing);
+            this.Load += new System.EventHandler(this.frmInputRequest_Load);
             this.panelBase.ResumeLayout(false);
             this.panelBase.PerformLayout();
             this.ResumeLayout(false);

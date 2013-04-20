@@ -9,8 +9,8 @@ namespace AKwin32.util
     public class Configuration
     {
 
-        public const String CompanyName = "BluegleTek Soft";
-        public const String ApplicationName = "AnimeKakkoi";
+        public const String CompanyName = Framework.io.Configuration.CompanyName;
+        public const String ApplicationName = Framework.io.Configuration.ApplicationName;
 
  
         internal static String ApplicationDataFolder
