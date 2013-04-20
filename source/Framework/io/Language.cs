@@ -57,7 +57,7 @@ namespace Framework.io
             try
             {
                 string aux = reader.ReadToEnd();
-                int regionStart = aux.IndexOf(cultureInfo.Name);
+                int regionStart = aux.IndexOf(cultureInfo.Parent.Name);
 
                 if (regionStart == -1)
                 {

@@ -31,6 +31,11 @@ namespace AKwin32.forms.tools
 
         #region GUI Events
 
+        private void frmInputRequest_Load(object sender, EventArgs e)
+        {
+            txtUserInput.Focus();
+        }
+
         private void frmInputRequest_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!isValidInput())
@@ -77,6 +82,8 @@ namespace AKwin32.forms.tools
             lblRequest.Text = request + ":";
             this.allowNullInput = allowNull;
         }
+
+
 
 
 

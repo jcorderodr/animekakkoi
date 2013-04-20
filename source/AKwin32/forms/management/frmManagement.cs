@@ -74,7 +74,7 @@ namespace AKwin32.forms.management
         {
             if (e.Item == null)
                 return;
-
+            
             object item = e.Item.Tag;
 
             foreach (Control ctrl in this.panel1.Controls)
