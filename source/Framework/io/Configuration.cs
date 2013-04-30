@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace Framework.io
 {
-    public class Configuration
+    public abstract class Configuration
     {
 
         public const String CompanyName = "BluegleTek Soft";
@@ -44,6 +44,7 @@ namespace Framework.io
             }
         }
 
+
         internal static String GetSetting(string key)
         {
             ExeConfigurationFileMap configMap = new ExeConfigurationFileMap();
@@ -52,6 +53,7 @@ namespace Framework.io
             System.Configuration.Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
             return config.AppSettings.Settings[key].Value;
         }
+
 
         internal static String GetAkFile(Framework.entity.ENTITY_STATE state)
         {
@@ -70,6 +72,30 @@ namespace Framework.io
                 default:
                     return "";
             }
+        }
+
+
+        /// <summary>
+        /// Tries to reach all configurations, system and app files.
+        /// </summary>
+        /// <returns>true - if files exists, otherwise false.</returns>
+        public static bool TryFileInspection()
+        {
+            return true;
+        }
+
+        public static System.Net.IWebProxy GetProxy()
+        {
+            //TODO: make configurable
+            System.Net.WebProxy proxy = new System.Net.WebProxy("172.17.200.81", 8080);
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("jcordero", "Bluegle77", "apap-pdc");
+            proxy.Credentials = credentials;
+            return proxy;
+        }
+
+        public static void SetProxy(System.Net.IWebProxy proxy)
+        {
+            
         }
 
 

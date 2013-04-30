@@ -51,8 +51,7 @@ namespace AKwin32.forms.tools
             }
             else
             {
-                base.ShowError(this,
-                      Program.Language.MessagesLibrary["invalid_input"]);
+                base.ShowError(this, base.Errors["invalid_input"]);
             }
         }
 

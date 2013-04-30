@@ -12,8 +12,8 @@ namespace Framework.repo.xml
     /// 
     /// @version 0.2
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public abstract class Repository<T> : IDisposable where T : class, new()
+    /// <typeparam name="T">Framework.entity.EntitySource</typeparam>
+    public abstract class Repository<T> : IRepository<T>, IDisposable where T : class, new()
     {
 
         protected internal XElement animeTemplate;
@@ -79,10 +79,10 @@ namespace Framework.repo.xml
 
         public void Dispose()
         {
-            if (propertiesElement != null)
-            {
+            //if (propertiesElement != null)
+            //{
 
-            }
+            //}
             //
             akMainData = null;
             documentsContext = null;
@@ -260,7 +260,7 @@ namespace Framework.repo.xml
 
         public abstract T Add(T item);
 
-        public abstract int AddRange(IList<T> items);
+        //public abstract int AddRange(IList<T> items);
 
         public abstract void Change(T item);
 
@@ -268,13 +268,21 @@ namespace Framework.repo.xml
 
         public abstract IList<T> GetAll();
 
+        public abstract IList<T> LookUp(string name);
+
+        //public abstract IList<Anime> LookUp(Func<Anime, bool> predicate);
+
+        public Type RepositoryType()
+        {
+            return typeof(T);
+        }
+
         internal abstract T ToEntity(XElement item);
 
         internal abstract XElement ToData(T item);
 
         #endregion
 
-
-
+        
     }
 }

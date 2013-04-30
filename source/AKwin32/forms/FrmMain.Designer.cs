@@ -31,8 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.quickSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formattedTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managementToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newAnimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,8 +59,13 @@
             this.aboutAkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panelShorcuts = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnRefreshSrc = new System.Windows.Forms.Button();
+            this.btnSharing = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.panelShorcuts.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -72,10 +82,25 @@
             // 
             resources.ApplyResources(this.fileToolStripMenu, "fileToolStripMenu");
             this.fileToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quickSearchToolStripMenuItem,
+            this.toolStripSeparator5,
             this.usersToolStripMenuItem,
             this.toolStripSeparator3,
+            this.exportToolStripMenuItem,
+            this.toolStripSeparator6,
             this.exitToolStripMenuItem});
             this.fileToolStripMenu.Name = "fileToolStripMenu";
+            // 
+            // quickSearchToolStripMenuItem
+            // 
+            resources.ApplyResources(this.quickSearchToolStripMenuItem, "quickSearchToolStripMenuItem");
+            this.quickSearchToolStripMenuItem.Name = "quickSearchToolStripMenuItem";
+            this.quickSearchToolStripMenuItem.Click += new System.EventHandler(this.quickSearchToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
             // 
             // usersToolStripMenuItem
             // 
@@ -87,6 +112,24 @@
             // 
             resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             this.toolStripSeparator3.Name = "toolStripSeparator3";
+            // 
+            // exportToolStripMenuItem
+            // 
+            resources.ApplyResources(this.exportToolStripMenuItem, "exportToolStripMenuItem");
+            this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formattedTextToolStripMenuItem});
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            // 
+            // formattedTextToolStripMenuItem
+            // 
+            resources.ApplyResources(this.formattedTextToolStripMenuItem, "formattedTextToolStripMenuItem");
+            this.formattedTextToolStripMenuItem.Name = "formattedTextToolStripMenuItem";
+            this.formattedTextToolStripMenuItem.Click += new System.EventHandler(this.formattedTextToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
             // 
             // exitToolStripMenuItem
             // 
@@ -225,10 +268,47 @@
             resources.ApplyResources(this.stripStatusUser, "stripStatusUser");
             this.stripStatusUser.Name = "stripStatusUser";
             // 
+            // panelShorcuts
+            // 
+            resources.ApplyResources(this.panelShorcuts, "panelShorcuts");
+            this.panelShorcuts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelShorcuts.Controls.Add(this.btnSearch);
+            this.panelShorcuts.Controls.Add(this.btnRefreshSrc);
+            this.panelShorcuts.Controls.Add(this.btnSharing);
+            this.panelShorcuts.Name = "panelShorcuts";
+            // 
+            // btnSearch
+            // 
+            resources.ApplyResources(this.btnSearch, "btnSearch");
+            this.btnSearch.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnSearch.Image = global::AKwin32.Properties.Resources.search;
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnRefreshSrc
+            // 
+            resources.ApplyResources(this.btnRefreshSrc, "btnRefreshSrc");
+            this.btnRefreshSrc.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnRefreshSrc.Image = global::AKwin32.Properties.Resources.refresh;
+            this.btnRefreshSrc.Name = "btnRefreshSrc";
+            this.btnRefreshSrc.UseVisualStyleBackColor = false;
+            this.btnRefreshSrc.Click += new System.EventHandler(this.btnRefreshSrc_Click);
+            // 
+            // btnSharing
+            // 
+            resources.ApplyResources(this.btnSharing, "btnSharing");
+            this.btnSharing.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnSharing.Image = global::AKwin32.Properties.Resources.chat;
+            this.btnSharing.Name = "btnSharing";
+            this.btnSharing.UseVisualStyleBackColor = false;
+            this.btnSharing.Click += new System.EventHandler(this.btnSharing_Click);
+            // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelShorcuts);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -239,6 +319,7 @@
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.panelShorcuts.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +352,14 @@
         private System.Windows.Forms.ToolStripStatusLabel stripStatusUser;
         private System.Windows.Forms.ToolStripMenuItem dataCheckerToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem quickSearchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.Panel panelShorcuts;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formattedTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.Button btnSharing;
+        private System.Windows.Forms.Button btnRefreshSrc;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

@@ -19,7 +19,7 @@ namespace Framework.entity
         public String[] Chapters { get; set; }
 
         /// <summary>
-        /// Gets or sets an string that represent the progress in the format 1/2.
+        /// Gets or sets an string that represent the progress in the format x/xx.
         /// </summary>
         public string ChapterString
         {
@@ -30,15 +30,14 @@ namespace Framework.entity
             set
             {
                 string[] temp = value.Split('/');
-                //if (char.IsNumber(char.Parse(temp[0])))
-                //    ;
+
                 Chapters = temp;
             }
         }
 
         public override string ToString()
         {
-            return String.Format("{0} @ {3}, ~ {4}/{5} ~ [Rat:{2} / {1}]", Name, State, Rating, Category, Chapters[0],Chapters[1]);
+            return String.Format("{0} @ {3}, ~ {4}/{5} ~ [Rat:{2} / {1}]", Name, State, Rating, Category, Chapters[0], Chapters[1]);
         }
 
     }
@@ -51,5 +50,5 @@ namespace Framework.entity
         MANGA = 1,
         MANHWA = 2
     }
-   
+
 }

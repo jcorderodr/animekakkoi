@@ -30,10 +30,7 @@ namespace Framework.util
             bool useProxy = !string.Equals(System.Net.WebRequest.DefaultWebProxy.GetProxy(new Uri(sampleURL)), sampleURL);
             if (useProxy)
             {
-                WebProxy proxy = new WebProxy("172.17.200.81", 8080);
-                NetworkCredential credentials = new NetworkCredential("jcordero", "Bluegle77", "apap-pdc");
-                proxy.Credentials = credentials;
-                client.Proxy = proxy;
+                client.Proxy = io.Configuration.GetProxy();
             }
 
             try
@@ -100,7 +97,7 @@ namespace Framework.util
                     type = typeof(Manga);
                     break;
                 default:
-                    type = typeof(Anime);
+                    type = typeof(EntitySource);
                     break;
             }
             rType = type;

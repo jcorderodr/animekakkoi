@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 
-namespace AKwin32.util
+namespace AKwin32.com.util
 {
     [Obsolete]
     public class Language

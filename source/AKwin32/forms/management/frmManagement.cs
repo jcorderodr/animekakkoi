@@ -14,11 +14,7 @@ namespace AKwin32.forms.management
 {
     public abstract partial class frmManagement : AKwin32.forms.frmBase//, IUIManagement
     {
-        /// <summary>
-        /// Indicates the char/string used to separate/splits the Control's Names.
-        /// </summary>
-        protected const Char CharacterNameSeparator = '_';
-
+        
 
         protected List<object> OriginalDataSource;
 
@@ -40,6 +36,7 @@ namespace AKwin32.forms.management
 
         void frmManagement_Load(object sender, EventArgs e)
         {
+            this.listViewItems.Resize += new System.EventHandler(listViewItems_Resize);
             foreach (Control ctrl in panel1.Controls)
                 if (ctrl is TextBox || ctrl is ComboBox)
                     ctrl.Validated += new System.EventHandler(this.guiField_Validated);
@@ -59,22 +56,20 @@ namespace AKwin32.forms.management
         void cbBoxItemType_SelectedValueChanged(object sender, EventArgs e)
         {
             string item = (cbBoxItemType.SelectedItem as Catalog).Value;
-            if (item == "--") return;
+            if (item == "--" || OriginalDataSource == null) return;
             listViewItems.Items.Clear();
             ENTITY_STATE state = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), item);
             ((IUIManagement)this).FilterData(OriginalDataSource.Where(c => (ENTITY_STATE)c.GetType().GetProperty("State").GetValue(c, null) == state).ToList());
         }
-
-        protected void listViewItems_Resize(object sender, EventArgs e)
-        {
-            SizeLastColumn(sender as ListView);
-        }
-
+        
         void listViewItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (e.Item == null)
+            {
+                CleanUIComponents();
                 return;
-            
+            }
+
             object item = e.Item.Tag;
 
             foreach (Control ctrl in this.panel1.Controls)
@@ -133,6 +128,10 @@ namespace AKwin32.forms.management
             {
                 p.SetValue(entity, Convert.ChangeType(favoriteIndicator, p.PropertyType), null);
             }
+            else if (p == null) // if P = null, this property must be unique
+            {
+                ((IUIManagement)this).InheritControlValidation(ctrl, p, entity);
+            }
             else
                 p.SetValue(entity, Convert.ChangeType(ctrl.Text, p.PropertyType), null);
 
@@ -143,18 +142,20 @@ namespace AKwin32.forms.management
             this.Form_State = FORM_USING_STATE.EDITING;
         }
 
-        void lblFavorite_Click(object sender, EventArgs e)
+        private void lblFavorite_Click(object sender, EventArgs e)
         {
             AlternateFavoriteControl();
             guiField_Validated(sender, e);
         }
+
+        protected abstract void btnRemoveItem_Click(object sender, EventArgs e);
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
-        void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             OriginalDataSource = null;
             this.Close();
@@ -178,13 +179,9 @@ namespace AKwin32.forms.management
 
         public void LoadDataToControls()
         {
-            cbBoxItemType.DataSource = catalog.GetEntitiesStateTypes();
-            cbBoxItemType.ValueMember = "Id";
-            cbBoxItemType.DisplayMember = "Value";
+            base.FillComboBoxCatalog(cbBoxItemType, Catalog.GetEntitiesStateTypes());
 
-            cb_State.DataSource = catalog.GetEntitiesStateTypes();
-            cb_State.ValueMember = "Id";
-            cb_State.DisplayMember = "Value";
+            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesStateTypes());
         }
 
         public void PrepareDataFromRepo()
@@ -224,20 +221,6 @@ namespace AKwin32.forms.management
                 lbl_Favorite.Image = Properties.Resources.fav_no_media;
         }
 
-        bool usedColorIndicator;
-        protected Color GetAlternateItemColor()
-        {
-            if (usedColorIndicator)
-            {
-                usedColorIndicator = !usedColorIndicator;
-                return Color.AliceBlue;
-            }
-            else
-            {
-                usedColorIndicator = !usedColorIndicator;
-                return Color.AntiqueWhite;
-            }
-        }
 
         internal void SetItemsList(List<object> source, Type type)
         {
@@ -248,13 +231,8 @@ namespace AKwin32.forms.management
             ((IUIManagement)this).SaveItemsToRepository(true);
         }
 
-        protected void SizeLastColumn(ListView lv)
-        {
-            listViewItems.Columns[listViewItems.Columns.Count - 1].Width = -2;
-        }
 
         #endregion
-
 
 
 

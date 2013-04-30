@@ -21,7 +21,7 @@ namespace AKwin32.forms.management
         void DoVisualChanges();
 
         /// <summary>
-        /// 
+        /// Properties treatments for uniques and specifics propertie's entity.
         /// </summary>
         /// <param name="ctrl">System.Windows.Forms.Control to set his value</param>
         /// <param name="pName">Property's name</param>

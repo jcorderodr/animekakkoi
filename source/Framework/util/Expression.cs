@@ -9,7 +9,7 @@ namespace Framework.util
     public abstract class Expression
     {
 
-        public static int IfNull(object item, int ifnull)
+        public static int StringIfNull(object item, int ifnull)
         {
             try { return Convert.ToInt32(item); }
             catch { return ifnull; }
@@ -32,6 +32,21 @@ namespace Framework.util
             item = item.SelectSingleNode(xpath);
             try { return Convert.ToInt32(item.InnerText); }
             catch { return ifnull; }
+        }
+
+        public static int GetOnlyNumbers(string text)
+        {
+            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("([^0-9])");
+            text = reg.Replace(text, "");
+            try { return Convert.ToInt32(text); }
+            catch { return 0; }
+        }
+
+        public static String GetOnlyNumbersText(string text)
+        {
+            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("([^0-9+/][^-]|-)");
+            text = reg.Replace(text, "");
+            return text;
         }
 
         public static String ToCapCase(string text)

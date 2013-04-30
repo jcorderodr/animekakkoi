@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 
-namespace AKwin32.util
+namespace AKwin32.com.util
 {
     public class Configuration
     {

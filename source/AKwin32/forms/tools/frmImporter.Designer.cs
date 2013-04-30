@@ -127,10 +127,12 @@
             // lblType
             // 
             resources.ApplyResources(this.lblType, "lblType");
+            this.lblType.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblType.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lblType.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblType.LinkColor = System.Drawing.Color.WhiteSmoke;
             this.lblType.Name = "lblType";
             this.lblType.TabStop = true;
+            this.lblType.VisitedLinkColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblType.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblType_LinkClicked);
             // 
             // frmImporter

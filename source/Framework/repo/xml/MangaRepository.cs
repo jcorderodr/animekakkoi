@@ -17,7 +17,7 @@ namespace Framework.repo.xml
             return item;
         }
 
-        public override int AddRange(IList<Manga> items)
+        public int AddRange(IList<Manga> items)
         {
             int count = 0;
             foreach (Manga item in items)
@@ -72,18 +72,33 @@ namespace Framework.repo.xml
             catch { }
         }
 
+        public override IList<Manga> LookUp(string name)
+        {
+            List<XElement> elements = base.GetAllByType(typeof(Manga));
+
+            List<Manga> list = new List<Manga>();
+
+            foreach (XElement item in elements.Where(c => c.Element("name").Value.ToLower().Contains(name)))
+            {
+                list.Add(ToEntity(item));
+            }
+
+            return list;
+        }
+
+
         internal override Manga ToEntity(XElement item)
         {
             Manga temp;
             temp = new Manga()
             {
                 Name = item.Element("name").Value,
-                Category = (MANGA_TYPE)util.Expression.IfNull(item.Attribute("category").Value, 1),
-                State = (ENTITY_STATE)util.Expression.IfNull(item.Element("state").Value, 0),
+                Category = (MANGA_TYPE)util.Expression.StringIfNull(item.Attribute("category").Value, 1),
+                State = (ENTITY_STATE)util.Expression.StringIfNull(item.Element("state").Value, 0),
                 Comment = item.Element("comment").Value
             };
             temp.ChapterString = item.Element("episode").Value;
-            temp.Codigo = util.Expression.IfNull(item.Attribute("id").Value, 0);
+            temp.Codigo = util.Expression.StringIfNull(item.Attribute("id").Value, 0);
             temp.Favorite = Convert.ToBoolean(item.Attribute("fav").Value);
 
             temp.Rating = Convert.ToInt32(item.Element("rate").Value);
@@ -105,7 +120,6 @@ namespace Framework.repo.xml
             return element;
 
         }
-
 
 
     }

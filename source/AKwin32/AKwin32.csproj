@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="com\io\AkConfiguration.cs" />
     <Compile Include="forms\frmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,11 +115,23 @@
     <Compile Include="forms\maintenance\frmCatalog.Designer.cs">
       <DependentUpon>frmCatalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\maintenance\frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\maintenance\frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\maintenance\frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\maintenance\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\management\frmEntityEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\management\frmEntityEdit.Designer.cs">
+      <DependentUpon>frmEntityEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\management\frmManagement.cs">
       <SubType>Form</SubType>
@@ -158,6 +171,12 @@
     <Compile Include="forms\tools\frmInputRequest.Designer.cs">
       <DependentUpon>frmInputRequest.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\tools\frmQuickSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\tools\frmQuickSearch.Designer.cs">
+      <DependentUpon>frmQuickSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\tools\WaitingBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,9 +185,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="util\Configuration.cs" />
-    <Compile Include="util\Expression.cs" />
-    <Compile Include="util\Language.cs" />
+    <Compile Include="com\util\Configuration.cs" />
+    <Compile Include="com\util\Expression.cs" />
+    <Compile Include="com\util\Language.cs" />
     <EmbeddedResource Include="forms\frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,8 +206,23 @@
     <EmbeddedResource Include="forms\maintenance\frmCatalog.resx">
       <DependentUpon>frmCatalog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\maintenance\frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\maintenance\frmUsers.es.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\maintenance\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\management\frmEntityEdit.es.resx">
+      <DependentUpon>frmEntityEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\management\frmEntityEdit.resx">
+      <DependentUpon>frmEntityEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\management\frmManagement.es.resx">
+      <DependentUpon>frmManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\management\frmManagement.resx">
       <DependentUpon>frmManagement.cs</DependentUpon>
@@ -196,14 +230,29 @@
     <EmbeddedResource Include="forms\management\frmMgmtManga.resx">
       <DependentUpon>frmMgmtManga.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\management\frmNewItem.es.resx">
+      <DependentUpon>frmNewItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\management\frmNewItem.resx">
       <DependentUpon>frmNewItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmImporter.es.resx">
+      <DependentUpon>frmImporter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmImporter.resx">
       <DependentUpon>frmImporter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmInputRequest.es.resx">
+      <DependentUpon>frmInputRequest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmInputRequest.resx">
       <DependentUpon>frmInputRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmQuickSearch.es.resx">
+      <DependentUpon>frmQuickSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmQuickSearch.resx">
+      <DependentUpon>frmQuickSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\WaitingBox.resx">
       <DependentUpon>WaitingBox.cs</DependentUpon>
@@ -250,7 +299,29 @@
     <None Include="Resources\fav-no_media.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="beta.ico" />
     <Content Include="bluegletek_128.ico" />
+    <None Include="Resources\write.png" />
+    <None Include="Resources\window.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\tutorial.png" />
+    <None Include="Resources\tools.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\lock.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\forward.png" />
+    <None Include="Resources\floppy.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\alert.png" />
+    <None Include="Resources\add.png" />
     <None Include="Resources\bluegletek_16.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

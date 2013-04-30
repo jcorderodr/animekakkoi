@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Framework.entity;
+using Framework.io;
+using Framework.util;
 
 namespace AKwin32.forms.management
 {
@@ -19,20 +21,30 @@ namespace AKwin32.forms.management
         public frmNewItem()
         {
             InitializeComponent();
-            catalog = new Framework.io.Catalog();
+            catalog = new Catalog();
             //
         }
 
         #region GUI Events
-        
+
         private void frmNewItem_Load(object sender, EventArgs e)
         {
             if (entityType == null)
             {
-                base.ShowError(this, Program.Language.ErrorsLibrary["entity_missed"]);
+                base.ShowError(this, base.Errors["entity_missed"]);
                 this.Close();
             }
             ((INewItem)this).DoVisualChanges();
+        }
+
+        private void txt_Episodes_Validated(object sender, EventArgs e)
+        {
+            txt_Episodes.Text = Expression.GetOnlyNumbersText(txt_Episodes.Text);
+        }
+
+        private void txt_Rating_Validated(object sender, EventArgs e)
+        {
+            txt_Rating.Text = Expression.GetOnlyNumbers(txt_Rating.Text) + "";
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -40,50 +52,28 @@ namespace AKwin32.forms.management
             if (ValidateInput())
                 if (((INewItem)this).ToRegisterItem())
                 {
-                    base.ShowInformation(this,
-                     Program.Language.MessagesLibrary["items_saved"]);
-                    CleanUIComponents();
+                    base.ShowInformation(this, base.Messages["item_affected"]);
+                    base.CleanUIComponents();
                 }
                 else
-                    base.ShowError(this,
-                     Program.Language.ErrorsLibrary["items_error"]);
+                    base.ShowError(this, base.Errors["items_error"]);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = base.ShowQuestion(this, Program.Language.MessagesLibrary["exit_question"]);
+            DialogResult result = base.ShowQuestion(this, base.Messages["exit_question"]);
             if (result == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
-        }
-
-        private void guiField_Validated(object sender, EventArgs e)
-        {
-            Control ctrl = sender as Control;
-
-            //if (ctrl.GetType() == typeof(TextBox))
-            //    ctrl.Text = util.Expression.GetOnlyNumbersFromText(ctrl.Text) + "";
-
         }
 
         #endregion
 
         #region Functions
 
-        void CleanUIComponents()
-        {
-            foreach (Control ctrl in panel1.Controls)
-            {
-                if (ctrl.GetType() == typeof(TextBox))
-                    ctrl.Text = "";
-                if (ctrl.GetType() == typeof(ComboBox))
-                    ((ComboBox)ctrl).SelectedIndex = 0;
-            }
-            chkBox_Favorite.Checked = false;
-        }
 
         void INewItem.DoVisualChanges()
         {
-            cb_State.DataSource = catalog.GetEntitiesStateTypes();
+            cb_State.DataSource = Catalog.GetEntitiesStateTypes();
             cb_State.ValueMember = "Id";
             cb_State.DisplayMember = "Value";
         }
@@ -98,8 +88,8 @@ namespace AKwin32.forms.management
             anime.State = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), cb_State.SelectedValue + "");
 
             anime.Comment = txt_Comment.Text;
-            anime.Rating = util.Expression.StringIfNull(txt_Rating.Text, 0);
-            anime.Episodes = util.Expression.StringIfNull(txt_Episodes.Text, 0);
+            anime.Rating = Expression.StringIfNull(txt_Rating.Text, 0);
+            anime.Episodes = Expression.StringIfNull(txt_Episodes.Text, 0);
 
             Framework.repo.xml.AnimeRepository repo;
             repo = new Framework.repo.xml.AnimeRepository();
@@ -121,8 +111,9 @@ namespace AKwin32.forms.management
             item.State = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), cb_State.SelectedValue + "");
 
             item.Comment = txt_Comment.Text;
-            item.Rating = util.Expression.StringIfNull(txt_Rating.Text, 0);
-            item.ChapterString = txt_Episodes.Text;
+            item.Rating = Expression.StringIfNull(txt_Rating.Text, 0);
+            //if doesnt cotains '/' it ends 01/?, otherwise x/y
+            item.ChapterString = txt_Episodes.Text.Contains("/") ? txt_Episodes.Text : txt_Episodes.Text + "/?";
 
             Framework.repo.xml.MangaRepository repo;
             repo = new Framework.repo.xml.MangaRepository();
@@ -141,12 +132,12 @@ namespace AKwin32.forms.management
             switch (entityType.Name)
             {
                 case "Anime":
-                    cb_Category.DataSource = catalog.GetAnimeCategoriesTypes();
+                    cb_Category.DataSource = Catalog.GetAnimeCategoriesTypes();
                     cb_Category.ValueMember = "Id";
                     cb_Category.DisplayMember = "Value";
                     break;
                 case "Manga":
-                    cb_Category.DataSource = catalog.GetMangaCategoriesTypes();
+                    cb_Category.DataSource = Catalog.GetMangaCategoriesTypes();
                     cb_Category.ValueMember = "Id";
                     cb_Category.DisplayMember = "Value";
                     break;
@@ -175,6 +166,9 @@ namespace AKwin32.forms.management
         }
 
         #endregion
+
+
+
 
     }
 }

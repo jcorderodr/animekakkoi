@@ -14,6 +14,9 @@ namespace AKwin32.forms.maintenance
     public partial class frmUsers : AKwin32.forms.frmBaseToolbox
     {
 
+        public User SelectedUser
+        { get; set; }
+
         UserRepository repo;
 
         List<User> dataSource;
@@ -24,11 +27,10 @@ namespace AKwin32.forms.maintenance
             repo = new UserRepository();
         }
 
-        public User SelectedUser
-        { get; set; }
 
         private void frmUsers_Load(object sender, EventArgs e)
         {
+            this.listViewSources.Resize += new System.EventHandler(listViewItems_Resize);
             LoadControlsContent();
             //if (Program.SystemUser == null)
             //    this.btnCancel.Visible = false;
@@ -45,18 +47,11 @@ namespace AKwin32.forms.maintenance
             }
         }
 
-
-        private void listViewSources_Resize(object sender, EventArgs e)
-        {
-            SizeLastColumn(sender as ListView);
-        }
-
         private void listViewSources_SelectedIndexChanged(object sender, EventArgs e)
         {
             string item = listViewSources.Items[listViewSources.SelectedIndices[0]].Text;
             System.Diagnostics.Process.Start(item);
         }
-
 
         private void cboxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -85,7 +80,7 @@ namespace AKwin32.forms.maintenance
         private void btnNewUser_Click(object sender, EventArgs e)
         {
             tools.frmInputRequest frmReq = new tools.frmInputRequest();
-            frmReq.SetUIProperties("new user", "new user's name", !(Program.SystemUser == null));
+            frmReq.SetUIProperties(base.Messages["new_user"], base.Messages["new_user_request"], !(Program.SystemUser == null));
             if (frmReq.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 repo.Add(new User { Name = frmReq.UserInput });
@@ -93,6 +88,7 @@ namespace AKwin32.forms.maintenance
                 repo = null;
             }
         }
+
 
         private void LoadControlsContent()
         {
@@ -103,16 +99,11 @@ namespace AKwin32.forms.maintenance
             cboxUsers.ValueMember = "Codigo";
         }
 
-        private void SizeLastColumn(ListView lv)
-        {
-            //listViewSources.Columns[listViewSources.Columns.Count - 1].Width = -2;
-            listViewSources.Columns[0].Width = listViewSources.Width - 2;
-        }
-
         private bool isValid()
         {
             return ((cboxUsers.SelectedItem as User) != null);
         }
+
 
 
     }

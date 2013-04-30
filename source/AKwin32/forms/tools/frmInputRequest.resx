@@ -117,4 +117,230 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAccept.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 72</value>
+  </data>
+  <data name="btnAccept.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnAccept.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnAccept.Text" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="&gt;&gt;btnAccept.Name" xml:space="preserve">
+    <value>btnAccept</value>
+  </data>
+  <data name="&gt;&gt;btnAccept.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAccept.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnAccept.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 72</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtUserInput.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtUserInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 30</value>
+  </data>
+  <data name="txtUserInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 20</value>
+  </data>
+  <data name="txtUserInput.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtUserInput.Name" xml:space="preserve">
+    <value>txtUserInput</value>
+  </data>
+  <data name="&gt;&gt;txtUserInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtUserInput.Parent" xml:space="preserve">
+    <value>panelBase</value>
+  </data>
+  <data name="&gt;&gt;txtUserInput.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblRequest.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblRequest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 13</value>
+  </data>
+  <data name="lblRequest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="lblRequest.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblRequest.Text" xml:space="preserve">
+    <value>request</value>
+  </data>
+  <data name="&gt;&gt;lblRequest.Name" xml:space="preserve">
+    <value>lblRequest</value>
+  </data>
+  <data name="&gt;&gt;lblRequest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblRequest.Parent" xml:space="preserve">
+    <value>panelBase</value>
+  </data>
+  <data name="&gt;&gt;lblRequest.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelBase.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelBase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelBase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 63</value>
+  </data>
+  <data name="panelBase.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelBase.Name" xml:space="preserve">
+    <value>panelBase</value>
+  </data>
+  <data name="&gt;&gt;panelBase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelBase.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelBase.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>241, 107</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAAAwAAAAgAAAALAAAADgAA
+        ABkAAAAqAAAANQAAADUAAAAqAAAAGQAAAA4AAAALAAAACAAAAAP///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAYAAAAWAAAAKgAA
+        ADUAAAA+AAAAUQAAAG0AAACBAAAAgQAAAG0AAABRAAAAPgAAADUAAAAqAAAAFgAAAAb///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAMAAAALAAAAHwAA
+        AEAAAABiAAAAdQAAAH4AAAD/AAAA/wAAAP8AAAD/AAAAmgAAAIkAAAB+AAAAdQAAAGIAAABAAAAAHwAA
+        AAsAAAAD////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAAGAAAAFgAA
+        ADAAAABOAAAA/wAAAP8AAAD/AAAA////z////8/////P////z/8AAAD/AAAA/wAAAP8AAAD/AAAAlAAA
+        AHMAAABOAAAAMAAAABYAAAAG////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAABgAA
+        ABwAAABAAAAAZQAAAP///8/////P////z////8/////P////z////8/////P////z////8/////P////
+        z/8AAAD/AAAAnQAAAIMAAABlAAAAQAAAABwAAAAG////AP///wD///8A////AP///wD///8A////AAAA
+        AAMAAAAWAAAAQAAAAP8AAAD////P////z////8/////P////z////8/////P////z////8/////P////
+        z////8/////P////z/8AAAD/AAAA/wAAAJQAAABwAAAAQAAAABYAAAAD////AP///wD///8A////AP//
+        /wD///8AAAAACwAAADAAAAD////P////z////8/////P////z////8/////P////z////8/////P////
+        z////8/////P////z////8/////P////z////8//AAAA/wAAAJQAAABlAAAAMAAAAAv///8A////AP//
+        /wD///8A////AAAAAAYAAAAfAAAA////z////8/////P////z////8/////P////z////8/////P////
+        z////8/////P////z////8/////P////z/8AAAD/AAAA/wAAAP///8//AAAA/wAAAIMAAABOAAAAHwAA
+        AAb///8A////AP///wAAAAADAAAAFgAAAEAAAAD////P////z////8/////P////z////8/////P////
+        z////8/////P////z////8/////P////z/8AAAD/AAAA/wMDA/8DAwP////S////0v8AAAD/AAAAnQAA
+        AHMAAABAAAAAFgAAAAP///8A////AAAAAAgAAAAqAAAA////z////8/////P////z////8/////P////
+        z////8/////P////z////8/////P////z/8AAAD/AAAA/wAAAP8AAAD////P////0v///9j////V////
+        0v8DAwP/AAAAlAAAAGIAAAAqAAAACP///wD///8AAAAACwAAAP///8/////P////z////8/////P////
+        z////8/////P////z////8/////P////z////8//AAAA/wAAAP8AAAD////P////z////8/////P////
+        1f///9j////Y////z/8DAwP/AAAAdQAAADUAAAAL////AP///wAAAAAOAAAA////z////8/////P////
+        z////8/////P////z////8/////P////z////8/////P/wAAAP8AAAD/AAAA////z////8/////P////
+        z////8/////P////z////9v////b/wYGBv8AAAB+AAAAPgAAAA7///8AAAAAAwAAABkAAAD////P////
+        z////8/////P/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP///8/////P////z////8/////P////2////+H/AwMD/wAAAIkAAABRAAAAGf///wAAAAAIAAAAKgAA
+        AP///8/////P////z////8/////P/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP///8/////P////z////8/////h////5P8DAwP/AAAAmgAAAG0AAAAq////AAAA
+        AAsAAAD////P////z////8/////P////z////8//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD////P////
+        z////8//AAAA/wAAAP8AAAD/AAAA/wAAAP///8/////P////0v///+r////q////0v8GBgb/AAAAgQAA
+        ADX///8AAAAACwAAAP///8/////P////z////8/////P////z////8//AAAA/wAAAP8AAAD/AAAA/wAA
+        AP///8/////P////z////8//AAAA/wAAAP8AAAD/AAAA/wAAAP///9L////e////8/////D////Y/wMD
+        A/8AAACGAAAAOP///wAAAAALAAAA////z////8/////P////z////8/////P////z/8AAAD/AAAA/wAA
+        AP8AAAD/AAAA////z////8/////P/wAAAP8AAAD/AAAA/wAAAP8AAAD/BgYG/wwMDP///+f////w////
+        6v///97/AwMD/wAAAIEAAAA1////AAAAAAgAAAD////P////z////8/////P////z////8/////P/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wYGBv8GBgb/FRUV////
+        5////+f////b////4f8DAwP/AAAAbQAAACr///8AAAAAAwAAAP///8/////P////z////8/////P////
+        z////8//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AwMD/wMDA/8JCQn/BgYG/wwM
+        DP////b////b////5P///97////b/wYGBv8AAABRAAAAGf///wD///8AAAAADgAAAP///8/////P////
+        z////8/////P/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD////P////0v///9v/CQkJ/wwM
+        DP8MDAz/Hh4e/x4eHv///9j////n////6v8GBgb/AAAAfgAAAD4AAAAO////AP///wAAAAALAAAA////
+        z////8/////P////z////8//AAAA/wAAAP///8//AAAA/wAAAP8AAAD/AAAA/wMDA////9X////V////
+        1f8MDAz/CQkJ/xISEv8kJCT/EhIS////5P///+r////b/wMDA/8AAAB1AAAANQAAAAv///8A////AAAA
+        AAgDAwP////V////z////8/////V/wkJCf8SEhL/BgYG////z////8//AAAA/wAAAP8AAAD/BgYG/wYG
+        Bv8DAwP/Dw8P/wYGBv8PDw//Hh4e/yQkJP8YGBj////t////6v///9j/AAAA/wAAAGIAAAAqAAAACP//
+        /wD///8AAAAAAwMDA////9j////e////3v///97/CQkJ/xISEv///+T////e////1f8GBgb/AAAA/wkJ
+        Cf8GBgb/BgYG/xISEv8MDAz/Dw8P/xISEv8qKir/FRUV/w8PD////+3////e////z/8AAAD/AAAAQAAA
+        ABYAAAAD////AP///wD///8AAAAABgYGBv///9v////h/yEhIf8MDAz/CQkJ////4f///+r////t////
+        5P///+f////h////3v8VFRX/Gxsb/w8PD////9v////w////8P///97////h////5P///9L/AwMD/wAA
+        AE4AAAAfAAAABv///wD///8A////AP///wD///8AAAAACwYGBv///+H/Hh4e/y0tLf8SEhL////h////
+        3v///+H////h////6v///+H/ISEh/ycnJ/8bGxv////k////6v////D////w////6v////D////b/wAA
+        AP8AAABlAAAAMAAAAAv///8A////AP///wD///8A////AP///wAAAAADAwMD////1f8MDAz/Hh4e/ycn
+        J////+f////k////5P///+r/JCQk/yoqKv8wMDD////n////4f///+T////2/////////+r////q////
+        5////9j/BgYG/wAAAEAAAAAWAAAAA////wD///8A////AP///wD///8A////AP///wAAAAAGAAAA/wYG
+        Bv8VFRX/Hh4e/yEhIf////D/ISEh/yQkJP8kJCT/Hh4e////7f////P////t////9v////z////8////
+        5////+r////Y/wMDA/8AAABAAAAAHAAAAAb///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wAAAAAGAAAA/wAAAP8DAwP/CQkJ/xISEv8eHh7/GBgY////5////+f////t////9v///+3/////////
+        /////+3////h/wkJCf8AAAD/AAAAMAAAABYAAAAG////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAAAAADAAAACwAAAP///8/////S////z////97////q////8P////P////t////
+        8////+3////e////1f8AAAD/AAAAQAAAAB8AAAALAAAAA////wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8AAAAABgAAAP8AAAD/AwMD/wkJCf///9v////S////
+        1f///9v/AwMD/wYGBv8AAAD/AAAA/wAAACoAAAAWAAAABv///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAAAwAAAAgAAAALAAAADgAA
+        AP8AAAD/AAAA/wAAAP8AAAAqAAAAGQAAAA4AAAALAAAACAAAAAP///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8AAAAAAwAAAAgAAAALAAAACwAAAAgAAAAD////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A/8AA//+AAH/+AAAf/AAAD/gAAAfwAAAD8AAAA+AAAAHAAAAAwAAAAMAA
+        AADAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAMAAAADAAAAAwAAAAMAAAADgAAAB8AAAA/AA
+        AAP4AAAH/AAAD/4AAB//gAB//8AA///8D/8=
+</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmInputRequest</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>AKwin32.forms.frmBaseToolbox, AKwin32, Version=0.1.0.35986, Culture=neutral, PublicKeyToken=null</value>
+  </data>
 </root>

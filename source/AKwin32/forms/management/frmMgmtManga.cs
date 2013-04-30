@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Linq;
 using Framework.repo.xml;
 using Framework.entity;
+using Framework.io;
 
 namespace AKwin32.forms.management
 {
@@ -21,14 +22,16 @@ namespace AKwin32.forms.management
         public frmMgmtManga()
         {
             InitializeComponent();
+            this.Text = this.Text + "Manga";
             entityType = typeof(Manga);
             repo = new MangaRepository();
         }
 
         #region GUI Events
 
-        void btnRemoveItem_Click(object sender, EventArgs e)
+        protected override void btnRemoveItem_Click(object sender, EventArgs e)
         {
+            if (listViewItems.SelectedItems.Count < 1) return;
             Manga manga = listViewItems.SelectedItems[0].Tag as Manga;
             listViewItems.SelectedItems[0].Remove();
             repo.Remove(manga);
@@ -59,7 +62,7 @@ namespace AKwin32.forms.management
             btnRemoveItem.Click += new EventHandler(btnRemoveItem_Click);
             btnAccept.Click += new EventHandler(btnAccept_Click);
 
-            cb_Category.DataSource = catalog.GetMangaCategoriesTypes();
+            cb_Category.DataSource = Catalog.GetMangaCategoriesTypes();
             cb_Category.ValueMember = "Id";
             cb_Category.DisplayMember = "Value";
         }
@@ -128,7 +131,7 @@ namespace AKwin32.forms.management
 
             if (result != dataSource.Count)
                 base.ShowInformation(this,
-                    Program.Language.MessagesLibrary["items_saved"] + String.Format(" ({0})", result));
+                    base.Messages["items_saved"] + String.Format(" ({0})", result));
         }
 
         #endregion

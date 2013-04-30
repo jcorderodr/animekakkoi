@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using System.IO;
 
 namespace Framework.io
 {
@@ -41,10 +42,20 @@ namespace Framework.io
 
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="IOException">IOException</exception>
+        /// <exception cref="NotImplementedException">NotImplementedException</exception>
         public Language()
         {
-            InitComponents();
+            try
+            {
+                InitComponents();
+            }
+            catch (IOException ex) { throw ex; }
         }
+
 
         private void InitComponents()
         {
@@ -52,7 +63,13 @@ namespace Framework.io
             messagesLibrary = new Dictionary<string, string>();
 
             string file = Configuration.ApplicationDataFolder + languageFilePath;
-            System.IO.StreamReader reader = new System.IO.StreamReader(file);
+            System.IO.StreamReader reader = null;
+            
+            try
+            {
+                reader = new System.IO.StreamReader(file, Encoding.UTF8);
+            }
+            catch (System.IO.IOException ex) { throw ex; }
             //
             try
             {
@@ -61,7 +78,7 @@ namespace Framework.io
 
                 if (regionStart == -1)
                 {
-                    regionStart = aux.IndexOf(cultureInfo.Parent.Name);
+                    throw new NotImplementedException("Language is not implemented: " + cultureInfo.Parent.Name);
                 }
 
                 regionStart = aux.IndexOf(']', regionStart) + 1;

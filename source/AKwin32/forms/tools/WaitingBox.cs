@@ -37,7 +37,7 @@ namespace AKwin32.forms.tools
             }
             else
             {
-                if (e.Argument.GetType() == typeof(IWin32Window))
+                if (e.Argument != null && e.Argument.GetType() == typeof(IWin32Window))
                     this.ShowDialog((IWin32Window)e.Argument);
                 else 
                     this.ShowDialog();

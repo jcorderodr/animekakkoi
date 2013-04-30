@@ -22,7 +22,7 @@ namespace Framework.repo.xml
             return item;
         }
 
-        public override int AddRange(IList<Anime> elements)
+        public int AddRange(IList<Anime> elements)
         {
             int count = 0;
             foreach (Anime item in elements)
@@ -39,7 +39,6 @@ namespace Framework.repo.xml
         {
             base.ChangeItem(ToData(item));
             base.Refresh();
-            //return null;
         }
 
         public int Change(IList<Anime> elements)
@@ -68,6 +67,25 @@ namespace Framework.repo.xml
             return animes;
         }
 
+        public override IList<Anime> LookUp(string name)
+        {
+            List<XElement> elements = base.GetAllByType(typeof(Anime));
+
+            List<Anime> animes = new List<Anime>();
+
+            foreach (XElement item in elements.Where(c=> c.Element("name").Value.ToLower().Contains(name)))
+            {
+                animes.Add(ToEntity(item));
+            }
+
+            //IEnumerable<Anime> temp = from item in animes
+            //                          where item.Name.ToLower().Contains(name)
+            //                          select item;
+
+            return animes;
+        }
+
+
         public override void Remove(Anime item)
         {
             base.Remove(ToData(item), item.State);
@@ -80,11 +98,11 @@ namespace Framework.repo.xml
             temp = new Anime()
             {
                 Name = item.Element("name").Value,
-                Category = (ANIME_TYPE)util.Expression.IfNull(item.Attribute("category").Value, 1),
-                State = (ENTITY_STATE)util.Expression.IfNull(item.Element("state").Value, 0),
+                Category = (ANIME_TYPE)util.Expression.StringIfNull(item.Attribute("category").Value, 1),
+                State = (ENTITY_STATE)util.Expression.StringIfNull(item.Element("state").Value, 0),
                 Comment = item.Element("comment").Value
             };
-            temp.Codigo = util.Expression.IfNull(item.Attribute("id").Value, 0);
+            temp.Codigo = util.Expression.StringIfNull(item.Attribute("id").Value, 0);
             temp.Favorite = Convert.ToBoolean(item.Attribute("fav").Value);
             temp.Episodes = Convert.ToInt32(item.Element("episode").Value);
             temp.Rating = Convert.ToInt32(item.Element("rate").Value);
