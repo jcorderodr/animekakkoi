@@ -20,6 +20,7 @@ namespace AKwin32.forms.management
         public frmMgmtAnime()
         {
             InitializeComponent();
+            this.Text = this.Text + "Anime";
             entityType = typeof(Anime);
             repo = new Framework.repo.xml.AnimeRepository();
         }
@@ -27,8 +28,9 @@ namespace AKwin32.forms.management
 
         #region GUI Events
 
-        void btnRemoveItem_Click(object sender, EventArgs e)
+        protected override void btnRemoveItem_Click(object sender, EventArgs e)
         {
+            if (listViewItems.SelectedItems.Count < 1) return;
             Anime anime = listViewItems.SelectedItems[0].Tag as Anime;
             listViewItems.SelectedItems[0].Remove();
             repo.Remove(anime);
@@ -62,14 +64,12 @@ namespace AKwin32.forms.management
             btnRemoveItem.Click += new EventHandler(btnRemoveItem_Click);
             btnAccept.Click += new EventHandler(btnAccept_Click);
 
-            cb_Category.DataSource = catalog.GetAnimeCategoriesTypes();
-            cb_Category.ValueMember = "Id";
-            cb_Category.DisplayMember = "Value";
+            base.FillComboBoxCatalog(cb_Category, Framework.io.Catalog.GetAnimeCategoriesTypes());
         }
 
         void IUIManagement.InheritControlSelection(System.Windows.Forms.Control ctrl, string pName, object entity)
         {
-            
+
         }
 
         void IUIManagement.InheritControlValidation(Control ctrl, System.Reflection.PropertyInfo p, object entity)
@@ -96,6 +96,8 @@ namespace AKwin32.forms.management
         void IUIManagement.PrepareDataFromRepo()
         {
             this.dataSource = repo.GetAll().ToList();
+            OriginalDataSource = dataSource.ConvertAll(
+            new Converter<Anime, object>(TypeToObject));
         }
 
         void IUIManagement.FilterData(List<object> list)
@@ -125,7 +127,7 @@ namespace AKwin32.forms.management
 
             if (result != dataSource.Count)
                 base.ShowInformation(this,
-                    Program.Language.MessagesLibrary["items_saved"] + String.Format(" ({0})", result));
+                    base.Messages["items_saved"] + String.Format(" ({0})", result));
 
         }
 
@@ -136,6 +138,11 @@ namespace AKwin32.forms.management
         private Anime ObjectToType(object obj)
         {
             return (Anime)obj;
+        }
+
+        private object TypeToObject(Anime item)
+        {
+            return (object)item;
         }
 
         #endregion

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
             this.panelBase = new System.Windows.Forms.Panel();
             this.lblSources = new System.Windows.Forms.Label();
             this.listViewSources = new System.Windows.Forms.ListView();
@@ -46,104 +47,72 @@
             this.panelBase.Controls.Add(this.listViewSources);
             this.panelBase.Controls.Add(this.cboxUsers);
             this.panelBase.Controls.Add(this.lblUsers);
-            this.panelBase.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBase.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.panelBase, "panelBase");
             this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(345, 200);
-            this.panelBase.TabIndex = 0;
             // 
             // lblSources
             // 
-            this.lblSources.AutoSize = true;
-            this.lblSources.Location = new System.Drawing.Point(12, 59);
+            resources.ApplyResources(this.lblSources, "lblSources");
             this.lblSources.Name = "lblSources";
-            this.lblSources.Size = new System.Drawing.Size(44, 13);
-            this.lblSources.TabIndex = 4;
-            this.lblSources.Text = "sources";
             // 
             // listViewSources
             // 
-            this.listViewSources.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.listViewSources, "listViewSources");
             this.listViewSources.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.sourceList});
-            this.listViewSources.Location = new System.Drawing.Point(33, 75);
             this.listViewSources.Name = "listViewSources";
-            this.listViewSources.Size = new System.Drawing.Size(300, 113);
-            this.listViewSources.TabIndex = 3;
             this.listViewSources.UseCompatibleStateImageBehavior = false;
             this.listViewSources.View = System.Windows.Forms.View.List;
             this.listViewSources.SelectedIndexChanged += new System.EventHandler(this.listViewSources_SelectedIndexChanged);
-            this.listViewSources.Resize += new System.EventHandler(this.listViewSources_Resize);
             // 
             // sourceList
             // 
-            this.sourceList.Text = "";
-            this.sourceList.Width = 120;
+            resources.ApplyResources(this.sourceList, "sourceList");
             // 
             // cboxUsers
             // 
             this.cboxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxUsers.FormattingEnabled = true;
-            this.cboxUsers.Location = new System.Drawing.Point(33, 29);
+            resources.ApplyResources(this.cboxUsers, "cboxUsers");
             this.cboxUsers.Name = "cboxUsers";
-            this.cboxUsers.Size = new System.Drawing.Size(189, 21);
-            this.cboxUsers.TabIndex = 1;
             this.cboxUsers.SelectedIndexChanged += new System.EventHandler(this.cboxUsers_SelectedIndexChanged);
             // 
             // lblUsers
             // 
-            this.lblUsers.AutoSize = true;
-            this.lblUsers.Location = new System.Drawing.Point(12, 13);
+            resources.ApplyResources(this.lblUsers, "lblUsers");
             this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(32, 13);
-            this.lblUsers.TabIndex = 0;
-            this.lblUsers.Text = "users";
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(177, 206);
+            resources.ApplyResources(this.btnAccept, "btnAccept");
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 1;
-            this.btnAccept.Text = "ok";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(258, 206);
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "close";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnNewUser
             // 
-            this.btnNewUser.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewUser.Location = new System.Drawing.Point(12, 206);
+            resources.ApplyResources(this.btnNewUser, "btnNewUser");
             this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(75, 23);
-            this.btnNewUser.TabIndex = 3;
-            this.btnNewUser.Text = "new";
             this.btnNewUser.UseVisualStyleBackColor = true;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // frmUsers
             // 
             this.AcceptButton = this.btnAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(345, 237);
             this.Controls.Add(this.btnNewUser);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.panelBase);
             this.Name = "frmUsers";
-            this.Text = "Users";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUsers_FormClosing);
             this.Load += new System.EventHandler(this.frmUsers_Load);
             this.panelBase.ResumeLayout(false);

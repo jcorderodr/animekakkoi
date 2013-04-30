@@ -39,10 +39,22 @@ namespace AKwin32.forms
 
         #region File Menu
 
+
+        private void quickSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tools.frmQuickSearch frm = new tools.frmQuickSearch();
+            frm.Show();
+        }
+
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             maintenance.frmUsers frm = new maintenance.frmUsers();
             frm.ShowDialog(this);
+        }
+
+        private void formattedTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO: make an output file for sharing
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,7 +144,8 @@ namespace AKwin32.forms
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            maintenance.frmOptions frm = new maintenance.frmOptions();
+            frm.ShowDialog(this);
         }
 
         #endregion
@@ -141,7 +154,7 @@ namespace AKwin32.forms
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http:\\www.google.com.do");
+            System.Diagnostics.Process.Start("http://corderoski.wordpress.com/bluegletek-soft/");
         }
 
         private void aboutAkToolStripMenuItem_Click(object sender, EventArgs e)
@@ -153,6 +166,96 @@ namespace AKwin32.forms
         }
 
         #endregion
+
+        #endregion
+
+        #region Shortcuts
+
+        private void btnSharing_Click(object sender, EventArgs e)
+        {
+
+            #region Selection
+
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Title = Program.AppTitle;
+            saveDialog.AddExtension = true;
+            saveDialog.AutoUpgradeEnabled = true;
+            saveDialog.Filter = "Texto (*.txt) | *.txt";
+            if (saveDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
+
+            #endregion
+
+            
+            tools.WaitingBox wBox = new tools.WaitingBox();
+            wBox.StartUntilStopped();
+
+            #region Load Data
+
+            StringBuilder buffer = new StringBuilder();
+
+            buffer.AppendLine();
+            buffer.AppendLine(DateTime.Now.ToLongDateString());
+            buffer.AppendLine();
+
+            Framework.repo.xml.AnimeRepository animeRepo = new Framework.repo.xml.AnimeRepository();
+            List<Framework.entity.Anime> animes = animeRepo.GetAll().ToList();
+
+            buffer.AppendLine("#######------- Animes -------#######");
+            foreach (Framework.entity.Anime item in animes)
+                buffer.AppendLine(item.ToString());
+
+            animeRepo = null;
+            animes = null;
+
+            buffer.AppendLine();
+            buffer.AppendLine("[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]");
+            buffer.AppendLine();
+
+            Framework.repo.xml.MangaRepository mangaRepo = new Framework.repo.xml.MangaRepository();
+            List<Framework.entity.Manga> mangas = mangaRepo.GetAll().ToList();
+
+            buffer.AppendLine("#######------- Mangas/Comics -------#######");
+            foreach (Framework.entity.Manga item in mangas)
+                buffer.AppendLine(item.ToString());
+
+            mangaRepo = null;
+            mangas = null;
+
+            #endregion
+
+            #region Rev
+
+            buffer.Replace("QUEUE", Messages["QUEUE"]);
+            buffer.Replace("WATCHING", Messages["WATCHING"]);
+            buffer.Replace("WATCHED", Messages["WATCHED"]);
+            buffer.Replace("TAKED_DOWN", Messages["TAKED_DOWN"]);
+            buffer.Replace("WANT_TO", Messages["WANT_TO"]);
+
+            #endregion
+
+            wBox.Stop();
+            try
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(saveDialog.FileName);
+                writer.Write(buffer.ToString());
+
+                base.ShowInformation(this, base.Messages["sharing_file"]);
+            }
+            catch { }
+
+        }
+
+        private void btnRefreshSrc_Click(object sender, EventArgs e)
+        {
+            //TODO: use the user's source and refresh
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            tools.frmQuickSearch frm = new tools.frmQuickSearch();
+            frm.Show();
+        }
+
 
         #endregion
 
@@ -172,6 +275,8 @@ namespace AKwin32.forms
         }
 
         #endregion
+
+
 
 
     }

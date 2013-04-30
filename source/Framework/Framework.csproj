@@ -57,6 +57,8 @@
     <Compile Include="media\McAnime.cs" />
     <Compile Include="media\SourceBase.cs" />
     <Compile Include="repo\xml\AnimeRepository.cs" />
+    <Compile Include="repo\xml\GenericRepository.cs" />
+    <Compile Include="repo\IRepository.cs" />
     <Compile Include="repo\xml\MangaRepository.cs" />
     <Compile Include="repo\xml\Repository.cs" />
     <Compile Include="entity\Anime.cs" />
@@ -71,7 +73,9 @@
     <Folder Include="repo\sql\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Framework.config" />
+    <None Include="Framework.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -29,15 +29,15 @@ namespace Framework.repo.xml
             return item;
         }
 
-        [Obsolete("NotImplementedException", true)]
-        public override int AddRange(IList<User> items)
+        //[Obsolete("NotImplementedException", false)]
+        public int AddRange(IList<User> items)
         {
             throw new NotImplementedException();
         }
 
         public override void Change(User item)
         {
-            this.GetParent().Elements().FirstOrDefault(c => c.Attribute("id").Value == item.Codigo+"").ReplaceWith( ToData(item));
+            this.GetParent().Elements().FirstOrDefault(c => c.Attribute("id").Value == item.Codigo + "").ReplaceWith(ToData(item));
             base.setModifiedState();
             base.Refresh();
         }
@@ -61,6 +61,18 @@ namespace Framework.repo.xml
             throw new NotImplementedException();
         }
 
+        public override IList<User> LookUp(string name)
+        {
+            List<XElement> elements = base.GetAllByType(typeof(User));
+            List<User> list = new List<User>();
+
+            foreach (XElement item in elements.Where(c => c.Element("name").Value.ToLower().Contains(name)))
+            {
+                list.Add(ToEntity(item));
+            }
+            return list;
+        }
+
         private XElement GetParent()
         {
             return akMainData.Element(io.Configuration.ApplicationName).Element("Users");
@@ -73,7 +85,7 @@ namespace Framework.repo.xml
             {
                 Name = item.Element("name").Value
             };
-            temp.Codigo = util.Expression.IfNull(item.Attribute("id").Value, 0);
+            temp.Codigo = util.Expression.StringIfNull(item.Attribute("id").Value, 0);
             temp.Sources = item.Elements("source").Select(c => c.Value).ToArray();
 
             return temp;

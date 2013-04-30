@@ -16,8 +16,6 @@ namespace AKwin32.forms.tools
     public partial class frmImporter : AKwin32.forms.frmBase
     {
 
-        //string sourceType;
-
         private Framework.util.Importer import;
 
         private Framework.media.ISource source;
@@ -52,11 +50,13 @@ namespace AKwin32.forms.tools
             import = new Framework.util.Importer();
         }
 
+        #region UI Events
+
         private void frmImporter_Load(object sender, EventArgs e)
         {
             lblType.Text = ImportMethod.ToString();
-            cbSourceType.Items.Add("Anime");
-            cbSourceType.Items.Add("Manga");
+            base.FillComboBoxCatalog(cbSourceType, Framework.io.Catalog.GetEntitiesValidTypes());
+            
         }
 
         private void lblType_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -88,7 +88,7 @@ namespace AKwin32.forms.tools
                         SaveSourceToUser();
                         lblType.Enabled = true;
                         Form_State = FORM_USING_STATE.READY;
-                        btnAccept.Text = "save data";
+                        btnAccept.Text = Messages["save"];
                         lblUriError.Text = "";
                     }
                     //
@@ -96,15 +96,19 @@ namespace AKwin32.forms.tools
                 }
                 else
                 {
-                    lblUriError.Text = "inputted type/uri error";
+                    lblUriError.Text = Errors["invalid_input"];
                 }
             }
 
         }
 
+        #endregion
+
+        #region Functions
+
         private bool CheckInput()
         {
-            if (cbSourceType.SelectedIndex == -1) return false;
+            if (cbSourceType.SelectedIndex == -1 || cbSourceType.Text == "--") return false;
 
             string uri = txtUrl.Text;
             if (Uri.IsWellFormedUriString(uri, UriKind.Absolute))
@@ -136,7 +140,7 @@ namespace AKwin32.forms.tools
             {
                 base.ShowError(this,
                     String.Format("{1} : {0}",
-                    we.Message, Program.Language.MessagesLibrary["communication_failed"]));
+                    we.Message, base.Errors["communication_failed"]));
             }
         }
 
@@ -165,6 +169,7 @@ namespace AKwin32.forms.tools
             this.ResultedList = list;
         }
 
+        #endregion
 
     }
 

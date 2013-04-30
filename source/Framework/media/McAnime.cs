@@ -84,7 +84,7 @@ namespace Framework.media
                     temp.Category = this.AnimeTypesCategories[aux];
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//li[@class=\"current_rating\"]", "0/0");
-                    temp.Rating = getNumber(aux);
+                    temp.Rating = Expression.GetOnlyNumbers(aux);
 
                     if (Expression.AnalizeNodeHtmlValue(item, item.XPath + "//li[@class=\"favorite\"]", "").Contains("fav"))
                         temp.Favorite = true;
@@ -132,7 +132,7 @@ namespace Framework.media
                     temp.Category = this.MangaTypeCategories[Expression.ToCapCase(aux)];
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//li[@class=\"current_rating\"]", "0/0");
-                    temp.Rating = getNumber(aux);
+                    temp.Rating = Expression.GetOnlyNumbers(aux);
 
                     if (Expression.AnalizeNodeHtmlValue(item, item.XPath + "//li[@class=\"favorite\"]", "").Contains("fav"))
                         temp.Favorite = true;
@@ -190,7 +190,7 @@ namespace Framework.media
                     temp.Category = this.AnimeTypesCategories[aux];
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
-                    temp.Episodes = getNumber(aux);
+                    temp.Episodes = Expression.GetOnlyNumbers(aux);
 
                     temp.Comment = "";
 
@@ -251,17 +251,6 @@ namespace Framework.media
                 }
             }
         }
-
-
-        private int getNumber(string text)
-        {
-            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("([^0-9+/][^-]|-)");
-            text = reg.Replace(text, "");
-            text = text.Split('/')[0];
-            try { return Convert.ToInt32(text); }
-            catch { return 0; }
-        }
-
 
     }
 }
