@@ -178,10 +178,10 @@
     <value>1</value>
   </data>
   <data name="cboxUsers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 29</value>
+    <value>91, 29</value>
   </data>
   <data name="cboxUsers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 21</value>
+    <value>161, 21</value>
   </data>
   <data name="cboxUsers.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -202,7 +202,7 @@
     <value>True</value>
   </data>
   <data name="lblUsers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 13</value>
+    <value>55, 13</value>
   </data>
   <data name="lblUsers.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 13</value>
@@ -249,6 +249,9 @@
   <data name="&gt;&gt;panelBase.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="btnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="btnAccept.Location" type="System.Drawing.Point, System.Drawing">
     <value>177, 206</value>
   </data>
@@ -273,6 +276,9 @@
   <data name="&gt;&gt;btnAccept.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>258, 206</value>
   </data>
@@ -296,6 +302,9 @@
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="btnNewUser.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="btnNewUser.Font" type="System.Drawing.Font, System.Drawing">
     <value>Cooper Black, 8.25pt</value>
@@ -724,6 +733,6 @@
     <value>frmUsers</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, AKwin32, Version=0.1.0.35986, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=0.1.0.37652, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

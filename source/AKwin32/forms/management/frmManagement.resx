@@ -280,7 +280,7 @@
     <value>0</value>
   </data>
   <data name="lbl_Favorite.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+    <value>Top, Right</value>
   </data>
   <data name="lbl_Favorite.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -496,7 +496,7 @@
     <value>Comic Sans MS, 9pt, style=Bold</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 154</value>
+    <value>19, 154</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 16</value>
@@ -526,7 +526,7 @@
     <value>Comic Sans MS, 9pt, style=Bold</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 114</value>
+    <value>19, 114</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 16</value>
@@ -556,7 +556,7 @@
     <value>Comic Sans MS, 9pt, style=Bold</value>
   </data>
   <data name="lblState.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 74</value>
+    <value>19, 74</value>
   </data>
   <data name="lblState.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 16</value>
@@ -586,7 +586,7 @@
     <value>Comic Sans MS, 9pt, style=Bold</value>
   </data>
   <data name="lblEpi.Location" type="System.Drawing.Point, System.Drawing">
-    <value>52, 192</value>
+    <value>19, 192</value>
   </data>
   <data name="lblEpi.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 16</value>
@@ -616,7 +616,7 @@
     <value>Comic Sans MS, 9pt, style=Bold</value>
   </data>
   <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 34</value>
+    <value>19, 34</value>
   </data>
   <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 16</value>
@@ -805,6 +805,9 @@
         AAP4AAAH/AAAD/4AAB//gAB//8AA///8D/8=
 </value>
   </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>770, 521</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -827,6 +830,6 @@
     <value>frmManagement</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, AKwin32, Version=0.1.0.35986, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.0.36671, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

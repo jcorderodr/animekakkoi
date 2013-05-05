@@ -73,7 +73,7 @@ namespace Framework.repo.xml
 
             List<Anime> animes = new List<Anime>();
 
-            foreach (XElement item in elements.Where(c=> c.Element("name").Value.ToLower().Contains(name)))
+            foreach (XElement item in elements.Where(c => c.Element("name").Value.ToLower().Contains(name)))
             {
                 animes.Add(ToEntity(item));
             }
@@ -84,41 +84,49 @@ namespace Framework.repo.xml
 
             return animes;
         }
-
-
+        
         public override void Remove(Anime item)
         {
             base.Remove(ToData(item), item.State);
         }
 
-
+        public bool RemoveAll()
+        {
+            try
+            {
+                base.DisposeItems();
+                return true;
+            }
+            catch { return false; }
+        }
+        
         internal override Anime ToEntity(XElement item)
         {
             Anime temp;
             temp = new Anime()
             {
                 Name = item.Element("name").Value,
-                Category = (ANIME_TYPE)util.Expression.StringIfNull(item.Attribute("category").Value, 1),
-                State = (ENTITY_STATE)util.Expression.StringIfNull(item.Element("state").Value, 0),
+                Category = (ANIME_TYPE)util.Expression.IntegerIfNull(item.Attribute("category").Value, 1),
+                State = (ENTITY_STATE)util.Expression.IntegerIfNull(item.Element("state").Value, 0),
                 Comment = item.Element("comment").Value
             };
-            temp.Codigo = util.Expression.StringIfNull(item.Attribute("id").Value, 0);
+            temp.Codigo = util.Expression.IntegerIfNull(item.Attribute("id").Value, 0);
             temp.Favorite = Convert.ToBoolean(item.Attribute("fav").Value);
-            temp.Episodes = Convert.ToInt32(item.Element("episode").Value);
+            temp.EpisodesString = item.Element("episode").Value;
             temp.Rating = Convert.ToInt32(item.Element("rate").Value);
             return temp;
         }
 
         internal override XElement ToData(Anime item)
         {
-            XElement element = animeTemplate;
+            XElement element = getAnimeTemplate();
             element.SetAttributeValue("id", item.Codigo);
             element.SetAttributeValue("category", (int)item.Category);
             element.SetAttributeValue("fav", item.Favorite);
             element.Element("name").SetValue(item.Name);
             element.Element("state").SetValue((int)item.State);
             element.Element("rate").SetValue(item.Rating);
-            element.Element("episode").SetValue(item.Episodes);
+            element.Element("episode").SetValue(item.EpisodesString);
             element.Element("comment").SetValue(item.Comment);
 
             return element;

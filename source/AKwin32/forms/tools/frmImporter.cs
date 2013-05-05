@@ -16,7 +16,7 @@ namespace AKwin32.forms.tools
     public partial class frmImporter : AKwin32.forms.frmBase
     {
 
-        private Framework.util.Importer import;
+        private Framework.util.WebImporter import;
 
         private Framework.media.ISource source;
 
@@ -47,7 +47,7 @@ namespace AKwin32.forms.tools
         public frmImporter()
         {
             InitializeComponent();
-            import = new Framework.util.Importer();
+            import = new Framework.util.WebImporter();
         }
 
         #region UI Events
@@ -56,7 +56,7 @@ namespace AKwin32.forms.tools
         {
             lblType.Text = ImportMethod.ToString();
             base.FillComboBoxCatalog(cbSourceType, Framework.io.Catalog.GetEntitiesValidTypes());
-            
+
         }
 
         private void lblType_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -81,16 +81,8 @@ namespace AKwin32.forms.tools
                     tools.WaitingBox wbox = new tools.WaitingBox();
                     wbox.StartUntilStopped(this);
                     //
-                    BeginProcess();
-                    if (source != null)
-                    {
-                        EndProcess();
-                        SaveSourceToUser();
-                        lblType.Enabled = true;
-                        Form_State = FORM_USING_STATE.READY;
-                        btnAccept.Text = Messages["save"];
-                        lblUriError.Text = "";
-                    }
+                    StartProcess();
+                    SaveSourceToUser();
                     //
                     wbox.Stop();
                 }
@@ -134,7 +126,7 @@ namespace AKwin32.forms.tools
             {
                 string response = import.TryRequest(link.AbsoluteUri);
                 import.Type = this.ImportMethod;
-                source = import.GetSource(response, cbSourceType.SelectedItem.ToString(), ref mediaType);
+                source = import.GetSource(response, cbSourceType.Text, ref mediaType);
             }
             catch (Exception we)
             {
@@ -161,6 +153,22 @@ namespace AKwin32.forms.tools
         private void SaveSourceToUser()
         {
             Program.SystemUser.AddSource(link.AbsoluteUri);
+            Framework.repo.xml.UserRepository repo = new Framework.repo.xml.UserRepository();
+            repo.Change(Program.SystemUser);
+        }
+
+        private void StartProcess()
+        {
+            BeginProcess();
+            if (source != null)
+            {
+                EndProcess();
+
+                lblType.Enabled = true;
+                Form_State = FORM_USING_STATE.READY;
+                btnAccept.Text = Messages["save"];
+                lblUriError.Text = "";
+            }
         }
 
         private void ShowResult(List<object> list)

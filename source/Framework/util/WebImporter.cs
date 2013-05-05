@@ -9,7 +9,7 @@ using Framework.entity;
 
 namespace Framework.util
 {
-    public class Importer
+    public class WebImporter
     {
 
         public IMPORT_SOURCES Type { get; set; }

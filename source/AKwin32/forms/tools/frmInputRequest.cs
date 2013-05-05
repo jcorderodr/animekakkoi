@@ -65,13 +65,15 @@ namespace AKwin32.forms.tools
 
         private bool isValidInput()
         {
-            return (allowNullInput && String.IsNullOrEmpty(txtUserInput.Text) ||
-                !allowNullInput && !String.IsNullOrEmpty(txtUserInput.Text));
+            return (
+                (allowNullInput || String.IsNullOrEmpty(txtUserInput.Text)) ||
+                (!allowNullInput && !String.IsNullOrEmpty(txtUserInput.Text))
+                );
         }
 
         public void SetUIProperties(string request, bool allowNull)
         {
-            lblRequest.Text = request + ":";
+            lblRequest.Text = request;
             this.allowNullInput = allowNull;
         }
 

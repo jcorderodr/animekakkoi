@@ -6,6 +6,9 @@ using System.Text;
 
 namespace AKwin32.com.io
 {
+    /// <summary>
+    /// Unused.
+    /// </summary>
     public class AkConfiguration
     {
 
@@ -14,7 +17,7 @@ namespace AKwin32.com.io
 
         public AkConfiguration()
         {
-            //TODO: Load conf.
+            
         }
 
 

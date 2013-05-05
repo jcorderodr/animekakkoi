@@ -77,6 +77,7 @@
             this.Controls.Add(this.panelBase);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmInputRequest";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInputRequest_FormClosing);
             this.Load += new System.EventHandler(this.frmInputRequest_Load);

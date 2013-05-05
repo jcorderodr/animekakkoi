@@ -76,7 +76,6 @@ namespace Framework.media
 
                     temp.Name = Expression.AnalizeNodeValue(item, item.XPath + "//a", "");
                     temp.State = state;
-                    temp.Episodes = 0;
                     temp.Comment = "";
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//i", "Serie");
@@ -190,7 +189,7 @@ namespace Framework.media
                     temp.Category = this.AnimeTypesCategories[aux];
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
-                    temp.Episodes = Expression.GetOnlyNumbers(aux);
+                    temp.EpisodesString = Expression.GetOnlyNumbersText(aux);
 
                     temp.Comment = "";
 

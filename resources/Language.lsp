@@ -1,4 +1,4 @@
-##
+ï»¿##
 # tags: errors = error_ / messages = message_
 ##
 
@@ -9,19 +9,25 @@
 welcome = Que lo que?
 select_user = Debe seleccionar un usuario.
 items_saved = Los registros se han guardado exitosamente!
-item_affected = Se ha modificado/guardado el ítem exitosamente.
-exit_question = ¿Desea realmente salir?
+item_affected = Se ha modificado/guardado el Ã­tem exitosamente.
+exit_question = Â¿Desea realmente salir?
 sharing_file = Se ha creado exitosamente el archivo para compartir.
 new_user_request = Ingrese nuevo usuario:
+clean_database_question = Â¿EstÃ¡ seguro que desea limpiar por completo la base de datos?
+items_erased_sucess = Los Ã­temes se han limpiado de la base de datos.
+database_erased_sucess = Las informaciones, data, registros y configuraciones se han limpiado y reiniciado.
 ###
 #	Errores
 ###
 entity_missed = No se ha determinado el tipo de la entidad.
 items_error = Ha ocurrido un error durante el guardado.
-communication_failed = Ha ocurrido un error durante la comunicación.
-invalid_input = Valor(es) ingresado(s) está(n) en blanco/incorrecto/vacío(s).
-loading_catalog = Ha ocurrido un error durante la búsqueda de los catalogos.
+communication_failed = Ha ocurrido un error durante la comunicaciÃ³n.
+invalid_input = Valor(es) ingresado(s) estÃ¡n en blanco/incorrecto/vacÃ­os).
+loading_catalog = Ha ocurrido un error durante la bÃºsqueda de los catalogos.
 save_method_unknown = Imposible determinar donde guardar. Tipo desconocido.
+user_exists = El usuario ya existe.
+items_erased_error = !
+database_erased_error = Ha ocurrido un error intentando eliminar/limpiar la base de datos.
 ###
 #	Textos / Palabras
 ###
@@ -41,18 +47,24 @@ welcome = Welcome!
 select_user = Must select a user.
 items_saved = Items saved successfuly!
 item_affected = The Item has been save/changed successfuly.
-exit_question = ¿Did you really wanna quit?
+exit_question = ÃŸâ€žid you really wanna quit?
 sharing_file = The Sharing File has been created.
 new_user_request = Type the new username:
+clean_database_question = !
+items_erased_sucess = All the items has been deleted sucessfully.
+database_erased_sucess = !
 ###
 #	Errores
 ###
 entity_missed = The entity or item's type is unknown.
 items_error = Ha ocurrido un error durante el guardado.
-communication_failed = Ha ocurrido un error durante la comunicación.
-invalid_input = Valor(es) ingresado(s) está(n) en blanco/incorrecto/vacío(s).
-loading_catalog = Ha ocurrido un error durante la búsqueda de los catalogos.
+communication_failed = An error ocurried trying the communication.
+invalid_input = Fields invalids (empty, wrong format).
+loading_catalog = An error has been detected in the search of catalogs.
 save_method_unknown = The save method/repo is unreachable.
+user_exists = User already exists.
+items_erased_error = !
+database_erased_error = !
 ###
 #	Textos / Palabras
 ###

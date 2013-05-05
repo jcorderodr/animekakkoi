@@ -29,19 +29,25 @@ namespace AKwin32
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(String[] args)
         {
             LoadVariables();
             if (varsErrorLoading) return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            wBox = new forms.tools.WaitingBox();
+            //wBox = new forms.tools.WaitingBox();
             //wBox.StartUntilStopped(null);
 
             frmMain = new forms.FrmMain();
-        
             Application.Run(frmMain);
+
+            if (args.Length > 0)
+            {
+                com.io.CommandLine cmd = new com.io.CommandLine();
+                cmd.SetProperties(frmMain, args);
+                cmd.ExecActions();
+            }
 
         }
 
@@ -61,7 +67,7 @@ namespace AKwin32
         }
 
 
-        public const String AppTitle = "AnimeKakkoi [DevPhase]";
+        public const String AppTitle = "AnimeKakkoi vDev";
 
         internal static Framework.io.Language Language;
 

@@ -30,16 +30,27 @@ namespace AKwin32.forms.maintenance
 
         private void frmUsers_Load(object sender, EventArgs e)
         {
-            this.listViewSources.Resize += new System.EventHandler(listViewItems_Resize);
+            this.listViewSources.Resize += new EventHandler(this.listViewSources_Resize);
             LoadControlsContent();
             //if (Program.SystemUser == null)
             //    this.btnCancel.Visible = false;
 
-            SizeLastColumn(sender as ListView);
+        }
+
+        void listViewSources_Resize(object sender, EventArgs e)
+        {
+            listViewSources.Columns[0].Width = listViewSources.Width - 1;
         }
 
         private void frmUsers_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            if (e.CloseReason == CloseReason.UserClosing && Program.SystemUser == null)
+                Application.Exit();
+
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+                return;
+
             if (!isValid())
             {
                 base.ShowError(this, Program.Language.ErrorsLibrary["select_user"]);
@@ -71,7 +82,6 @@ namespace AKwin32.forms.maintenance
             {
                 Program.SystemUser = cboxUsers.SelectedItem as User;
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
             }
             else
                 base.ShowError(this, Program.Language.ErrorsLibrary["select_user"]);
@@ -83,12 +93,17 @@ namespace AKwin32.forms.maintenance
             frmReq.SetUIProperties(base.Messages["new_user"], base.Messages["new_user_request"], !(Program.SystemUser == null));
             if (frmReq.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
-                repo.Add(new User { Name = frmReq.UserInput });
+                User user = new User { Name = frmReq.UserInput };
+
+                if (dataSource.FirstOrDefault(c=> c.Name == user.Name) != null)
+                {
+                    base.ShowError(this, base.Messages["user_exists"]);
+                    return;
+                }
+                repo.Add(user);
                 LoadControlsContent();
-                repo = null;
             }
         }
-
 
         private void LoadControlsContent()
         {

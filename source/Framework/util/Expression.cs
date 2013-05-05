@@ -9,7 +9,13 @@ namespace Framework.util
     public abstract class Expression
     {
 
-        public static int StringIfNull(object item, int ifnull)
+        public static String StringIfNull(object item, string ifnull)
+        {
+            try { return item.ToString(); }
+            catch { return ifnull; }
+        }
+
+        public static int IntegerIfNull(object item, int ifnull)
         {
             try { return Convert.ToInt32(item); }
             catch { return ifnull; }
@@ -44,6 +50,7 @@ namespace Framework.util
 
         public static String GetOnlyNumbersText(string text)
         {
+            text = text.Replace("-", "0");
             System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("([^0-9+/][^-]|-)");
             text = reg.Replace(text, "");
             return text;

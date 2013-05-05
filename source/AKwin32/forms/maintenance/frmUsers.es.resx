@@ -125,10 +125,10 @@
     <value>Fuentes:</value>
   </data>
   <data name="lblUsers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 13</value>
+    <value>51, 13</value>
   </data>
   <data name="lblUsers.Text" xml:space="preserve">
-    <value>Usuarios</value>
+    <value>Usuarios:</value>
   </data>
   <data name="btnAccept.Text" xml:space="preserve">
     <value>&amp;Aceptar</value>

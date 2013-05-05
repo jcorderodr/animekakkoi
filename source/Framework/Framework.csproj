@@ -56,6 +56,7 @@
     <Compile Include="media\ISource.cs" />
     <Compile Include="media\McAnime.cs" />
     <Compile Include="media\SourceBase.cs" />
+    <Compile Include="repo\RepositoryResources.cs" />
     <Compile Include="repo\xml\AnimeRepository.cs" />
     <Compile Include="repo\xml\GenericRepository.cs" />
     <Compile Include="repo\IRepository.cs" />
@@ -66,8 +67,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repo\xml\UserRepository.cs" />
     <Compile Include="util\Expression.cs" />
+    <Compile Include="util\FileImporter.cs" />
     <Compile Include="util\HtmlManager.cs" />
-    <Compile Include="util\Importer.cs" />
+    <Compile Include="util\WebImporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="repo\sql\" />

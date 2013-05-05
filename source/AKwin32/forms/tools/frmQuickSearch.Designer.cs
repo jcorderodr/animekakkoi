@@ -70,8 +70,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listViewItems);
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.listViewItems);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
