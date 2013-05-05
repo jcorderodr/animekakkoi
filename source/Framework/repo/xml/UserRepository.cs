@@ -10,20 +10,22 @@ namespace Framework.repo.xml
     public class UserRepository : Repository<User>
     {
 
-        XElement userTemplate;
+        StringBuilder userTemplate = null;
 
         public UserRepository()
         {
-            StringBuilder temp = new StringBuilder();
-            temp.AppendLine("\n\t\t<User id='0' category='1'>");
-            temp.AppendLine("\t\t\t<name></name>");
-            temp.AppendLine("\t\t</User>\n");
-            userTemplate = XElement.Parse(temp.ToString(), LoadOptions.PreserveWhitespace);
+            userTemplate = new StringBuilder();
+            userTemplate.AppendLine("\n\t\t<User id='0' category='1'>");
+            userTemplate.AppendLine("\t\t\t<name></name>");
+            userTemplate.AppendLine("\t\t</User>\n");
         }
 
         public override User Add(User item)
         {
-            this.GetParent().Add(ToData(item));
+            XElement temp = this.GetParent();
+            XElement user = ToData(item);
+            if (temp.Elements().Contains(user)) return null;
+            temp.Add(user);
             base.setModifiedState();
             base.Refresh();
             return item;
@@ -58,7 +60,16 @@ namespace Framework.repo.xml
 
         public override void Remove(User item)
         {
-            throw new NotImplementedException();
+            this.GetParent().Elements().FirstOrDefault(c => c.Attribute("id").Value == item.Codigo + "").Remove();
+            base.setModifiedState();
+            base.Refresh();
+        }
+
+        public void ReleaseData()
+        {
+            this.GetParent().Elements().Remove();
+            this.setModifiedState();
+            this.Refresh();
         }
 
         public override IList<User> LookUp(string name)
@@ -78,6 +89,11 @@ namespace Framework.repo.xml
             return akMainData.Element(io.Configuration.ApplicationName).Element("Users");
         }
 
+        private XElement LoadTemplate()
+        {
+            return XElement.Parse(userTemplate.ToString(), LoadOptions.PreserveWhitespace);
+        }
+
         internal override User ToEntity(XElement item)
         {
             User temp;
@@ -85,7 +101,7 @@ namespace Framework.repo.xml
             {
                 Name = item.Element("name").Value
             };
-            temp.Codigo = util.Expression.StringIfNull(item.Attribute("id").Value, 0);
+            temp.Codigo = util.Expression.IntegerIfNull(item.Attribute("id").Value, 0);
             temp.Sources = item.Elements("source").Select(c => c.Value).ToArray();
 
             return temp;
@@ -93,7 +109,7 @@ namespace Framework.repo.xml
 
         internal override XElement ToData(User item)
         {
-            XElement element = userTemplate;
+            XElement element = LoadTemplate();
             element.SetAttributeValue("id", item.Codigo);
             element.Element("name").SetValue(item.Name);
             foreach (string s in item.Sources)

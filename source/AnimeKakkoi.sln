@@ -6,6 +6,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{2E077774-536F-4D31-A5CF-F3A29504CA53}"
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup1", "Setup1\Setup1.isproj", "{9E98E705-5298-4BCD-8D96-51BE62D65E82}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DE5E93FB-E406-43AB-ADFD-CA3FE86E170D} = {DE5E93FB-E406-43AB-ADFD-CA3FE86E170D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

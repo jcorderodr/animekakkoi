@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAccept.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 268</value>
+    <value>281, 234</value>
   </data>
   <data name="btnAccept.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -151,7 +151,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 268</value>
+    <value>367, 234</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -174,6 +174,9 @@
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="lblElementsCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -181,13 +184,13 @@
     <value>82, 20</value>
   </data>
   <data name="lblElementsCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
+    <value>13, 13</value>
   </data>
   <data name="lblElementsCount.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="lblElementsCount.Text" xml:space="preserve">
-    <value>label3</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;lblElementsCount.Name" xml:space="preserve">
     <value>lblElementsCount</value>
@@ -232,7 +235,7 @@
     <value>13, 168</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>339, 94</value>
+    <value>429, 60</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -281,6 +284,9 @@
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="cbSourceType.Location" type="System.Drawing.Point, System.Drawing">
     <value>59, 28</value>
@@ -334,13 +340,13 @@
     <value>True</value>
   </data>
   <data name="lblUriError.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 8.25pt</value>
+    <value>Arial Narrow, 8.25pt</value>
   </data>
   <data name="lblUriError.Location" type="System.Drawing.Point, System.Drawing">
     <value>59, 86</value>
   </data>
   <data name="lblUriError.Size" type="System.Drawing.Size, System.Drawing">
-    <value>14, 12</value>
+    <value>16, 15</value>
   </data>
   <data name="lblUriError.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -391,7 +397,7 @@
     <value>59, 59</value>
   </data>
   <data name="txtUrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 20</value>
+    <value>356, 20</value>
   </data>
   <data name="txtUrl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -412,7 +418,7 @@
     <value>13, 53</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>339, 109</value>
+    <value>429, 109</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -472,7 +478,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>364, 303</value>
+    <value>454, 269</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -859,6 +865,6 @@
     <value>frmImporter</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, AKwin32, Version=0.1.0.35986, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.0.36358, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

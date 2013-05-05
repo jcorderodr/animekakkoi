@@ -67,7 +67,7 @@ namespace Framework.io
             
             try
             {
-                reader = new System.IO.StreamReader(file, Encoding.UTF8);
+                reader = new System.IO.StreamReader(file, true);
             }
             catch (System.IO.IOException ex) { throw ex; }
             //
@@ -86,7 +86,7 @@ namespace Framework.io
 
                 SplitWords(aux.Substring(regionStart, regionEnd - regionStart));
             }
-            catch { }
+            catch (NotImplementedException ex) { throw ex; }
             finally
             {
                 reader.Close();

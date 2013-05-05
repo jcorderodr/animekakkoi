@@ -25,18 +25,21 @@ namespace AKwin32.forms
         private void FrmMain_Load(object sender, EventArgs e)
         {
             maintenance.frmUsers frmUsr = new maintenance.frmUsers();
-            if (frmUsr.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) this.Close();
+            if (frmUsr.ShowDialog(this) != System.Windows.Forms.DialogResult.OK)
+            {
+                this.Close();
+                return;
+            }
             this.OnPropertiesChange();
         }
 
-
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason != CloseReason.UserClosing)
+
+            if (e.CloseReason == CloseReason.UserClosing || e.CloseReason != CloseReason.ApplicationExitCall)
                 checkForExit();
         }
-
-
+        
         #region File Menu
 
 
@@ -54,7 +57,7 @@ namespace AKwin32.forms
 
         private void formattedTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: make an output file for sharing
+            Share();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,12 +100,26 @@ namespace AKwin32.forms
 
         #region Tools Menu
 
+        private void archivoAkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = Program.AppTitle;
+            fileDialog.AddExtension = true;
+            fileDialog.AutoUpgradeEnabled = true;
+            fileDialog.Filter = "AK File (*.akl) | *.akl";
+            if (fileDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
+
+            Framework.util.FileImporter importer = new Framework.util.FileImporter(fileDialog.OpenFile());
+
+        }
+
         private void mcAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tools.frmImporter frm = new tools.frmImporter();
             frm.ImportMethod = Framework.util.IMPORT_SOURCES.MCANIME;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
+                if (frm.ResultedList.Count < 1 || frm.MediaType == null) return;
                 management.frmManagement frmMg = null;
                 if (frm.MediaType == typeof(Framework.entity.Anime))
                 {
@@ -174,6 +191,42 @@ namespace AKwin32.forms
         private void btnSharing_Click(object sender, EventArgs e)
         {
 
+            formattedTextToolStripMenuItem_Click(sender, e);
+
+        }
+
+        private void btnRefreshSrc_Click(object sender, EventArgs e)
+        {
+            //TODO: use the user's source and refresh
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            tools.frmQuickSearch frm = new tools.frmQuickSearch();
+            frm.Show();
+        }
+
+
+        #endregion
+
+
+        #region Functions
+
+        private bool checkForExit()
+        {
+            //Framework.repo.xml.UserRepository repo = new Framework.repo.xml.UserRepository();
+            //if (Program.SystemUser != null)
+            //    repo.Change(Program.SystemUser);
+            return true;
+        }
+
+        protected internal void OnPropertiesChange()
+        {
+            stripStatusUser.Text = Program.SystemUser.Name;
+        }
+
+        private void Share()
+        {
             #region Selection
 
             SaveFileDialog saveDialog = new SaveFileDialog();
@@ -181,11 +234,11 @@ namespace AKwin32.forms
             saveDialog.AddExtension = true;
             saveDialog.AutoUpgradeEnabled = true;
             saveDialog.Filter = "Texto (*.txt) | *.txt";
+            saveDialog.FileName = "ak_" + DateTime.Now.ToShortDateString().Replace("/","-");
             if (saveDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
 
             #endregion
 
-            
             tools.WaitingBox wBox = new tools.WaitingBox();
             wBox.StartUntilStopped();
 
@@ -238,43 +291,16 @@ namespace AKwin32.forms
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(saveDialog.FileName);
                 writer.Write(buffer.ToString());
-
+                writer.Flush();
+                writer.Close();
                 base.ShowInformation(this, base.Messages["sharing_file"]);
             }
             catch { }
-
-        }
-
-        private void btnRefreshSrc_Click(object sender, EventArgs e)
-        {
-            //TODO: use the user's source and refresh
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            tools.frmQuickSearch frm = new tools.frmQuickSearch();
-            frm.Show();
-        }
-
-
-        #endregion
-
-
-        #region Functions
-
-        private bool checkForExit()
-        {
-            Framework.repo.xml.UserRepository repo = new Framework.repo.xml.UserRepository();
-            repo.Change(Program.SystemUser);
-            return true;
-        }
-
-        protected internal void OnPropertiesChange()
-        {
-            stripStatusUser.Text = Program.SystemUser.Name;
         }
 
         #endregion
+
+
 
 
 

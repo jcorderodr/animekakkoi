@@ -10,7 +10,23 @@ namespace Framework.entity
 
         public ANIME_TYPE Category { get; set; }
 
-        public int Episodes { get; set; }
+        public String[] Episodes { get; set; }
+
+        /// <summary>
+        /// Gets or sets an string that represent the progress in the format x/xx.
+        /// </summary>
+        public String EpisodesString
+        {
+            get
+            {
+                return String.Format("{0}/{1}", Episodes[0], Episodes[1]);
+            }
+            set
+            {
+                string[] temp = value.Split('/');
+                Episodes = temp;
+            }
+        }
 
         public override string ToString()
         {
