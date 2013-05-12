@@ -44,6 +44,7 @@ namespace AKwin32
 
             if (args.Length > 0)
             {
+                //TODO: implements cmd
                 com.io.CommandLine cmd = new com.io.CommandLine();
                 cmd.SetProperties(frmMain, args);
                 cmd.ExecActions();

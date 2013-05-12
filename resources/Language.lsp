@@ -16,6 +16,8 @@ new_user_request = Ingrese nuevo usuario:
 clean_database_question = ¿Está seguro que desea limpiar por completo la base de datos?
 items_erased_sucess = Los ítemes se han limpiado de la base de datos.
 database_erased_sucess = Las informaciones, data, registros y configuraciones se han limpiado y reiniciado.
+backup_question = Importar significa reemplazar todo el contenido actual. ¿Está seguro que desea importar el archivo? 
+operation_sucess = Operación completada satisfactoriamente.
 ###
 #	Errores
 ###
@@ -28,6 +30,8 @@ save_method_unknown = Imposible determinar donde guardar. Tipo desconocido.
 user_exists = El usuario ya existe.
 items_erased_error = !
 database_erased_error = Ha ocurrido un error intentando eliminar/limpiar la base de datos.
+backup_create_failed = Creación del archivo Back Up fallida.
+operation_failed = La operación ha fallado.
 ###
 #	Textos / Palabras
 ###
@@ -53,6 +57,8 @@ new_user_request = Type the new username:
 clean_database_question = !
 items_erased_sucess = All the items has been deleted sucessfully.
 database_erased_sucess = !
+backup_question = backup_question
+operation_sucess = operation_sucess
 ###
 #	Errores
 ###
@@ -65,6 +71,8 @@ save_method_unknown = The save method/repo is unreachable.
 user_exists = User already exists.
 items_erased_error = !
 database_erased_error = !
+backup_create_failed = backup_create_failed
+operation_failed = operation_failed
 ###
 #	Textos / Palabras
 ###

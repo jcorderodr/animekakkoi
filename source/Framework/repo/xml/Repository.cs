@@ -206,7 +206,7 @@ namespace Framework.repo.xml
             //  MAIN_DATA_PROPERTIES_SECTION : Section with main properties and values.
             //
             newId = 0;
-            propertiesElement = akMainData.Element(Configuration.ApplicationName).Elements(io.Configuration.MAIN_DATA_PROPERTIES_SECTION).FirstOrDefault();
+            propertiesElement = akMainData.Element(Configuration.ApplicationName).Elements(io.Configuration.PROPERTIES_SECTION_MAIN_DATA).FirstOrDefault();
             if (propertiesElement != null)
             {
                 string aux = propertiesElement.Attribute("max_id").Value;

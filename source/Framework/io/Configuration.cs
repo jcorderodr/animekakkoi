@@ -22,16 +22,16 @@ namespace Framework.io
         internal const String RS_TAKED_DOWM = "ak_takeddowm.ak";
 
 
-        internal const String MAIN_DATA_PROPERTIES_SECTION = "Properties";
+        internal const String PROPERTIES_SECTION_MAIN_DATA = "Properties";
         internal const bool APP_REPO_AUTOSAVE = true;
 
-        internal static String ApplicationDataFolder
+        public static String ApplicationDataFolder
         {
             get
             {
-                //System.Windows.Forms.Application.CommonAppDataPath;
-                //@"C:\Users\Anib0warE\Documents\Proyectos\AnimeKakkoi\source\Framework\Framework.config";
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+              
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                //C:\ProgramData\BluegleTek Soft\AnimeKakkoi
                 return String.Format("{1}{0}{2}{0}{3}{0}", System.IO.Path.DirectorySeparatorChar, path, CompanyName, ApplicationName);
             }
         }
@@ -72,6 +72,15 @@ namespace Framework.io
                 default:
                     return "";
             }
+        }
+
+
+        internal static String[] GetBackUpFiles()
+        {
+            return new string[] 
+            {
+                RS_CENTRAL, RS_QUEUE, RS_TAKED_DOWM, RS_WANT_SEE, RS_WATCHED, RS_WATCHING
+            };
         }
 
 

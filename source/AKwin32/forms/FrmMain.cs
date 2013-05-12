@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-
 namespace AKwin32.forms
 {
     public partial class FrmMain : frmBase
@@ -17,6 +16,7 @@ namespace AKwin32.forms
         public FrmMain()
         {
             InitializeComponent();
+            listForSharingToolStripMenuItem.Enabled = false;
         }
 
 
@@ -58,6 +58,13 @@ namespace AKwin32.forms
         private void formattedTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Share();
+        }
+        
+        private void listForSharingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO: file for another user
+            forms.tools.frmExporter frm = new tools.frmExporter();
+            frm.Show();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,7 +113,7 @@ namespace AKwin32.forms
             fileDialog.Title = Program.AppTitle;
             fileDialog.AddExtension = true;
             fileDialog.AutoUpgradeEnabled = true;
-            fileDialog.Filter = "AK File (*.akl) | *.akl";
+            fileDialog.Filter = Framework.io.FileProperties.AppSharingFileFilterName;
             if (fileDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
 
             Framework.util.FileImporter importer = new Framework.util.FileImporter(fileDialog.OpenFile());
@@ -154,6 +161,12 @@ namespace AKwin32.forms
             }
         }
 
+        private void backUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            forms.tools.frmBackUp frm = new tools.frmBackUp();
+            frm.Show();
+        }
+
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -191,8 +204,8 @@ namespace AKwin32.forms
         private void btnSharing_Click(object sender, EventArgs e)
         {
 
-            formattedTextToolStripMenuItem_Click(sender, e);
-
+            //formattedTextToolStripMenuItem_Click(sender, e);
+            listForSharingToolStripMenuItem_Click(sender, e);
         }
 
         private void btnRefreshSrc_Click(object sender, EventArgs e)
@@ -208,7 +221,6 @@ namespace AKwin32.forms
 
 
         #endregion
-
 
         #region Functions
 
@@ -299,10 +311,6 @@ namespace AKwin32.forms
         }
 
         #endregion
-
-
-
-
 
 
     }
