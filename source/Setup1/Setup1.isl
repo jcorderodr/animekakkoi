@@ -355,6 +355,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{502A9407-B540-4EDF-BA6E-9D3DFD68959F}</td><td>BLUEGLETEK_SOFT1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{C4A6C5EA-EBA5-4338-8E15-A8460A601474}</td><td>ANIMEKAKKOI1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{09025371-2937-42FC-8D6C-96C27D5B146E}</td><td>GlobalAssemblyCache</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{BC905CDE-B444-4209-8CC0-5BBFBA00B292}</td><td>PersonalFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NewComponent1</td><td>{A603EE17-AE69-4245-9B1A-FE1DF3FEB934}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1071,6 +1072,7 @@
 		<row><td>GlobalAssemblyCache</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>INSTALLDIR</td><td>NewComponent1</td></row>
+		<row><td>PersonalFolder</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1157,7 +1159,7 @@
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>
 		<row><td>BLUEGLETEK_SOFT</td><td>ProgramFilesFolder</td><td>BLUEGL~1|BluegleTek Soft</td><td/><td>0</td><td/></row>
-		<row><td>BLUEGLETEK_SOFT1</td><td>CommonAppDataFolder</td><td>BLUEGL~1|BluegleTek Soft</td><td/><td>0</td><td/></row>
+		<row><td>BLUEGLETEK_SOFT1</td><td>AppDataFolder</td><td>BLUEGL~1|BluegleTek Soft</td><td/><td>0</td><td/></row>
 		<row><td>CommonAppDataFolder</td><td>TARGETDIR</td><td>.:Common~1|CommonAppData</td><td/><td>0</td><td/></row>
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
@@ -1860,6 +1862,7 @@
 		<col def="S255">ProgId_</col>
 		<col def="S64">MIME_</col>
 		<col def="s38">Feature_</col>
+		<row><td>akb</td><td>ISX_DEFAULTCOMPONENT2</td><td>Akb.File</td><td/><td>AlwaysInstall</td></row>
 		<row><td>akl</td><td>AKwin32.Primary_output</td><td>Ak.File</td><td/><td>AlwaysInstall</td></row>
 	</table>
 
@@ -1891,6 +1894,7 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 		<row><td>AlwaysInstall</td><td>NewComponent1</td></row>
 	</table>
 
@@ -2185,6 +2189,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_6A732809_B574_46DD_A362_A719A07D98C6_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_150A5B71_0EE5_436D_8BC4_84C5A06673F8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_3EA65E5B_4E39_48F2_8AB0_BB1B2C0D6E3D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_50BAE85E_C442_48C6_8509_6953F5867E45_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>NewComponent1</td><td/><td/><td>_2103F253_E57D_464C_8FF0_AC5ED92B2491_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -2835,7 +2840,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>BluegleTek Soft</td><td>0</td><td/><td>715211584</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>BluegleTek Soft</td><td>0</td><td/><td>1520551308</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>581014005</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>581014005</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION35</td><td>1033</td><td>Microsoft .NET Framework 3.5 needs to be installed for this installation to continue.</td><td>0</td><td/><td>581014005</td></row>
@@ -3938,14 +3943,16 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>581014005</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>581014005</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>581014005</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.BluegleTekSoft.com</td><td>0</td><td/><td>715211584</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>BluegleTek Soft</td><td>0</td><td/><td>715211584</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.BluegleTekSoft.com</td><td>0</td><td/><td>1520551308</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>BluegleTek Soft</td><td>0</td><td/><td>1520551308</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>581014005</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>Installing, be quiet.</td><td>0</td><td/><td>580997653</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>Installation - AK</td><td>0</td><td/><td>581028341</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>581014005</td></row>
 		<row><td>NEW_STRING1</td><td>1033</td><td>akl</td><td>0</td><td/><td>580996373</td></row>
 		<row><td>NEW_STRING1</td><td>1034</td><td>akl</td><td>0</td><td/><td>580996373</td></row>
+		<row><td>NEW_STRING2</td><td>1033</td><td>akb</td><td>0</td><td/><td>1520553715</td></row>
+		<row><td>NEW_STRING2</td><td>1034</td><td>akb</td><td>0</td><td/><td>1520553715</td></row>
 	</table>
 
 	<table name="ISSwidtagProperty">
@@ -4055,6 +4062,7 @@
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>C:\Users\Anib0warE\Documents\Proyectos\AnimeKakkoi\resources\iconos\beta.ico</td><td>0</td></row>
 		<row><td>UNINST_Uninstall_A_1CE5F7F9223540C9A1385C129BB3F23B.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2012SpringLE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 		<row><td>_04B59EA7_041F_45F8_85E2_46DA6691E64A</td><td/><td>C:\Users\Anib0warE\Documents\Proyectos\AnimeKakkoi\resources\iconos\beta.ico</td><td>0</td></row>
+		<row><td>_76D8980D_7770_4806_8AB7_52D8227FEA60</td><td/><td>C:\Users\Anib0warE\Dropbox\BluegleTek\ico\beta.ico</td><td>0</td></row>
 		<row><td>_Built1_7FF71498B9FE4FD1AA850279A0DBE06B.exe</td><td/><td>C:\Users\Anib0warE\Documents\Proyectos\AnimeKakkoi\resources\iconos\beta.ico</td><td>0</td></row>
 		<row><td>_Built_FEB084236CAD42C99CB4538E2EB21B9A.exe</td><td/><td>C:\Users\Anib0warE\Documents\Proyectos\AnimeKakkoi\resources\iconos\beta.ico</td><td>0</td></row>
 	</table>
@@ -4491,6 +4499,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="I2">IconIndex</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>Ak.File</td><td/><td/><td>AK's Data file.</td><td>_04B59EA7_041F_45F8_85E2_46DA6691E64A</td><td>0</td><td/></row>
+		<row><td>Akb.File</td><td/><td/><td>AK's BackUp File</td><td>_76D8980D_7770_4806_8AB7_52D8227FEA60</td><td>0</td><td/></row>
 	</table>
 
 	<table name="Property">
@@ -4871,6 +4880,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="I2">Sequence</col>
 		<col def="L255">Command</col>
 		<col def="L255">Argument</col>
+		<row><td>akb</td><td>open</td><td/><td>&amp;AnimeKakkoi BackUp File</td><td>-f %1</td></row>
 		<row><td>akl</td><td>open</td><td/><td>&amp;AnimeKakkoi File</td><td>-f %1</td></row>
 	</table>
 
