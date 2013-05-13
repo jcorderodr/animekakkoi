@@ -223,6 +223,9 @@
     <EmbeddedResource Include="forms\frmBaseToolbox.resx">
       <DependentUpon>frmBaseToolbox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\FrmMain.en.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\FrmMain.es.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

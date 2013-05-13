@@ -31,7 +31,7 @@ namespace AKwin32.forms.management
 
         private void frmEntityEdit_Load(object sender, EventArgs e)
         {
-            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesStateTypes());
+            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesTypesByLanguage());
 
             if (entityType.Name == typeof(Anime).Name)
             {

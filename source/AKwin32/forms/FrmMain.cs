@@ -39,7 +39,7 @@ namespace AKwin32.forms
             if (e.CloseReason == CloseReason.UserClosing || e.CloseReason != CloseReason.ApplicationExitCall)
                 checkForExit();
         }
-        
+
         #region File Menu
 
 
@@ -59,7 +59,7 @@ namespace AKwin32.forms
         {
             Share();
         }
-        
+
         private void listForSharingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //TODO: file for another user
@@ -184,7 +184,11 @@ namespace AKwin32.forms
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://corderoski.wordpress.com/bluegletek-soft/");
+            try
+            {
+                System.Diagnostics.Process.Start("http://corderoski.wordpress.com/bluegletek-soft/");
+            }
+            catch { }
         }
 
         private void aboutAkToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,8 +208,8 @@ namespace AKwin32.forms
         private void btnSharing_Click(object sender, EventArgs e)
         {
 
-            //formattedTextToolStripMenuItem_Click(sender, e);
-            listForSharingToolStripMenuItem_Click(sender, e);
+            formattedTextToolStripMenuItem_Click(sender, e);
+            //listForSharingToolStripMenuItem_Click(sender, e);
         }
 
         private void btnRefreshSrc_Click(object sender, EventArgs e)
@@ -246,7 +250,7 @@ namespace AKwin32.forms
             saveDialog.AddExtension = true;
             saveDialog.AutoUpgradeEnabled = true;
             saveDialog.Filter = "Texto (*.txt) | *.txt";
-            saveDialog.FileName = "ak_" + DateTime.Now.ToShortDateString().Replace("/","-");
+            saveDialog.FileName = "ak_" + DateTime.Now.ToShortDateString().Replace("/", "-");
             if (saveDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
 
             #endregion

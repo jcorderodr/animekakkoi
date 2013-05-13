@@ -159,7 +159,7 @@
     <value>154, 22</value>
   </data>
   <data name="formattedTextToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="&gt;&gt;manageMangaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -775,7 +775,7 @@
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="listForSharingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="fileToolStripMenu.Text" xml:space="preserve">
     <value>file</value>
@@ -886,7 +886,7 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.0.26340, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.0.26860, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="panelShorcuts.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>

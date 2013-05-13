@@ -133,10 +133,10 @@ namespace AKwin32.forms
         {
             try
             {
-                ((List<Framework.io.Catalog>)dataSource).Insert(0, new Framework.io.Catalog { Id = "0", Value = "--" });
+                ((List<Framework.io.Catalog>)dataSource).Insert(0, new Framework.io.Catalog { Id = "0", Description = "--" });
                 ctrl.DataSource = dataSource;
                 ctrl.ValueMember = "Id";
-                ctrl.DisplayMember = "Value";
+                ctrl.DisplayMember = "Description";
             }
             catch
             {

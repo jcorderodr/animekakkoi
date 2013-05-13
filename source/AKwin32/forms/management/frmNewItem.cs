@@ -57,6 +57,7 @@ namespace AKwin32.forms.management
                 }
                 else
                     base.ShowError(this, base.Errors["items_error"]);
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -73,9 +74,9 @@ namespace AKwin32.forms.management
 
         void INewItem.DoVisualChanges()
         {
-            cb_State.DataSource = Catalog.GetEntitiesStateTypes();
+            cb_State.DataSource = Catalog.GetEntitiesTypesByLanguage();
             cb_State.ValueMember = "Id";
-            cb_State.DisplayMember = "Value";
+            cb_State.DisplayMember = "Description";
         }
 
         private bool isAnimeType()

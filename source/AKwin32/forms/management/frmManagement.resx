@@ -174,25 +174,25 @@
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="cbBoxItemType.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="filter_cbBoxItemType.Location" type="System.Drawing.Point, System.Drawing">
     <value>74, 15</value>
   </data>
-  <data name="cbBoxItemType.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="filter_cbBoxItemType.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
   </data>
-  <data name="cbBoxItemType.TabIndex" type="System.Int32, mscorlib">
+  <data name="filter_cbBoxItemType.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;cbBoxItemType.Name" xml:space="preserve">
-    <value>cbBoxItemType</value>
+  <data name="&gt;&gt;filter_cbBoxItemType.Name" xml:space="preserve">
+    <value>filter_cbBoxItemType</value>
   </data>
-  <data name="&gt;&gt;cbBoxItemType.Type" xml:space="preserve">
+  <data name="&gt;&gt;filter_cbBoxItemType.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbBoxItemType.Parent" xml:space="preserve">
+  <data name="&gt;&gt;filter_cbBoxItemType.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="&gt;&gt;cbBoxItemType.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;filter_cbBoxItemType.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="lblType.AutoSize" type="System.Boolean, mscorlib">
@@ -830,6 +830,6 @@
     <value>frmManagement</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.0.36671, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.0.26906, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
