@@ -119,157 +119,136 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="fileToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
+    <value>37, 20</value>
   </data>
   <data name="fileToolStripMenu.Text" xml:space="preserve">
-    <value>&amp;Archivo</value>
-  </data>
-  <data name="managementToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>&amp;File</value>
   </data>
   <data name="managementToolStripMenu.Text" xml:space="preserve">
-    <value>Ad&amp;ministración</value>
+    <value>&amp;Management</value>
   </data>
   <data name="toolsToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="toolsToolStripMenu.Text" xml:space="preserve">
-    <value>&amp;Herramientas</value>
+    <value>&amp;Tools</value>
   </data>
   <data name="aboutToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
+    <value>52, 20</value>
   </data>
   <data name="aboutToolStripMenu.Text" xml:space="preserve">
-    <value>A&amp;cerca de</value>
+    <value>&amp;About</value>
   </data>
   <data name="quickSearchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
+    <value>183, 22</value>
   </data>
   <data name="quickSearchToolStripMenuItem.Text" xml:space="preserve">
-    <value>Búsqueda Rápida</value>
+    <value>&amp;Quick Search</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 6</value>
+    <value>180, 6</value>
   </data>
   <data name="usersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
+    <value>183, 22</value>
   </data>
   <data name="usersToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Usuarios</value>
+    <value>Users</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 6</value>
+    <value>180, 6</value>
   </data>
   <data name="exportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
+    <value>183, 22</value>
   </data>
   <data name="exportToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exportar</value>
+    <value>Export</value>
   </data>
   <data name="formattedTextToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="formattedTextToolStripMenuItem.Text" xml:space="preserve">
-    <value>Text Formateado</value>
+    <value>FormattedText</value>
   </data>
   <data name="listForSharingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 22</value>
-  </data>
-  <data name="listForSharingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Archivo para Compartir</value>
+    <value>152, 22</value>
   </data>
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 6</value>
+    <value>180, 6</value>
   </data>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
+    <value>183, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Salir</value>
+    <value>&amp;Exit</value>
   </data>
   <data name="newAnimeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="newAnimeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nuevo &amp;Anime</value>
+    <value>New Anime</value>
   </data>
   <data name="manageAnimeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="manageAnimeToolStripMenuItem.Text" xml:space="preserve">
     <value>Animes</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="newMangaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="newMangaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nuevo &amp;Manga</value>
+    <value>New Manga</value>
   </data>
   <data name="manageMangaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="manageMangaToolStripMenuItem.Text" xml:space="preserve">
     <value>Mangas</value>
   </data>
   <data name="importerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="importerToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Importar</value>
+    <value>&amp;Importer</value>
   </data>
   <data name="archivoAkToolStripMenuItem.Text" xml:space="preserve">
-    <value>Archivo AK (*.akl)</value>
+    <value>AK File</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 6</value>
+    <value>154, 6</value>
   </data>
   <data name="dataCheckerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="backUpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="backUpToolStripMenuItem.Text" xml:space="preserve">
-    <value>BackUp</value>
+    <value>&amp;BackUp</value>
   </data>
   <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 6</value>
+    <value>154, 6</value>
   </data>
   <data name="preferencesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="preferencesToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Preferencias</value>
+    <value>Preferences</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Opciones</value>
-  </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>&amp;Options</value>
   </data>
   <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Ayuda</value>
-  </data>
-  <data name="aboutAkToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>&amp;Help</value>
   </data>
   <data name="aboutAkToolStripMenuItem.Text" xml:space="preserve">
-    <value>Acerca &amp;de</value>
-  </data>
-  <data name="btnSearch.Text" xml:space="preserve">
-    <value>Búsqueda</value>
-  </data>
-  <data name="btnRefreshSrc.Text" xml:space="preserve">
-    <value>Act. Fuentes</value>
-  </data>
-  <data name="btnSharing.Text" xml:space="preserve">
-    <value>Compartir</value>
+    <value>About AK</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -650,6 +629,6 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Inicio</value>
+    <value>Home</value>
   </data>
 </root>

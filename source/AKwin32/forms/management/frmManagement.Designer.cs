@@ -32,7 +32,7 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbBoxItemType = new System.Windows.Forms.ComboBox();
+            this.filter_cbBoxItemType = new System.Windows.Forms.ComboBox();
             this.lblType = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -75,19 +75,19 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbBoxItemType);
+            this.groupBox2.Controls.Add(this.filter_cbBoxItemType);
             this.groupBox2.Controls.Add(this.lblType);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
-            // cbBoxItemType
+            // filter_cbBoxItemType
             // 
-            this.cbBoxItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxItemType.FormattingEnabled = true;
-            resources.ApplyResources(this.cbBoxItemType, "cbBoxItemType");
-            this.cbBoxItemType.Name = "cbBoxItemType";
-            this.cbBoxItemType.SelectedValueChanged += new System.EventHandler(this.cbBoxItemType_SelectedValueChanged);
+            this.filter_cbBoxItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filter_cbBoxItemType.FormattingEnabled = true;
+            resources.ApplyResources(this.filter_cbBoxItemType, "filter_cbBoxItemType");
+            this.filter_cbBoxItemType.Name = "filter_cbBoxItemType";
+            this.filter_cbBoxItemType.SelectedValueChanged += new System.EventHandler(this.cbBoxItemType_SelectedValueChanged);
             // 
             // lblType
             // 
@@ -268,7 +268,7 @@
         protected internal System.Windows.Forms.Label lblState;
         protected internal System.Windows.Forms.Label lblEpi;
         protected internal System.Windows.Forms.Label lblName;
-        protected internal System.Windows.Forms.ComboBox cbBoxItemType;
+        protected internal System.Windows.Forms.ComboBox filter_cbBoxItemType;
         protected internal System.Windows.Forms.ComboBox cb_Category;
         protected internal System.Windows.Forms.TextBox txt_Comment;
         protected internal System.Windows.Forms.TextBox txt_Episodes;

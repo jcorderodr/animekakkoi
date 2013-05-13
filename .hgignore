@@ -14,3 +14,4 @@ source/packages/HtmlAgilityPack.1.4.6/lib/Net40-client/
 *.pdb
 source/Setup1/Setup1/Express/
 resources/reset-resource/
+release

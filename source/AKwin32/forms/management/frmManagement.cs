@@ -14,7 +14,7 @@ namespace AKwin32.forms.management
 {
     public abstract partial class frmManagement : AKwin32.forms.frmBase//, IUIManagement
     {
-        
+
 
         protected List<object> OriginalDataSource;
 
@@ -55,13 +55,13 @@ namespace AKwin32.forms.management
 
         void cbBoxItemType_SelectedValueChanged(object sender, EventArgs e)
         {
-            string item = (cbBoxItemType.SelectedItem as Catalog).Value;
+            string item = (filter_cbBoxItemType.SelectedItem as Catalog).Value;
             if (item == "--" || OriginalDataSource == null) return;
             listViewItems.Items.Clear();
             ENTITY_STATE state = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), item);
             ((IUIManagement)this).FilterData(OriginalDataSource.Where(c => (ENTITY_STATE)c.GetType().GetProperty("State").GetValue(c, null) == state).ToList());
         }
-        
+
         void listViewItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (e.Item == null)
@@ -116,7 +116,7 @@ namespace AKwin32.forms.management
             {
                 if (p.PropertyType == typeof(ENTITY_STATE))
                 {
-                    ENTITY_STATE s = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), ctrl.Text);
+                    ENTITY_STATE s = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), (ctrl as ComboBox).SelectedValue + "");
                     p.SetValue(entity, (int)s, null);
                 }
                 else //Sends to inherits class for check out.
@@ -179,9 +179,9 @@ namespace AKwin32.forms.management
 
         public void LoadDataToControls()
         {
-            base.FillComboBoxCatalog(cbBoxItemType, Catalog.GetEntitiesStateTypes());
+            base.FillComboBoxCatalog(filter_cbBoxItemType, Catalog.GetEntitiesTypesByLanguage());
 
-            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesStateTypes());
+            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesTypesByLanguage());
         }
 
         public void PrepareDataFromRepo()
