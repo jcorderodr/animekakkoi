@@ -43,6 +43,7 @@ WANT_TO = Pendiente
 save = Guardar
 cancel = Cancelar
 new_user = Nuevo Usuario
+waiting = Espere...
 
 
 
@@ -84,3 +85,4 @@ WANT_TO = Want it
 save = Save
 cancel = Cancel
 new_user = New User
+waiting = Please wait...

@@ -78,6 +78,7 @@ namespace Framework.io
 
                 if (regionStart == -1)
                 {
+                    //TODO: make the program start with another Culture
                     throw new NotImplementedException("Language is not implemented: " + cultureInfo.Parent.Name);
                 }
 
@@ -106,7 +107,6 @@ namespace Framework.io
 
                 messagesLibrary.Add(words[i].Trim(), words[++i].Trim());
             }
-
         }
 
 

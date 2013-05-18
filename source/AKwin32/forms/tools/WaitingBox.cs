@@ -22,6 +22,7 @@ namespace AKwin32.forms.tools
             WaitingBox.CheckForIllegalCrossThreadCalls = false;
             underThread.DoWork += new System.ComponentModel.DoWorkEventHandler(underThread_DoWork);
 
+            this.Text = base.Messages["waiting"];
             this.TopMost = true;
         }
 

@@ -96,9 +96,9 @@
             // 
             // cbSourceType
             // 
+            resources.ApplyResources(this.cbSourceType, "cbSourceType");
             this.cbSourceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSourceType.FormattingEnabled = true;
-            resources.ApplyResources(this.cbSourceType, "cbSourceType");
             this.cbSourceType.Name = "cbSourceType";
             // 
             // label3
@@ -108,8 +108,8 @@
             // 
             // lblUriError
             // 
-            this.lblUriError.AutoEllipsis = true;
             resources.ApplyResources(this.lblUriError, "lblUriError");
+            this.lblUriError.AutoEllipsis = true;
             this.lblUriError.ForeColor = System.Drawing.Color.DarkRed;
             this.lblUriError.Name = "lblUriError";
             // 
@@ -120,9 +120,9 @@
             // 
             // txtUrl
             // 
+            resources.ApplyResources(this.txtUrl, "txtUrl");
             this.txtUrl.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtUrl.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            resources.ApplyResources(this.txtUrl, "txtUrl");
             this.txtUrl.Name = "txtUrl";
             // 
             // lblType

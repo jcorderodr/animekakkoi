@@ -29,7 +29,12 @@ namespace Framework.io
             string aux = io.Configuration.GetSetting("entities");
             string[] aux2 = aux.Split(',');
             for (int i = 0; i < aux2.Length; i++)
-                list.Add(new Catalog() { Id = i + 1 + "", Value = aux2[i].Trim() });
+                list.Add(new Catalog()
+                {
+                    Id = i + 1 + "",
+                    Value = aux2[i].Trim(),
+                    Description = aux2[i].Trim()
+                });
 
             return list;
         }
@@ -47,7 +52,12 @@ namespace Framework.io
             string aux = io.Configuration.GetSetting("entities_types");
             string[] aux2 = aux.Split(',');
             for (int i = 0; i < aux2.Length; i++)
-                list.Add(new Catalog() { Id = i + 1 + "", Value = aux2[i].Trim() });
+                list.Add(new Catalog()
+                {
+                    Id = i + 1 + "",
+                    Value = aux2[i].Trim(),
+                    Description = aux2[i].Trim()
+                });
 
             return list;
         }
@@ -93,7 +103,12 @@ namespace Framework.io
             string aux = io.Configuration.GetSetting("anime_categories");
             string[] aux2 = aux.Split(',');
             for (int i = 0; i < aux2.Length; i++)
-                list.Add(new Catalog() { Id = i + 1 + "", Value = aux2[i] });
+                list.Add(new Catalog()
+                {
+                    Id = i + 1 + "",
+                    Value = aux2[i],
+                    Description = aux2[i]
+                });
 
             return list;
         }
@@ -111,7 +126,12 @@ namespace Framework.io
             string aux = io.Configuration.GetSetting("manga_categories");
             string[] aux2 = aux.Split(',');
             for (int i = 0; i < aux2.Length; i++)
-                list.Add(new Catalog() { Id = i + 1 + "", Value = aux2[i] });
+                list.Add(new Catalog()
+                {
+                    Id = i + 1 + "",
+                    Value = aux2[i],
+                    Description = aux2[i]
+                });
 
             return list;
         }

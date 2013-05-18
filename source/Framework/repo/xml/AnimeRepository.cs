@@ -112,7 +112,7 @@ namespace Framework.repo.xml
             };
             temp.Codigo = util.Expression.IntegerIfNull(item.Attribute("id").Value, 0);
             temp.Favorite = Convert.ToBoolean(item.Attribute("fav").Value);
-            temp.EpisodesString = item.Element("episode").Value;
+            temp.ProgressString = item.Element("episode").Value;
             temp.Rating = Convert.ToInt32(item.Element("rate").Value);
             return temp;
         }
@@ -126,7 +126,7 @@ namespace Framework.repo.xml
             element.Element("name").SetValue(item.Name);
             element.Element("state").SetValue((int)item.State);
             element.Element("rate").SetValue(item.Rating);
-            element.Element("episode").SetValue(item.EpisodesString);
+            element.Element("episode").SetValue(item.ProgressString);
             element.Element("comment").SetValue(item.Comment);
 
             return element;

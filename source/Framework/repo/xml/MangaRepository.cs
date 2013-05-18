@@ -106,7 +106,7 @@ namespace Framework.repo.xml
                 State = (ENTITY_STATE)util.Expression.IntegerIfNull(item.Element("state").Value, 0),
                 Comment = item.Element("comment").Value
             };
-            temp.ChapterString = item.Element("episode").Value;
+            temp.ProgressString = item.Element("episode").Value;
             temp.Codigo = util.Expression.IntegerIfNull(item.Attribute("id").Value, 0);
             temp.Favorite = Convert.ToBoolean(item.Attribute("fav").Value);
 
@@ -120,7 +120,7 @@ namespace Framework.repo.xml
             element.SetAttributeValue("id", item.Codigo);
             element.SetAttributeValue("category", (int)item.Category);
             element.SetAttributeValue("fav", item.Favorite);
-            element.Element("episode").SetValue(item.ChapterString);
+            element.Element("episode").SetValue(item.ProgressString);
             element.Element("name").SetValue(item.Name);
             element.Element("state").SetValue((int)item.State);
             element.Element("rate").SetValue(item.Rating);

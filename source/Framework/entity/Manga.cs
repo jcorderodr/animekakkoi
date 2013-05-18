@@ -21,7 +21,7 @@ namespace Framework.entity
         /// <summary>
         /// Gets or sets an string that represent the progress in the format x/xx.
         /// </summary>
-        public string ChapterString
+        public override string ProgressString
         {
             get
             {

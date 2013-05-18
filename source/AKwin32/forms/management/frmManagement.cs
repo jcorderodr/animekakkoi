@@ -15,7 +15,6 @@ namespace AKwin32.forms.management
     public abstract partial class frmManagement : AKwin32.forms.frmBase//, IUIManagement
     {
 
-
         protected List<object> OriginalDataSource;
 
         protected Catalog catalog;
@@ -25,12 +24,11 @@ namespace AKwin32.forms.management
         public frmManagement()
         {
             if (!(this is IUIManagement))
-                throw new NotImplementedException("The Inherit class must implements IUIManagement.");
+                throw new NotImplementedException("The Inherit class must implements IUIManagement interface.");
 
             InitializeComponent();
             catalog = new Catalog();
         }
-
 
         #region GUI Events
 
@@ -47,26 +45,38 @@ namespace AKwin32.forms.management
             else
                 ((IUIManagement)this).PrepareDataFromRepo();
 
-            ((IUIManagement)this).DoVisualChanges();
-
             this.LoadDataToControls();
             ((IUIManagement)this).LoadDataToControls();
+
+            DoVisualChanges();
+            ((IUIManagement)this).DoVisualChanges();
         }
 
         void cbBoxItemType_SelectedValueChanged(object sender, EventArgs e)
         {
-            string item = (filter_cbBoxItemType.SelectedItem as Catalog).Value;
-            if (item == "--" || OriginalDataSource == null) return;
-            listViewItems.Items.Clear();
-            ENTITY_STATE state = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), item);
-            ((IUIManagement)this).FilterData(OriginalDataSource.Where(c => (ENTITY_STATE)c.GetType().GetProperty("State").GetValue(c, null) == state).ToList());
+            
+            Catalog item = (filter_cbBoxItemType.SelectedItem as Catalog);
+            if (item == null || OriginalDataSource == null)
+                return;
+
+            if (item.Description == "--")
+            {
+                listViewItems.Items.Clear();
+                ((IUIManagement)this).LoadDataToControls();
+            }
+            else
+            {
+                listViewItems.Items.Clear();
+                ENTITY_STATE state = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), item.Id);
+                ((IUIManagement)this).FilterData(OriginalDataSource.Where(c => (ENTITY_STATE)c.GetType().GetProperty("State").GetValue(c, null) == state).ToList());
+            }
         }
 
         void listViewItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (e.Item == null)
             {
-                CleanUIComponents();
+                CleanUIComponents(panel1);
                 return;
             }
 
@@ -74,28 +84,33 @@ namespace AKwin32.forms.management
 
             foreach (Control ctrl in this.panel1.Controls)
             {
-                if (!ctrl.Name.Contains(CharacterNameSeparator)) continue;
+                try
+                {
+                    if (!ctrl.Name.Contains(CharacterNameSeparator)) continue;
 
-                string name = ctrl.Name.Split('_')[1];
-                System.Reflection.PropertyInfo p = item.GetType().GetProperty(name);
+                    string name = ctrl.Name.Split('_')[1];
+                    System.Reflection.PropertyInfo p = item.GetType().GetProperty(name);
 
-                if (p == null) // if P = null, this property must be unique
-                {
-                    ((IUIManagement)this).InheritControlSelection(ctrl, name, item);
-                    continue;
+                    if (p == null) // if P = null, this property must be unique
+                    {
+                        ((IUIManagement)this).InheritControlSelection(ctrl, name, item);
+                        continue;
+                    }
+                    if (ctrl is Label) // if lbl is Favorite
+                    {
+                        favoriteIndicator = bool.Parse(p.GetValue(item, null).ToString());
+                        AlternateFavoriteControl(favoriteIndicator);
+                        continue;
+                    }
+                    if (ctrl is ComboBox)
+                    {
+                        List<Catalog> temp = (ctrl as ComboBox).DataSource as List<Catalog>;
+                        (ctrl as ComboBox).Text = temp.FirstOrDefault(c => c.Value == p.GetValue(item, null).ToString()).Description;
+                        continue;
+                    }
+                    ctrl.Text = p.GetValue(item, null).ToString();
                 }
-                if (ctrl is Label) // if lbl is Favorite
-                {
-                    favoriteIndicator = bool.Parse(p.GetValue(item, null).ToString());
-                    AlternateFavoriteControl(favoriteIndicator);
-                    continue;
-                }
-                if (ctrl is ComboBox)
-                {
-                    (ctrl as ComboBox).Text = p.GetValue(item, null).ToString();
-                    continue;
-                }
-                ctrl.Text = p.GetValue(item, null).ToString();
+                catch { continue; }
             }
         }
 
@@ -175,6 +190,7 @@ namespace AKwin32.forms.management
         public void DoVisualChanges()
         {
             this.listViewItems.Resize += new EventHandler(this.listViewItems_Resize);
+            this.filter_cbBoxItemType.SelectedValueChanged += new EventHandler(cbBoxItemType_SelectedValueChanged);
         }
 
         public void LoadDataToControls()
@@ -233,8 +249,6 @@ namespace AKwin32.forms.management
 
 
         #endregion
-
-
 
 
 

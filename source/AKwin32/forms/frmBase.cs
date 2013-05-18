@@ -22,11 +22,16 @@ namespace AKwin32.forms
         /// </summary>
         protected internal const Char CharacterNameSeparator = '_';
 
-        protected internal com.io.AkConfiguration Configuration;
 
         #endregion
 
         #region Properties
+
+        public com.io.AkConfiguration Configuration
+        {
+            get;
+            set;
+        }
 
         public FORM_USING_STATE Form_State { get; set; }
 
@@ -48,6 +53,11 @@ namespace AKwin32.forms
             InitializeComponent();
             Form_State = FORM_USING_STATE.LISTENING;
             Configuration = new com.io.AkConfiguration();
+        }
+
+        ~frmBase()
+        {
+            //Configuration.Save();
         }
 
 
@@ -114,6 +124,12 @@ namespace AKwin32.forms
                 CleanInheritUIControl(ctrl);
         }
 
+        protected void CleanUIComponents(params Control[] ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+                CleanInheritUIControl(ctrl);
+        }
+
         private void CleanInheritUIControl(Control ctrl)
         {
             if (ctrl.HasChildren)
@@ -161,7 +177,7 @@ namespace AKwin32.forms
 
         protected void SetStyleToControl(Control.ControlCollection co)
         {
-            this.BackColor = Color.SlateGray;
+            this.BackColor = Configuration.FormBackGroundColor;
             foreach (Control ctrl in co)
             {
                 if (ctrl.HasChildren)

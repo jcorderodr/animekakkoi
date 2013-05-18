@@ -49,7 +49,7 @@
     <Compile Include="data\IAkData.cs" />
     <Compile Include="entity\entities_properties.cs" />
     <Compile Include="entity\Entity.cs" />
-    <Compile Include="entity\EntityBase.cs" />
+    <Compile Include="entity\EntitySource.cs" />
     <Compile Include="entity\Manga.cs" />
     <Compile Include="entity\User.cs" />
     <Compile Include="io\BackUp.cs" />

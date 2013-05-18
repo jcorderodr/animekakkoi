@@ -18,7 +18,7 @@ namespace AKwin32.forms
 
         private void frmBaseToolbox_Load(object sender, EventArgs e)
         {
-
+            this.TopMost = true;
         }
     }
 }

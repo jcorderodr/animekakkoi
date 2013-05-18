@@ -42,9 +42,10 @@ namespace Framework.media
         public McAnime()
         {
             Items = new List<object>();
+
         }
 
-        /// <exception cref="System.ArgumentException">When the web content hasen't the correct data.</exception>
+        /// <exception cre[assembly: NeutralResourcesLanguage("en-US")]f="System.ArgumentException">When the web content hasen't the correct data.</exception>
         /// <summary>
         /// 
         /// </summary>
@@ -189,7 +190,7 @@ namespace Framework.media
                     temp.Category = this.AnimeTypesCategories[aux];
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
-                    temp.EpisodesString = Expression.GetOnlyNumbersText(aux);
+                    temp.ProgressString = Expression.GetOnlyNumbersText(aux);
 
                     temp.Comment = "";
 
@@ -242,7 +243,7 @@ namespace Framework.media
                     temp.Category = this.MangaTypeCategories[Expression.ToCapCase(aux)];
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
-                    temp.ChapterString = aux;
+                    temp.ProgressString = aux;
 
                     temp.Comment = "";
 

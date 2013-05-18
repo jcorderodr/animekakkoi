@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Net;
+using AKwin32.Properties;
 
 namespace AKwin32.forms.maintenance
 {
@@ -17,6 +18,7 @@ namespace AKwin32.forms.maintenance
 
         WebProxy proxy;
 
+        Settings setts = Properties.Settings.Default;
 
         public frmOptions()
         {
@@ -25,11 +27,24 @@ namespace AKwin32.forms.maintenance
 
         private void frmOptions_Load(object sender, EventArgs e)
         {
-            proxy = (WebProxy)Framework.io.Configuration.GetProxy();
+            //proxy = (WebProxy)Framework.io.Configuration.GetProxy();
+            //txtHost.Text = proxy.Address.ToString();
 
-            txtHost.Text = proxy.Address.ToString();
-
+            panelColorSample.BackColor = setts.frmBackGroundColor;
+            
         }
+
+        #region tabPageUi
+
+        private void linkLabelColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+            {
+                panelColorSample.BackColor = colorDialog.Color;
+            }
+        }
+
+        #endregion
 
         #region tabPageData
 
@@ -67,7 +82,17 @@ namespace AKwin32.forms.maintenance
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            SaveChanges();
             this.Close();
+        }
+
+        private void SaveChanges()
+        {
+            setts.frmBackGroundColor = panelColorSample.BackColor;
+
+            setts.Save();
+            //
+            Program.ReloadVariables();
         }
 
 

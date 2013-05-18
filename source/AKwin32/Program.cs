@@ -8,6 +8,10 @@ namespace AKwin32
     static class Program
     {
 
+        internal static Framework.io.Language Language;
+
+        internal static com.io.AkConfiguration AkConfiguration;
+
         private static Framework.entity.User _user;
         public static Framework.entity.User SystemUser
         {
@@ -21,9 +25,10 @@ namespace AKwin32
 
 
         static forms.FrmMain frmMain;
-        static bool varsErrorLoading = false;
 
         static forms.tools.WaitingBox wBox;
+
+        static bool varsErrorLoading = false;
 
         /// <summary>
         /// The main entry point for the application.
@@ -31,16 +36,12 @@ namespace AKwin32
         [STAThread]
         static void Main(String[] args)
         {
-            LoadVariables();
-            if (varsErrorLoading) return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //wBox = new forms.tools.WaitingBox();
-            //wBox.StartUntilStopped(null);
+            LoadVariables();
+            if (varsErrorLoading) return;
 
-            frmMain = new forms.FrmMain();
-            Application.Run(frmMain);
 
             if (args.Length > 0)
             {
@@ -50,6 +51,7 @@ namespace AKwin32
                 cmd.ExecActions();
             }
 
+            StartUI();
         }
 
         private static void LoadVariables()
@@ -57,6 +59,7 @@ namespace AKwin32
             try
             {
                 Language = new Framework.io.Language();
+                AkConfiguration = new com.io.AkConfiguration();
 
                 varsErrorLoading = !Framework.io.Configuration.TryFileInspection();
             }
@@ -67,10 +70,23 @@ namespace AKwin32
             }
         }
 
+        private static void StartUI()
+        {
+            //wBox = new forms.tools.WaitingBox();
+            //wBox.StartUntilStopped(null);
+            frmMain = new forms.FrmMain();
+            frmMain.Configuration = AkConfiguration;
 
-        public const String AppTitle = "AnimeKakkoi vDev";
+            Application.Run(frmMain);
+        }
 
-        internal static Framework.io.Language Language;
+        public static void ReloadVariables()
+        {
+            LoadVariables();
+        }
+
+        public const String AppTitle = "AnimeKakkoi Alpha v0.1.01";
+
 
     }
 }

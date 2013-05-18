@@ -120,16 +120,31 @@
   <data name="tabPageConn.Text" xml:space="preserve">
     <value>Conexión</value>
   </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Colores</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Fondos de Formularios:</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Limpiar Data</value>
+  </data>
   <data name="data_btnCleanItems.Text" xml:space="preserve">
     <value>Limpiar Registros</value>
   </data>
   <data name="data_btnCleanAll.Text" xml:space="preserve">
     <value>Limpiar Base de Datos</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Limpiar Data</value>
+  <data name="btnAccept.Text" xml:space="preserve">
+    <value>&amp;Aceptar</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancelar</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
