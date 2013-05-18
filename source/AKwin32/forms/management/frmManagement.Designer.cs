@@ -42,7 +42,7 @@
             this.cb_Category = new System.Windows.Forms.ComboBox();
             this.txt_Comment = new System.Windows.Forms.TextBox();
             this.txt_Rating = new System.Windows.Forms.TextBox();
-            this.txt_Episodes = new System.Windows.Forms.TextBox();
+            this.txt_ProgressString = new System.Windows.Forms.TextBox();
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.lblComment = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -87,7 +87,6 @@
             this.filter_cbBoxItemType.FormattingEnabled = true;
             resources.ApplyResources(this.filter_cbBoxItemType, "filter_cbBoxItemType");
             this.filter_cbBoxItemType.Name = "filter_cbBoxItemType";
-            this.filter_cbBoxItemType.SelectedValueChanged += new System.EventHandler(this.cbBoxItemType_SelectedValueChanged);
             // 
             // lblType
             // 
@@ -111,7 +110,7 @@
             this.panel1.Controls.Add(this.cb_Category);
             this.panel1.Controls.Add(this.txt_Comment);
             this.panel1.Controls.Add(this.txt_Rating);
-            this.panel1.Controls.Add(this.txt_Episodes);
+            this.panel1.Controls.Add(this.txt_ProgressString);
             this.panel1.Controls.Add(this.txt_Name);
             this.panel1.Controls.Add(this.lblComment);
             this.panel1.Controls.Add(this.label1);
@@ -165,11 +164,11 @@
             this.txt_Rating.Name = "txt_Rating";
             this.txt_Rating.Validated += new System.EventHandler(this.guiField_Validated);
             // 
-            // txt_Episodes
+            // txt_ProgressString
             // 
-            resources.ApplyResources(this.txt_Episodes, "txt_Episodes");
-            this.txt_Episodes.Name = "txt_Episodes";
-            this.txt_Episodes.Validated += new System.EventHandler(this.guiField_Validated);
+            resources.ApplyResources(this.txt_ProgressString, "txt_ProgressString");
+            this.txt_ProgressString.Name = "txt_ProgressString";
+            this.txt_ProgressString.Validated += new System.EventHandler(this.guiField_Validated);
             // 
             // txt_Name
             // 
@@ -271,7 +270,7 @@
         protected internal System.Windows.Forms.ComboBox filter_cbBoxItemType;
         protected internal System.Windows.Forms.ComboBox cb_Category;
         protected internal System.Windows.Forms.TextBox txt_Comment;
-        protected internal System.Windows.Forms.TextBox txt_Episodes;
+        protected internal System.Windows.Forms.TextBox txt_ProgressString;
         protected internal System.Windows.Forms.TextBox txt_Rating;
         protected internal System.Windows.Forms.Label label1;
         protected internal System.Windows.Forms.Label lbl_Favorite;

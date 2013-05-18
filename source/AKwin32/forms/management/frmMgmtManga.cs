@@ -69,12 +69,13 @@ namespace AKwin32.forms.management
 
         void IUIManagement.InheritControlSelection(System.Windows.Forms.Control ctrl, string name, object entity)
         {
+            //this must not happen. It's here just in case.
             System.Reflection.PropertyInfo p;
             Manga manga = entity as Manga;
             if (name == "Episodes")
             {
                 p = entity.GetType().GetProperty("Chapters");
-                ctrl.Text = manga.ChapterString;
+                ctrl.Text = manga.ProgressString;
             }
         }
 

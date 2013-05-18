@@ -158,7 +158,7 @@ namespace AKwin32.forms.management
                     if (name == "Episodes")
                     {
                         p = entityContent.GetType().GetProperty("Chapters");
-                        ctrl.Text = manga.ChapterString;
+                        ctrl.Text = manga.ProgressString;
                     }
                     continue;
                 }

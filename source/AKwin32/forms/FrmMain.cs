@@ -186,7 +186,7 @@ namespace AKwin32.forms
         {
             try
             {
-                System.Diagnostics.Process.Start("http://corderoski.wordpress.com/bluegletek-soft/");
+                System.Diagnostics.Process.Start(base.Configuration.ProductUrl);
             }
             catch { }
         }
@@ -255,8 +255,9 @@ namespace AKwin32.forms
 
             #endregion
 
-            tools.WaitingBox wBox = new tools.WaitingBox();
-            wBox.StartUntilStopped();
+            //Just in case that take too much time.
+            //--tools.WaitingBox wBox = new tools.WaitingBox();
+            //--wBox.StartUntilStopped();
 
             #region Load Data
 
@@ -302,7 +303,7 @@ namespace AKwin32.forms
 
             #endregion
 
-            wBox.Stop();
+            //--wBox.Stop();
             try
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(saveDialog.FileName);

@@ -3,23 +3,24 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AKwin32.Properties;
 
 namespace AKwin32.com.io
 {
     /// <summary>
-    /// Unused.
+    /// 
     /// </summary>
-    public class AkConfiguration
+    public sealed class AkConfiguration
     {
 
-        public Color FormsColor { get; set; }
+        public Color FormBackGroundColor { get { return setts.frmBackGroundColor; } }
 
+        public String ProductUrl { get { return setts.ApplicationProductUrl; } }
 
-        public AkConfiguration()
-        {
-            
-        }
-
+        /// <summary>
+        /// Gets all the settings.
+        /// </summary>
+        static Settings setts = Properties.Settings.Default;
 
     }
 }

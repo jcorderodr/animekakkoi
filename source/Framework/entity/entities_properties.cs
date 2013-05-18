@@ -6,6 +6,18 @@ using System.Text;
 namespace Framework.entity
 {
 
+    public abstract class EntityProperties
+    {
+
+        public const Char EPISODE_CHAPTER_SEPARATOR = '/';
+
+        public const Char EPISODE_CHAPTER_EMPTYCHAR = '-';
+
+        public const Int32 EPISODE_CHAPTER_EMPTYINT = 0;
+
+    }
+
+
     public enum ENTITY_STATE
     {
         /// <summary>

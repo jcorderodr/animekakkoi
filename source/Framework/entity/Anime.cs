@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Framework.entity
 {
-    public  class Anime : EntitySource
+    public class Anime : EntitySource
     {
 
         public ANIME_TYPE Category { get; set; }
@@ -15,15 +15,20 @@ namespace Framework.entity
         /// <summary>
         /// Gets or sets an string that represent the progress in the format x/xx.
         /// </summary>
-        public String EpisodesString
+        public override String ProgressString
         {
             get
             {
-                return String.Format("{0}/{1}", Episodes[0], Episodes[1]);
+                return String.Format("{0}{2}{1}", Episodes[0], Episodes[1], EntityProperties.EPISODE_CHAPTER_SEPARATOR);
             }
             set
             {
-                string[] temp = value.Split('/');
+                string[] temp = new string[2];
+                if (value.Contains(EntityProperties.EPISODE_CHAPTER_SEPARATOR))
+                    temp = value.Split(EntityProperties.EPISODE_CHAPTER_SEPARATOR);
+                else
+                    temp = String.Format("{0}{2}{1}", value, EntityProperties.EPISODE_CHAPTER_EMPTYCHAR, EntityProperties.EPISODE_CHAPTER_SEPARATOR).Split(EntityProperties.EPISODE_CHAPTER_SEPARATOR);
+
                 Episodes = temp;
             }
         }
@@ -44,6 +49,6 @@ namespace Framework.entity
         WEB = 5
     }
 
-  
+
 
 }

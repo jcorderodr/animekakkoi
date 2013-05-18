@@ -90,7 +90,7 @@ namespace AKwin32.forms.management
 
             anime.Comment = txt_Comment.Text;
             anime.Rating = Expression.IntegerIfNull(txt_Rating.Text, 0);
-            anime.EpisodesString = Expression.StringIfNull(txt_Episodes.Text, "0/0");
+            anime.ProgressString = Expression.StringIfNull(txt_Episodes.Text, "0/0");
 
             Framework.repo.xml.AnimeRepository repo;
             repo = new Framework.repo.xml.AnimeRepository();
@@ -114,7 +114,7 @@ namespace AKwin32.forms.management
             item.Comment = txt_Comment.Text;
             item.Rating = Expression.IntegerIfNull(txt_Rating.Text, 0);
             //if doesnt cotains '/' it ends 01/?, otherwise x/y
-            item.ChapterString = txt_Episodes.Text.Contains("/") ? txt_Episodes.Text : txt_Episodes.Text + "/?";
+            item.ProgressString = txt_Episodes.Text.Contains("/") ? txt_Episodes.Text : txt_Episodes.Text + "/?";
 
             Framework.repo.xml.MangaRepository repo;
             repo = new Framework.repo.xml.MangaRepository();

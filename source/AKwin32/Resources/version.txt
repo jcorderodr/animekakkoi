@@ -1,10 +1,16 @@
 
+AnimeKakkoi - version 0.1.01 Alpha
+
+# May 17, 2013
+-fix some UI behavoir
+-fix Installations Configuration
+-fix Localization issues (Dll's)
+
 AnimeKakkoi - version 0.1.000 Alpha -DEV
 
-# Abril ??, 2013
+# May 13, 2013
 -First Release
 -Basics Functions
 -Media Types Anime & Manga
 
-
-#		Fin		#
+#		End		#

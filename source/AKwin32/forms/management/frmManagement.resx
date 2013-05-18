@@ -405,31 +405,31 @@
   <data name="&gt;&gt;txt_Rating.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="txt_Episodes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="txt_ProgressString.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="txt_Episodes.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="txt_ProgressString.Font" type="System.Drawing.Font, System.Drawing">
     <value>Trebuchet MS, 8.25pt</value>
   </data>
-  <data name="txt_Episodes.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="txt_ProgressString.Location" type="System.Drawing.Point, System.Drawing">
     <value>117, 190</value>
   </data>
-  <data name="txt_Episodes.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txt_ProgressString.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 20</value>
   </data>
-  <data name="txt_Episodes.TabIndex" type="System.Int32, mscorlib">
+  <data name="txt_ProgressString.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;txt_Episodes.Name" xml:space="preserve">
-    <value>txt_Episodes</value>
+  <data name="&gt;&gt;txt_ProgressString.Name" xml:space="preserve">
+    <value>txt_ProgressString</value>
   </data>
-  <data name="&gt;&gt;txt_Episodes.Type" xml:space="preserve">
+  <data name="&gt;&gt;txt_ProgressString.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txt_Episodes.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txt_ProgressString.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;txt_Episodes.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;txt_ProgressString.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="txt_Name.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -830,6 +830,6 @@
     <value>frmManagement</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.0.26906, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.1.30179, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
