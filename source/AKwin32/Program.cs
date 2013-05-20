@@ -42,6 +42,8 @@ namespace AKwin32
             LoadVariables();
             if (varsErrorLoading) return;
 
+            System.Threading.Thread.CurrentThread.CurrentCulture = AkConfiguration.ApplicationCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = AkConfiguration.ApplicationCulture;
 
             if (args.Length > 0)
             {

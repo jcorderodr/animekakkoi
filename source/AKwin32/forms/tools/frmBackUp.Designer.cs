@@ -57,6 +57,10 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // saveFileDialog
+            // 
+            resources.ApplyResources(this.saveFileDialog, "saveFileDialog");
+            // 
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
@@ -89,6 +93,10 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // openFileDialog
+            // 
+            resources.ApplyResources(this.openFileDialog, "openFileDialog");
+            // 
             // frmBackUp
             // 
             this.AcceptButton = this.btnExport;
@@ -100,6 +108,7 @@
             this.Controls.Add(this.btnExport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmBackUp";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmBackUp_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

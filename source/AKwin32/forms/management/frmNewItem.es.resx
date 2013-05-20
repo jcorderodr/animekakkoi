@@ -158,7 +158,7 @@
     <value>Estado:</value>
   </data>
   <data name="lblEpi.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 109</value>
+    <value>235, 109</value>
   </data>
   <data name="lblEpi.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 16</value>

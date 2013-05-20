@@ -48,7 +48,7 @@ namespace Framework.util
             catch { return 0; }
         }
 
-        public static String GetOnlyNumbersText(string text)
+        public static String GetTextInChapterFormat(string text)
         {
             text = text.Replace("-", "0");
             System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("([^0-9+/][^-]|-)");

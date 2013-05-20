@@ -21,6 +21,8 @@ namespace AKwin32.forms.maintenance
 
         private void frmPreferences_Load(object sender, EventArgs e)
         {
+            cbBoxLanguage.Text = setts.ApplicationCulture;
+            // -
             panelColorSample.BackColor = setts.frmBackGroundColor;
             linkLabelFontColor.LinkColor = setts.UiFontsColor;
 
@@ -74,8 +76,11 @@ namespace AKwin32.forms.maintenance
             setts.UiFontsStyles = linkLabelFontsStyle.Font;
             setts.UiFontsColor = linkLabelFontColor.LinkColor;
             setts.UiControlsFontsStyle = linkLabelControlsStyle.Font;
+            setts.ApplicationCulture = cbBoxLanguage.Text;
 
             setts.Save();
+            // -
+            //Framework.io.Configuration.SaveSetting("key", );
         }
 
 

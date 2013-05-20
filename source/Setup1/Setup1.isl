@@ -4586,7 +4586,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]AKwin32.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{701253FF-3431-4ABB-8876-5D0B3240B13B}</td><td/></row>
 		<row><td>ProductName</td><td>AnimeKakkoi</td><td/></row>
-		<row><td>ProductVersion</td><td>0.1.01</td><td/></row>
+		<row><td>ProductVersion</td><td>0.1.2</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>

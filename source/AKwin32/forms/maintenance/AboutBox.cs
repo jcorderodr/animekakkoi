@@ -104,6 +104,11 @@ namespace AKwin32.forms.maintenance
 
         #endregion
 
+        private void AboutBox_Load(object sender, EventArgs e)
+        {
+            linkLabelTitle.Text = Program.AppTitle;
+        }
+
 
     }
 }

@@ -39,12 +39,14 @@ namespace AKwin32.forms.management
 
         private void txt_Episodes_Validated(object sender, EventArgs e)
         {
-            txt_Episodes.Text = Expression.GetOnlyNumbersText(txt_Episodes.Text);
+            txt_Episodes.Text = Expression.GetTextInChapterFormat(txt_Episodes.Text);
         }
 
         private void txt_Rating_Validated(object sender, EventArgs e)
         {
             txt_Rating.Text = Expression.GetOnlyNumbers(txt_Rating.Text) + "";
+            if (Convert.ToInt32(txt_Rating.Text) > 10)
+                txt_Rating.Focus();
         }
 
         private void btnAccept_Click(object sender, EventArgs e)

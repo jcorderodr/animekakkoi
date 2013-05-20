@@ -77,10 +77,10 @@
             // 
             // listViewItems
             // 
+            resources.ApplyResources(this.listViewItems, "listViewItems");
             this.listViewItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.itemName,
             this.ItemDesc});
-            resources.ApplyResources(this.listViewItems, "listViewItems");
             this.listViewItems.Name = "listViewItems";
             this.listViewItems.UseCompatibleStateImageBehavior = false;
             this.listViewItems.View = System.Windows.Forms.View.List;
@@ -96,18 +96,18 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.cbSourceType);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtSearchCriteria);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // cbSourceType
             // 
-            this.cbSourceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cbSourceType, "cbSourceType");
+            this.cbSourceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSourceType.FormattingEnabled = true;
             this.cbSourceType.Name = "cbSourceType";
             // 
@@ -123,6 +123,7 @@
             // 
             // txtSearchCriteria
             // 
+            this.txtSearchCriteria.AcceptsReturn = true;
             resources.ApplyResources(this.txtSearchCriteria, "txtSearchCriteria");
             this.txtSearchCriteria.Name = "txtSearchCriteria";
             this.txtSearchCriteria.Validated += new System.EventHandler(this.txtSearchCriteria_Validated);
@@ -136,6 +137,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Name = "frmQuickSearch";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmQuickSearch_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

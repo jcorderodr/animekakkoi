@@ -54,9 +54,9 @@
             // 
             // panelBase
             // 
+            resources.ApplyResources(this.panelBase, "panelBase");
             this.panelBase.Controls.Add(this.txtUserInput);
             this.panelBase.Controls.Add(this.lblRequest);
-            resources.ApplyResources(this.panelBase, "panelBase");
             this.panelBase.Name = "panelBase";
             // 
             // txtUserInput
@@ -79,6 +79,7 @@
             this.Controls.Add(this.btnAccept);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmInputRequest";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInputRequest_FormClosing);
             this.Load += new System.EventHandler(this.frmInputRequest_Load);
             this.panelBase.ResumeLayout(false);

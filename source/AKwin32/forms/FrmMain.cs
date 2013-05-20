@@ -222,6 +222,23 @@ namespace AKwin32.forms
             }
             catch { }
         }
+        
+        private void searchUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string metadata = Properties.Settings.Default.ApplicationMetadataUrl;
+            try
+            {
+                System.Diagnostics.Process.Start(metadata);
+
+                //System.Net.WebClient client = new System.Net.WebClient();
+                //byte[] data = client.DownloadData(metadata);
+                //string temp = client.DownloadString(metadata);
+
+                //client.Dispose();
+            }
+            catch { }
+
+        }
 
         private void aboutAkToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -348,6 +365,7 @@ namespace AKwin32.forms
         }
 
         #endregion
+
 
 
 

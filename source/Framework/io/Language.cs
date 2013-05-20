@@ -81,7 +81,7 @@ namespace Framework.io
                 reader = new System.IO.StreamReader(file, true);
             }
             catch (System.IO.IOException ex) { throw ex; }
-            
+
             try
             {
                 string aux = reader.ReadToEnd();
@@ -110,6 +110,12 @@ namespace Framework.io
                 reader.Close();
                 reader.Dispose();
             }
+        }
+
+        public void Reload(CultureInfo newCulture)
+        {
+            cultureInfo = CultureInfo.CurrentCulture;
+            Load(cultureInfo);
         }
 
         private void SplitWords(string text)

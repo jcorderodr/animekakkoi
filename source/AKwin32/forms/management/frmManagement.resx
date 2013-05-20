@@ -175,7 +175,7 @@
     <value>3</value>
   </data>
   <data name="filter_cbBoxItemType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 15</value>
+    <value>82, 13</value>
   </data>
   <data name="filter_cbBoxItemType.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -830,6 +830,6 @@
     <value>frmManagement</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.1.30179, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBase, anime-k, Version=1.0.1.30037, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

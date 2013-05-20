@@ -262,11 +262,17 @@
     <EmbeddedResource Include="forms\maintenance\frmCatalog.resx">
       <DependentUpon>frmCatalog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\maintenance\frmOptions.en.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\maintenance\frmOptions.es.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\maintenance\frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\maintenance\frmPreferences.en.resx">
+      <DependentUpon>frmPreferences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\maintenance\frmPreferences.es.resx">
       <DependentUpon>frmPreferences.cs</DependentUpon>
@@ -274,17 +280,29 @@
     <EmbeddedResource Include="forms\maintenance\frmPreferences.resx">
       <DependentUpon>frmPreferences.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\maintenance\frmUsers.en.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\maintenance\frmUsers.es.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\maintenance\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\management\frmEntityEdit.en.resx">
+      <DependentUpon>frmEntityEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\management\frmEntityEdit.es.resx">
       <DependentUpon>frmEntityEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\management\frmEntityEdit.resx">
       <DependentUpon>frmEntityEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\management\frmImporter.en.resx">
+      <DependentUpon>frmImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\management\frmManagement.en.resx">
+      <DependentUpon>frmManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\management\frmManagement.es.resx">
       <DependentUpon>frmManagement.cs</DependentUpon>
@@ -304,6 +322,9 @@
     <EmbeddedResource Include="forms\management\frmNewItem.resx">
       <DependentUpon>frmNewItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmBackUp.en.resx">
+      <DependentUpon>frmBackUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmBackUp.es.resx">
       <DependentUpon>frmBackUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,7 +340,13 @@
     <EmbeddedResource Include="forms\management\frmImporter.resx">
       <DependentUpon>frmImporter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmInputRequest.en.resx">
+      <DependentUpon>frmInputRequest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmInputRequest.es.resx">
+      <DependentUpon>frmInputRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmInputRequest.nl-NL.resx">
       <DependentUpon>frmInputRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmInputRequest.resx">
@@ -327,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmItemSelector.resx">
       <DependentUpon>frmItemSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmQuickSearch.en.resx">
+      <DependentUpon>frmQuickSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmQuickSearch.es.resx">
       <DependentUpon>frmQuickSearch.cs</DependentUpon>

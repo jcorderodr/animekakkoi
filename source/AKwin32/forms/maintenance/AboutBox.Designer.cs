@@ -35,6 +35,7 @@
             this.labelCompanyName = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
+            this.linkLabelTitle = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,11 +116,24 @@
             this.okButton.TabIndex = 31;
             this.okButton.Text = "&OK";
             // 
+            // linkLabelTitle
+            // 
+            this.linkLabelTitle.AutoSize = true;
+            this.linkLabelTitle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelTitle.LinkColor = System.Drawing.SystemColors.MenuHighlight;
+            this.linkLabelTitle.Location = new System.Drawing.Point(158, 47);
+            this.linkLabelTitle.Name = "linkLabelTitle";
+            this.linkLabelTitle.Size = new System.Drawing.Size(29, 19);
+            this.linkLabelTitle.TabIndex = 32;
+            this.linkLabelTitle.TabStop = true;
+            this.linkLabelTitle.Text = "AK";
+            // 
             // AboutBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 283);
+            this.Controls.Add(this.linkLabelTitle);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.labelProductName);
             this.Controls.Add(this.labelVersion);
@@ -135,6 +149,8 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "About";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.AboutBox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -150,6 +166,7 @@
         private System.Windows.Forms.Label labelCompanyName;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.LinkLabel linkLabelTitle;
 
     }
 }

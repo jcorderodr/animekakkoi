@@ -64,13 +64,14 @@
             // 
             // tabPageConn
             // 
-            this.tabPageConn.Controls.Add(this.groupBox1);
             resources.ApplyResources(this.tabPageConn, "tabPageConn");
+            this.tabPageConn.Controls.Add(this.groupBox1);
             this.tabPageConn.Name = "tabPageConn";
             this.tabPageConn.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -80,7 +81,6 @@
             this.groupBox1.Controls.Add(this.txtHost);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.chkUseProxy);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -133,31 +133,31 @@
             // 
             // tabPageData
             // 
-            this.tabPageData.Controls.Add(this.groupBox2);
             resources.ApplyResources(this.tabPageData, "tabPageData");
+            this.tabPageData.Controls.Add(this.groupBox2);
             this.tabPageData.Name = "tabPageData";
             this.tabPageData.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.data_btnCleanItems);
             this.groupBox2.Controls.Add(this.data_btnCleanAll);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
             // data_btnCleanItems
             // 
-            this.data_btnCleanItems.Image = global::AKwin32.Properties.Resources.close;
             resources.ApplyResources(this.data_btnCleanItems, "data_btnCleanItems");
+            this.data_btnCleanItems.Image = global::AKwin32.Properties.Resources.close;
             this.data_btnCleanItems.Name = "data_btnCleanItems";
             this.data_btnCleanItems.UseVisualStyleBackColor = true;
             this.data_btnCleanItems.Click += new System.EventHandler(this.data_btnCleanItems_Click);
             // 
             // data_btnCleanAll
             // 
-            this.data_btnCleanAll.Image = global::AKwin32.Properties.Resources.delete;
             resources.ApplyResources(this.data_btnCleanAll, "data_btnCleanAll");
+            this.data_btnCleanAll.Image = global::AKwin32.Properties.Resources.delete;
             this.data_btnCleanAll.Name = "data_btnCleanAll";
             this.data_btnCleanAll.UseVisualStyleBackColor = true;
             this.data_btnCleanAll.Click += new System.EventHandler(this.data_btnCleanAll_Click);
