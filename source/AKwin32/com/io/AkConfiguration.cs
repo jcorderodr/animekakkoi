@@ -13,6 +13,8 @@ namespace AKwin32.com.io
     public sealed class AkConfiguration
     {
 
+        public System.Globalization.CultureInfo ApplicationCulture { get { return new System.Globalization.CultureInfo(setts.ApplicationCulture); } }
+
         public Color FormBackGroundColor { get { return setts.frmBackGroundColor; } }
 
         public String ProductUrl { get { return setts.ApplicationProductUrl; } }

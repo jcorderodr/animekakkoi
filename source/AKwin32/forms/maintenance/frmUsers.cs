@@ -77,7 +77,9 @@ namespace AKwin32.forms.maintenance
         private void btnEraseUser_Click(object sender, EventArgs e)
         {
             User usr = cboxUsers.SelectedItem as User;
+            if (usr == null) return;
             repo.Remove(usr);
+            listViewSources.Items.Clear();
             LoadControlsContent();
         }
 

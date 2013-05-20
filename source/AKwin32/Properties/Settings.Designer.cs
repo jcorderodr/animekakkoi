@@ -79,5 +79,26 @@ namespace AKwin32.Properties {
                 this["UiControlsFontsStyle"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://sourceforge.net/projects/animekakkoi/files/latest/download")]
+        public string ApplicationMetadataUrl {
+            get {
+                return ((string)(this["ApplicationMetadataUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("es-ES")]
+        public string ApplicationCulture {
+            get {
+                return ((string)(this["ApplicationCulture"]));
+            }
+            set {
+                this["ApplicationCulture"] = value;
+            }
+        }
     }
 }

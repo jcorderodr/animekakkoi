@@ -178,6 +178,7 @@ namespace AKwin32.forms
         protected void SetStyleToControl(Control.ControlCollection co)
         {
             this.BackColor = Configuration.FormBackGroundColor;
+            
             foreach (Control ctrl in co)
             {
                 if (ctrl.HasChildren)

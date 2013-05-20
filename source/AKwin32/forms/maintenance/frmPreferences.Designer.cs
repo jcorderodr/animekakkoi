@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPreferences));
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbBoxLanguage = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPageUi = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.linkLabelControlsStyle = new System.Windows.Forms.LinkLabel();
@@ -43,6 +47,8 @@
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.tabControl1.SuspendLayout();
+            this.tabPageGeneral.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPageUi.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -52,9 +58,40 @@
             // tabControl1
             // 
             resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Controls.Add(this.tabPageGeneral);
             this.tabControl1.Controls.Add(this.tabPageUi);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
+            // 
+            // tabPageGeneral
+            // 
+            resources.ApplyResources(this.tabPageGeneral, "tabPageGeneral");
+            this.tabPageGeneral.Controls.Add(this.groupBox2);
+            this.tabPageGeneral.Name = "tabPageGeneral";
+            this.tabPageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.cbBoxLanguage);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // cbBoxLanguage
+            // 
+            resources.ApplyResources(this.cbBoxLanguage, "cbBoxLanguage");
+            this.cbBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxLanguage.FormattingEnabled = true;
+            this.cbBoxLanguage.Items.AddRange(new object[] {
+            resources.GetString("cbBoxLanguage.Items"),
+            resources.GetString("cbBoxLanguage.Items1")});
+            this.cbBoxLanguage.Name = "cbBoxLanguage";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // tabPageUi
             // 
@@ -156,6 +193,9 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmPreferences_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPageGeneral.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPageUi.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -182,5 +222,9 @@
         private System.Windows.Forms.LinkLabel linkLabelFontsStyle;
         private System.Windows.Forms.LinkLabel linkLabelFontColor;
         private System.Windows.Forms.LinkLabel linkLabelControlsStyle;
+        private System.Windows.Forms.TabPage tabPageGeneral;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbBoxLanguage;
     }
 }

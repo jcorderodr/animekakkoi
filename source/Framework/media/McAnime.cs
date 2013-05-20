@@ -190,7 +190,7 @@ namespace Framework.media
                     temp.Category = this.AnimeTypesCategories[aux];
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
-                    temp.ProgressString = Expression.GetOnlyNumbersText(aux);
+                    temp.ProgressString = Expression.GetTextInChapterFormat(aux);
 
                     temp.Comment = "";
 

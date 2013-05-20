@@ -17,5 +17,11 @@
     <Setting Name="UiControlsFontsStyle" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Arial Narrow, 9pt, style=Bold</Value>
     </Setting>
+    <Setting Name="ApplicationMetadataUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://sourceforge.net/projects/animekakkoi/files/latest/download</Value>
+    </Setting>
+    <Setting Name="ApplicationCulture" Type="System.String" Scope="User">
+      <Value Profile="(Default)">es-ES</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

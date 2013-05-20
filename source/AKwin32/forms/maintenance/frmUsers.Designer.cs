@@ -44,12 +44,12 @@
             // 
             // panelBase
             // 
+            resources.ApplyResources(this.panelBase, "panelBase");
             this.panelBase.Controls.Add(this.btnEraseUser);
             this.panelBase.Controls.Add(this.lblSources);
             this.panelBase.Controls.Add(this.listViewSources);
             this.panelBase.Controls.Add(this.cboxUsers);
             this.panelBase.Controls.Add(this.lblUsers);
-            resources.ApplyResources(this.panelBase, "panelBase");
             this.panelBase.Name = "panelBase";
             // 
             // btnEraseUser
@@ -80,9 +80,9 @@
             // 
             // cboxUsers
             // 
+            resources.ApplyResources(this.cboxUsers, "cboxUsers");
             this.cboxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxUsers.FormattingEnabled = true;
-            resources.ApplyResources(this.cboxUsers, "cboxUsers");
             this.cboxUsers.Name = "cboxUsers";
             this.cboxUsers.SelectedIndexChanged += new System.EventHandler(this.cboxUsers_SelectedIndexChanged);
             // 

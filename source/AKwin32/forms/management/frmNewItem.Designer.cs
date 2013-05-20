@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewItem));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.cb_Category = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.chkBox_Favorite = new System.Windows.Forms.CheckBox();
@@ -50,9 +52,10 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cb_Category);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.chkBox_Favorite);
@@ -66,7 +69,18 @@
             this.panel1.Controls.Add(this.lblState);
             this.panel1.Controls.Add(this.lblEpi);
             this.panel1.Controls.Add(this.lblName);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
             // 
             // cb_Category
             // 
@@ -188,5 +202,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

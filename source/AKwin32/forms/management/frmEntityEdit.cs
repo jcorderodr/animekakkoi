@@ -27,7 +27,7 @@ namespace AKwin32.forms.management
 
         }
 
-        #region UI Events 
+        #region UI Events
 
         private void frmEntityEdit_Load(object sender, EventArgs e)
         {
@@ -45,7 +45,7 @@ namespace AKwin32.forms.management
             //--{
             //--    base.FillComboBoxCatalog(cb_Category, Catalog.GetEntitiesValidTypes());
             //--}
-           
+
             LoadItem();
         }
 
@@ -76,17 +76,15 @@ namespace AKwin32.forms.management
             }
             else if (p == null) // if P = null, this property must be unique
             {
-                Manga manga = entityContent as Manga;
-                if (name == "Episodes")
-                {
-                    string[] values = Framework.util.Expression.GetOnlyNumbersText(ctrl.Text).Split('/');
-                    p = entityContent.GetType().GetProperty("Chapters");
-                    p.SetValue(entityContent, values, null);
-                }
+                //             
             }
             else
-                p.SetValue(entityContent, Convert.ChangeType(ctrl.Text, p.PropertyType), null);
+            {
+                if (name == "Episodes" || name == "Chapters")
+                    p = entityContent.GetType().GetProperty("ProgressString");
 
+                p.SetValue(entityContent, Convert.ChangeType(ctrl.Text, p.PropertyType), null);
+            }
 
             this.Form_State = FORM_USING_STATE.EDITING;
         }
@@ -154,12 +152,6 @@ namespace AKwin32.forms.management
 
                 if (p == null) // if P = null, this property must be unique
                 {
-                    Manga manga = entityContent as Manga;
-                    if (name == "Episodes")
-                    {
-                        p = entityContent.GetType().GetProperty("Chapters");
-                        ctrl.Text = manga.ProgressString;
-                    }
                     continue;
                 }
                 if (ctrl is Label) // if lbl is Favorite
@@ -172,6 +164,10 @@ namespace AKwin32.forms.management
                 {
                     (ctrl as ComboBox).Text = p.GetValue(entityContent, null).ToString();
                     continue;
+                }
+                if (name == "Episodes" || name == "Chapters")
+                {
+                    p = entityContent.GetType().GetProperty("ProgressString");
                 }
                 ctrl.Text = p.GetValue(entityContent, null).ToString();
             }

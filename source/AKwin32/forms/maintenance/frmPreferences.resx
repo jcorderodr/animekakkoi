@@ -121,6 +121,9 @@
   <data name="linkLabelFontsStyle.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
   </data>
+  <data name="&gt;&gt;tabPageGeneral.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;linkLabelColor.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -137,14 +140,20 @@
   <data name="&gt;&gt;linkLabelFontColor.Name" xml:space="preserve">
     <value>linkLabelFontColor</value>
   </data>
-  <data name="&gt;&gt;linkLabelControlsStyle.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;fontDialog.Name" xml:space="preserve">
+    <value>fontDialog</value>
+  </data>
+  <data name="&gt;&gt;tabPageGeneral.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
     <value>btnCancel</value>
   </data>
   <data name="&gt;&gt;panelColorSample.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;colorDialog.Name" xml:space="preserve">
+    <value>colorDialog</value>
   </data>
   <data name="&gt;&gt;linkLabelFontsStyle.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -155,11 +164,14 @@
   <data name="btnAccept.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>tabPageUi</value>
+  <data name="&gt;&gt;linkLabelFontsStyle.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;linkLabelFontColor.Parent" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="&gt;&gt;linkLabelColor.Name" xml:space="preserve">
+    <value>linkLabelColor</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -167,8 +179,11 @@
   <data name="&gt;&gt;btnAccept.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="panelColorSample.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+  <data name="tabPageGeneral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 159</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="tabPageUi.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 159</value>
@@ -176,8 +191,11 @@
   <data name="&gt;&gt;linkLabelColor.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="linkLabelFontColor.Text" xml:space="preserve">
-    <value>font-color</value>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbBoxLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 17</value>
   </data>
   <data name="&gt;&gt;linkLabelControlsStyle.Name" xml:space="preserve">
     <value>linkLabelControlsStyle</value>
@@ -191,8 +209,17 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;linkLabelControlsStyle.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageGeneral.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="linkLabelColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="panelColorSample.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="linkLabelFontColor.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -200,28 +227,40 @@
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="linkLabelColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 13</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
-  <data name="linkLabelControlsStyle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>fonts</value>
   </data>
-  <data name="linkLabelFontColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
+  <data name="&gt;&gt;tabPageGeneral.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>tabPageGeneral</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
   </data>
   <data name="&gt;&gt;linkLabelFontColor.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;panelColorSample.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -230,6 +269,9 @@
   </data>
   <data name="tabPageUi.Text" xml:space="preserve">
     <value>Visual</value>
+  </data>
+  <data name="linkLabelColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;linkLabelFontsStyle.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -240,32 +282,32 @@
   <data name="&gt;&gt;fontDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.FontDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="linkLabelFontsStyle.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="linkLabelControlsStyle.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 26</value>
+  </data>
+  <data name="&gt;&gt;tabPageGeneral.Name" xml:space="preserve">
+    <value>tabPageGeneral</value>
+  </data>
+  <data name="&gt;&gt;cbBoxLanguage.Name" xml:space="preserve">
+    <value>cbBoxLanguage</value>
   </data>
   <data name="&gt;&gt;btnAccept.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 4</value>
   </data>
   <data name="&gt;&gt;tabPageUi.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="panelColorSample.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="tabPageGeneral.Text" xml:space="preserve">
+    <value>General</value>
   </data>
   <data name="btnAccept.Text" xml:space="preserve">
     <value>ok</value>
   </data>
   <data name="linkLabelControlsStyle.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;linkLabelFontsStyle.Parent" xml:space="preserve">
-    <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tabPageUi.Name" xml:space="preserve">
     <value>tabPageUi</value>
@@ -276,17 +318,89 @@
   <data name="panelColorSample.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 27</value>
   </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
+  <data name="cbBoxLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
   </data>
   <data name="&gt;&gt;tabPageUi.Parent" xml:space="preserve">
     <value>tabControl1</value>
   </data>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;linkLabelColor.Parent" xml:space="preserve">
     <value>panelColorSample</value>
   </data>
+  <data name="&gt;&gt;cbBoxLanguage.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="btnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="&gt;&gt;linkLabelControlsStyle.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="linkLabelFontsStyle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cbBoxLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 75</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>251, 191</value>
+  </data>
   <data name="&gt;&gt;colorDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPageUi.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 81</value>
+  </data>
+  <data name="linkLabelColor.Text" xml:space="preserve">
+    <value>frm-bg-color</value>
+  </data>
+  <data name="&gt;&gt;linkLabelControlsStyle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelColorSample.Name" xml:space="preserve">
+    <value>panelColorSample</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="linkLabelFontColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Lang:</value>
+  </data>
+  <data name="linkLabelFontColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
+  <data name="linkLabelControlsStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 13</value>
+  </data>
+  <data name="linkLabelFontColor.Text" xml:space="preserve">
+    <value>font-color</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>colors</value>
+  </data>
+  <data name="&gt;&gt;btnAccept.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -364,65 +478,14 @@
         AAP4AAAH/AAAD/4AAB//gAB//8AA///8D/8=
 </value>
   </data>
-  <data name="&gt;&gt;fontDialog.Name" xml:space="preserve">
-    <value>fontDialog</value>
-  </data>
-  <data name="&gt;&gt;linkLabelControlsStyle.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 75</value>
-  </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 191</value>
-  </data>
-  <data name="tabPageUi.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 81</value>
-  </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="linkLabelColor.Text" xml:space="preserve">
-    <value>frm-bg-color</value>
-  </data>
-  <data name="&gt;&gt;linkLabelControlsStyle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelColorSample.Name" xml:space="preserve">
-    <value>panelColorSample</value>
-  </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="linkLabelFontColor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>colors</value>
-  </data>
-  <data name="&gt;&gt;btnAccept.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
     <value>tabPageUi</value>
   </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="linkLabelColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 6</value>
@@ -436,11 +499,11 @@
   <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="linkLabelColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 20</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>preferences</value>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>306, 152</value>
   </data>
   <data name="linkLabelControlsStyle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -448,50 +511,80 @@
   <data name="linkLabelFontsStyle.Text" xml:space="preserve">
     <value>font-style</value>
   </data>
-  <data name="&gt;&gt;linkLabelColor.Name" xml:space="preserve">
-    <value>linkLabelColor</value>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="btnAccept.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
   <data name="linkLabelColor.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;colorDialog.Name" xml:space="preserve">
-    <value>colorDialog</value>
+  <data name="&gt;&gt;cbBoxLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmPreferences</value>
   </data>
-  <data name="linkLabelColor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>preferences</value>
   </data>
   <data name="linkLabelFontColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>219, 27</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageUi.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnAccept.Name" xml:space="preserve">
-    <value>btnAccept</value>
+  <data name="cbBoxLanguage.Items1" xml:space="preserve">
+    <value>en-US</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>331, 226</value>
   </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="panelColorSample.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
   </data>
   <data name="linkLabelFontsStyle.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 48</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;linkLabelFontColor.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;tabPageUi.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnAccept.Name" xml:space="preserve">
+    <value>btnAccept</value>
+  </data>
+  <data name="tabPageGeneral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>tabPageUi</value>
+  </data>
+  <data name="cbBoxLanguage.Items" xml:space="preserve">
+    <value>es-ES</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="groupBox3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -499,8 +592,14 @@
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>330, 185</value>
   </data>
-  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="linkLabelColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;cbBoxLanguage.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>cancel</value>
@@ -509,7 +608,7 @@
     <value>311, 65</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=1.0.1.499, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=1.0.1.30037, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="fontDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>131, 17</value>
