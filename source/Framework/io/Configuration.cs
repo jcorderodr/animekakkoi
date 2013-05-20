@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Configuration;
+using System.IO;
 
 namespace Framework.io
 {
+    /// <summary>
+    /// Provides access, properties and settings.
+    /// </summary>
     public abstract class Configuration
     {
 
@@ -29,7 +33,6 @@ namespace Framework.io
         {
             get
             {
-              
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 //C:\ProgramData\BluegleTek Soft\AnimeKakkoi
                 return String.Format("{1}{0}{2}{0}{3}{0}", System.IO.Path.DirectorySeparatorChar, path, CompanyName, ApplicationName);
@@ -44,8 +47,9 @@ namespace Framework.io
             }
         }
 
+        #region Functions
 
-        internal static String GetSetting(string key)
+        public static String GetSetting(string key)
         {
             ExeConfigurationFileMap configMap = new ExeConfigurationFileMap();
             configMap.ExeConfigFilename = AppConfiguration;
@@ -53,7 +57,6 @@ namespace Framework.io
             System.Configuration.Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
             return config.AppSettings.Settings[key].Value;
         }
-
 
         internal static String GetAkFile(Framework.entity.ENTITY_STATE state)
         {
@@ -74,7 +77,6 @@ namespace Framework.io
             }
         }
 
-
         internal static String[] GetBackUpFiles()
         {
             return new string[] 
@@ -83,6 +85,66 @@ namespace Framework.io
             };
         }
 
+        public static System.Net.IWebProxy GetProxy()
+        {
+            string proxy_host = GetSetting("proxy_host");
+            System.Net.WebProxy proxy = new System.Net.WebProxy(proxy_host);
+
+            string[] proxy_credentials = GetSetting("proxy_credentials").Split(',');
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(proxy_credentials[0], proxy_credentials[1]);
+            if (proxy_credentials.Length > 2 && String.IsNullOrEmpty(proxy_credentials[2])) credentials.Domain = proxy_credentials[2];
+            proxy.Credentials = credentials;
+
+            return proxy;
+        }
+
+        public static bool IsUsingProxy()
+        {
+            string value = GetSetting("useProxy");
+
+            return Boolean.Parse(value);
+        }
+
+        /// <exception cref="System.Configuration.ConfigurationErrorsException">reaching the file</exception>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public static void SaveSetting(string key, string value)
+        {
+            ExeConfigurationFileMap configMap = new ExeConfigurationFileMap();
+            configMap.ExeConfigFilename = AppConfiguration;
+
+            System.Configuration.Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
+            config.AppSettings.Settings[key].Value = value;
+            config.Save(ConfigurationSaveMode.Modified, false);
+        }
+
+        /// <exception cref="InvalidCastException"></exception>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proxy"></param>
+        public static void SetProxy(System.Net.WebProxy proxy)
+        {
+            System.Net.NetworkCredential credentials;
+
+            try
+            {
+                credentials = proxy.Credentials as System.Net.NetworkCredential;
+                string proxy_credentials = String.Format("{0},{1},{2}", credentials.UserName, credentials.Password, credentials.Domain);
+                string proxy_host = proxy.Address.Authority;
+
+                SaveSetting("proxy_credentials", proxy_credentials);
+                SaveSetting("proxy_host", proxy_host);
+            }
+            catch (InvalidCastException ex)
+            {
+                throw ex;
+            }
+
+        }
 
         /// <summary>
         /// Tries to reach all configurations, system and app files.
@@ -90,22 +152,14 @@ namespace Framework.io
         /// <returns>true - if files exists, otherwise false.</returns>
         public static bool TryFileInspection()
         {
-            return true;
+            return File.Exists(AppConfiguration);
         }
 
-        public static System.Net.IWebProxy GetProxy()
-        {
-            //TODO: make configurable
-            System.Net.WebProxy proxy = new System.Net.WebProxy("172.17.200.81", 8080);
-            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("jcordero", "Bluegle77", "apap-pdc");
-            proxy.Credentials = credentials;
-            return proxy;
-        }
+        #endregion
 
-        public static void SetProxy(System.Net.IWebProxy proxy)
-        {
-            
-        }
+
+
+
 
 
     }

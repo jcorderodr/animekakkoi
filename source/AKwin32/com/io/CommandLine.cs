@@ -37,7 +37,7 @@ namespace AKwin32.com.io
             AnalyzeInput();
 
 
-            forms.tools.frmImporter frm = new forms.tools.frmImporter();
+            forms.management.frmImporter frm = new forms.management.frmImporter();
             frm.Show(parent);
         }
     }

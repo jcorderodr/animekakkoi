@@ -150,6 +150,12 @@
     <Compile Include="forms\maintenance\frmOptions.Designer.cs">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\maintenance\frmPreferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\maintenance\frmPreferences.Designer.cs">
+      <DependentUpon>frmPreferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\maintenance\frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,10 +206,10 @@
     <Compile Include="forms\tools\frmExporter.Designer.cs">
       <DependentUpon>frmExporter.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\tools\frmImporter.cs">
+    <Compile Include="forms\management\frmImporter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\tools\frmImporter.Designer.cs">
+    <Compile Include="forms\management\frmImporter.Designer.cs">
       <DependentUpon>frmImporter.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\tools\frmInputRequest.cs">
@@ -262,6 +268,12 @@
     <EmbeddedResource Include="forms\maintenance\frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\maintenance\frmPreferences.es.resx">
+      <DependentUpon>frmPreferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\maintenance\frmPreferences.resx">
+      <DependentUpon>frmPreferences.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\maintenance\frmUsers.es.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +295,9 @@
     <EmbeddedResource Include="forms\management\frmMgmtManga.resx">
       <DependentUpon>frmMgmtManga.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\management\frmNewItem.en.resx">
+      <DependentUpon>frmNewItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\management\frmNewItem.es.resx">
       <DependentUpon>frmNewItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,10 +313,10 @@
     <EmbeddedResource Include="forms\tools\frmExporter.resx">
       <DependentUpon>frmExporter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\tools\frmImporter.es.resx">
+    <EmbeddedResource Include="forms\management\frmImporter.es.resx">
       <DependentUpon>frmImporter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\tools\frmImporter.resx">
+    <EmbeddedResource Include="forms\management\frmImporter.resx">
       <DependentUpon>frmImporter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmInputRequest.es.resx">

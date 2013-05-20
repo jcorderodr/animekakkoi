@@ -64,7 +64,7 @@ namespace AKwin32.forms.tools
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            //TODO: !?
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

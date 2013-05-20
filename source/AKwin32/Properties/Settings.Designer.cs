@@ -43,5 +43,41 @@ namespace AKwin32.Properties {
                 return ((string)(this["ApplicationProductUrl"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Comic Sans MS, 9pt, style=Bold")]
+        public global::System.Drawing.Font UiFontsStyles {
+            get {
+                return ((global::System.Drawing.Font)(this["UiFontsStyles"]));
+            }
+            set {
+                this["UiFontsStyles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DimGray")]
+        public global::System.Drawing.Color UiFontsColor {
+            get {
+                return ((global::System.Drawing.Color)(this["UiFontsColor"]));
+            }
+            set {
+                this["UiFontsColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial Narrow, 9pt, style=Bold")]
+        public global::System.Drawing.Font UiControlsFontsStyle {
+            get {
+                return ((global::System.Drawing.Font)(this["UiControlsFontsStyle"]));
+            }
+            set {
+                this["UiControlsFontsStyle"] = value;
+            }
+        }
     }
 }

@@ -22,10 +22,15 @@ namespace AKwin32.forms.tools
             WaitingBox.CheckForIllegalCrossThreadCalls = false;
             underThread.DoWork += new System.ComponentModel.DoWorkEventHandler(underThread_DoWork);
 
-            this.Text = base.Messages["waiting"];
+
             this.TopMost = true;
         }
 
+
+        private void WaitingBox_Load(object sender, EventArgs e)
+        {
+            this.Text = base.Messages["waiting"];
+        }
 
         private delegate void Starter(object sender, System.ComponentModel.DoWorkEventArgs e);
         void underThread_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -40,7 +45,7 @@ namespace AKwin32.forms.tools
             {
                 if (e.Argument != null && e.Argument.GetType() == typeof(IWin32Window))
                     this.ShowDialog((IWin32Window)e.Argument);
-                else 
+                else
                     this.ShowDialog();
             }
         }
@@ -80,6 +85,7 @@ namespace AKwin32.forms.tools
             underThread.CancelAsync();
             this.Hide();
         }
+
 
     }
 }

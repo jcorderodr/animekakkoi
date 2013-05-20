@@ -45,9 +45,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="data\AkData_types.cs" />
-    <Compile Include="data\IAkData.cs" />
-    <Compile Include="entity\entities_properties.cs" />
+    <Compile Include="entity\Comic.cs" />
+    <Compile Include="entity\Custom.cs" />
     <Compile Include="entity\Entity.cs" />
     <Compile Include="entity\EntitySource.cs" />
     <Compile Include="entity\Manga.cs" />
@@ -58,6 +57,8 @@
     <Compile Include="io\Language.cs" />
     <Compile Include="media\ISource.cs" />
     <Compile Include="media\McAnime.cs" />
+    <Compile Include="media\MediaResourceException.cs" />
+    <Compile Include="media\MyAnimeList.cs" />
     <Compile Include="media\SourceBase.cs" />
     <Compile Include="repo\RepositoryResources.cs" />
     <Compile Include="repo\xml\AnimeRepository.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="util\WebImporter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="data\" />
     <Folder Include="repo\sql\" />
   </ItemGroup>
   <ItemGroup>

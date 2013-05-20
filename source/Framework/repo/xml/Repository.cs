@@ -199,8 +199,6 @@ namespace Framework.repo.xml
         {
             string path = io.Configuration.ApplicationDataFolder + io.Configuration.RS_CENTRAL;
             akMainData = XDocument.Load(path, LoadOptions.PreserveWhitespace);
-            //
-            //
             LoadTemplates();
             //
             //  MAIN_DATA_PROPERTIES_SECTION : Section with main properties and values.
@@ -228,6 +226,16 @@ namespace Framework.repo.xml
             return aux;
         }
 
+        protected internal XElement getAnimeTemplate()
+        {
+            return XElement.Parse(animeTemplate.ToString(), LoadOptions.PreserveWhitespace);
+        }
+
+        protected internal XElement getMangaTemplate()
+        {
+            return XElement.Parse(mangaTemplate.ToString(), LoadOptions.PreserveWhitespace);
+        }
+
         private void LoadTemplates()
         {
             animeTemplate = new StringBuilder();
@@ -247,16 +255,6 @@ namespace Framework.repo.xml
             mangaTemplate.AppendLine("   <rate></rate>");
             mangaTemplate.AppendLine("   <comment></comment>");
             mangaTemplate.AppendLine("</Manga>\n");
-        }
-
-        protected internal XElement getAnimeTemplate()
-        {
-            return XElement.Parse(animeTemplate.ToString(), LoadOptions.PreserveWhitespace);
-        }
-
-        protected internal XElement getMangaTemplate()
-        {
-            return XElement.Parse(mangaTemplate.ToString(), LoadOptions.PreserveWhitespace);
         }
 
         private void Update()

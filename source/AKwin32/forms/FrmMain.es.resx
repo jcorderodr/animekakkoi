@@ -215,7 +215,7 @@
     <value>Mangas</value>
   </data>
   <data name="importerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="importerToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Importar</value>
@@ -224,40 +224,37 @@
     <value>Archivo AK (*.akl)</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 6</value>
+    <value>176, 6</value>
   </data>
   <data name="dataCheckerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="backUpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="backUpToolStripMenuItem.Text" xml:space="preserve">
     <value>BackUp</value>
   </data>
   <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 6</value>
+    <value>176, 6</value>
   </data>
   <data name="preferencesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="preferencesToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Preferencias</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Opciones</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
-  </data>
   <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Ayuda</value>
+    <value>A&amp;yuda</value>
   </data>
-  <data name="aboutAkToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+  <data name="contactToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Contacto</value>
   </data>
   <data name="aboutAkToolStripMenuItem.Text" xml:space="preserve">
     <value>Acerca &amp;de</value>

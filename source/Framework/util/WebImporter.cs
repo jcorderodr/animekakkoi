@@ -9,6 +9,9 @@ using Framework.entity;
 
 namespace Framework.util
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WebImporter
     {
 
@@ -56,32 +59,6 @@ namespace Framework.util
         /// </summary>
         /// <param name="html"></param>
         /// <param name="typeName">the Entity's name.</param>
-        /// <returns></returns>
-        public Framework.media.ISource GetSource(string html, string typeName)
-        {
-            Type type;
-
-            switch (typeName.ToLower())
-            {
-                case "anime":
-                    type = typeof(Anime);
-                    break;
-                case "manga":
-                    type = typeof(Manga);
-                    break;
-                default:
-                    type = typeof(Anime);
-                    break;
-            }
-            return AnalizeSource(html, type);
-        }
-
-        /// <exception cref="System.Exception"></exception>
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="html"></param>
-        /// <param name="typeName">the Entity's name.</param>
         /// <param name="rType"></param>
         /// <returns></returns>
         public Framework.media.ISource GetSource(string html, string typeName, ref Type rType)
@@ -93,9 +70,11 @@ namespace Framework.util
                 case "anime":
                     type = typeof(Anime);
                     break;
+
                 case "manga":
                     type = typeof(Manga);
                     break;
+
                 default:
                     type = typeof(EntitySource);
                     break;
@@ -117,6 +96,7 @@ namespace Framework.util
                         else if (type == typeof(Manga))
                             mcanime.DisassembleSource_Manga(html); ;
                         return mcanime;
+
                     case IMPORT_SOURCES.MCANIME_KRONOS:
                         McAnime mcanime_k = new McAnime();
                         if (type == typeof(Anime))
@@ -124,9 +104,22 @@ namespace Framework.util
                         else if (type == typeof(Manga))
                             mcanime_k.DisassembleSourceKronos_Manga(html); ;
                         return mcanime_k;
+
+                    case IMPORT_SOURCES.MY_ANIME_LIST:
+                        MyAnimeList resx = new MyAnimeList();
+                        if (type == typeof(Anime))
+                            resx.DisassembleSource_Anime(html);
+                        else if (type == typeof(Manga))
+                            resx.DisassembleSource_Manga(html); ;
+                        return resx;
+
                     default:
                         return null;
                 }
+            }
+            catch (NullReferenceException ex)
+            {
+                throw new MediaResourceException(ex, "HTML ERROR: " + Type);
             }
             catch (Exception ex)
             {
@@ -134,13 +127,33 @@ namespace Framework.util
             }
         }
 
+        public static bool isValidateSources(IMPORT_SOURCES sources, string resource)
+        {
+            bool r = true;
+
+            switch (sources)
+            {
+                case IMPORT_SOURCES.MCANIME:
+                    return resource.Contains("mcanime");
+                case IMPORT_SOURCES.MCANIME_KRONOS:
+                    return resource.Contains("kronos");
+                case IMPORT_SOURCES.MY_ANIME_LIST:
+                    return resource.Contains("myanimelist");
+
+                default:
+                    r = false;
+                    break;
+            }
+            return r;
+        }
 
     }
 
     public enum IMPORT_SOURCES
     {
         MCANIME = 1,
-        MCANIME_KRONOS = 2
+        MCANIME_KRONOS = 2,
+        MY_ANIME_LIST = 3
     }
 
 }

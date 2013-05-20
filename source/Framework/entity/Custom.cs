@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Framework.media
+namespace Framework.entity
 {
-    public interface ISource : IDisposable
+    public class Custom : EntitySource
     {
 
-        //void DisassembleSource(string html);
+        public String Category { get; set; }
+
 
     }
 }
