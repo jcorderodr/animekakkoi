@@ -122,135 +122,12 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="linkLabelColor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="linkLabelColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 6</value>
-  </data>
-  <data name="linkLabelColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 13</value>
-  </data>
-  <data name="linkLabelColor.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="linkLabelColor.Text" xml:space="preserve">
-    <value>color</value>
-  </data>
-  <data name="&gt;&gt;linkLabelColor.Name" xml:space="preserve">
-    <value>linkLabelColor</value>
-  </data>
-  <data name="&gt;&gt;linkLabelColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;linkLabelColor.Parent" xml:space="preserve">
-    <value>panelColorSample</value>
-  </data>
-  <data name="&gt;&gt;linkLabelColor.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panelColorSample.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 12</value>
-  </data>
-  <data name="panelColorSample.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 27</value>
-  </data>
-  <data name="panelColorSample.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;panelColorSample.Name" xml:space="preserve">
-    <value>panelColorSample</value>
-  </data>
-  <data name="&gt;&gt;panelColorSample.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelColorSample.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;panelColorSample.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 20</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 13</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>lblFormsBGColor</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 128</value>
-  </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>colors</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>tabPageUi</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageUi.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageUi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>341, 173</value>
-  </data>
-  <data name="tabPageUi.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabPageUi.Text" xml:space="preserve">
-    <value>Visual</value>
-  </data>
-  <data name="&gt;&gt;tabPageUi.Name" xml:space="preserve">
-    <value>tabPageUi</value>
-  </data>
-  <data name="&gt;&gt;tabPageUi.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageUi.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageUi.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 132</value>
+    <value>7, 134</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 13</value>
@@ -277,7 +154,7 @@
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 105</value>
+    <value>7, 108</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 13</value>
@@ -328,13 +205,13 @@
     <value>2</value>
   </data>
   <data name="txtPass.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 132</value>
+    <value>98, 130</value>
   </data>
   <data name="txtPass.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 20</value>
+    <value>185, 20</value>
   </data>
   <data name="txtPass.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;txtPass.Name" xml:space="preserve">
     <value>txtPass</value>
@@ -349,13 +226,13 @@
     <value>3</value>
   </data>
   <data name="txtUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 104</value>
+    <value>98, 104</value>
   </data>
   <data name="txtUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 20</value>
+    <value>185, 20</value>
   </data>
   <data name="txtUser.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;txtUser.Name" xml:space="preserve">
     <value>txtUser</value>
@@ -370,13 +247,13 @@
     <value>4</value>
   </data>
   <data name="txtDomain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 76</value>
+    <value>98, 76</value>
   </data>
   <data name="txtDomain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 20</value>
+    <value>185, 20</value>
   </data>
   <data name="txtDomain.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;txtDomain.Name" xml:space="preserve">
     <value>txtDomain</value>
@@ -391,13 +268,13 @@
     <value>5</value>
   </data>
   <data name="txtHost.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 48</value>
+    <value>98, 48</value>
   </data>
   <data name="txtHost.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 20</value>
+    <value>185, 20</value>
   </data>
   <data name="txtHost.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;txtHost.Name" xml:space="preserve">
     <value>txtHost</value>
@@ -441,6 +318,9 @@
   <data name="chkUseProxy.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="chkUseProxy.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="chkUseProxy.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 20</value>
   </data>
@@ -464,9 +344,6 @@
   </data>
   <data name="&gt;&gt;chkUseProxy.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <data name="groupBox1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 6</value>
@@ -517,7 +394,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPageConn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="data_btnCleanItems.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopCenter</value>
@@ -610,7 +487,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>343, 173</value>
+    <value>341, 173</value>
   </data>
   <data name="tabPageData.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -628,7 +505,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPageData.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>-1, -1</value>
@@ -705,9 +582,6 @@
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="colorDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -796,16 +670,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>configuration</value>
   </data>
-  <data name="&gt;&gt;colorDialog.Name" xml:space="preserve">
-    <value>colorDialog</value>
-  </data>
-  <data name="&gt;&gt;colorDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmOptions</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=0.1.1.1391, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=1.0.1.42392, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

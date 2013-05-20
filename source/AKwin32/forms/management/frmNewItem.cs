@@ -89,7 +89,7 @@ namespace AKwin32.forms.management
             anime.State = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), cb_State.SelectedValue + "");
 
             anime.Comment = txt_Comment.Text;
-            anime.Rating = Expression.IntegerIfNull(txt_Rating.Text, 0);
+            anime.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
             anime.ProgressString = Expression.StringIfNull(txt_Episodes.Text, "0/0");
 
             Framework.repo.xml.AnimeRepository repo;
@@ -112,7 +112,7 @@ namespace AKwin32.forms.management
             item.State = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), cb_State.SelectedValue + "");
 
             item.Comment = txt_Comment.Text;
-            item.Rating = Expression.IntegerIfNull(txt_Rating.Text, 0);
+            item.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
             //if doesnt cotains '/' it ends 01/?, otherwise x/y
             item.ProgressString = txt_Episodes.Text.Contains("/") ? txt_Episodes.Text : txt_Episodes.Text + "/?";
 

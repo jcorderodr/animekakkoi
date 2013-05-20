@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
             this.panelBase = new System.Windows.Forms.Panel();
+            this.btnEraseUser = new System.Windows.Forms.Button();
             this.lblSources = new System.Windows.Forms.Label();
             this.listViewSources = new System.Windows.Forms.ListView();
             this.sourceList = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,12 +44,20 @@
             // 
             // panelBase
             // 
+            this.panelBase.Controls.Add(this.btnEraseUser);
             this.panelBase.Controls.Add(this.lblSources);
             this.panelBase.Controls.Add(this.listViewSources);
             this.panelBase.Controls.Add(this.cboxUsers);
             this.panelBase.Controls.Add(this.lblUsers);
             resources.ApplyResources(this.panelBase, "panelBase");
             this.panelBase.Name = "panelBase";
+            // 
+            // btnEraseUser
+            // 
+            resources.ApplyResources(this.btnEraseUser, "btnEraseUser");
+            this.btnEraseUser.Name = "btnEraseUser";
+            this.btnEraseUser.UseVisualStyleBackColor = true;
+            this.btnEraseUser.Click += new System.EventHandler(this.btnEraseUser_Click);
             // 
             // lblSources
             // 
@@ -114,6 +123,7 @@
             this.Controls.Add(this.panelBase);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmUsers";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUsers_FormClosing);
             this.Load += new System.EventHandler(this.frmUsers_Load);
             this.panelBase.ResumeLayout(false);
@@ -133,5 +143,6 @@
         private System.Windows.Forms.ListView listViewSources;
         private System.Windows.Forms.Button btnNewUser;
         private System.Windows.Forms.ColumnHeader sourceList;
+        private System.Windows.Forms.Button btnEraseUser;
     }
 }

@@ -15,7 +15,7 @@ namespace Framework.util
             catch { return ifnull; }
         }
 
-        public static int IntegerIfNull(object item, int ifnull)
+        public static int IfIntegerNull(object item, int ifnull)
         {
             try { return Convert.ToInt32(item); }
             catch { return ifnull; }
@@ -52,6 +52,13 @@ namespace Framework.util
         {
             text = text.Replace("-", "0");
             System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("([^0-9+/][^-]|-)");
+            text = reg.Replace(text, "");
+            return text;
+        }
+
+        public static String GetOnlyText(string text)
+        {
+            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("([^A-Za-z]+' ')");
             text = reg.Replace(text, "");
             return text;
         }

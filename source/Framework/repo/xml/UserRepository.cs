@@ -22,19 +22,16 @@ namespace Framework.repo.xml
 
         public override User Add(User item)
         {
+            item.Codigo = this.NewItemID;
             XElement temp = this.GetParent();
             XElement user = ToData(item);
             if (temp.Elements().Contains(user)) return null;
+            //
             temp.Add(user);
             base.setModifiedState();
             base.Refresh();
+            //
             return item;
-        }
-
-        //[Obsolete("NotImplementedException", false)]
-        public int AddRange(IList<User> items)
-        {
-            throw new NotImplementedException();
         }
 
         public override void Change(User item)
@@ -101,7 +98,7 @@ namespace Framework.repo.xml
             {
                 Name = item.Element("name").Value
             };
-            temp.Codigo = util.Expression.IntegerIfNull(item.Attribute("id").Value, 0);
+            temp.Codigo = util.Expression.IfIntegerNull(item.Attribute("id").Value, 0);
             temp.Sources = item.Elements("source").Select(c => c.Value).ToArray();
 
             return temp;
@@ -116,7 +113,6 @@ namespace Framework.repo.xml
                 element.Add(new XText("\t"),
                             new XElement("source", s),
                             new XText("\n\t\t"));
-
 
             return element;
 

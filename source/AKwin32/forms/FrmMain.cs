@@ -122,7 +122,7 @@ namespace AKwin32.forms
 
         private void mcAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tools.frmImporter frm = new tools.frmImporter();
+            management.frmImporter frm = new management.frmImporter();
             frm.ImportMethod = Framework.util.IMPORT_SOURCES.MCANIME;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
@@ -143,10 +143,31 @@ namespace AKwin32.forms
 
         private void mcAnimeKronosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tools.frmImporter frm = new tools.frmImporter();
+            management.frmImporter frm = new management.frmImporter();
             frm.ImportMethod = Framework.util.IMPORT_SOURCES.MCANIME_KRONOS;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
+                management.frmManagement frmMg = null;
+                if (frm.MediaType == typeof(Framework.entity.Anime))
+                {
+                    frmMg = new management.frmMgmtAnime();
+                }
+                else if (frm.MediaType == typeof(Framework.entity.Manga))
+                {
+                    frmMg = new management.frmMgmtManga();
+                }
+                frmMg.SetItemsList(frm.ResultedList, frm.MediaType);
+                frmMg.Show();
+            }
+        }
+
+        private void myAnimeListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            management.frmImporter frm = new management.frmImporter();
+            frm.ImportMethod = Framework.util.IMPORT_SOURCES.MY_ANIME_LIST;
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                if (frm.ResultedList.Count < 1 || frm.MediaType == null) return;
                 management.frmManagement frmMg = null;
                 if (frm.MediaType == typeof(Framework.entity.Anime))
                 {
@@ -169,7 +190,8 @@ namespace AKwin32.forms
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            forms.maintenance.frmPreferences frm = new maintenance.frmPreferences();
+            frm.ShowDialog(this);
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,6 +209,16 @@ namespace AKwin32.forms
             try
             {
                 System.Diagnostics.Process.Start(base.Configuration.ProductUrl);
+            }
+            catch { }
+        }
+
+        private void contactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string route = "mailto:blugletek@gmail.com?subject=AnimeKakkoi+Contact";
+            try
+            {
+                System.Diagnostics.Process.Start(route);
             }
             catch { }
         }
@@ -316,6 +348,9 @@ namespace AKwin32.forms
         }
 
         #endregion
+
+
+
 
 
     }

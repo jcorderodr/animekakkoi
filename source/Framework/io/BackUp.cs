@@ -41,6 +41,9 @@ namespace Framework.io
         /// </summary>
         public event EventHandler<System.ComponentModel.RunWorkerCompletedEventArgs> BackUpProgressFinished;
 
+        /// <summary>
+        /// Indicates if an operation is alive (running or stop/cancel pending).
+        /// </summary>
         public bool IsRunning
         {
             get
@@ -155,6 +158,10 @@ namespace Framework.io
             bgWoker.RunWorkerAsync();
         }
 
+        /// <summary>
+        ///  Starts the loading process from the BackUp file.
+        /// </summary>
+        /// <param name="argument">the object for using through the process.</param>
         public void AsyncLoadBackUp(string argument)
         {
             if (String.IsNullOrEmpty(argument)) throw new ArgumentNullException("the given argument is invalid.");
@@ -162,11 +169,17 @@ namespace Framework.io
             bgLoader.RunWorkerAsync();
         }
 
+        /// <summary>
+        /// Cancel the AsyncMakeBackUp operation.
+        /// </summary>
         public void CancelAsyncMaking()
         {
             bgWoker.CancelAsync();
         }
 
+        /// <summary>
+        /// Cancel the AsyncLoadBackUp operation.
+        /// </summary>
         public void CancelAsyncLoading()
         {
             bgLoader.CancelAsync();

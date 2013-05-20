@@ -27,14 +27,12 @@ namespace AKwin32.forms.maintenance
             repo = new UserRepository();
         }
 
+        #region GUI Events
 
         private void frmUsers_Load(object sender, EventArgs e)
         {
             this.listViewSources.Resize += new EventHandler(this.listViewSources_Resize);
             LoadControlsContent();
-            //if (Program.SystemUser == null)
-            //    this.btnCancel.Visible = false;
-
         }
 
         void listViewSources_Resize(object sender, EventArgs e)
@@ -75,6 +73,13 @@ namespace AKwin32.forms.maintenance
             }
 
         }
+        
+        private void btnEraseUser_Click(object sender, EventArgs e)
+        {
+            User usr = cboxUsers.SelectedItem as User;
+            repo.Remove(usr);
+            LoadControlsContent();
+        }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -105,6 +110,8 @@ namespace AKwin32.forms.maintenance
             }
         }
 
+        #endregion
+
         private void LoadControlsContent()
         {
             dataSource = repo.GetAll().ToList();
@@ -118,7 +125,6 @@ namespace AKwin32.forms.maintenance
         {
             return ((cboxUsers.SelectedItem as User) != null);
         }
-
 
 
     }

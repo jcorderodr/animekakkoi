@@ -17,6 +17,12 @@ namespace AKwin32.com.io
 
         public String ProductUrl { get { return setts.ApplicationProductUrl; } }
 
+        public Font UiControlsFontStyle { get { return setts.UiControlsFontsStyle; } }
+
+        public Font UiFontsStyle { get { return setts.UiFontsStyles; } }
+
+        public Color UiFontsColor { get { return setts.UiFontsColor; } }
+
         /// <summary>
         /// Gets all the settings.
         /// </summary>

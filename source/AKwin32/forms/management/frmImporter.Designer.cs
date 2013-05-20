@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms.tools
+﻿namespace AKwin32.forms.management
 {
     partial class frmImporter
     {

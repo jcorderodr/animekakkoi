@@ -26,7 +26,7 @@ namespace AKwin32
 
         static forms.FrmMain frmMain;
 
-        static forms.tools.WaitingBox wBox;
+        //static forms.tools.WaitingBox wBox;
 
         static bool varsErrorLoading = false;
 
@@ -85,7 +85,7 @@ namespace AKwin32
             LoadVariables();
         }
 
-        public const String AppTitle = "AnimeKakkoi Alpha v0.1.01";
+        public const String AppTitle = "AnimeKakkoi 0.1.2";
 
 
     }

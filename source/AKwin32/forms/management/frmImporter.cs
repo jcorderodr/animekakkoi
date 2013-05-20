@@ -11,7 +11,7 @@ using System.IO;
 using Framework.util;
 using Framework.media;
 
-namespace AKwin32.forms.tools
+namespace AKwin32.forms.management
 {
     public partial class frmImporter : AKwin32.forms.frmBase
     {
@@ -106,15 +106,7 @@ namespace AKwin32.forms.tools
             if (Uri.IsWellFormedUriString(uri, UriKind.Absolute))
             {
                 link = new Uri(uri);
-                switch (this.ImportMethod)
-                {
-                    case IMPORT_SOURCES.MCANIME:
-                        return uri.Contains("mcanime");
-                    case IMPORT_SOURCES.MCANIME_KRONOS:
-                        return uri.Contains("kronos");
-                    default:
-                        return false;
-                }
+                return WebImporter.isValidateSources(this.ImportMethod, uri);
             }
             else
                 return false;
@@ -145,6 +137,11 @@ namespace AKwin32.forms.tools
                     McAnime mcanime = source as McAnime;
                     ShowResult(mcanime.Items);
                     break;
+                case IMPORT_SOURCES.MY_ANIME_LIST:
+                    MyAnimeList resx = source as MyAnimeList;
+                    ShowResult(resx.Items);
+                    break;
+
                 default:
                     break;
             }

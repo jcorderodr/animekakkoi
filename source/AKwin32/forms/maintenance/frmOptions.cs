@@ -11,14 +11,14 @@ using AKwin32.Properties;
 namespace AKwin32.forms.maintenance
 {
     /// <summary>
-    /// //TODO: implement this
+    /// 
     /// </summary>
     public partial class frmOptions : AKwin32.forms.frmBaseToolbox
     {
 
         WebProxy proxy;
 
-        Settings setts = Properties.Settings.Default;
+        //Settings setts = Properties.Settings.Default;
 
         public frmOptions()
         {
@@ -27,21 +27,24 @@ namespace AKwin32.forms.maintenance
 
         private void frmOptions_Load(object sender, EventArgs e)
         {
-            //proxy = (WebProxy)Framework.io.Configuration.GetProxy();
-            //txtHost.Text = proxy.Address.ToString();
+            proxy = (WebProxy)Framework.io.Configuration.GetProxy();
+            txtHost.Text = proxy.Address.Authority;
 
-            panelColorSample.BackColor = setts.frmBackGroundColor;
-            
+           
+
         }
 
         #region tabPageUi
 
-        private void linkLabelColor_Click(object sender, EventArgs e)
+
+
+        #endregion
+
+        #region tabPageConn
+
+        private void txtHost_Validated(object sender, EventArgs e)
         {
-            if (colorDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-            {
-                panelColorSample.BackColor = colorDialog.Color;
-            }
+
         }
 
         #endregion
@@ -82,17 +85,51 @@ namespace AKwin32.forms.maintenance
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            SaveChanges();
-            this.Close();
+            if (isValidInput())
+            {
+                SaveChanges();
+                this.Close();
+            }
         }
 
         private void SaveChanges()
         {
-            setts.frmBackGroundColor = panelColorSample.BackColor;
+            #region Visual
 
-            setts.Save();
+           
+
+            #endregion
+
+            #region Connection
+
+            WebProxy proxy = new WebProxy(txtHost.Text);
+            System.Net.NetworkCredential cred = new NetworkCredential(txtUser.Text, txtPass.Text, txtDomain.Text);
+            proxy.Credentials = cred;
+
+            Framework.io.Configuration.SetProxy(proxy);
+
+            #endregion
+
+          
             //
             Program.ReloadVariables();
+        }
+
+
+        private bool isValidInput()
+        {
+            bool r = true;
+
+            string pattern = @"(\d{1,3}\.){3}\d{1,3}:\d{2,5}";
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(pattern);
+            if (!regex.IsMatch(txtHost.Text))
+            {
+                r = false;
+                base.ShowError(this, "proxy!");
+                txtHost.Focus();
+            }
+
+            return r;
         }
 
 

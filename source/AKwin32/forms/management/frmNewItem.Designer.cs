@@ -50,6 +50,7 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.cb_Category);
@@ -65,7 +66,6 @@
             this.panel1.Controls.Add(this.lblState);
             this.panel1.Controls.Add(this.lblEpi);
             this.panel1.Controls.Add(this.lblName);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // cb_Category
@@ -162,6 +162,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Name = "frmNewItem";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmNewItem_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

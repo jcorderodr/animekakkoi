@@ -183,7 +183,8 @@ namespace AKwin32.forms
                 if (ctrl.HasChildren)
                     SetStyleToControl(ctrl.Controls);
 
-                ctrl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                //ctrl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                ctrl.Font = Configuration.UiControlsFontStyle;
 
                 if (ctrl is ListView)
                 {
@@ -202,7 +203,11 @@ namespace AKwin32.forms
 
                 Label lbl = ctrl as Label;
                 if (lbl != null)
-                    lbl.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                {
+                    //new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lbl.Font = Configuration.UiFontsStyle;
+                    lbl.ForeColor = Configuration.UiFontsColor;
+                }
             }
         }
 

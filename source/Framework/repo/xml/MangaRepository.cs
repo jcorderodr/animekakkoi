@@ -102,12 +102,12 @@ namespace Framework.repo.xml
             temp = new Manga()
             {
                 Name = item.Element("name").Value,
-                Category = (MANGA_TYPE)util.Expression.IntegerIfNull(item.Attribute("category").Value, 1),
-                State = (ENTITY_STATE)util.Expression.IntegerIfNull(item.Element("state").Value, 0),
+                Category = (MANGA_TYPE)util.Expression.IfIntegerNull(item.Attribute("category").Value, 1),
+                State = (ENTITY_STATE)util.Expression.IfIntegerNull(item.Element("state").Value, 0),
                 Comment = item.Element("comment").Value
             };
             temp.ProgressString = item.Element("episode").Value;
-            temp.Codigo = util.Expression.IntegerIfNull(item.Attribute("id").Value, 0);
+            temp.Codigo = util.Expression.IfIntegerNull(item.Attribute("id").Value, 0);
             temp.Favorite = Convert.ToBoolean(item.Attribute("fav").Value);
 
             temp.Rating = Convert.ToInt32(item.Element("rate").Value);

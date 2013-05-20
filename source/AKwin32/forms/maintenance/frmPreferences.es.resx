@@ -117,63 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 13</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Fuentes</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Fondos de Formularios:</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="linkLabelControlsStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 13</value>
+  </data>
+  <data name="linkLabelControlsStyle.Text" xml:space="preserve">
+    <value>fuente-controles-visuales</value>
+  </data>
+  <data name="linkLabelFontsStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="linkLabelFontsStyle.Text" xml:space="preserve">
+    <value>fuente-campos</value>
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Colores</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 13</value>
+  <data name="linkLabelFontColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 13</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Contraseña:</value>
+  <data name="linkLabelFontColor.Text" xml:space="preserve">
+    <value>color-fuentes</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
+  <data name="linkLabelColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 13</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Usuario:</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 13</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Dominio:</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>IP:Puerto</value>
-  </data>
-  <data name="chkUseProxy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 17</value>
-  </data>
-  <data name="chkUseProxy.Text" xml:space="preserve">
-    <value>Proxy Automático</value>
-  </data>
-  <data name="tabPageConn.Text" xml:space="preserve">
-    <value>Conexión</value>
-  </data>
-  <data name="data_btnCleanItems.Text" xml:space="preserve">
-    <value>Limpiar Registros</value>
-  </data>
-  <data name="data_btnCleanAll.Text" xml:space="preserve">
-    <value>Limpiar Base de Datos</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Limpiar Data</value>
+  <data name="linkLabelColor.Text" xml:space="preserve">
+    <value>Color Fondo de Ventanas</value>
   </data>
   <data name="btnAccept.Text" xml:space="preserve">
     <value>&amp;Aceptar</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
-    <value>&amp;Cancelar</value>
+    <value>&amp;Cancel</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -252,6 +231,6 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Configuración</value>
+    <value>Preferencias</value>
   </data>
 </root>

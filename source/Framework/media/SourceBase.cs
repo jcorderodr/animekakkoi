@@ -60,16 +60,31 @@ namespace Framework.media
             //-repeat StateCategories.Add("Abandonadas", ENTITY_STATE.TAKED_DOWN);
             StateCategories.Add("Quiere leer", ENTITY_STATE.WANT_TO);
             //-repeat StateCategories.Add("Pausadas/En espera", ENTITY_STATE.QUEUE);
-
+            //
+            //- My Anime List
+            //
+            StateCategories.Add("Dropped", ENTITY_STATE.TAKED_DOWN);
+            StateCategories.Add("Plan to Watch", ENTITY_STATE.WANT_TO);
+            StateCategories.Add("On Hold", ENTITY_STATE.QUEUE);
+            StateCategories.Add("Currently Watching", ENTITY_STATE.WATCHING);
+            StateCategories.Add("Completed", ENTITY_STATE.WATCHED);
+            StateCategories.Add("Plan to Read", ENTITY_STATE.WANT_TO);
+            StateCategories.Add("Currently Reading", ENTITY_STATE.WATCHING);
+            //-repeat StateCategories.Add("Completed", ENTITY_STATE.WATCHED);
+            //-repeat StateCategories.Add("On Hold", ENTITY_STATE.QUEUE);
             /*
-            * TypeAnimeCategories Dictionary<string, <media_type>_TYPE>
-            */
+             * TypeAnimeCategories Dictionary<string, <media_type>_TYPE>
+             */
             AnimeTypesCategories = new Dictionary<string, ANIME_TYPE>();
             AnimeTypesCategories.Add("Serie", ANIME_TYPE.SERIE);
+            AnimeTypesCategories.Add("TV", ANIME_TYPE.SERIE);
             AnimeTypesCategories.Add("OVA", ANIME_TYPE.OVA);
             AnimeTypesCategories.Add("Pelicula", ANIME_TYPE.MOVIE);
+            AnimeTypesCategories.Add("Movie", ANIME_TYPE.MOVIE);
             AnimeTypesCategories.Add("Especial", ANIME_TYPE.SPECIAL);
+            AnimeTypesCategories.Add("Special", ANIME_TYPE.SPECIAL);
             AnimeTypesCategories.Add("Web", ANIME_TYPE.WEB);
+            AnimeTypesCategories.Add("ONA", ANIME_TYPE.WEB);
             // - Manga Below
             MangaTypeCategories = new Dictionary<string, MANGA_TYPE>();
             MangaTypeCategories.Add("Manga", MANGA_TYPE.MANGA);

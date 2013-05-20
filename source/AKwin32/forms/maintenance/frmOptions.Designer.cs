@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageUi = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panelColorSample = new System.Windows.Forms.Panel();
-            this.linkLabelColor = new System.Windows.Forms.LinkLabel();
-            this.label5 = new System.Windows.Forms.Label();
             this.tabPageConn = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,11 +47,7 @@
             this.data_btnCleanAll = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.tabControl1.SuspendLayout();
-            this.tabPageUi.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.panelColorSample.SuspendLayout();
             this.tabPageConn.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageData.SuspendLayout();
@@ -66,46 +57,10 @@
             // tabControl1
             // 
             resources.ApplyResources(this.tabControl1, "tabControl1");
-            this.tabControl1.Controls.Add(this.tabPageUi);
             this.tabControl1.Controls.Add(this.tabPageConn);
             this.tabControl1.Controls.Add(this.tabPageData);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            // 
-            // tabPageUi
-            // 
-            this.tabPageUi.Controls.Add(this.groupBox3);
-            resources.ApplyResources(this.tabPageUi, "tabPageUi");
-            this.tabPageUi.Name = "tabPageUi";
-            this.tabPageUi.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.panelColorSample);
-            this.groupBox3.Controls.Add(this.label5);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
-            // panelColorSample
-            // 
-            this.panelColorSample.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelColorSample.Controls.Add(this.linkLabelColor);
-            resources.ApplyResources(this.panelColorSample, "panelColorSample");
-            this.panelColorSample.Name = "panelColorSample";
-            // 
-            // linkLabelColor
-            // 
-            resources.ApplyResources(this.linkLabelColor, "linkLabelColor");
-            this.linkLabelColor.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelColor.Name = "linkLabelColor";
-            this.linkLabelColor.TabStop = true;
-            this.linkLabelColor.Click += new System.EventHandler(this.linkLabelColor_Click);
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
             // 
             // tabPageConn
             // 
@@ -163,6 +118,7 @@
             // 
             resources.ApplyResources(this.txtHost, "txtHost");
             this.txtHost.Name = "txtHost";
+            this.txtHost.Validated += new System.EventHandler(this.txtHost_Validated);
             // 
             // label1
             // 
@@ -220,10 +176,6 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // colorDialog
-            // 
-            this.colorDialog.Color = System.Drawing.Color.Transparent;
-            // 
             // frmOptions
             // 
             this.AcceptButton = this.btnAccept;
@@ -234,13 +186,9 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmOptions";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmOptions_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPageUi.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.panelColorSample.ResumeLayout(false);
-            this.panelColorSample.PerformLayout();
             this.tabPageConn.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -270,11 +218,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button data_btnCleanAll;
         private System.Windows.Forms.Button data_btnCleanItems;
-        private System.Windows.Forms.TabPage tabPageUi;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.LinkLabel linkLabelColor;
-        private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.Panel panelColorSample;
     }
 }

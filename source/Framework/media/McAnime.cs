@@ -45,7 +45,7 @@ namespace Framework.media
 
         }
 
-        /// <exception cre[assembly: NeutralResourcesLanguage("en-US")]f="System.ArgumentException">When the web content hasen't the correct data.</exception>
+        /// <exception cref="System.ArgumentException">When the web content hasen't the correct data.</exception>
         /// <summary>
         /// 
         /// </summary>
@@ -145,7 +145,7 @@ namespace Framework.media
 
         }
 
-        /// <exception cref="System.ArgumentException">When the web content hasen't the correct data.</exception>
+        /// <exception cref="MediaResourceException">When the web content hasen't the correct data.</exception>
         /// <summary>
         /// 
         /// </summary>
@@ -157,7 +157,7 @@ namespace Framework.media
             // List of forms
             HtmlNodeCollection nodes = node.SelectNodes(KRONOS_FORM_SEARCH_EXPRESSION);
 
-            if (nodes == null) throw new ArgumentException("the data given from the web wasn't the correct.");
+            if (nodes == null) throw new MediaResourceException(new ArgumentException("the data given from the web wasn't the correct."));
 
             string aux;
             foreach (HtmlNode form in nodes)
@@ -210,7 +210,7 @@ namespace Framework.media
             // List of forms
             HtmlNodeCollection nodes = node.SelectNodes(MANGA_KRONOS_FORM_SEARCH_EXPRESSION);
 
-            if (nodes == null) throw new ArgumentException("the data given from the web wasn't the correct.");
+            if (nodes == null) throw new MediaResourceException(new ArgumentException("the data given from the web wasn't the correct."));
 
             string aux;
             foreach (HtmlNode form in nodes)

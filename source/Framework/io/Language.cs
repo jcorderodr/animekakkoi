@@ -7,14 +7,15 @@ using System.IO;
 
 namespace Framework.io
 {
+    /// <summary>
+    /// Provides mechanism for controling the outgoing localization.
+    /// </summary>
     public class Language
     {
 
         private static String languageFilePath = "Language.lsp";
 
         private const String COMMENT_TAG = "#";
-        private const String ERROR_TAG = "error_";
-        private const String MESSAGE_TAG = "message_";
 
         private string[] splitters = new string[] { "=", "\r\n" };
 
@@ -52,8 +53,9 @@ namespace Framework.io
             try
             {
                 InitComponents();
+                Load(cultureInfo);
             }
-            catch (IOException ex) { throw ex; }
+            catch (Exception ex) { throw ex; }
         }
 
 
@@ -61,24 +63,39 @@ namespace Framework.io
         {
             cultureInfo = CultureInfo.CurrentCulture;
             messagesLibrary = new Dictionary<string, string>();
+        }
 
+        /// <exception cref="System.IO.IOException">reaching the lang file.</exception>
+        /// <exception cref="NotImplementedException">if Language is not implemented</exception>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="culture"></param>
+        protected void Load(CultureInfo culture)
+        {
             string file = Configuration.ApplicationDataFolder + languageFilePath;
             System.IO.StreamReader reader = null;
-            
+
             try
             {
                 reader = new System.IO.StreamReader(file, true);
             }
             catch (System.IO.IOException ex) { throw ex; }
-            //
+            
             try
             {
                 string aux = reader.ReadToEnd();
-                int regionStart = aux.IndexOf(cultureInfo.Parent.Name);
+                int regionStart = aux.IndexOf(culture.Parent.Name);
 
                 if (regionStart == -1)
                 {
-                    //TODO: make the program start with another Culture
+                    string user_culture_pre = io.Configuration.GetSetting("lang");
+                    cultureInfo = new CultureInfo(user_culture_pre);
+                }
+
+                regionStart = aux.IndexOf(culture.Parent.Name);
+                if (regionStart == -1)
+                {
                     throw new NotImplementedException("Language is not implemented: " + cultureInfo.Parent.Name);
                 }
 
@@ -93,7 +110,6 @@ namespace Framework.io
                 reader.Close();
                 reader.Dispose();
             }
-
         }
 
         private void SplitWords(string text)
