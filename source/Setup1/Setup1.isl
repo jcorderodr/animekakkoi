@@ -2845,7 +2845,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1034</td><td>BluegleTek Soft</td><td>0</td><td/><td>-1834925152</td></row>
+		<row><td>COMPANY_NAME</td><td>1034</td><td>BluegleTek Soft</td><td>0</td><td/><td>-1566504171</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1034</td><td>Instalar siempre</td><td>0</td><td/><td>-1969151984</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1034</td><td>La configuración de colores de su sistema no es adecuada para ejecutar [ProductName].</td><td>0</td><td/><td>-1969151984</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION35</td><td>1034</td><td>Microsoft .NET Framework 3.5 needs to be installed for this installation to continue.</td><td>0</td><td/><td>-1969151984</td></row>
@@ -3948,8 +3948,8 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1034</td><td>La cantidad de RAM no es la adecuada para ejecutar [ProductName].</td><td>0</td><td/><td>-1969151984</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1034</td><td>La resolución de pantalla no es la adecuada para ejecutar [ProductName].</td><td>0</td><td/><td>-1969151984</td></row>
 		<row><td>ID_STRING1</td><td>1034</td><td/><td>0</td><td/><td>-1969151984</td></row>
-		<row><td>ID_STRING2</td><td>1034</td><td>http://www.BluegleTekSoft.com</td><td>0</td><td/><td>-1834925152</td></row>
-		<row><td>ID_STRING3</td><td>1034</td><td>BluegleTek Soft</td><td>0</td><td/><td>-1834925152</td></row>
+		<row><td>ID_STRING2</td><td>1034</td><td>http://www.BluegleTekSoft.com</td><td>0</td><td/><td>-1566504171</td></row>
+		<row><td>ID_STRING3</td><td>1034</td><td>BluegleTek Soft</td><td>0</td><td/><td>-1566504171</td></row>
 		<row><td>ID_STRING4</td><td>1034</td><td>Launch |Built</td><td>0</td><td/><td>-1969151984</td></row>
 		<row><td>ID_STRING5</td><td>1034</td><td>Installing, be quiet.</td><td>0</td><td/><td>-1969151984</td></row>
 		<row><td>ID_STRING6</td><td>1034</td><td>Installation - AK</td><td>0</td><td/><td>-1969151984</td></row>

@@ -10,7 +10,7 @@ namespace AKwin32
 
         internal static Framework.io.Language Language;
 
-        internal static com.io.AkConfiguration AkConfiguration;
+        internal static com.io.AkConfiguration AkConfiguration = new com.io.AkConfiguration();
 
         private static Framework.entity.User _user;
         public static Framework.entity.User SystemUser
@@ -39,11 +39,11 @@ namespace AKwin32
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            LoadVariables();
-            if (varsErrorLoading) return;
-
             System.Threading.Thread.CurrentThread.CurrentCulture = AkConfiguration.ApplicationCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = AkConfiguration.ApplicationCulture;
+
+            LoadVariables();
+            if (varsErrorLoading) return;
 
             if (args.Length > 0)
             {
@@ -61,16 +61,22 @@ namespace AKwin32
             try
             {
                 Language = new Framework.io.Language();
-                AkConfiguration = new com.io.AkConfiguration();
 
                 varsErrorLoading = !Framework.io.Configuration.TryFileInspection();
             }
-            catch
+            catch (Exception ex)
             {
                 varsErrorLoading = true;
-                MessageBox.Show("Error loading configuration, system or app files.", AppTitle);
+                MessageBox.Show("Error loading configuration, system or app files: " + ex.Message, AppTitle);
             }
         }
+
+
+        private static void SplitWords(string text)
+        {
+
+        }
+
 
         private static void StartUI()
         {

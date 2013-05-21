@@ -80,7 +80,7 @@ namespace AKwin32.forms.maintenance
 
             setts.Save();
             // -
-            //Framework.io.Configuration.SaveSetting("key", );
+            Framework.io.Configuration.SaveSetting("lang", setts.ApplicationCulture);
         }
 
 
