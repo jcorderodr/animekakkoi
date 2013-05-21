@@ -58,10 +58,10 @@ namespace Framework.io
             catch (Exception ex) { throw ex; }
         }
 
-
         private void InitComponents()
         {
-            cultureInfo = CultureInfo.CurrentCulture;
+            //another way: cultureInfo = new System.Globalization.CultureInfo(Framework.io.Configuration.GetSetting("lang"));
+            cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
             messagesLibrary = new Dictionary<string, string>();
         }
 
@@ -80,29 +80,27 @@ namespace Framework.io
             {
                 reader = new System.IO.StreamReader(file, true);
             }
-            catch (System.IO.IOException ex) { throw ex; }
+            catch (System.IO.IOException ex) { throw new Exception("Streaming", ex); }
 
             try
             {
-                string aux = reader.ReadToEnd();
-                int regionStart = aux.IndexOf(culture.Parent.Name);
+                string aux;
+                int regionStart, regionEnd;
 
-                if (regionStart == -1)
-                {
-                    string user_culture_pre = io.Configuration.GetSetting("lang");
-                    cultureInfo = new CultureInfo(user_culture_pre);
-                }
-
+                aux = reader.ReadToEnd();
+      
                 regionStart = aux.IndexOf(culture.Parent.Name);
+
                 if (regionStart == -1)
                 {
-                    throw new NotImplementedException("Language is not implemented: " + cultureInfo.Parent.Name);
+                    throw new NotImplementedException("Language is not implemented: " + culture.Parent.Name);
                 }
 
                 regionStart = aux.IndexOf(']', regionStart) + 1;
-                int regionEnd = aux.IndexOf('[', regionStart);
+                regionEnd = aux.IndexOf('[', regionStart);
 
                 SplitWords(aux.Substring(regionStart, regionEnd - regionStart));
+
             }
             catch (NotImplementedException ex) { throw ex; }
             finally
@@ -114,7 +112,7 @@ namespace Framework.io
 
         public void Reload(CultureInfo newCulture)
         {
-            cultureInfo = CultureInfo.CurrentCulture;
+            cultureInfo = newCulture;
             Load(cultureInfo);
         }
 
