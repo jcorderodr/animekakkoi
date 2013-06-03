@@ -28,6 +28,9 @@ namespace AKwin32.forms.maintenance
 
             linkLabelFontsStyle.Font = setts.UiFontsStyles;
             linkLabelControlsStyle.Font = setts.UiControlsFontsStyle;
+            // -
+            linkLabelFontsStyle.Text = String.Format("{0} {1}pts", linkLabelFontsStyle.Font.Name, linkLabelColor.Font.Size);
+            linkLabelControlsStyle.Text = String.Format("{0} {1}pts", linkLabelControlsStyle.Font.Name, linkLabelControlsStyle.Font.Size);
         }
 
         private void linkLabelColor_Click(object sender, EventArgs e)
@@ -52,6 +55,7 @@ namespace AKwin32.forms.maintenance
             if (fontDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 linkLabelControlsStyle.Font = fontDialog.Font;
+                linkLabelControlsStyle.Text = String.Format("{0} {1}pts", linkLabelControlsStyle.Font.Name, linkLabelControlsStyle.Font.Size);
             }
         }
 
@@ -61,6 +65,7 @@ namespace AKwin32.forms.maintenance
             if (fontDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 linkLabelFontsStyle.Font = fontDialog.Font;
+                linkLabelFontsStyle.Text = String.Format("{0} {1}pts", linkLabelFontsStyle.Font.Name, linkLabelColor.Font.Size);
             }
         }
 

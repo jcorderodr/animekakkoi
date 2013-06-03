@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Framework.io
 {
+    /// <summary>
+    /// Constant values.
+    /// </summary>
     public abstract class FileProperties
     {
 

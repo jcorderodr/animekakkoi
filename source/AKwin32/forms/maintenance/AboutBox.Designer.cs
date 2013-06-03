@@ -29,13 +29,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.labelProductName = new System.Windows.Forms.Label();
-            this.labelVersion = new System.Windows.Forms.Label();
-            this.labelCopyright = new System.Windows.Forms.Label();
-            this.labelCompanyName = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.linkLabelTitle = new System.Windows.Forms.LinkLabel();
+            this.lblCompany = new System.Windows.Forms.Label();
+            this.lblCopyright = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,50 +46,6 @@
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoPictureBox.TabIndex = 26;
             this.logoPictureBox.TabStop = false;
-            // 
-            // labelProductName
-            // 
-            this.labelProductName.Location = new System.Drawing.Point(152, 12);
-            this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
-            this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(0, 17);
-            this.labelProductName.TabIndex = 27;
-            this.labelProductName.Text = "Product Name";
-            this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelVersion
-            // 
-            this.labelVersion.Location = new System.Drawing.Point(152, 38);
-            this.labelVersion.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
-            this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(0, 17);
-            this.labelVersion.TabIndex = 25;
-            this.labelVersion.Text = "Version";
-            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelCopyright
-            // 
-            this.labelCopyright.Location = new System.Drawing.Point(152, 64);
-            this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
-            this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(0, 17);
-            this.labelCopyright.TabIndex = 28;
-            this.labelCopyright.Text = "Copyright";
-            this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelCompanyName
-            // 
-            this.labelCompanyName.Location = new System.Drawing.Point(152, 90);
-            this.labelCompanyName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 17);
-            this.labelCompanyName.Name = "labelCompanyName";
-            this.labelCompanyName.Size = new System.Drawing.Size(0, 17);
-            this.labelCompanyName.TabIndex = 29;
-            this.labelCompanyName.Text = "Company Name";
-            this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxDescription
             // 
@@ -121,24 +75,40 @@
             this.linkLabelTitle.AutoSize = true;
             this.linkLabelTitle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelTitle.LinkColor = System.Drawing.SystemColors.MenuHighlight;
-            this.linkLabelTitle.Location = new System.Drawing.Point(158, 47);
+            this.linkLabelTitle.Location = new System.Drawing.Point(159, 23);
             this.linkLabelTitle.Name = "linkLabelTitle";
             this.linkLabelTitle.Size = new System.Drawing.Size(29, 19);
             this.linkLabelTitle.TabIndex = 32;
             this.linkLabelTitle.TabStop = true;
             this.linkLabelTitle.Text = "AK";
             // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Location = new System.Drawing.Point(159, 57);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(51, 13);
+            this.lblCompany.TabIndex = 33;
+            this.lblCompany.Text = "Company";
+            // 
+            // lblCopyright
+            // 
+            this.lblCopyright.AutoSize = true;
+            this.lblCopyright.Location = new System.Drawing.Point(159, 79);
+            this.lblCopyright.Name = "lblCopyright";
+            this.lblCopyright.Size = new System.Drawing.Size(51, 13);
+            this.lblCopyright.TabIndex = 33;
+            this.lblCopyright.Text = "Copyright";
+            // 
             // AboutBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 283);
+            this.Controls.Add(this.lblCopyright);
+            this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.linkLabelTitle);
             this.Controls.Add(this.logoPictureBox);
-            this.Controls.Add(this.labelProductName);
-            this.Controls.Add(this.labelVersion);
-            this.Controls.Add(this.labelCopyright);
-            this.Controls.Add(this.labelCompanyName);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.okButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -160,13 +130,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox logoPictureBox;
-        private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.Label labelVersion;
-        private System.Windows.Forms.Label labelCopyright;
-        private System.Windows.Forms.Label labelCompanyName;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.LinkLabel linkLabelTitle;
+        private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.Label lblCopyright;
 
     }
 }

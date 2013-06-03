@@ -16,8 +16,8 @@ namespace Framework.repo.xml
     public abstract class Repository<T> : IRepository<T>, IDisposable where T : class, new()
     {
 
-        protected internal StringBuilder animeTemplate;
-        protected internal StringBuilder mangaTemplate;
+        private  StringBuilder animeTemplate;
+        private StringBuilder mangaTemplate;
 
         /// <summary>
         /// Object used to store in memory all the availables resources/repositories for saving data.
@@ -126,14 +126,6 @@ namespace Framework.repo.xml
             this.Update();
         }
 
-        protected internal void DisposeItems(String itemType)
-        {
-            foreach (XDocument doc in documentsContext.Values)
-            {
-                doc.Elements(io.Configuration.ApplicationName).Elements(itemType).Remove();
-            }
-        }
-
         protected internal List<XElement> GetAllByType(Type type)
         {
             List<XElement> list = new List<XElement>();
@@ -153,6 +145,16 @@ namespace Framework.repo.xml
                 if (element != null) return element;
             }
             return null;
+        }
+
+        protected internal XElement getAnimeTemplate()
+        {
+            return XElement.Parse(animeTemplate.ToString(), LoadOptions.PreserveWhitespace);
+        }
+
+        protected internal XElement getMangaTemplate()
+        {
+            return XElement.Parse(mangaTemplate.ToString(), LoadOptions.PreserveWhitespace);
         }
 
         protected internal int NewItemID
@@ -226,16 +228,6 @@ namespace Framework.repo.xml
             return aux;
         }
 
-        protected internal XElement getAnimeTemplate()
-        {
-            return XElement.Parse(animeTemplate.ToString(), LoadOptions.PreserveWhitespace);
-        }
-
-        protected internal XElement getMangaTemplate()
-        {
-            return XElement.Parse(mangaTemplate.ToString(), LoadOptions.PreserveWhitespace);
-        }
-
         private void LoadTemplates()
         {
             animeTemplate = new StringBuilder();
@@ -288,8 +280,6 @@ namespace Framework.repo.xml
 
         public abstract T Add(T item);
 
-        //public abstract int AddRange(IList<T> items);
-
         public abstract void Change(T item);
 
         public abstract void Remove(T item);
@@ -298,7 +288,7 @@ namespace Framework.repo.xml
 
         public abstract IList<T> LookUp(string name);
 
-        //public abstract IList<Anime> LookUp(Func<Anime, bool> predicate);
+        //--public abstract IList<Anime> LookUp(Func<Anime, bool> predicate);
 
         public Type RepositoryType()
         {

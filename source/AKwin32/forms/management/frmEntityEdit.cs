@@ -24,7 +24,6 @@ namespace AKwin32.forms.management
         public frmEntityEdit()
         {
             InitializeComponent();
-
         }
 
         #region UI Events
@@ -41,10 +40,6 @@ namespace AKwin32.forms.management
             {
                 base.FillComboBoxCatalog(cb_Category, Catalog.GetMangaCategoriesTypes());
             }
-            //--else if (entityType.Name == typeof(EntitySource).Name)
-            //--{
-            //--    base.FillComboBoxCatalog(cb_Category, Catalog.GetEntitiesValidTypes());
-            //--}
 
             LoadItem();
         }
@@ -198,8 +193,6 @@ namespace AKwin32.forms.management
 
 
         #endregion
-
-
 
 
     }

@@ -53,6 +53,7 @@
             this.mcAnimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mcAnimeKronosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myAnimeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateSourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dataCheckerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +65,8 @@
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.versionProToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutAkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
@@ -197,6 +200,7 @@
             resources.ApplyResources(this.toolsToolStripMenu, "toolsToolStripMenu");
             this.toolsToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importerToolStripMenuItem,
+            this.updateSourcesToolStripMenuItem,
             this.toolStripSeparator2,
             this.dataCheckerToolStripMenuItem,
             this.backUpToolStripMenuItem,
@@ -245,6 +249,12 @@
             this.myAnimeListToolStripMenuItem.Name = "myAnimeListToolStripMenuItem";
             this.myAnimeListToolStripMenuItem.Click += new System.EventHandler(this.myAnimeListToolStripMenuItem_Click);
             // 
+            // updateSourcesToolStripMenuItem
+            // 
+            resources.ApplyResources(this.updateSourcesToolStripMenuItem, "updateSourcesToolStripMenuItem");
+            this.updateSourcesToolStripMenuItem.Name = "updateSourcesToolStripMenuItem";
+            this.updateSourcesToolStripMenuItem.Click += new System.EventHandler(this.updateSourcesToolStripMenuItem_Click);
+            // 
             // toolStripSeparator2
             // 
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
@@ -254,6 +264,7 @@
             // 
             resources.ApplyResources(this.dataCheckerToolStripMenuItem, "dataCheckerToolStripMenuItem");
             this.dataCheckerToolStripMenuItem.Name = "dataCheckerToolStripMenuItem";
+            this.dataCheckerToolStripMenuItem.Click += new System.EventHandler(this.dataCheckerToolStripMenuItem_Click);
             // 
             // backUpToolStripMenuItem
             // 
@@ -286,6 +297,8 @@
             this.contactToolStripMenuItem,
             this.searchUpdatesToolStripMenuItem,
             this.toolStripSeparator8,
+            this.versionProToolStripMenuItem,
+            this.toolStripSeparator9,
             this.aboutAkToolStripMenuItem});
             this.aboutToolStripMenu.Name = "aboutToolStripMenu";
             // 
@@ -311,6 +324,17 @@
             // 
             resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
             this.toolStripSeparator8.Name = "toolStripSeparator8";
+            // 
+            // versionProToolStripMenuItem
+            // 
+            resources.ApplyResources(this.versionProToolStripMenuItem, "versionProToolStripMenuItem");
+            this.versionProToolStripMenuItem.Name = "versionProToolStripMenuItem";
+            this.versionProToolStripMenuItem.Click += new System.EventHandler(this.versionProToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
             // 
             // aboutAkToolStripMenuItem
             // 
@@ -431,5 +455,8 @@
         private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem searchUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem versionProToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem updateSourcesToolStripMenuItem;
     }
 }

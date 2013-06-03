@@ -6,14 +6,23 @@ using System.Data;
 
 namespace Framework.io
 {
+    /// <summary>
+    /// Represent a Catalog and Provides mechanism for getting Configurables values.
+    /// </summary>
     [Serializable]
     public class Catalog
     {
-
+        /// <summary>
+        /// ID
+        /// </summary>
         public string Id { get; set; }
-
+        /// <summary>
+        /// InnerValue
+        /// </summary>
         public String Value { get; set; }
-
+        /// <summary>
+        /// OuterValue
+        /// </summary>
         public String Description { get; set; }
 
         /// <summary>
@@ -91,7 +100,7 @@ namespace Framework.io
         }
 
         /// <summary>
-        /// 
+        /// Gets all the categories types of animes.
         /// </summary>
         /// <returns></returns>
         public static List<Catalog> GetAnimeCategoriesTypes()
@@ -114,7 +123,7 @@ namespace Framework.io
         }
 
         /// <summary>
-        /// 
+        ///  Gets all the categories types of mangas.
         /// </summary>
         /// <returns></returns>
         public static List<Catalog> GetMangaCategoriesTypes()

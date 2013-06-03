@@ -6,6 +6,9 @@ using HtmlAgilityPack;
 
 namespace Framework.util
 {
+    /// <summary>
+    /// Provides RegularExpression, filter mechanism and functions to manipulate values.
+    /// </summary>
     public abstract class Expression
     {
 

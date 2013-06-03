@@ -22,7 +22,6 @@ namespace AKwin32.forms.management
         public frmMgmtManga()
         {
             InitializeComponent();
-            this.Text = this.Text + "Manga";
             entityType = typeof(Manga);
             repo = new MangaRepository();
         }

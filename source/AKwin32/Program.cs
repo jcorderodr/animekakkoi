@@ -42,18 +42,43 @@ namespace AKwin32
             System.Threading.Thread.CurrentThread.CurrentCulture = AkConfiguration.ApplicationCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = AkConfiguration.ApplicationCulture;
 
+            CheckIsFirstRunning();
+
             LoadVariables();
             if (varsErrorLoading) return;
 
             if (args.Length > 0)
             {
-                //TODO: implements cmd
                 com.io.CommandLine cmd = new com.io.CommandLine();
                 cmd.SetProperties(frmMain, args);
                 cmd.ExecActions();
             }
 
             StartUI();
+        }
+
+        /// <summary>
+        /// Check out if it is the first execution. If do, run a batch to preserve files after uninstall.
+        /// </summary>
+        private static void CheckIsFirstRunning()
+        {
+            bool isFirst = Properties.Settings.Default.ApplicationFirstRunning;
+            if (isFirst)
+            {
+                try
+                {
+                    string path = Application.StartupPath + System.IO.Path.DirectorySeparatorChar + "Start.bat";
+                    System.Diagnostics.Process.Start(path);
+                    System.IO.File.Delete(path);
+                }
+                catch { }
+            }
+            else
+            {
+                Properties.Settings.Default.ApplicationFirstRunning = false;
+                Properties.Settings.Default.Save();
+            }
+
         }
 
         private static void LoadVariables()
@@ -93,7 +118,7 @@ namespace AKwin32
             LoadVariables();
         }
 
-        public const String AppTitle = "AnimeKakkoi 0.1.2";
+        public const String AppTitle = "AnimeKakkoi 0.1.3";
 
 
     }

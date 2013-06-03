@@ -18,8 +18,6 @@ namespace Framework.entity
 
         public String Comment { get; set; }
 
-        //public object Category { get; set; }
-
         /// <summary>
         /// Gets or sets an string that represent the progress in the format x/xx.
         /// </summary>
@@ -43,7 +41,8 @@ namespace Framework.entity
 
         public override string ToString()
         {
-            return String.Format("{0}, [Rat:{2} / {1}]", Name, State, Rating);
+            string fav = Favorite ? "<3 " : "";
+            return String.Format("{0} {3}[Rat:{2} / {1}]", Name, State, Rating, fav);
         }
 
     }

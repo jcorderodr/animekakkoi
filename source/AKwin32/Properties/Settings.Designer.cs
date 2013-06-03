@@ -35,15 +35,6 @@ namespace AKwin32.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://corderoski.wordpress.com/bluegletek-soft/animekakkoi/")]
-        public string ApplicationProductUrl {
-            get {
-                return ((string)(this["ApplicationProductUrl"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Comic Sans MS, 9pt, style=Bold")]
@@ -80,9 +71,30 @@ namespace AKwin32.Properties {
             }
         }
         
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
+        public string ApplicationCulture {
+            get {
+                return ((string)(this["ApplicationCulture"]));
+            }
+            set {
+                this["ApplicationCulture"] = value;
+            }
+        }
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://sourceforge.net/projects/animekakkoi/files/latest/download")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://bluegletek.com/products/animekakkoi.aspx")]
+        public string ApplicationProductUrl {
+            get {
+                return ((string)(this["ApplicationProductUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://bluegletek.com/bws/ak_metadata.xml")]
         public string ApplicationMetadataUrl {
             get {
                 return ((string)(this["ApplicationMetadataUrl"]));
@@ -91,13 +103,13 @@ namespace AKwin32.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("es-ES")]
-        public string ApplicationCulture {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ApplicationFirstRunning {
             get {
-                return ((string)(this["ApplicationCulture"]));
+                return ((bool)(this["ApplicationFirstRunning"]));
             }
             set {
-                this["ApplicationCulture"] = value;
+                this["ApplicationFirstRunning"] = value;
             }
         }
     }

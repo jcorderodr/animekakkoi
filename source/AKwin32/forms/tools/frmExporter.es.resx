@@ -117,257 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Progreso</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnEraseUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>282, 29</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
   </data>
-  <data name="btnEraseUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 24</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Cantidad:</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnEraseUser.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Selección</value>
   </data>
-  <data name="btnEraseUser.Text" xml:space="preserve">
-    <value>-</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
   </data>
-  <data name="btnEraseUser.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Estado</value>
   </data>
-  <data name="&gt;&gt;btnEraseUser.Name" xml:space="preserve">
-    <value>btnEraseUser</value>
-  </data>
-  <data name="&gt;&gt;btnEraseUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEraseUser.Parent" xml:space="preserve">
-    <value>panelBase</value>
-  </data>
-  <data name="&gt;&gt;btnEraseUser.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblSources.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSources.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 59</value>
-  </data>
-  <data name="lblSources.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
-  </data>
-  <data name="lblSources.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lblSources.Text" xml:space="preserve">
-    <value>sources</value>
-  </data>
-  <data name="&gt;&gt;lblSources.Name" xml:space="preserve">
-    <value>lblSources</value>
-  </data>
-  <data name="&gt;&gt;lblSources.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSources.Parent" xml:space="preserve">
-    <value>panelBase</value>
-  </data>
-  <data name="&gt;&gt;lblSources.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="listViewSources.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="sourceList.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="sourceList.Width" type="System.Int32, mscorlib">
-    <value>120</value>
-  </data>
-  <data name="listViewSources.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 75</value>
-  </data>
-  <data name="listViewSources.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 113</value>
-  </data>
-  <data name="listViewSources.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;listViewSources.Name" xml:space="preserve">
-    <value>listViewSources</value>
-  </data>
-  <data name="&gt;&gt;listViewSources.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listViewSources.Parent" xml:space="preserve">
-    <value>panelBase</value>
-  </data>
-  <data name="&gt;&gt;listViewSources.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cboxUsers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 30</value>
-  </data>
-  <data name="cboxUsers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 21</value>
-  </data>
-  <data name="cboxUsers.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cboxUsers.Name" xml:space="preserve">
-    <value>cboxUsers</value>
-  </data>
-  <data name="&gt;&gt;cboxUsers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cboxUsers.Parent" xml:space="preserve">
-    <value>panelBase</value>
-  </data>
-  <data name="&gt;&gt;cboxUsers.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lblUsers.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblUsers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>55, 13</value>
-  </data>
-  <data name="lblUsers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 13</value>
-  </data>
-  <data name="lblUsers.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblUsers.Text" xml:space="preserve">
-    <value>users</value>
-  </data>
-  <data name="&gt;&gt;lblUsers.Name" xml:space="preserve">
-    <value>lblUsers</value>
-  </data>
-  <data name="&gt;&gt;lblUsers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblUsers.Parent" xml:space="preserve">
-    <value>panelBase</value>
-  </data>
-  <data name="&gt;&gt;lblUsers.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="panelBase.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panelBase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelBase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 200</value>
-  </data>
-  <data name="panelBase.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelBase.Name" xml:space="preserve">
-    <value>panelBase</value>
-  </data>
-  <data name="&gt;&gt;panelBase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelBase.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelBase.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnAccept.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 206</value>
-  </data>
-  <data name="btnAccept.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="btnAccept.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Opciones</value>
   </data>
   <data name="btnAccept.Text" xml:space="preserve">
-    <value>ok</value>
-  </data>
-  <data name="&gt;&gt;btnAccept.Name" xml:space="preserve">
-    <value>btnAccept</value>
-  </data>
-  <data name="&gt;&gt;btnAccept.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAccept.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnAccept.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 206</value>
-  </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>&amp;Aceptar</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
-    <value>close</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnNewUser.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="btnNewUser.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cooper Black, 8.25pt</value>
-  </data>
-  <data name="btnNewUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 206</value>
-  </data>
-  <data name="btnNewUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="btnNewUser.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnNewUser.Text" xml:space="preserve">
-    <value>new</value>
-  </data>
-  <data name="&gt;&gt;btnNewUser.Name" xml:space="preserve">
-    <value>btnNewUser</value>
-  </data>
-  <data name="&gt;&gt;btnNewUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnNewUser.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnNewUser.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>345, 237</value>
+    <value>&amp;Cancel</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -446,18 +222,6 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Users</value>
-  </data>
-  <data name="&gt;&gt;sourceList.Name" xml:space="preserve">
-    <value>sourceList</value>
-  </data>
-  <data name="&gt;&gt;sourceList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmUsers</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=1.0.1.22041, Culture=neutral, PublicKeyToken=null</value>
+    <value>Exportar</value>
   </data>
 </root>

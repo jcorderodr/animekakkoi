@@ -12,6 +12,7 @@
     <AssemblyName>anime-k</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <PublisherName>BluegleTek Soft</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -331,6 +331,12 @@
     <EmbeddedResource Include="forms\tools\frmBackUp.resx">
       <DependentUpon>frmBackUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmExporter.en.resx">
+      <DependentUpon>frmExporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmExporter.es.resx">
+      <DependentUpon>frmExporter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmExporter.resx">
       <DependentUpon>frmExporter.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,11 +352,14 @@
     <EmbeddedResource Include="forms\tools\frmInputRequest.es.resx">
       <DependentUpon>frmInputRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\tools\frmInputRequest.nl-NL.resx">
-      <DependentUpon>frmInputRequest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmInputRequest.resx">
       <DependentUpon>frmInputRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmItemSelector.en.resx">
+      <DependentUpon>frmItemSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmItemSelector.es.resx">
+      <DependentUpon>frmItemSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmItemSelector.resx">
       <DependentUpon>frmItemSelector.cs</DependentUpon>

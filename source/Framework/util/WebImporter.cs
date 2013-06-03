@@ -10,12 +10,14 @@ using Framework.entity;
 namespace Framework.util
 {
     /// <summary>
-    /// 
+    /// A web importer for loading media from web-based resources.
     /// </summary>
-    public class WebImporter
+    public class WebImporter : IImporter
     {
 
         public IMPORT_SOURCES Type { get; set; }
+
+        public String HTML { get; set; }
 
         /// <exception cref="System.Net.WebException">Trying to reach the indicated Uri.</exception>
         /// <summary>
@@ -53,7 +55,7 @@ namespace Framework.util
         }
 
 
-        /// <exception cref="System.Exception"></exception>
+        /// <exception cref="System.NullReferenceException">NullReferenceException - if HTML's value is not supplied.</exception>
         /// <summary>
         /// 
         /// </summary>
@@ -61,8 +63,11 @@ namespace Framework.util
         /// <param name="typeName">the Entity's name.</param>
         /// <param name="rType"></param>
         /// <returns></returns>
-        public Framework.media.ISource GetSource(string html, string typeName, ref Type rType)
+        public Framework.media.ISource GetSource(string typeName, ref Type rType)
         {
+            if (String.IsNullOrEmpty(this.HTML))
+                throw new NullReferenceException("The 'HTML' propertie is empty.");
+
             Type type;
 
             switch (typeName.ToLower())
@@ -80,10 +85,10 @@ namespace Framework.util
                     break;
             }
             rType = type;
-            return AnalizeSource(html, type);
+            return AnalizeSource(type);
         }
 
-        private Framework.media.ISource AnalizeSource(string html, Type type)
+        private Framework.media.ISource AnalizeSource(Type type)
         {
             try
             {
@@ -92,25 +97,25 @@ namespace Framework.util
                     case IMPORT_SOURCES.MCANIME:
                         McAnime mcanime = new McAnime();
                         if (type == typeof(Anime))
-                            mcanime.DisassembleSource(html);
+                            mcanime.DisassembleSource(this.HTML);
                         else if (type == typeof(Manga))
-                            mcanime.DisassembleSource_Manga(html); ;
+                            mcanime.DisassembleSource_Manga(this.HTML); ;
                         return mcanime;
 
                     case IMPORT_SOURCES.MCANIME_KRONOS:
                         McAnime mcanime_k = new McAnime();
                         if (type == typeof(Anime))
-                            mcanime_k.DisassembleSourceKronos(html);
+                            mcanime_k.DisassembleSourceKronos(this.HTML);
                         else if (type == typeof(Manga))
-                            mcanime_k.DisassembleSourceKronos_Manga(html); ;
+                            mcanime_k.DisassembleSourceKronos_Manga(this.HTML); ;
                         return mcanime_k;
 
                     case IMPORT_SOURCES.MY_ANIME_LIST:
                         MyAnimeList resx = new MyAnimeList();
                         if (type == typeof(Anime))
-                            resx.DisassembleSource_Anime(html);
+                            resx.DisassembleSource_Anime(this.HTML);
                         else if (type == typeof(Manga))
-                            resx.DisassembleSource_Manga(html); ;
+                            resx.DisassembleSource_Manga(this.HTML); ;
                         return resx;
 
                     default:
