@@ -12,12 +12,14 @@ items_saved = Los registros se han guardado exitosamente!
 item_affected = Se ha modificado/guardado el ítem exitosamente.
 exit_question = ¿Desea realmente salir?
 sharing_file = Se ha creado exitosamente el archivo para compartir.
-new_user_request = Ingrese nuevo usuario:
+new_user_request = Ingrese nuevo usuario
 clean_database_question = ¿Está seguro que desea limpiar por completo la base de datos?
 items_erased_sucess = Los ítemes se han limpiado de la base de datos.
 database_erased_sucess = Las informaciones, data, registros y configuraciones se han limpiado y reiniciado.
 backup_question = Importar significa reemplazar todo el contenido actual. ¿Está seguro que desea importar el archivo? 
 operation_sucess = Operación completada satisfactoriamente.
+version_pro = Función disponible en la versión Pro.
+update_available = Existe una nueva actualizacón disponible
 ###
 #	Errores
 ###
@@ -52,7 +54,7 @@ welcome = Welcome!
 select_user = Must select a user.
 items_saved = Items saved successfuly!
 item_affected = The Item has been save/changed successfuly.
-exit_question = ß„id you really wanna quit?
+exit_question = ¿Did you really wanna quit?
 sharing_file = The Sharing File has been created.
 new_user_request = Type the new username:
 clean_database_question = !
@@ -60,6 +62,8 @@ items_erased_sucess = All the items has been deleted sucessfully.
 database_erased_sucess = !
 backup_question = backup_question
 operation_sucess = operation_sucess
+version_pro = This is a Pro version feature.
+update_available = A new update is available
 ###
 #	Errores
 ###

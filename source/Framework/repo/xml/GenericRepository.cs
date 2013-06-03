@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Framework.entity;
 
 namespace Framework.repo.xml
 {
     public class GenericRepository //: Repository<entity.EntitySource>
     {
 
+        public void SwitchElements(Type type, string values, string progress)
+        {
+            //TODO: kokoni
+        }
 
         //public override entity.EntitySource Add(entity.EntitySource item)
         //{

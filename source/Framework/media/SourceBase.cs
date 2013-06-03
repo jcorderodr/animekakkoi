@@ -31,7 +31,7 @@ namespace Framework.media
             /*
              * Categories & Labels
              * TODO: Make this configurable and not 100% programming.
-             * There are some reapeated labels.
+             * PD: There are some reapeated labels.
              */
             StateCategories = new Dictionary<string, ENTITY_STATE>();
             //

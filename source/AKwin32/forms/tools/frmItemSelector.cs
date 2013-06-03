@@ -16,6 +16,12 @@ namespace AKwin32.forms.tools
         AnimeRepository animeRepo;
         MangaRepository mangaRepo;
 
+        private List<object> _userSelection;
+        public List<object> UserSelection
+        {
+            get { return _userSelection; }
+        }
+
 
         public frmItemSelector()
         {
@@ -23,6 +29,7 @@ namespace AKwin32.forms.tools
 
             animeRepo = new AnimeRepository();
             mangaRepo = new MangaRepository();
+            _userSelection = new List<object>();
         }
 
 
@@ -41,28 +48,32 @@ namespace AKwin32.forms.tools
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            foreach (DataRowView row in itemsGridView.Rows)
+            foreach (DataGridViewRow row in itemsGridView.Rows)
             {
-                if (!Convert.ToBoolean(row[0]))
+                if (!Convert.ToBoolean(row.Cells[0].Value))
                     continue;
 
+                _userSelection.Add(row.Tag);
             }
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
         }
 
         private void FillComponents()
         {
-
             foreach (Framework.entity.Anime entity in animeRepo.GetAll())
             {
-                //Framework.entity.EntitySource entity = temp as Framework.entity.EntitySource;
-
-                itemsGridView.Rows.Add(false, entity.Name, entity.ToString());
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(itemsGridView, false, entity.Name, entity.ToString());
+                row.Tag = entity;
+                itemsGridView.Rows.Add(row);
             }
-            foreach (object temp in mangaRepo.GetAll())
+            foreach (Framework.entity.Manga entity in mangaRepo.GetAll())
             {
-                Framework.entity.EntitySource entity = temp as Framework.entity.EntitySource;
-
-                itemsGridView.Rows.Add(false, entity.Name, entity.ToString());
+                DataGridViewRow row = new DataGridViewRow();
+                row.SetValues(false, entity.Name, entity.ToString());
+                row.Tag = entity;
+                itemsGridView.Rows.Add(row);
             }
             itemsGridView.Refresh();
         }

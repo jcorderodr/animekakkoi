@@ -54,7 +54,7 @@ namespace AKwin32.forms.management
 
         void cbBoxItemType_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+
             Catalog item = (filter_cbBoxItemType.SelectedItem as Catalog);
             if (item == null || OriginalDataSource == null)
                 return;
@@ -79,6 +79,9 @@ namespace AKwin32.forms.management
                 CleanUIComponents(panel1);
                 return;
             }
+
+            if (listViewItems.SelectedItems.Count > 0) controlEnabled = true;
+            AlternateControlsEnability();
 
             object item = e.Item.Tag;
 
@@ -221,6 +224,16 @@ namespace AKwin32.forms.management
         }
 
         #endregion
+
+        bool controlEnabled;
+        protected void AlternateControlsEnability()
+        {
+            foreach (Control ctrl in this.panel1.Controls)
+            {
+                ctrl.Enabled = controlEnabled;
+            }
+            controlEnabled = !controlEnabled;
+        }
 
         bool favoriteIndicator;
         protected void AlternateFavoriteControl()

@@ -16,7 +16,6 @@ namespace AKwin32.forms
         public FrmMain()
         {
             InitializeComponent();
-            listForSharingToolStripMenuItem.Enabled = false;
         }
 
 
@@ -35,7 +34,6 @@ namespace AKwin32.forms
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-
             if (e.CloseReason == CloseReason.UserClosing || e.CloseReason != CloseReason.ApplicationExitCall)
                 checkForExit();
         }
@@ -62,7 +60,6 @@ namespace AKwin32.forms
 
         private void listForSharingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: file for another user
             forms.tools.frmExporter frm = new tools.frmExporter();
             frm.Show();
         }
@@ -116,9 +113,13 @@ namespace AKwin32.forms
             fileDialog.Filter = Framework.io.FileProperties.AppSharingFileFilterName;
             if (fileDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
 
-            Framework.util.FileImporter importer = new Framework.util.FileImporter(fileDialog.OpenFile());
+            Framework.util.FileManager importer;
+            importer = new Framework.util.FileManager(fileDialog.FileName);
+            importer.Load();
 
+            base.ShowInformation(this, base.Messages[Framework.io.LanguageExpressions.OPERATION_SUCESS]);
         }
+
 
         private void mcAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -182,6 +183,16 @@ namespace AKwin32.forms
             }
         }
 
+        private void updateSourcesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            base.ShowInformation(this, base.Messages["version_pro"]);
+        }
+
+        private void dataCheckerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            base.ShowInformation(this, base.Messages["version_pro"]);
+        }
+
         private void backUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             forms.tools.frmBackUp frm = new tools.frmBackUp();
@@ -222,22 +233,43 @@ namespace AKwin32.forms
             }
             catch { }
         }
-        
+
         private void searchUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string metadata = Properties.Settings.Default.ApplicationMetadataUrl;
             try
             {
-                System.Diagnostics.Process.Start(metadata);
+                System.Net.WebClient client = new System.Net.WebClient();
+                string temp = client.DownloadString(metadata);
+                client.Dispose();
 
-                //System.Net.WebClient client = new System.Net.WebClient();
-                //byte[] data = client.DownloadData(metadata);
-                //string temp = client.DownloadString(metadata);
+                System.Xml.Linq.XElement doc = System.Xml.Linq.XElement.Parse(temp);
+                doc = doc.Element("version");
+                System.Xml.Linq.XElement lastv = doc.Element("last-version");
 
-                //client.Dispose();
+                Version actual = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                Version last = new Version(lastv.Value);
+
+                if (last > actual)
+                    base.ShowInformation(this, base.Messages["update_available"] + last);
+
             }
-            catch { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
+        }
+
+        private void versionProToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            builder.AppendLine("=== Versión Pro ===");
+            builder.AppendLine("- Datos guardados en la nube/Information in the cloud");
+            builder.AppendLine("- Actualización automática de la base de datos/Automatic updates of info based on sources");
+            builder.AppendLine("- Comprobración de integridad de los registros/Check out of data's integration");
+            builder.AppendLine("- Integración con Redes Sociales/Integration with Social Networks");
+            builder.AppendLine("");
+
+            base.ShowInformation(this, builder.ToString());
         }
 
         private void aboutAkToolStripMenuItem_Click(object sender, EventArgs e)
@@ -263,7 +295,7 @@ namespace AKwin32.forms
 
         private void btnRefreshSrc_Click(object sender, EventArgs e)
         {
-            //TODO: use the user's source and refresh
+            base.ShowInformation(this, base.Messages["version_pro"]);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -365,6 +397,12 @@ namespace AKwin32.forms
         }
 
         #endregion
+
+
+
+
+
+
 
 
 

@@ -13,17 +13,17 @@ namespace Framework.io
     public abstract class Configuration
     {
 
-        public const String CompanyName = "BluegleTek Soft";
+        public const String CompanyName = "BluegleTek";
         public const String ApplicationName = "AnimeKakkoi";
 
         private const String AppConfigFile = "Framework.config";
 
         internal const String RS_CENTRAL = "ak_data.bin";
-        internal const String RS_QUEUE = "ak_queue.ak";
-        internal const String RS_WATCHED = "ak_watched.ak";
-        internal const String RS_WATCHING = "ak_watching.ak";
-        internal const String RS_WANT_SEE = "ak_wantsee.ak";
-        internal const String RS_TAKED_DOWM = "ak_takeddowm.ak";
+        internal const String RS_QUEUE = "ak_queue.akm";
+        internal const String RS_WATCHED = "ak_watched.akm";
+        internal const String RS_WATCHING = "ak_watching.akm";
+        internal const String RS_WANT_SEE = "ak_wantsee.akm";
+        internal const String RS_TAKED_DOWM = "ak_takeddowm.akm";
 
 
         internal const String PROPERTIES_SECTION_MAIN_DATA = "Properties";
@@ -156,10 +156,6 @@ namespace Framework.io
         }
 
         #endregion
-
-
-
-
 
 
     }

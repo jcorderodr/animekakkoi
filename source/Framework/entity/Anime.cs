@@ -10,10 +10,9 @@ namespace Framework.entity
 
         public ANIME_TYPE Category { get; set; }
 
-
         public override string ToString()
         {
-            return String.Format("{0} @ {3}, [Rat:{2} / {1}]", Name, State, Rating, Category);
+            return base.ToString() + " @ " + Category;
         }
 
     }

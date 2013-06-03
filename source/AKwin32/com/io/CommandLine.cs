@@ -12,7 +12,9 @@ namespace AKwin32.com.io
 
         String[] input;
 
-        String processedInput;
+
+        COMMAND_ACTION cmd;
+        string file;
 
         public CommandLine()
         {
@@ -28,7 +30,11 @@ namespace AKwin32.com.io
 
         private void AnalyzeInput()
         {
-            //TODO: analyze command-line input
+            if (input[0] == "-f")
+            {
+                file = input[1];
+                cmd = COMMAND_ACTION.OPEN_FILE;
+            }
         }
 
 
@@ -36,9 +42,23 @@ namespace AKwin32.com.io
         {
             AnalyzeInput();
 
+            switch (cmd)
+            {
+                case COMMAND_ACTION.OPEN_FILE:
+                    Framework.util.FileManager mgr = new Framework.util.FileManager(file);
+                    mgr.Load();
+                    //mgr.Elements
+                    break;
+                default:
+                    break;
+            }
 
-            forms.management.frmImporter frm = new forms.management.frmImporter();
-            frm.Show(parent);
         }
     }
+
+    public enum COMMAND_ACTION
+    {
+        OPEN_FILE = 1
+    }
+
 }

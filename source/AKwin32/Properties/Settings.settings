@@ -5,9 +5,6 @@
     <Setting Name="frmBackGroundColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">255, 255, 192</Value>
     </Setting>
-    <Setting Name="ApplicationProductUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://corderoski.wordpress.com/bluegletek-soft/animekakkoi/</Value>
-    </Setting>
     <Setting Name="UiFontsStyles" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Comic Sans MS, 9pt, style=Bold</Value>
     </Setting>
@@ -17,11 +14,17 @@
     <Setting Name="UiControlsFontsStyle" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Arial Narrow, 9pt, style=Bold</Value>
     </Setting>
-    <Setting Name="ApplicationMetadataUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://sourceforge.net/projects/animekakkoi/files/latest/download</Value>
-    </Setting>
     <Setting Name="ApplicationCulture" Type="System.String" Scope="User">
-      <Value Profile="(Default)">es-ES</Value>
+      <Value Profile="(Default)">en-US</Value>
+    </Setting>
+    <Setting Name="ApplicationProductUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://bluegletek.com/products/animekakkoi.aspx</Value>
+    </Setting>
+    <Setting Name="ApplicationMetadataUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://bluegletek.com/bws/ak_metadata.xml</Value>
+    </Setting>
+    <Setting Name="ApplicationFirstRunning" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

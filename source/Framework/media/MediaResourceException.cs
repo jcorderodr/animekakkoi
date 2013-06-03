@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Framework.media
 {
+    /// <summary>
+    /// Represent an error while getting information through media resources.
+    /// </summary>
     public class MediaResourceException : Exception
     {
 

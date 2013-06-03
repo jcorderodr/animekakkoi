@@ -118,7 +118,8 @@ namespace AKwin32.forms.management
             {
                 string response = import.TryRequest(link.AbsoluteUri);
                 import.Type = this.ImportMethod;
-                source = import.GetSource(response, cbSourceType.Text, ref mediaType);
+                import.HTML = response;
+                source = import.GetSource(cbSourceType.Text, ref mediaType);
             }
             catch (Exception we)
             {

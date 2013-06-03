@@ -32,11 +32,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.itemsGridView = new System.Windows.Forms.DataGridView();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAccept = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsGridView)).BeginInit();
@@ -44,29 +44,20 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(551, 290);
-            this.panel1.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.itemsGridView);
-            this.groupBox1.Location = new System.Drawing.Point(11, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(529, 268);
-            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // itemsGridView
             // 
+            resources.ApplyResources(this.itemsGridView, "itemsGridView");
             this.itemsGridView.AllowUserToAddRows = false;
             this.itemsGridView.AllowUserToDeleteRows = false;
             this.itemsGridView.AllowUserToOrderColumns = true;
@@ -77,65 +68,58 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.itemsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsGridView.Location = new System.Drawing.Point(3, 16);
             this.itemsGridView.Name = "itemsGridView";
-            this.itemsGridView.ReadOnly = true;
-            this.itemsGridView.Size = new System.Drawing.Size(523, 249);
-            this.itemsGridView.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "info";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.itemsGridView.RowHeadersVisible = false;
+            this.itemsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.itemsGridView.ShowCellErrors = false;
+            this.itemsGridView.ShowCellToolTips = false;
+            this.itemsGridView.ShowEditingIcon = false;
+            this.itemsGridView.ShowRowErrors = false;
             // 
             // btnAccept
             // 
-            this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAccept.Location = new System.Drawing.Point(385, 301);
+            resources.ApplyResources(this.btnAccept, "btnAccept");
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 1;
-            this.btnAccept.Text = "button1";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(466, 301);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "button2";
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 38.07107F;
+            resources.ApplyResources(this.Column1, "Column1");
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 130.9645F;
+            resources.ApplyResources(this.Column2, "Column2");
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 130.9645F;
+            resources.ApplyResources(this.Column3, "Column3");
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // frmItemSelector
             // 
             this.AcceptButton = this.btnAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(553, 336);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.panel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmItemSelector";
-            this.Text = "selector";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmItemSelector_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -149,11 +133,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView itemsGridView;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Button btnAccept;
-        private System.Windows.Forms.Button btnCancel;
 
     }
 }

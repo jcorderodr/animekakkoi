@@ -15,8 +15,6 @@ namespace Framework.io
     public class BackUp
     {
 
-        private const long BUFFER_SIZE = 4096;
-
         /// <summary>
         /// Path that represent the physical Zip file.
         /// </summary>
@@ -122,7 +120,7 @@ namespace Framework.io
                         //set ready the source...
                         using (Stream src = part.GetStream())
                         {
-                            CopyFromStream(destFileStream, src);
+                            MainStream.CopyFromStream(destFileStream, src);
                         }
                     }
                     bgLoader.ReportProgress((int)Convert.ToSingle(++count * 100 / collection.Count()));
@@ -202,36 +200,12 @@ namespace Framework.io
                 //set ready the destination...
                 using (Stream dest = part.GetStream())
                 {
-                    CopyStream(fileStream, dest);
+                    MainStream.CopyStream(fileStream, dest);
                 }
             }
         }
 
-        private static void CopyFromStream(System.IO.FileStream outputStream, System.IO.Stream inputStream)
-        {
-            long bufferSize = inputStream.Length < BUFFER_SIZE ? inputStream.Length : BUFFER_SIZE;
-            byte[] buffer = new byte[bufferSize];
-            int bytesRead = 0;
-            long bytesWritten = 0;
-            while ((bytesRead = inputStream.Read(buffer, 0, buffer.Length)) != 0)
-            {
-                outputStream.Write(buffer, 0, bytesRead);
-                bytesWritten += bufferSize;
-            }
-        }
 
-        private static void CopyStream(System.IO.FileStream inputStream, System.IO.Stream outputStream)
-        {
-            long bufferSize = inputStream.Length < BUFFER_SIZE ? inputStream.Length : BUFFER_SIZE;
-            byte[] buffer = new byte[bufferSize];
-            int bytesRead = 0;
-            long bytesWritten = 0;
-            while ((bytesRead = inputStream.Read(buffer, 0, buffer.Length)) != 0)
-            {
-                outputStream.Write(buffer, 0, bytesRead);
-                bytesWritten += bufferSize;
-            }
-        }
 
     }
 }
