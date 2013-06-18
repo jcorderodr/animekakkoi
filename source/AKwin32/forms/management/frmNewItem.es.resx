@@ -161,10 +161,10 @@
     <value>235, 109</value>
   </data>
   <data name="lblEpi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 16</value>
+    <value>62, 16</value>
   </data>
   <data name="lblEpi.Text" xml:space="preserve">
-    <value>Episodio:</value>
+    <value>Progreso:</value>
   </data>
   <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 31</value>

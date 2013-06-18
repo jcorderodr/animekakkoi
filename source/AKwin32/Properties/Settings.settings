@@ -2,19 +2,19 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AKwin32.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="frmBackGroundColor" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="UserfrmBackGroundColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">255, 255, 192</Value>
     </Setting>
-    <Setting Name="UiFontsStyles" Type="System.Drawing.Font" Scope="User">
+    <Setting Name="UserUiFontsStyles" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Comic Sans MS, 9pt, style=Bold</Value>
     </Setting>
-    <Setting Name="UiFontsColor" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="UserUiFontsColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DimGray</Value>
     </Setting>
-    <Setting Name="UiControlsFontsStyle" Type="System.Drawing.Font" Scope="User">
+    <Setting Name="UserUiControlsFontsStyle" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Arial Narrow, 9pt, style=Bold</Value>
     </Setting>
-    <Setting Name="ApplicationCulture" Type="System.String" Scope="User">
+    <Setting Name="UserCultureLanguage" Type="System.String" Scope="User">
       <Value Profile="(Default)">en-US</Value>
     </Setting>
     <Setting Name="ApplicationProductUrl" Type="System.String" Scope="Application">
@@ -25,6 +25,15 @@
     </Setting>
     <Setting Name="ApplicationFirstRunning" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ApplicationBugReport" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://sourceforge.net/p/animekakkoi/tickets/new/</Value>
+    </Setting>
+    <Setting Name="UserInstantSearch" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ApplicationEntityProgressMask" Type="System.String" Scope="User">
+      <Value Profile="(Default)">990/99#</Value>
     </Setting>
   </Settings>
 </SettingsFile>

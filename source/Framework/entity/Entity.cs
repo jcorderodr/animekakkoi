@@ -21,6 +21,8 @@ namespace Framework.entity
     public abstract class EntityProperties
     {
 
+        public const String ENTITY_FAVORITE_MARK = "<3";
+
         public const Char EPISODE_CHAPTER_SEPARATOR = '/';
 
         public const Char EPISODE_CHAPTER_EMPTYCHAR = '-';

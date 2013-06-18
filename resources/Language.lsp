@@ -1,5 +1,5 @@
 ﻿##
-# tags: errors = error_ / messages = message_
+# AnimeKakkoi Languages Project
 ##
 
 [es]
@@ -19,7 +19,9 @@ database_erased_sucess = Las informaciones, data, registros y configuraciones se
 backup_question = Importar significa reemplazar todo el contenido actual. ¿Está seguro que desea importar el archivo? 
 operation_sucess = Operación completada satisfactoriamente.
 version_pro = Función disponible en la versión Pro.
+last_version = Actualmente cuenta con la última versión disponible
 update_available = Existe una nueva actualizacón disponible
+error_search_update = Ha ocurrido un error buscando por actualizaciones disponibles.
 ###
 #	Errores
 ###
@@ -30,7 +32,7 @@ invalid_input = Valor(es) ingresado(s) están en blanco/incorrecto/vacíos).
 loading_catalog = Ha ocurrido un error durante la búsqueda de los catalogos.
 save_method_unknown = Imposible determinar donde guardar. Tipo desconocido.
 user_exists = El usuario ya existe.
-items_erased_error = !
+items_erased_error = Todos los elementos han sido eliminados correctamente.
 database_erased_error = Ha ocurrido un error intentando eliminar/limpiar la base de datos.
 backup_create_failed = Creación del archivo Back Up fallida.
 operation_failed = La operación ha fallado.
@@ -46,7 +48,7 @@ save = Guardar
 cancel = Cancelar
 new_user = Nuevo Usuario
 waiting = Espere...
-
+own_state = Individual
 
 
 [en]
@@ -56,14 +58,16 @@ items_saved = Items saved successfuly!
 item_affected = The Item has been save/changed successfuly.
 exit_question = ¿Did you really wanna quit?
 sharing_file = The Sharing File has been created.
-new_user_request = Type the new username:
-clean_database_question = !
+new_user_request = Type the new username
+clean_database_question = ¿Do you really wanna clean out ALL YOUR DATA?
 items_erased_sucess = All the items has been deleted sucessfully.
-database_erased_sucess = !
-backup_question = backup_question
-operation_sucess = operation_sucess
+database_erased_sucess = The database has been successfuly erased.
+backup_question = Import means to replace all your actual data. ¿Are you sure?
+operation_sucess = The operation has been successfull.
 version_pro = This is a Pro version feature.
+last_version = The system is running with the last version
 update_available = A new update is available
+error_search_update = Error looking up for new updates.
 ###
 #	Errores
 ###
@@ -74,15 +78,15 @@ invalid_input = Fields invalids (empty, wrong format).
 loading_catalog = An error has been detected in the search of catalogs.
 save_method_unknown = The save method/repo is unreachable.
 user_exists = User already exists.
-items_erased_error = !
-database_erased_error = !
-backup_create_failed = backup_create_failed
-operation_failed = operation_failed
+items_erased_error = Error trying to erase items.
+database_erased_error = Error trying to clean/purge the database.
+backup_create_failed = Back Up creation failed.
+operation_failed = The operation has failed.
 ###
 #	Textos / Palabras
 ###
 QUEUE = Queue
-WATCHING = Actually
+WATCHING = Watching
 WATCHED = Finished
 TAKED_DOWN = Taked Down
 WANT_TO = Want it
@@ -90,3 +94,4 @@ save = Save
 cancel = Cancel
 new_user = New User
 waiting = Please wait...
+own_state = Individual

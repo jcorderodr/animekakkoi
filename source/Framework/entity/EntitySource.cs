@@ -41,8 +41,27 @@ namespace Framework.entity
 
         public override string ToString()
         {
-            string fav = Favorite ? "<3 " : "";
+            string fav = Favorite ? EntityProperties.ENTITY_FAVORITE_MARK + " " : "";
             return String.Format("{0} {3}[Rat:{2} / {1}]", Name, State, Rating, fav);
+        }
+
+        public virtual void FromString(string text)
+        {
+            int init = 0, end = 0;
+
+            this.Favorite = text.Contains(EntityProperties.ENTITY_FAVORITE_MARK);
+            if (this.Favorite)
+                this.Name = text.Substring(0, text.IndexOf(EntityProperties.ENTITY_FAVORITE_MARK) - 1);
+            else
+                this.Name = text.Substring(0, text.IndexOf("[") - 1);
+
+            init = text.LastIndexOf(":");
+            end = text.LastIndexOf("/");
+            this.Rating = Framework.util.Expression.GetOnlyNumbers(text.Substring(init, end - init));
+
+            init = end + 1;
+            end = text.LastIndexOf("]");
+            this.State = (Framework.entity.ENTITY_STATE)Enum.Parse(typeof(Framework.entity.ENTITY_STATE), text.Substring(init, end - init));
         }
 
     }

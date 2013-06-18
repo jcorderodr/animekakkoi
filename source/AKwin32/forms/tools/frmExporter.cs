@@ -49,20 +49,14 @@ namespace AKwin32.forms.tools
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-
             if (saveFileDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK)
             {
                 return;
             }
 
-            Framework.io.Catalog state = cb_OptionOutputState.SelectedItem as Framework.io.Catalog;
-
-            Framework.util.FileManager mgr;
-            mgr = new Framework.util.FileManager(saveFileDialog.FileName);
-            mgr.Elements = elements;
-            mgr.Save();
-
-            base.ShowInformation(this, base.Messages[Framework.io.LanguageExpressions.OPERATION_SUCESS]);
+            if (DoOperation())
+                base.ShowInformation(this, base.Messages[Framework.io.LanguageExpressions.OPERATION_SUCESS]);
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -78,6 +72,24 @@ namespace AKwin32.forms.tools
         public void SetProperties(string title)
         {
             this.Text = title;
+        }
+
+        private bool DoOperation()
+        {
+            Framework.io.Catalog state = cb_OptionOutputState.SelectedItem as Framework.io.Catalog;
+
+            Framework.util.FileManager mgr;
+            mgr = new Framework.util.FileManager(saveFileDialog.FileName);
+            try
+            {
+                mgr.ElementState = (Framework.entity.ENTITY_STATE)Enum.Parse(typeof(Framework.entity.ENTITY_STATE), state.Value);
+            }
+            catch { }
+            mgr.Elements = elements;
+            mgr.Save();
+            this.progressBar.Value = 100;
+
+            return true;
         }
 
     }

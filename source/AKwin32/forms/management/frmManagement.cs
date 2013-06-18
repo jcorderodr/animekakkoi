@@ -12,7 +12,7 @@ using Framework.entity;
 
 namespace AKwin32.forms.management
 {
-    public abstract partial class frmManagement : AKwin32.forms.frmBase//, IUIManagement
+    public abstract partial class frmManagement : AKwin32.forms.frmBase
     {
 
         protected List<object> OriginalDataSource;
@@ -50,7 +50,9 @@ namespace AKwin32.forms.management
 
             DoVisualChanges();
             ((IUIManagement)this).DoVisualChanges();
+
         }
+
 
         void cbBoxItemType_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -70,6 +72,11 @@ namespace AKwin32.forms.management
                 ENTITY_STATE state = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), item.Id);
                 ((IUIManagement)this).FilterData(OriginalDataSource.Where(c => (ENTITY_STATE)c.GetType().GetProperty("State").GetValue(c, null) == state).ToList());
             }
+        }
+
+        private void listViewItems_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            listViewItems_Resize(sender, e);
         }
 
         void listViewItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -130,6 +137,8 @@ namespace AKwin32.forms.management
             string name = ctrl.Name.Split(CharacterNameSeparator)[1];
             System.Reflection.PropertyInfo p = entity.GetType().GetProperty(name);
 
+            string evt_change = " (c) " + entity.GetType().GetMethod("ToString").Invoke(entity, null) + " to ";
+
             if (ctrl is ComboBox)
             {
                 if (p.PropertyType == typeof(ENTITY_STATE))
@@ -154,10 +163,12 @@ namespace AKwin32.forms.management
                 p.SetValue(entity, Convert.ChangeType(ctrl.Text, p.PropertyType), null);
 
             item.Tag = entity;
-            item.SubItems[1] = new ListViewItem.ListViewSubItem(item, entity.GetType().GetProperty("Category").GetValue(entity, null) + "");
+            item.SubItems[1] = new ListViewItem.ListViewSubItem(item, entity.GetType().GetMethod("ToString").Invoke(entity, null) + "");
             listViewItems.Items[listViewItems.SelectedItems[0].Index] = item;
 
-            this.Form_State = FORM_USING_STATE.EDITING;
+            // save a log
+            evt_change += entity.GetType().GetMethod("ToString").Invoke(entity, null);
+            AKwin32.com.util.EventLogger.Write(Configuration.ApplicationLoggerFile, evt_change);
         }
 
         private void lblFavorite_Click(object sender, EventArgs e)
@@ -192,8 +203,12 @@ namespace AKwin32.forms.management
 
         public void DoVisualChanges()
         {
+            this.groupBox1.Text = entityType.Name + "s";
             this.listViewItems.Resize += new EventHandler(this.listViewItems_Resize);
             this.filter_cbBoxItemType.SelectedValueChanged += new EventHandler(cbBoxItemType_SelectedValueChanged);
+
+            AlternateControlsEnability();
+            txt_ProgressString.Mask = Configuration.ApplicationProgressMask;
         }
 
         public void LoadDataToControls()
@@ -203,25 +218,13 @@ namespace AKwin32.forms.management
             base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesTypesByLanguage());
         }
 
-        public void PrepareDataFromRepo()
-        {
-            //throw new NotImplementedException();
-        }
+        public void PrepareDataFromRepo() { }
 
-        public void FilterData(List<object> list)
-        {
-            //throw new NotImplementedException();
-        }
+        public void FilterData(List<object> list) { }
 
-        public void setReadOnlyMode()
-        {
-            throw new NotImplementedException();
-        }
+        public void setReadOnlyMode() { throw new NotImplementedException(); }
 
-        public void SaveItemsToRepository()
-        {
-            throw new NotImplementedException();
-        }
+        public void SaveItemsToRepository() { throw new NotImplementedException(); }
 
         #endregion
 
@@ -262,6 +265,7 @@ namespace AKwin32.forms.management
 
 
         #endregion
+
 
 
 

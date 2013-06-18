@@ -114,6 +114,8 @@
   <ItemGroup>
     <Compile Include="com\io\AkConfiguration.cs" />
     <Compile Include="com\io\CommandLine.cs" />
+    <Compile Include="com\net\Updater.cs" />
+    <Compile Include="com\util\EventLogger.cs" />
     <Compile Include="forms\frmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +196,12 @@
     </Compile>
     <Compile Include="forms\management\INewItem.cs" />
     <Compile Include="forms\management\IUIManagement.cs" />
+    <Compile Include="forms\tools\frmActionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\tools\frmActionHistory.Designer.cs">
+      <DependentUpon>frmActionHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\tools\frmBackUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +330,15 @@
     <EmbeddedResource Include="forms\management\frmNewItem.resx">
       <DependentUpon>frmNewItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmActionHistory.en.resx">
+      <DependentUpon>frmActionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmActionHistory.es.resx">
+      <DependentUpon>frmActionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tools\frmActionHistory.resx">
+      <DependentUpon>frmActionHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\tools\frmBackUp.en.resx">
       <DependentUpon>frmBackUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,27 +440,52 @@
   <ItemGroup>
     <Content Include="beta.ico" />
     <Content Include="bluegletek_128.ico" />
-    <None Include="Resources\write.png" />
-    <None Include="Resources\window.png" />
-    <None Include="Resources\user.png" />
-    <None Include="Resources\tutorial.png" />
-    <None Include="Resources\tools.png" />
-    <None Include="Resources\stop.png" />
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\alert.png" />
+    <Content Include="Resources\back.png" />
+    <None Include="Resources\button_cancel.png" />
+    <None Include="Resources\button_cancel1.png" />
+    <Content Include="Resources\close.png" />
+    <Content Include="Resources\delete.png" />
+    <Content Include="Resources\down.png" />
+    <None Include="Resources\folder_downloads.png" />
+    <None Include="Resources\floppy.png" />
+    <Content Include="Resources\forward.png" />
+    <None Include="Resources\hard_disk.png" />
+    <Content Include="Resources\home.png" />
+    <Content Include="Resources\info.png" />
+    <None Include="Resources\link1.png" />
+    <Content Include="Resources\lock.png" />
+    <None Include="Resources\mail.png" />
+    <None Include="Resources\network_downloads.png" />
+    <None Include="Resources\network_find.png" />
+    <Content Include="Resources\redo.png" />
+    <None Include="Resources\sharing_overlay.png" />
+    <Content Include="Resources\stop.png" />
+    <Content Include="Resources\tools.png" />
+    <None Include="Resources\trash.png" />
+    <Content Include="Resources\tutorial.png" />
+    <None Include="Resources\unlock.png" />
+    <Content Include="Resources\user.png" />
+    <None Include="Resources\web_file.png" />
+    <Content Include="Resources\window.png" />
+    <Content Include="Resources\write.png" />
+    <None Include="Resources\help1.png" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\files_text.png" />
+    <None Include="Resources\files_edit.png" />
+    <None Include="Resources\files.png" />
+    <None Include="Resources\filefind.png" />
+    <None Include="Resources\control_panel.png" />
+    <None Include="Resources\configuration_settings.png" />
+    <None Include="Resources\button_ok.png" />
+    <None Include="Resources\button_cance.png" />
+    <None Include="Resources\applications.png" />
+    <None Include="Resources\manga.png" />
+    <None Include="Resources\anime.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\refresh.png" />
-    <None Include="Resources\redo.png" />
-    <None Include="Resources\lock.png" />
-    <None Include="Resources\info.png" />
-    <None Include="Resources\home.png" />
-    <None Include="Resources\forward.png" />
-    <None Include="Resources\floppy.png" />
-    <None Include="Resources\down.png" />
-    <None Include="Resources\delete.png" />
-    <None Include="Resources\close.png" />
     <None Include="Resources\chat.png" />
-    <None Include="Resources\back.png" />
-    <None Include="Resources\alert.png" />
-    <None Include="Resources\add.png" />
     <None Include="Resources\bluegletek_16.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -4667,7 +4667,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>Registry1</td><td>2</td><td>SOFTWARE\BluegleTek Soft</td><td/><td/><td>ISX_DEFAULTCOMPONENT2</td><td>1</td></row>
 	</table>
 
 	<table name="RemoveFile">

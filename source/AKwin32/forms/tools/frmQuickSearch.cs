@@ -31,10 +31,15 @@ namespace AKwin32.forms.tools
             this.listViewItems.Resize += new EventHandler(listViewItems_Resize);
         }
 
+        private void txtSearchCriteria_TextChanged(object sender, EventArgs e)
+        {
+            if (Configuration.UserUsingInstantSearch)
+                DoSearch();
+        }
+
         private void txtSearchCriteria_Validated(object sender, EventArgs e)
         {
-            searchCriteria = txtSearchCriteria.Text;
-            ValidateInput();
+            DoSearch();
         }
 
         private void listViewItems_DoubleClick(object sender, EventArgs e)
@@ -64,7 +69,7 @@ namespace AKwin32.forms.tools
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -73,6 +78,12 @@ namespace AKwin32.forms.tools
         }
 
         #region Functions
+
+        private void DoSearch()
+        {
+            searchCriteria = txtSearchCriteria.Text;
+            ValidateInput();
+        }
 
         private void ValidateInput()
         {
@@ -121,6 +132,8 @@ namespace AKwin32.forms.tools
         }
 
         #endregion
+
+
 
     }
 }

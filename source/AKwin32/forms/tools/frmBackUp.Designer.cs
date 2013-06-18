@@ -45,6 +45,7 @@
             // btnExport
             // 
             resources.ApplyResources(this.btnExport, "btnExport");
+            this.btnExport.Image = global::AKwin32.Properties.Resources.floppy_x16;
             this.btnExport.Name = "btnExport";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnAccept_Click);
@@ -53,13 +54,10 @@
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::AKwin32.Properties.Resources.button_cancel__x16;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // saveFileDialog
-            // 
-            resources.ApplyResources(this.saveFileDialog, "saveFileDialog");
             // 
             // panel1
             // 
@@ -89,13 +87,10 @@
             // btnImport
             // 
             resources.ApplyResources(this.btnImport, "btnImport");
+            this.btnImport.Image = global::AKwin32.Properties.Resources.hard_disk_x16;
             this.btnImport.Name = "btnImport";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // openFileDialog
-            // 
-            resources.ApplyResources(this.openFileDialog, "openFileDialog");
             // 
             // frmBackUp
             // 

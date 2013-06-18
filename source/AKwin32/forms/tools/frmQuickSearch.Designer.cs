@@ -77,10 +77,10 @@
             // 
             // listViewItems
             // 
-            resources.ApplyResources(this.listViewItems, "listViewItems");
             this.listViewItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.itemName,
             this.ItemDesc});
+            resources.ApplyResources(this.listViewItems, "listViewItems");
             this.listViewItems.Name = "listViewItems";
             this.listViewItems.UseCompatibleStateImageBehavior = false;
             this.listViewItems.View = System.Windows.Forms.View.List;
@@ -96,18 +96,18 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.cbSourceType);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtSearchCriteria);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // cbSourceType
             // 
-            resources.ApplyResources(this.cbSourceType, "cbSourceType");
             this.cbSourceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbSourceType, "cbSourceType");
             this.cbSourceType.FormattingEnabled = true;
             this.cbSourceType.Name = "cbSourceType";
             // 
@@ -124,8 +124,10 @@
             // txtSearchCriteria
             // 
             this.txtSearchCriteria.AcceptsReturn = true;
+            this.txtSearchCriteria.AcceptsTab = true;
             resources.ApplyResources(this.txtSearchCriteria, "txtSearchCriteria");
             this.txtSearchCriteria.Name = "txtSearchCriteria";
+            this.txtSearchCriteria.TextChanged += new System.EventHandler(this.txtSearchCriteria_TextChanged);
             this.txtSearchCriteria.Validated += new System.EventHandler(this.txtSearchCriteria_Validated);
             // 
             // frmQuickSearch

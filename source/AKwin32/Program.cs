@@ -69,7 +69,7 @@ namespace AKwin32
                 {
                     string path = Application.StartupPath + System.IO.Path.DirectorySeparatorChar + "Start.bat";
                     System.Diagnostics.Process.Start(path);
-                    System.IO.File.Delete(path);
+                    //-System.IO.File.Delete(path);
                 }
                 catch { }
             }
@@ -96,12 +96,16 @@ namespace AKwin32
             }
         }
 
+        public static void RestartApp()
+        {
+            Application.Restart();
+            //LoadVariables();
+        }
 
         private static void SplitWords(string text)
         {
 
         }
-
 
         private static void StartUI()
         {
@@ -113,10 +117,6 @@ namespace AKwin32
             Application.Run(frmMain);
         }
 
-        public static void ReloadVariables()
-        {
-            LoadVariables();
-        }
 
         public const String AppTitle = "AnimeKakkoi 0.1.3";
 
