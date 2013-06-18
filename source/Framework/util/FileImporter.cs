@@ -12,17 +12,20 @@ namespace Framework.util
     /// <summary>
     /// A file importer for loading media from file-based resources.
     /// </summary>
-    // TODO: finish.
     public class FileManager : IImporter
     {
 
-        //--public List<entity.EntitySource> Elements { get; set; }
-
         public List<Object> Elements { get; set; }
 
+        public entity.ENTITY_STATE ElementState { get; set; }
+
+        private const String TEMP_FILE_EXTENSION = "akt";
 
         private const long BUFFER_SIZE = 4096;
+
         protected const String SEPARATOR_CHAR = "$";
+
+        private List<Object> inLoadElements;
 
         /// <summary>
         /// Path that represent the physical Zip file.
@@ -34,7 +37,6 @@ namespace Framework.util
         /// </summary>
         Package zip;
 
-        //--Stream stream;
 
         public FileManager(String pathFile)
         {
@@ -57,7 +59,7 @@ namespace Framework.util
                     foreach (PackagePart part in collection)
                     {
                         FileInfo file = new FileInfo(Path.GetTempPath() + part.Uri.OriginalString);
-                        if (!file.Exists) continue; //some hidden and zip-own files
+                        if (file.Extension != "." + TEMP_FILE_EXTENSION) continue; //some hidden and zip-own files, just explicits
 
                         using (FileStream destFileStream = new FileStream(file.FullName, FileMode.Create, FileAccess.Write))
                         {
@@ -80,6 +82,14 @@ namespace Framework.util
                             string text = parts[2];
                             string progress = parts[3];
                             Type type = Type.GetType(entity);
+                            
+                            //TODO: finish the convertion process.
+                            //Framework.entity.Anime item = new entity.Anime();
+
+                            //item.FromString(text);
+                            //item.ProgressString = progress;
+
+                            //inLoadElements.Add(item);
 
                         }
 
@@ -104,6 +114,8 @@ namespace Framework.util
             if (Elements == null)
                 throw new NullReferenceException("Propertie 'Elements' is not loaded.");
 
+            CheckForStateChange();
+
             try
             {
 
@@ -121,7 +133,8 @@ namespace Framework.util
                     }
 
                     //the temp file contains the information.
-                    FileInfo file = new FileInfo(Path.GetTempFileName());
+                    FileInfo file = new FileInfo(Path.ChangeExtension(Path.GetTempFileName(), TEMP_FILE_EXTENSION));
+
                     StreamWriter writer = file.AppendText();
                     writer.WriteLine(SetCodify(buffer.ToString()));
                     writer.Flush();
@@ -137,6 +150,19 @@ namespace Framework.util
             catch { throw new IOException("error trying to manipulate the AK's files."); }
         }
 
+        private void CheckForStateChange()
+        {
+            if (this.ElementState != null)
+            {
+                try
+                {
+                    foreach (entity.EntitySource item in this.Elements)
+                        item.State = this.ElementState;
+
+                }
+                catch { }
+            }
+        }
 
         private void SendFileToZip(FileInfo fileToZip)
         {

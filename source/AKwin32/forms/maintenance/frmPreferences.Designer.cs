@@ -32,6 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkBoxInstantSearch = new System.Windows.Forms.CheckBox();
             this.cbBoxLanguage = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageUi = new System.Windows.Forms.TabPage();
@@ -49,6 +51,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.tabPageUi.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,27 +68,41 @@
             // 
             // tabPageGeneral
             // 
-            resources.ApplyResources(this.tabPageGeneral, "tabPageGeneral");
             this.tabPageGeneral.Controls.Add(this.groupBox2);
+            resources.ApplyResources(this.tabPageGeneral, "tabPageGeneral");
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.cbBoxLanguage);
             this.groupBox2.Controls.Add(this.label1);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.chkBoxInstantSearch);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.TabStop = false;
+            // 
+            // chkBoxInstantSearch
+            // 
+            resources.ApplyResources(this.chkBoxInstantSearch, "chkBoxInstantSearch");
+            this.chkBoxInstantSearch.Name = "chkBoxInstantSearch";
+            this.chkBoxInstantSearch.UseVisualStyleBackColor = true;
+            // 
             // cbBoxLanguage
             // 
-            resources.ApplyResources(this.cbBoxLanguage, "cbBoxLanguage");
             this.cbBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxLanguage.FormattingEnabled = true;
             this.cbBoxLanguage.Items.AddRange(new object[] {
             resources.GetString("cbBoxLanguage.Items"),
             resources.GetString("cbBoxLanguage.Items1")});
+            resources.ApplyResources(this.cbBoxLanguage, "cbBoxLanguage");
             this.cbBoxLanguage.Name = "cbBoxLanguage";
             // 
             // label1
@@ -95,9 +112,9 @@
             // 
             // tabPageUi
             // 
-            resources.ApplyResources(this.tabPageUi, "tabPageUi");
             this.tabPageUi.Controls.Add(this.groupBox1);
             this.tabPageUi.Controls.Add(this.groupBox3);
+            resources.ApplyResources(this.tabPageUi, "tabPageUi");
             this.tabPageUi.Name = "tabPageUi";
             this.tabPageUi.UseVisualStyleBackColor = true;
             // 
@@ -118,8 +135,8 @@
             // 
             // linkLabelFontsStyle
             // 
-            resources.ApplyResources(this.linkLabelFontsStyle, "linkLabelFontsStyle");
             this.linkLabelFontsStyle.ActiveLinkColor = System.Drawing.Color.Silver;
+            resources.ApplyResources(this.linkLabelFontsStyle, "linkLabelFontsStyle");
             this.linkLabelFontsStyle.LinkColor = System.Drawing.SystemColors.Highlight;
             this.linkLabelFontsStyle.Name = "linkLabelFontsStyle";
             this.linkLabelFontsStyle.TabStop = true;
@@ -142,9 +159,9 @@
             // 
             // panelColorSample
             // 
-            resources.ApplyResources(this.panelColorSample, "panelColorSample");
             this.panelColorSample.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelColorSample.Controls.Add(this.linkLabelColor);
+            resources.ApplyResources(this.panelColorSample, "panelColorSample");
             this.panelColorSample.Name = "panelColorSample";
             // 
             // linkLabelColor
@@ -158,6 +175,7 @@
             // btnAccept
             // 
             resources.ApplyResources(this.btnAccept, "btnAccept");
+            this.btnAccept.Image = global::AKwin32.Properties.Resources.button_ok_x16;
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
@@ -166,6 +184,7 @@
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::AKwin32.Properties.Resources.button_cancel__x16;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -196,6 +215,8 @@
             this.tabPageGeneral.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.tabPageUi.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -226,5 +247,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbBoxLanguage;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox chkBoxInstantSearch;
     }
 }

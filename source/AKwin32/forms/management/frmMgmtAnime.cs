@@ -20,7 +20,7 @@ namespace AKwin32.forms.management
         public frmMgmtAnime()
         {
             InitializeComponent();
-            this.Text = this.Text + "Anime";
+            this.Text = "Anime";
             entityType = typeof(Anime);
             repo = new Framework.repo.xml.AnimeRepository();
         }
@@ -34,6 +34,9 @@ namespace AKwin32.forms.management
             Anime anime = listViewItems.SelectedItems[0].Tag as Anime;
             listViewItems.SelectedItems[0].Remove();
             repo.Remove(anime);
+
+            string evt_change = " (-) " + anime.ToString();
+            AKwin32.com.util.EventLogger.Write(Configuration.ApplicationLoggerFile, evt_change);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -86,7 +89,7 @@ namespace AKwin32.forms.management
             ListViewItem item;
             foreach (Anime anime in this.dataSource)
             {
-                item = new ListViewItem(new string[] { anime.Name, anime.Category + "" });
+                item = new ListViewItem(new string[] { anime.Name, anime.ToString() });
                 item.Tag = anime;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);
@@ -105,7 +108,7 @@ namespace AKwin32.forms.management
             ListViewItem item;
             foreach (Anime anime in list)
             {
-                item = new ListViewItem(new string[] { anime.Name, anime.Category + "" });
+                item = new ListViewItem(new string[] { anime.Name, anime.ToString() });
                 item.Tag = anime;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);

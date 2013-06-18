@@ -18,21 +18,30 @@ namespace AKwin32.forms.maintenance
 
         WebProxy proxy;
 
-        //Settings setts = Properties.Settings.Default;
-
         public frmOptions()
         {
             InitializeComponent();
         }
+
+        #region GUI Events
 
         private void frmOptions_Load(object sender, EventArgs e)
         {
             proxy = (WebProxy)Framework.io.Configuration.GetProxy();
             txtHost.Text = proxy.Address.Authority;
 
-           
-
         }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            if (isValidInput())
+            {
+                SaveChanges();
+                this.Close();
+            }
+        }
+
+        #endregion
 
         #region tabPageUi
 
@@ -83,13 +92,21 @@ namespace AKwin32.forms.maintenance
 
         #endregion
 
-        private void btnAccept_Click(object sender, EventArgs e)
+
+        private bool isValidInput()
         {
-            if (isValidInput())
+            bool r = true;
+
+            string pattern = @"(\d{1,3}\.){3}\d{1,3}:\d{2,5}";
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(pattern);
+            if (!regex.IsMatch(txtHost.Text))
             {
-                SaveChanges();
-                this.Close();
+                r = false;
+                base.ShowError(this, "proxy!");
+                txtHost.Focus();
             }
+
+            return r;
         }
 
         private void SaveChanges()
@@ -109,27 +126,6 @@ namespace AKwin32.forms.maintenance
             Framework.io.Configuration.SetProxy(proxy);
 
             #endregion
-
-          
-            //
-            Program.ReloadVariables();
-        }
-
-
-        private bool isValidInput()
-        {
-            bool r = true;
-
-            string pattern = @"(\d{1,3}\.){3}\d{1,3}:\d{2,5}";
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(pattern);
-            if (!regex.IsMatch(txtHost.Text))
-            {
-                r = false;
-                base.ShowError(this, "proxy!");
-                txtHost.Focus();
-            }
-
-            return r;
         }
 
 

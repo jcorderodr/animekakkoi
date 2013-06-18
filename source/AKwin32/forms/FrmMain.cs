@@ -6,12 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AKwin32.com.util;
 
 namespace AKwin32.forms
 {
     public partial class FrmMain : frmBase
     {
-
 
         public FrmMain()
         {
@@ -30,6 +30,7 @@ namespace AKwin32.forms
                 return;
             }
             this.OnPropertiesChange();
+            EventLogger.Write(Configuration.ApplicationLoggerFile, "system_start");
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -53,9 +54,15 @@ namespace AKwin32.forms
             frm.ShowDialog(this);
         }
 
+        private void userActionhistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tools.frmActionHistory frm = new tools.frmActionHistory();
+            frm.ShowDialog(this);
+        }
+
         private void formattedTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Share();
+            CreateSharingTextFile();
         }
 
         private void listForSharingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,7 +126,6 @@ namespace AKwin32.forms
 
             base.ShowInformation(this, base.Messages[Framework.io.LanguageExpressions.OPERATION_SUCESS]);
         }
-
 
         private void mcAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -234,27 +240,31 @@ namespace AKwin32.forms
             catch { }
         }
 
+
+        private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string route = Properties.Settings.Default.ApplicationBugReport;
+            try
+            {
+                System.Diagnostics.Process.Start(route);
+            }
+            catch { }
+        }
+
         private void searchUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string metadata = Properties.Settings.Default.ApplicationMetadataUrl;
             try
             {
-                System.Net.WebClient client = new System.Net.WebClient();
-                string temp = client.DownloadString(metadata);
-                client.Dispose();
+                com.net.Update upd = com.net.Update.CheckForUpdate(metadata);
 
-                System.Xml.Linq.XElement doc = System.Xml.Linq.XElement.Parse(temp);
-                doc = doc.Element("version");
-                System.Xml.Linq.XElement lastv = doc.Element("last-version");
-
-                Version actual = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-                Version last = new Version(lastv.Value);
-
-                if (last > actual)
-                    base.ShowInformation(this, base.Messages["update_available"] + last);
+                if (upd.IsNewVersion)
+                    base.ShowInformation(this, base.Messages["update_available"] + upd.Version);
+                else
+                    base.ShowInformation(this, base.Messages["last_version"] + upd.Version);
 
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch { base.ShowError(this, base.Errors["error_search_update"]); }
 
         }
 
@@ -262,7 +272,10 @@ namespace AKwin32.forms
         {
             StringBuilder builder = new StringBuilder();
 
-            builder.AppendLine("=== Versión Pro ===");
+            builder.AppendLine("=== AnimeKakkoi Pro ===");
+            builder.AppendLine("La Versión Pro es una versión más completa, de funcionalidad más amplia y atractiva.");
+            builder.AppendLine();
+            builder.AppendLine("# Features #");
             builder.AppendLine("- Datos guardados en la nube/Information in the cloud");
             builder.AppendLine("- Actualización automática de la base de datos/Automatic updates of info based on sources");
             builder.AppendLine("- Comprobración de integridad de los registros/Check out of data's integration");
@@ -288,20 +301,17 @@ namespace AKwin32.forms
 
         private void btnSharing_Click(object sender, EventArgs e)
         {
-
-            formattedTextToolStripMenuItem_Click(sender, e);
-            //listForSharingToolStripMenuItem_Click(sender, e);
+            this.listForSharingToolStripMenuItem_Click(sender, e);
         }
 
-        private void btnRefreshSrc_Click(object sender, EventArgs e)
+        private void btnAnime_Click(object sender, EventArgs e)
         {
-            base.ShowInformation(this, base.Messages["version_pro"]);
+            this.manageAnimeToolStripMenuItem_Click(sender, e);
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnManga_Click(object sender, EventArgs e)
         {
-            tools.frmQuickSearch frm = new tools.frmQuickSearch();
-            frm.Show();
+            this.manageMangaToolStripMenuItem_Click(sender, e);
         }
 
 
@@ -322,7 +332,7 @@ namespace AKwin32.forms
             stripStatusUser.Text = Program.SystemUser.Name;
         }
 
-        private void Share()
+        private void CreateSharingTextFile()
         {
             #region Selection
 
@@ -397,6 +407,13 @@ namespace AKwin32.forms
         }
 
         #endregion
+
+
+
+
+
+
+
 
 
 

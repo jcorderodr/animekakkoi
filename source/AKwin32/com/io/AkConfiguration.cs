@@ -13,17 +13,34 @@ namespace AKwin32.com.io
     public sealed class AkConfiguration
     {
 
-        public System.Globalization.CultureInfo ApplicationCulture { get { return new System.Globalization.CultureInfo(setts.ApplicationCulture); } }
-
-        public Color FormBackGroundColor { get { return setts.frmBackGroundColor; } }
+        #region Application
 
         public String ProductUrl { get { return setts.ApplicationProductUrl; } }
 
-        public Font UiControlsFontStyle { get { return setts.UiControlsFontsStyle; } }
+        public String ApplicationLoggerFile { get { return System.Windows.Forms.Application.StartupPath + System.IO.Path.DirectorySeparatorChar + "usr-h.log"; } }
 
-        public Font UiFontsStyle { get { return setts.UiFontsStyles; } }
+        public String ApplicationProgressMask { get { return setts.ApplicationEntityProgressMask; } }
 
-        public Color UiFontsColor { get { return setts.UiFontsColor; } }
+
+        #endregion
+
+
+        #region User
+
+        public System.Globalization.CultureInfo ApplicationCulture { get { return new System.Globalization.CultureInfo(setts.UserCultureLanguage); } }
+
+        public Color FormBackGroundColor { get { return setts.UserfrmBackGroundColor; } }
+
+        public Font UiControlsFontStyle { get { return setts.UserUiControlsFontsStyle; } }
+
+        public Font UiFontsStyle { get { return setts.UserUiFontsStyles; } }
+
+        public Color UiFontsColor { get { return setts.UserUiFontsColor; } }
+
+        public bool UserUsingInstantSearch { get { return setts.UserInstantSearch; } }
+
+        #endregion
+
 
         /// <summary>
         /// Gets all the settings.

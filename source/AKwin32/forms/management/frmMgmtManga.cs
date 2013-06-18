@@ -34,6 +34,9 @@ namespace AKwin32.forms.management
             Manga manga = listViewItems.SelectedItems[0].Tag as Manga;
             listViewItems.SelectedItems[0].Remove();
             repo.Remove(manga);
+
+            string evt_change = " (-) " + manga.ToString();
+            AKwin32.com.util.EventLogger.Write(Configuration.ApplicationLoggerFile, evt_change);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -92,7 +95,7 @@ namespace AKwin32.forms.management
             ListViewItem item;
             foreach (Manga manga in this.dataSource)
             {
-                item = new ListViewItem(new string[] { manga.Name, manga.Category + "" });
+                item = new ListViewItem(new string[] { manga.Name, manga.ToString() });
                 item.Tag = manga;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);
@@ -109,7 +112,7 @@ namespace AKwin32.forms.management
             ListViewItem item;
             foreach (Manga manga in list)
             {
-                item = new ListViewItem(new string[] { manga.Name, manga.Category + "" });
+                item = new ListViewItem(new string[] { manga.Name, manga.ToString() });
                 item.Tag = manga;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);

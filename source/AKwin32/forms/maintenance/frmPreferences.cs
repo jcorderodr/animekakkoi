@@ -21,13 +21,15 @@ namespace AKwin32.forms.maintenance
 
         private void frmPreferences_Load(object sender, EventArgs e)
         {
-            cbBoxLanguage.Text = setts.ApplicationCulture;
-            // -
-            panelColorSample.BackColor = setts.frmBackGroundColor;
-            linkLabelFontColor.LinkColor = setts.UiFontsColor;
+            cbBoxLanguage.Text = setts.UserCultureLanguage;
 
-            linkLabelFontsStyle.Font = setts.UiFontsStyles;
-            linkLabelControlsStyle.Font = setts.UiControlsFontsStyle;
+            chkBoxInstantSearch.Checked = setts.UserInstantSearch;
+            // -
+            panelColorSample.BackColor = setts.UserfrmBackGroundColor;
+            linkLabelFontColor.LinkColor = setts.UserUiFontsColor;
+
+            linkLabelFontsStyle.Font = setts.UserUiFontsStyles;
+            linkLabelControlsStyle.Font = setts.UserUiControlsFontsStyle;
             // -
             linkLabelFontsStyle.Text = String.Format("{0} {1}pts", linkLabelFontsStyle.Font.Name, linkLabelColor.Font.Size);
             linkLabelControlsStyle.Text = String.Format("{0} {1}pts", linkLabelControlsStyle.Font.Name, linkLabelControlsStyle.Font.Size);
@@ -77,15 +79,17 @@ namespace AKwin32.forms.maintenance
 
         private void SaveChanges()
         {
-            setts.frmBackGroundColor = panelColorSample.BackColor;
-            setts.UiFontsStyles = linkLabelFontsStyle.Font;
-            setts.UiFontsColor = linkLabelFontColor.LinkColor;
-            setts.UiControlsFontsStyle = linkLabelControlsStyle.Font;
-            setts.ApplicationCulture = cbBoxLanguage.Text;
-
+            setts.UserfrmBackGroundColor = panelColorSample.BackColor;
+            setts.UserUiFontsStyles = linkLabelFontsStyle.Font;
+            setts.UserUiFontsColor = linkLabelFontColor.LinkColor;
+            setts.UserUiControlsFontsStyle = linkLabelControlsStyle.Font;
+            setts.UserCultureLanguage = cbBoxLanguage.Text;
+            setts.UserInstantSearch = chkBoxInstantSearch.Checked;
             setts.Save();
             // -
-            Framework.io.Configuration.SaveSetting("lang", setts.ApplicationCulture);
+            Framework.io.Configuration.SaveSetting("lang", setts.UserCultureLanguage);
+            // -
+            Program.RestartApp();
         }
 
 

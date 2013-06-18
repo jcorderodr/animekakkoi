@@ -55,7 +55,7 @@ namespace Framework.io
                 InitComponents();
                 Load(cultureInfo);
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex) { throw new Exception("LSP Load. " + ex.Message, ex); }
         }
 
         private void InitComponents()
@@ -88,7 +88,7 @@ namespace Framework.io
                 int regionStart, regionEnd;
 
                 aux = reader.ReadToEnd();
-      
+
                 regionStart = aux.IndexOf(culture.Parent.Name);
 
                 if (regionStart == -1)
@@ -98,6 +98,9 @@ namespace Framework.io
 
                 regionStart = aux.IndexOf(']', regionStart) + 1;
                 regionEnd = aux.IndexOf('[', regionStart);
+
+                if (regionEnd == -1)
+                    regionEnd = aux.Length;
 
                 SplitWords(aux.Substring(regionStart, regionEnd - regionStart));
 

@@ -50,7 +50,6 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.lbl_Favorite);
             this.panel1.Controls.Add(this.cb_State);
             this.panel1.Controls.Add(this.cb_Category);
@@ -64,6 +63,7 @@
             this.panel1.Controls.Add(this.lblState);
             this.panel1.Controls.Add(this.lblEpi);
             this.panel1.Controls.Add(this.lblName);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // lbl_Favorite
@@ -76,17 +76,17 @@
             // 
             // cb_State
             // 
-            resources.ApplyResources(this.cb_State, "cb_State");
             this.cb_State.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_State.FormattingEnabled = true;
+            resources.ApplyResources(this.cb_State, "cb_State");
             this.cb_State.Name = "cb_State";
             this.cb_State.Validated += new System.EventHandler(this.guiField_Validated);
             // 
             // cb_Category
             // 
-            resources.ApplyResources(this.cb_Category, "cb_Category");
             this.cb_Category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Category.FormattingEnabled = true;
+            resources.ApplyResources(this.cb_Category, "cb_Category");
             this.cb_Category.Name = "cb_Category";
             // 
             // txt_Comment
@@ -146,6 +146,7 @@
             // btnAccept
             // 
             resources.ApplyResources(this.btnAccept, "btnAccept");
+            this.btnAccept.Image = global::AKwin32.Properties.Resources.button_ok_x16;
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
@@ -153,6 +154,7 @@
             // btnCancel
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.Image = global::AKwin32.Properties.Resources.button_cancel__x16;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

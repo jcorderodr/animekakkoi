@@ -14,6 +14,7 @@ namespace AKwin32.forms.management
     public partial class frmNewItem : AKwin32.forms.frmBaseToolbox, INewItem
     {
 
+        object entity;
         Type entityType;
 
         Framework.io.Catalog catalog;
@@ -22,7 +23,6 @@ namespace AKwin32.forms.management
         {
             InitializeComponent();
             catalog = new Catalog();
-            //
         }
 
         #region GUI Events
@@ -37,9 +37,9 @@ namespace AKwin32.forms.management
             ((INewItem)this).DoVisualChanges();
         }
 
-        private void txt_Episodes_Validated(object sender, EventArgs e)
+        private void txt_Progress_Validated(object sender, EventArgs e)
         {
-            txt_Episodes.Text = Expression.GetTextInChapterFormat(txt_Episodes.Text);
+            //--txt_Progress.Text = Expression.GetTextInChapterFormat(txt_Progress.Text);
         }
 
         private void txt_Rating_Validated(object sender, EventArgs e)
@@ -54,6 +54,9 @@ namespace AKwin32.forms.management
             if (ValidateInput())
                 if (((INewItem)this).ToRegisterItem())
                 {
+                    string evt_change = " (+) " + entity.GetType().GetMethod("ToString").Invoke(entity, null);
+                    AKwin32.com.util.EventLogger.Write(Configuration.ApplicationLoggerFile, evt_change);
+                    //
                     base.ShowInformation(this, base.Messages["item_affected"]);
                     base.CleanUIComponents();
                 }
@@ -79,6 +82,8 @@ namespace AKwin32.forms.management
             cb_State.DataSource = Catalog.GetEntitiesTypesByLanguage();
             cb_State.ValueMember = "Id";
             cb_State.DisplayMember = "Description";
+
+            txt_Progress.Mask = Configuration.ApplicationProgressMask;
         }
 
         private bool isAnimeType()
@@ -92,7 +97,7 @@ namespace AKwin32.forms.management
 
             anime.Comment = txt_Comment.Text;
             anime.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
-            anime.ProgressString = Expression.StringIfNull(txt_Episodes.Text, "0/0");
+            anime.ProgressString = Expression.StringIfNull(txt_Progress.Text, "0/0");
 
             Framework.repo.xml.AnimeRepository repo;
             repo = new Framework.repo.xml.AnimeRepository();
@@ -116,7 +121,7 @@ namespace AKwin32.forms.management
             item.Comment = txt_Comment.Text;
             item.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
             //if doesnt cotains '/' it ends 01/?, otherwise x/y
-            item.ProgressString = txt_Episodes.Text.Contains("/") ? txt_Episodes.Text : txt_Episodes.Text + "/?";
+            item.ProgressString = txt_Progress.Text;
 
             Framework.repo.xml.MangaRepository repo;
             repo = new Framework.repo.xml.MangaRepository();

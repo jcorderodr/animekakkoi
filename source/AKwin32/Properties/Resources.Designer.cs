@@ -60,23 +60,16 @@ namespace AKwin32.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap add {
+        internal static System.Drawing.Bitmap anime {
             get {
-                object obj = ResourceManager.GetObject("add", resourceCulture);
+                object obj = ResourceManager.GetObject("anime", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap alert {
+        internal static System.Drawing.Bitmap applications_x16 {
             get {
-                object obj = ResourceManager.GetObject("alert", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap back {
-            get {
-                object obj = ResourceManager.GetObject("back", resourceCulture);
+                object obj = ResourceManager.GetObject("applications_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,6 +88,27 @@ namespace AKwin32.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap button_cancel__x16 {
+            get {
+                object obj = ResourceManager.GetObject("button_cancel__x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap button_cancel_x48 {
+            get {
+                object obj = ResourceManager.GetObject("button_cancel_x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap button_ok_x16 {
+            get {
+                object obj = ResourceManager.GetObject("button_ok_x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap chat {
             get {
                 object obj = ResourceManager.GetObject("chat", resourceCulture);
@@ -102,23 +116,16 @@ namespace AKwin32.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap close {
+        internal static System.Drawing.Bitmap configuration_settings_x16 {
             get {
-                object obj = ResourceManager.GetObject("close", resourceCulture);
+                object obj = ResourceManager.GetObject("configuration_settings_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap delete {
+        internal static System.Drawing.Bitmap control_panel_x16 {
             get {
-                object obj = ResourceManager.GetObject("delete", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap down {
-            get {
-                object obj = ResourceManager.GetObject("down", resourceCulture);
+                object obj = ResourceManager.GetObject("control_panel_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -137,30 +144,72 @@ namespace AKwin32.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap floppy {
+        internal static System.Drawing.Bitmap filefind_x16 {
             get {
-                object obj = ResourceManager.GetObject("floppy", resourceCulture);
+                object obj = ResourceManager.GetObject("filefind_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap forward {
+        internal static System.Drawing.Bitmap files_edit_x16 {
             get {
-                object obj = ResourceManager.GetObject("forward", resourceCulture);
+                object obj = ResourceManager.GetObject("files_edit_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap home {
+        internal static System.Drawing.Bitmap files_text_x16 {
             get {
-                object obj = ResourceManager.GetObject("home", resourceCulture);
+                object obj = ResourceManager.GetObject("files_text_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap info {
+        internal static System.Drawing.Bitmap files_x16 {
             get {
-                object obj = ResourceManager.GetObject("info", resourceCulture);
+                object obj = ResourceManager.GetObject("files_x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap find_x16 {
+            get {
+                object obj = ResourceManager.GetObject("find_x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap floppy_x16 {
+            get {
+                object obj = ResourceManager.GetObject("floppy_x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap folder_downloads_x16 {
+            get {
+                object obj = ResourceManager.GetObject("folder_downloads_x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap hard_disk_x16 {
+            get {
+                object obj = ResourceManager.GetObject("hard_disk_x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap help1_x16 {
+            get {
+                object obj = ResourceManager.GetObject("help1_x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap link1_x16 {
+            get {
+                object obj = ResourceManager.GetObject("link1_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -172,73 +221,76 @@ namespace AKwin32.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap locked {
+        internal static System.Drawing.Bitmap mail_x16 {
             get {
-                object obj = ResourceManager.GetObject("locked", resourceCulture);
+                object obj = ResourceManager.GetObject("mail_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap redo {
+        internal static System.Drawing.Bitmap manga {
             get {
-                object obj = ResourceManager.GetObject("redo", resourceCulture);
+                object obj = ResourceManager.GetObject("manga", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap refresh {
+        internal static System.Drawing.Bitmap network_downloads_x16 {
             get {
-                object obj = ResourceManager.GetObject("refresh", resourceCulture);
+                object obj = ResourceManager.GetObject("network_downloads_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap search {
+        internal static System.Drawing.Bitmap network_find_x16 {
             get {
-                object obj = ResourceManager.GetObject("search", resourceCulture);
+                object obj = ResourceManager.GetObject("network_find_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap stop {
+        internal static System.Drawing.Bitmap search_x48 {
             get {
-                object obj = ResourceManager.GetObject("stop", resourceCulture);
+                object obj = ResourceManager.GetObject("search_x48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap tools {
+        internal static System.Drawing.Bitmap sharing_overlay_x16 {
             get {
-                object obj = ResourceManager.GetObject("tools", resourceCulture);
+                object obj = ResourceManager.GetObject("sharing_overlay_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap tutorial {
+        internal static System.Drawing.Bitmap trash_x16 {
             get {
-                object obj = ResourceManager.GetObject("tutorial", resourceCulture);
+                object obj = ResourceManager.GetObject("trash_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap user {
+        internal static System.Drawing.Bitmap unlock_x16 {
             get {
-                object obj = ResourceManager.GetObject("user", resourceCulture);
+                object obj = ResourceManager.GetObject("unlock_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 
-        ///AnimeKakkoi - version 0.1.000 Alpha -DEV
+        ///AnimeKakkoi - 0.1.3 Beta
         ///
-        ///# Abril ??, 2013
-        ///-First Release
-        ///-Basics Functions
-        ///-Media Types Anime &amp; Manga
-        ///
-        ///
-        ///#		Fin		#.
+        ///# Junio 15, 2013
+        ///- Preservación de información al desintalar y/o actualizar.
+        ///- Búsqueda de actualizaciones disponibles.
+        ///- Carga de archivo físico.
+        ///- Agregada funcionalidad para compartir archivo personalizado del aplicativo.
+        ///- Agregado Exportado de Archivo para Compartir (*.akl).
+        ///- Agregado Historial de Acciones del usuario.
+        ///- Agregado Links del Producto [contacto, updates, report].
+        ///- fix Error al iniciar sistema en lenguaje &apos;EN&apos;.
+        ///- fix menores de Interfaz de Usuario y [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string version {
             get {
@@ -246,16 +298,9 @@ namespace AKwin32.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap window {
+        internal static System.Drawing.Bitmap web_file_x16 {
             get {
-                object obj = ResourceManager.GetObject("window", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap write {
-            get {
-                object obj = ResourceManager.GetObject("write", resourceCulture);
+                object obj = ResourceManager.GetObject("web_file_x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Fuentes</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkBoxInstantSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 17</value>
+  </data>
+  <data name="chkBoxInstantSearch.Text" xml:space="preserve">
+    <value>Instantanea (en Búsqueda Rápida)</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Búsquedas</value>
+  </data>
   <data name="linkLabelControlsStyle.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 13</value>
   </data>
@@ -133,8 +139,8 @@
   <data name="linkLabelFontsStyle.Text" xml:space="preserve">
     <value>fuente-campos</value>
   </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Colores</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Fuentes</value>
   </data>
   <data name="linkLabelFontColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 13</value>
@@ -147,6 +153,9 @@
   </data>
   <data name="linkLabelColor.Text" xml:space="preserve">
     <value>Color Fondo de Ventanas</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Colores</value>
   </data>
   <data name="btnAccept.Text" xml:space="preserve">
     <value>&amp;Aceptar</value>

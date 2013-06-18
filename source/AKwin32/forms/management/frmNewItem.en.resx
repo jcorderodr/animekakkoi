@@ -155,7 +155,7 @@
     <value>62, 16</value>
   </data>
   <data name="lblEpi.Text" xml:space="preserve">
-    <value>Episodes:</value>
+    <value>Progress:</value>
   </data>
   <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 16</value>

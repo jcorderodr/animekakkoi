@@ -26,60 +26,60 @@ namespace AKwin32.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("255, 255, 192")]
-        public global::System.Drawing.Color frmBackGroundColor {
+        public global::System.Drawing.Color UserfrmBackGroundColor {
             get {
-                return ((global::System.Drawing.Color)(this["frmBackGroundColor"]));
+                return ((global::System.Drawing.Color)(this["UserfrmBackGroundColor"]));
             }
             set {
-                this["frmBackGroundColor"] = value;
+                this["UserfrmBackGroundColor"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Comic Sans MS, 9pt, style=Bold")]
-        public global::System.Drawing.Font UiFontsStyles {
+        public global::System.Drawing.Font UserUiFontsStyles {
             get {
-                return ((global::System.Drawing.Font)(this["UiFontsStyles"]));
+                return ((global::System.Drawing.Font)(this["UserUiFontsStyles"]));
             }
             set {
-                this["UiFontsStyles"] = value;
+                this["UserUiFontsStyles"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("DimGray")]
-        public global::System.Drawing.Color UiFontsColor {
+        public global::System.Drawing.Color UserUiFontsColor {
             get {
-                return ((global::System.Drawing.Color)(this["UiFontsColor"]));
+                return ((global::System.Drawing.Color)(this["UserUiFontsColor"]));
             }
             set {
-                this["UiFontsColor"] = value;
+                this["UserUiFontsColor"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Arial Narrow, 9pt, style=Bold")]
-        public global::System.Drawing.Font UiControlsFontsStyle {
+        public global::System.Drawing.Font UserUiControlsFontsStyle {
             get {
-                return ((global::System.Drawing.Font)(this["UiControlsFontsStyle"]));
+                return ((global::System.Drawing.Font)(this["UserUiControlsFontsStyle"]));
             }
             set {
-                this["UiControlsFontsStyle"] = value;
+                this["UserUiControlsFontsStyle"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
-        public string ApplicationCulture {
+        public string UserCultureLanguage {
             get {
-                return ((string)(this["ApplicationCulture"]));
+                return ((string)(this["UserCultureLanguage"]));
             }
             set {
-                this["ApplicationCulture"] = value;
+                this["UserCultureLanguage"] = value;
             }
         }
         
@@ -110,6 +110,42 @@ namespace AKwin32.Properties {
             }
             set {
                 this["ApplicationFirstRunning"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://sourceforge.net/p/animekakkoi/tickets/new/")]
+        public string ApplicationBugReport {
+            get {
+                return ((string)(this["ApplicationBugReport"]));
+            }
+            set {
+                this["ApplicationBugReport"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UserInstantSearch {
+            get {
+                return ((bool)(this["UserInstantSearch"]));
+            }
+            set {
+                this["UserInstantSearch"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("990/99#")]
+        public string ApplicationEntityProgressMask {
+            get {
+                return ((string)(this["ApplicationEntityProgressMask"]));
+            }
+            set {
+                this["ApplicationEntityProgressMask"] = value;
             }
         }
     }

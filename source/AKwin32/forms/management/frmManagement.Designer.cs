@@ -36,13 +36,13 @@
             this.lblType = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_ProgressString = new System.Windows.Forms.MaskedTextBox();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.lbl_Favorite = new System.Windows.Forms.Label();
             this.cb_State = new System.Windows.Forms.ComboBox();
             this.cb_Category = new System.Windows.Forms.ComboBox();
             this.txt_Comment = new System.Windows.Forms.TextBox();
             this.txt_Rating = new System.Windows.Forms.TextBox();
-            this.txt_ProgressString = new System.Windows.Forms.TextBox();
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.lblComment = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -104,13 +104,13 @@
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.txt_ProgressString);
             this.panel1.Controls.Add(this.btnRemoveItem);
             this.panel1.Controls.Add(this.lbl_Favorite);
             this.panel1.Controls.Add(this.cb_State);
             this.panel1.Controls.Add(this.cb_Category);
             this.panel1.Controls.Add(this.txt_Comment);
             this.panel1.Controls.Add(this.txt_Rating);
-            this.panel1.Controls.Add(this.txt_ProgressString);
             this.panel1.Controls.Add(this.txt_Name);
             this.panel1.Controls.Add(this.lblComment);
             this.panel1.Controls.Add(this.label1);
@@ -120,9 +120,17 @@
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Name = "panel1";
             // 
+            // txt_ProgressString
+            // 
+            this.txt_ProgressString.Culture = new System.Globalization.CultureInfo("");
+            resources.ApplyResources(this.txt_ProgressString, "txt_ProgressString");
+            this.txt_ProgressString.Name = "txt_ProgressString";
+            this.txt_ProgressString.SkipLiterals = false;
+            this.txt_ProgressString.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.txt_ProgressString.Validated += new System.EventHandler(this.guiField_Validated);
+            // 
             // btnRemoveItem
             // 
-            this.btnRemoveItem.Image = global::AKwin32.Properties.Resources.close;
             resources.ApplyResources(this.btnRemoveItem, "btnRemoveItem");
             this.btnRemoveItem.Name = "btnRemoveItem";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
@@ -163,12 +171,6 @@
             resources.ApplyResources(this.txt_Rating, "txt_Rating");
             this.txt_Rating.Name = "txt_Rating";
             this.txt_Rating.Validated += new System.EventHandler(this.guiField_Validated);
-            // 
-            // txt_ProgressString
-            // 
-            resources.ApplyResources(this.txt_ProgressString, "txt_ProgressString");
-            this.txt_ProgressString.Name = "txt_ProgressString";
-            this.txt_ProgressString.Validated += new System.EventHandler(this.guiField_Validated);
             // 
             // txt_Name
             // 
@@ -221,6 +223,7 @@
             this.listViewItems.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewItems.UseCompatibleStateImageBehavior = false;
             this.listViewItems.View = System.Windows.Forms.View.Details;
+            this.listViewItems.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listViewItems_DrawColumnHeader);
             this.listViewItems.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listViewItems_ItemSelectionChanged);
             // 
             // itemName
@@ -270,7 +273,6 @@
         protected internal System.Windows.Forms.ComboBox filter_cbBoxItemType;
         protected internal System.Windows.Forms.ComboBox cb_Category;
         protected internal System.Windows.Forms.TextBox txt_Comment;
-        protected internal System.Windows.Forms.TextBox txt_ProgressString;
         protected internal System.Windows.Forms.TextBox txt_Rating;
         protected internal System.Windows.Forms.Label label1;
         protected internal System.Windows.Forms.Label lbl_Favorite;
@@ -278,5 +280,6 @@
         protected internal System.Windows.Forms.ComboBox cb_State;
         protected internal System.Windows.Forms.Label label2;
         protected internal System.Windows.Forms.Button btnRemoveItem;
+        protected internal System.Windows.Forms.MaskedTextBox txt_ProgressString;
     }
 }

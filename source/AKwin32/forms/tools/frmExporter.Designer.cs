@@ -58,8 +58,8 @@
             // 
             // groupBox3
             // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.progressBar);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
@@ -80,8 +80,8 @@
             // 
             // lblItemsSelected
             // 
-            resources.ApplyResources(this.lblItemsSelected, "lblItemsSelected");
             this.lblItemsSelected.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaption;
+            resources.ApplyResources(this.lblItemsSelected, "lblItemsSelected");
             this.lblItemsSelected.DisabledLinkColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblItemsSelected.LinkColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblItemsSelected.Name = "lblItemsSelected";
@@ -109,9 +109,9 @@
             // 
             // cb_OptionOutputState
             // 
-            resources.ApplyResources(this.cb_OptionOutputState, "cb_OptionOutputState");
             this.cb_OptionOutputState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_OptionOutputState.FormattingEnabled = true;
+            resources.ApplyResources(this.cb_OptionOutputState, "cb_OptionOutputState");
             this.cb_OptionOutputState.Name = "cb_OptionOutputState";
             // 
             // label2
@@ -133,10 +133,6 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // saveFileDialog
-            // 
-            resources.ApplyResources(this.saveFileDialog, "saveFileDialog");
             // 
             // frmExporter
             // 
