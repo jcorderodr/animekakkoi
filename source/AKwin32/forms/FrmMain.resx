@@ -314,14 +314,23 @@
   <data name="searchUpdatesToolStripMenuItem.Text" xml:space="preserve">
     <value>searchUpdates</value>
   </data>
+  <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="reportBugToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="reportBugToolStripMenuItem.Text" xml:space="preserve">
+    <value>reportBug</value>
+  </data>
+  <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
   <data name="versionProToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
   <data name="versionProToolStripMenuItem.Text" xml:space="preserve">
     <value>versionPro</value>
-  </data>
-  <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
   </data>
   <data name="aboutAkToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
@@ -359,12 +368,6 @@
   </data>
   <data name="&gt;&gt;menuStrip.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="reportBugToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="reportBugToolStripMenuItem.Text" xml:space="preserve">
-    <value>reportBug</value>
   </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>125, 17</value>
@@ -1125,6 +1128,12 @@
   <data name="&gt;&gt;searchUpdatesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;reportBugToolStripMenuItem.Name" xml:space="preserve">
+    <value>reportBugToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;reportBugToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;versionProToolStripMenuItem.Name" xml:space="preserve">
     <value>versionProToolStripMenuItem</value>
   </data>
@@ -1143,22 +1152,22 @@
   <data name="&gt;&gt;aboutAkToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;reportBugToolStripMenuItem.Name" xml:space="preserve">
-    <value>reportBugToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;reportBugToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;stripStatusUser.Name" xml:space="preserve">
     <value>stripStatusUser</value>
   </data>
   <data name="&gt;&gt;stripStatusUser.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator8.Name" xml:space="preserve">
+    <value>toolStripSeparator8</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMain</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.3.1399, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.3.2099, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

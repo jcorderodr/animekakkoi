@@ -400,10 +400,10 @@
     <value>TopCenter</value>
   </data>
   <data name="data_btnCleanItems.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 31</value>
+    <value>23, 31</value>
   </data>
   <data name="data_btnCleanItems.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 85</value>
+    <value>116, 85</value>
   </data>
   <data name="data_btnCleanItems.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -433,7 +433,7 @@
     <value>176, 29</value>
   </data>
   <data name="data_btnCleanAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 87</value>
+    <value>116, 85</value>
   </data>
   <data name="data_btnCleanAll.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -680,6 +680,6 @@
     <value>frmOptions</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=0.1.3.1399, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=0.1.3.1003, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

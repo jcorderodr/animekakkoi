@@ -207,6 +207,9 @@
   <data name="btnDoSelection.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="btnDoSelection.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
   <data name="btnDoSelection.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 19</value>
   </data>
@@ -381,6 +384,9 @@
   <data name="btnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="btnAccept.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
   <data name="btnAccept.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 137</value>
   </data>
@@ -407,6 +413,9 @@
   </data>
   <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
+  </data>
+  <data name="btnCancel.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>306, 137</value>
@@ -533,6 +542,6 @@
     <value>frmExporter</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=0.1.3.27979, Culture=neutral, PublicKeyToken=null</value>
+    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=0.1.3.1003, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

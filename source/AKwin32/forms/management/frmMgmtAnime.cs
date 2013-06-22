@@ -41,8 +41,7 @@ namespace AKwin32.forms.management
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (this.Form_State != FORM_USING_STATE.EDITING)
-                this.Close();
+
             //
             dataSource.Clear();
             foreach (ListViewItem item in listViewItems.Items)
@@ -128,10 +127,8 @@ namespace AKwin32.forms.management
             else
                 result = repo.Change(dataSource);
 
-            if (result != dataSource.Count)
-                base.ShowInformation(this,
-                    base.Messages["items_saved"] + String.Format(" ({0})", result));
-
+            base.ShowInformation(this,
+                base.Messages["items_saved"] + String.Format(" ({0})", result));
         }
 
         #endregion

@@ -221,7 +221,6 @@ namespace Framework.repo.xml
 
         private XElement ItemExist(XElement item, ENTITY_STATE section)
         {
-            //TODO: check out this performance for his resource's type, the first ocurrency of his name & category 
             XElement aux = this.GetParent(section).Elements(item.Name)
                 .FirstOrDefault(c => c.Element("name").Value == item.Element("name").Value &&
                                 c.Attribute("category").Value == item.Attribute("category").Value);

@@ -62,7 +62,7 @@ namespace AKwin32.forms.management
                 }
                 else
                     base.ShowError(this, base.Errors["items_error"]);
-            this.Close();
+            //--this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -88,22 +88,23 @@ namespace AKwin32.forms.management
 
         private bool isAnimeType()
         {
-            Anime anime = new Anime();
-            anime.Name = txt_Name.Text;
-            anime.Favorite = chkBox_Favorite.Checked;
+            Anime item = new Anime();
+            item.Name = txt_Name.Text;
+            item.Favorite = chkBox_Favorite.Checked;
 
-            anime.Category = (ANIME_TYPE)Enum.Parse(typeof(ANIME_TYPE), cb_Category.SelectedValue + "");
-            anime.State = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), cb_State.SelectedValue + "");
+            item.Category = (ANIME_TYPE)Enum.Parse(typeof(ANIME_TYPE), cb_Category.SelectedValue + "");
+            item.State = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), cb_State.SelectedValue + "");
 
-            anime.Comment = txt_Comment.Text;
-            anime.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
-            anime.ProgressString = Expression.StringIfNull(txt_Progress.Text, "0/0");
+            item.Comment = txt_Comment.Text;
+            item.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
+            item.ProgressString = Expression.StringIfNull(txt_Progress.Text, "0/0");
 
             Framework.repo.xml.AnimeRepository repo;
             repo = new Framework.repo.xml.AnimeRepository();
             try
             {
-                repo.Add(anime);
+                repo.Add(item);
+                entity = item;
                 return true;
             }
             catch { return false; }
@@ -128,6 +129,7 @@ namespace AKwin32.forms.management
             try
             {
                 repo.Add(item);
+                entity = item;
                 return true;
             }
             catch { return false; }
@@ -169,8 +171,15 @@ namespace AKwin32.forms.management
 
         bool ValidateInput()
         {
-            //TODO: validate the input for new records.
-            return true;
+            bool r = true;
+
+            if (String.IsNullOrEmpty(txt_Name.Text) || String.IsNullOrEmpty(txt_Progress.Text) || String.IsNullOrEmpty(txt_Rating.Text))
+                r = false;
+
+            if (cb_Category.Text == "--" || cb_State.Text == "--")
+                r = false;
+
+            return r;
         }
 
         #endregion

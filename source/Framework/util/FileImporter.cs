@@ -25,7 +25,7 @@ namespace Framework.util
 
         protected const String SEPARATOR_CHAR = "$";
 
-        private List<Object> inLoadElements;
+        //--private List<Object> inLoadElements;
 
         /// <summary>
         /// Path that represent the physical Zip file.
@@ -82,7 +82,7 @@ namespace Framework.util
                             string text = parts[2];
                             string progress = parts[3];
                             Type type = Type.GetType(entity);
-                            
+
                             //TODO: finish the convertion process.
                             //Framework.entity.Anime item = new entity.Anime();
 
@@ -152,7 +152,8 @@ namespace Framework.util
 
         private void CheckForStateChange()
         {
-            if (this.ElementState != null)
+
+            if (Enum.IsDefined(typeof(entity.ENTITY_STATE), ElementState))
             {
                 try
                 {

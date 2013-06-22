@@ -85,7 +85,7 @@ namespace AKwin32.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://bluegletek.com/products/animekakkoi.aspx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://bluegletek.com/proyect/AnimeKakkoi.aspx")]
         public string ApplicationProductUrl {
             get {
                 return ((string)(this["ApplicationProductUrl"]));

@@ -148,6 +148,7 @@
             // 
             // data_btnCleanItems
             // 
+            this.data_btnCleanItems.Image = global::AKwin32.Properties.Resources.trash_full_x48;
             resources.ApplyResources(this.data_btnCleanItems, "data_btnCleanItems");
             this.data_btnCleanItems.Name = "data_btnCleanItems";
             this.data_btnCleanItems.UseVisualStyleBackColor = true;
@@ -155,6 +156,7 @@
             // 
             // data_btnCleanAll
             // 
+            this.data_btnCleanAll.Image = global::AKwin32.Properties.Resources.trash_full_x48;
             resources.ApplyResources(this.data_btnCleanAll, "data_btnCleanAll");
             this.data_btnCleanAll.Name = "data_btnCleanAll";
             this.data_btnCleanAll.UseVisualStyleBackColor = true;
