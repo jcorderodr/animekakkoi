@@ -443,8 +443,6 @@
     <Content Include="Resources\back.png" />
     <None Include="Resources\button_cancel.png" />
     <None Include="Resources\button_cancel1.png" />
-    <Content Include="Resources\close.png" />
-    <Content Include="Resources\delete.png" />
     <Content Include="Resources\down.png" />
     <None Include="Resources\folder_downloads.png" />
     <None Include="Resources\floppy.png" />
@@ -463,11 +461,8 @@
     <Content Include="Resources\tools.png" />
     <None Include="Resources\trash.png" />
     <None Include="Resources\trash_full.png" />
-    <Content Include="Resources\tutorial.png" />
     <None Include="Resources\unlock.png" />
-    <Content Include="Resources\user.png" />
     <None Include="Resources\web_file.png" />
-    <Content Include="Resources\window.png" />
     <Content Include="Resources\write.png" />
     <None Include="Resources\help1.png" />
     <None Include="Resources\find.png" />
