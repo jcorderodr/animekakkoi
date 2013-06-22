@@ -18,7 +18,7 @@
       <Value Profile="(Default)">en-US</Value>
     </Setting>
     <Setting Name="ApplicationProductUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://bluegletek.com/products/animekakkoi.aspx</Value>
+      <Value Profile="(Default)">http://bluegletek.com/proyect/AnimeKakkoi.aspx</Value>
     </Setting>
     <Setting Name="ApplicationMetadataUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://bluegletek.com/bws/ak_metadata.xml</Value>

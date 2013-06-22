@@ -65,16 +65,17 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.versionProToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutAkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelShorcuts = new System.Windows.Forms.Panel();
             this.btnManga = new System.Windows.Forms.Button();
             this.btnAnime = new System.Windows.Forms.Button();
             this.btnSharing = new System.Windows.Forms.Button();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panelShorcuts.SuspendLayout();
@@ -315,8 +316,10 @@
             this.helpToolStripMenuItem,
             this.contactToolStripMenuItem,
             this.searchUpdatesToolStripMenuItem,
-            this.versionProToolStripMenuItem,
             this.toolStripSeparator9,
+            this.reportBugToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.versionProToolStripMenuItem,
             this.aboutAkToolStripMenuItem});
             this.aboutToolStripMenu.Name = "aboutToolStripMenu";
             resources.ApplyResources(this.aboutToolStripMenu, "aboutToolStripMenu");
@@ -342,6 +345,12 @@
             resources.ApplyResources(this.searchUpdatesToolStripMenuItem, "searchUpdatesToolStripMenuItem");
             this.searchUpdatesToolStripMenuItem.Click += new System.EventHandler(this.searchUpdatesToolStripMenuItem_Click);
             // 
+            // reportBugToolStripMenuItem
+            // 
+            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
+            resources.ApplyResources(this.reportBugToolStripMenuItem, "reportBugToolStripMenuItem");
+            this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
+            // 
             // versionProToolStripMenuItem
             // 
             this.versionProToolStripMenuItem.Image = global::AKwin32.Properties.Resources.unlock_x16;
@@ -359,12 +368,6 @@
             this.aboutAkToolStripMenuItem.Name = "aboutAkToolStripMenuItem";
             resources.ApplyResources(this.aboutAkToolStripMenuItem, "aboutAkToolStripMenuItem");
             this.aboutAkToolStripMenuItem.Click += new System.EventHandler(this.aboutAkToolStripMenuItem_Click);
-            // 
-            // reportBugToolStripMenuItem
-            // 
-            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
-            resources.ApplyResources(this.reportBugToolStripMenuItem, "reportBugToolStripMenuItem");
-            this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -416,6 +419,11 @@
             this.btnSharing.Name = "btnSharing";
             this.btnSharing.UseVisualStyleBackColor = false;
             this.btnSharing.Click += new System.EventHandler(this.btnSharing_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
             // 
             // FrmMain
             // 
@@ -486,5 +494,6 @@
         private System.Windows.Forms.ToolStripMenuItem userActionhistoryToolStripMenuItem;
         private System.Windows.Forms.Button btnAnime;
         private System.Windows.Forms.Button btnManga;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }

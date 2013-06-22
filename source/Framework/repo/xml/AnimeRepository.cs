@@ -46,8 +46,8 @@ namespace Framework.repo.xml
             int count = 0;
             foreach (Anime item in elements)
             {
-                base.ChangeItem(ToData(item));
-                count++;
+                if (base.ChangeItem(ToData(item)) != null)
+                    count++;
             }
             base.Refresh();
             return count;
@@ -84,7 +84,7 @@ namespace Framework.repo.xml
 
             return animes;
         }
-        
+
         public override void Remove(Anime item)
         {
             base.Remove(ToData(item), item.State);
@@ -99,7 +99,7 @@ namespace Framework.repo.xml
             }
             catch { return false; }
         }
-        
+
         internal override Anime ToEntity(XElement item)
         {
             Anime temp;

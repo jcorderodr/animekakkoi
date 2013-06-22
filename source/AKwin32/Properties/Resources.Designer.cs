@@ -263,6 +263,13 @@ namespace AKwin32.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap trash_full_x48 {
+            get {
+                object obj = ResourceManager.GetObject("trash_full_x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap trash_x16 {
             get {
                 object obj = ResourceManager.GetObject("trash_x16", resourceCulture);

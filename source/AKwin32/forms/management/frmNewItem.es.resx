@@ -118,6 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkBox_Favorite.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 69</value>
+  </data>
+  <data name="chkBox_Favorite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="chkBox_Favorite.Text" xml:space="preserve">
+    <value>Favorito</value>
+  </data>
+  <data name="lblEpi.Location" type="System.Drawing.Point, System.Drawing">
+    <value>204, 107</value>
+  </data>
+  <data name="lblEpi.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 16</value>
+  </data>
+  <data name="lblEpi.Text" xml:space="preserve">
+    <value>Progreso:</value>
+  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 70</value>
   </data>
@@ -126,12 +144,6 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Categoría:</value>
-  </data>
-  <data name="chkBox_Favorite.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 17</value>
-  </data>
-  <data name="chkBox_Favorite.Text" xml:space="preserve">
-    <value>Favorito</value>
   </data>
   <data name="lblComment.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 187</value>
@@ -156,15 +168,6 @@
   </data>
   <data name="lblState.Text" xml:space="preserve">
     <value>Estado:</value>
-  </data>
-  <data name="lblEpi.Location" type="System.Drawing.Point, System.Drawing">
-    <value>235, 109</value>
-  </data>
-  <data name="lblEpi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 16</value>
-  </data>
-  <data name="lblEpi.Text" xml:space="preserve">
-    <value>Progreso:</value>
   </data>
   <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 31</value>

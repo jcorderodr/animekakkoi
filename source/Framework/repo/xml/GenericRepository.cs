@@ -9,7 +9,8 @@ namespace Framework.repo.xml
     public class GenericRepository //: Repository<entity.EntitySource>
     {
 
-        public void SwitchElements(Type type, string values, string progress)
+        [Obsolete]
+        private void SwitchElements(Type type, string values, string progress)
         {
             //TODO: kokoni
         }

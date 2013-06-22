@@ -52,6 +52,7 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.txt_Progress);
@@ -69,13 +70,12 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblState);
             this.panel1.Controls.Add(this.lblName);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // txt_Progress
             // 
-            this.txt_Progress.Culture = new System.Globalization.CultureInfo("");
             resources.ApplyResources(this.txt_Progress, "txt_Progress");
+            this.txt_Progress.Culture = new System.Globalization.CultureInfo("");
             this.txt_Progress.Name = "txt_Progress";
             this.txt_Progress.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             // 
@@ -118,6 +118,7 @@
             // 
             resources.ApplyResources(this.txt_Rating, "txt_Rating");
             this.txt_Rating.Name = "txt_Rating";
+            this.txt_Rating.Validated += new System.EventHandler(this.txt_Rating_Validated);
             // 
             // txt_Name
             // 
@@ -177,6 +178,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmNewItem";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmNewItem_Load);

@@ -16,6 +16,8 @@ namespace AKwin32.forms
         public FrmMain()
         {
             InitializeComponent();
+            //
+            archivoAkToolStripMenuItem.Enabled = false;
         }
 
 

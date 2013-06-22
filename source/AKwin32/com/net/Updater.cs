@@ -31,7 +31,7 @@ namespace AKwin32.com.net
                 client.Dispose();
 
                 System.Xml.Linq.XElement doc = System.Xml.Linq.XElement.Parse(temp);
-                doc = doc.Element("version");
+                doc = doc.Element("versions");
                 System.Xml.Linq.XElement lastv = doc.Element("last-version");
 
                 Version actual = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;

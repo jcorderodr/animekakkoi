@@ -440,8 +440,6 @@
   <ItemGroup>
     <Content Include="beta.ico" />
     <Content Include="bluegletek_128.ico" />
-    <Content Include="Resources\add.png" />
-    <Content Include="Resources\alert.png" />
     <Content Include="Resources\back.png" />
     <None Include="Resources\button_cancel.png" />
     <None Include="Resources\button_cancel1.png" />
@@ -464,6 +462,7 @@
     <Content Include="Resources\stop.png" />
     <Content Include="Resources\tools.png" />
     <None Include="Resources\trash.png" />
+    <None Include="Resources\trash_full.png" />
     <Content Include="Resources\tutorial.png" />
     <None Include="Resources\unlock.png" />
     <Content Include="Resources\user.png" />
