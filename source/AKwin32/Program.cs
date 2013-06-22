@@ -63,21 +63,18 @@ namespace AKwin32
         private static void CheckIsFirstRunning()
         {
             bool isFirst = Properties.Settings.Default.ApplicationFirstRunning;
-            if (isFirst)
+            string path = Application.StartupPath + System.IO.Path.DirectorySeparatorChar + "Start.bat";
+            try
             {
-                try
+                if (isFirst)
                 {
-                    string path = Application.StartupPath + System.IO.Path.DirectorySeparatorChar + "Start.bat";
                     System.Diagnostics.Process.Start(path);
-                    //-System.IO.File.Delete(path);
+                    Properties.Settings.Default.ApplicationFirstRunning = false;
+                    Properties.Settings.Default.Save();
+                    System.IO.File.Delete(path);
                 }
-                catch { }
             }
-            else
-            {
-                Properties.Settings.Default.ApplicationFirstRunning = false;
-                Properties.Settings.Default.Save();
-            }
+            catch { }
 
         }
 
