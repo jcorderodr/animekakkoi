@@ -1,4 +1,4 @@
-mkdir %AppData%\BluegleTek\AnimeKakkoi
+
 move /v ak_queue.ak %AppData%\BluegleTek\AnimeKakkoi 
 move ak_takeddowm.ak %AppData%\BluegleTek\AnimeKakkoi
 move ak_wantsee.ak %AppData%\BluegleTek\AnimeKakkoi 
