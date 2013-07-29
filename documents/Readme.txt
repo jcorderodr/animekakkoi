@@ -1,11 +1,10 @@
 	¬ README
 
 
-AnimeKakkoi v0.1.2 – BluegleTek Soft 
+AnimeKakkoi v0.1.3 – BluegleTek 
 
 
-AnimeKakkoi es una aplicación Open Source.
-Se permite su distribución e instalación en número ilimitado de terminales.
+AnimeKakkoi es una aplicación Open Source. Se permite su distribución e instalación en número ilimitado de terminales. Para más información visita el proyecto en SourceForge.
 
 
 Requisitos / Requerimientos:
@@ -15,6 +14,22 @@ Requisitos / Requerimientos:
 
 
 	# Release Notes # 
+
+
+- R 0.1.3
+
+- AGREGADA versión ejecutable sin instalación requerida.
+- Fix Preservación de información al desintalar y/o actualizar.
+- Agregado Pack de nuevos iconos (by Fast Icon).
+- Búsqueda de actualizaciones disponibles.
+- Carga de archivo físico.
+- Agregada funcionalidad para compartir archivo personalizado del aplicativo.
+- Agregado Exportado de Archivo para Compartir (*.akl).
+- Agregado Historial de Acciones del usuario.
+- Agregado Links del Producto [contacto, updates, report].
+- Fix Error al iniciar sistema en lenguaje 'EN'.
+- Fix menores de Interfaces de Usuario y funcionalidades.
+
 
 	- R 0.1.2
 
@@ -28,11 +43,13 @@ Requisitos / Requerimientos:
 - Revisado Idioma Inglés en todo el sistema.
 - Correcciones bugs menores.
 
+
 	- R 0.1.01
 
 - Corregidos algunos comportamientos erróneos en los formularios de Administración.
 - Corregidos errores en la configuración del instalador.
 - Corregidos incidencias presentadas en el uso de multi-culturas (multi-idiomas).
+
 
 	- R 0.1.00
 
@@ -42,6 +59,5 @@ Requisitos / Requerimientos:
 
 
 https://sourceforge.net/p/animekakkoi/
-http://corderoski.wordpress.com/bluegletek-soft/animekakkoi/
+http://BluegleTek.com/
 Contacto: BluegleTek@Gmail.com
-
