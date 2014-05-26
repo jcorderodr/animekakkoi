@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-
-namespace AKwin32.forms.maintenance
+﻿namespace AnimeKakkoi.App.Forms.Maintenance
 {
-    public partial class frmCatalog : AKwin32.forms.frmBase
+    public partial class frmCatalog : FrmBase
     {
         public frmCatalog()
         {

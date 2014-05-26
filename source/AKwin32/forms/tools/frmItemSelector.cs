@@ -1,22 +1,23 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using Framework.repo.xml;
+using AnimeKakkoi.App.Forms;
+using AnimeKakkoi.Framework.Entities;
+using AnimeKakkoi.Framework.Repo.xml;
 
-namespace AKwin32.forms.tools
+#endregion
+
+namespace AnimeKakkoi.App.forms.tools
 {
-    public partial class frmItemSelector : AKwin32.forms.frmBaseToolbox
+    public partial class frmItemSelector : FrmBaseToolbox
     {
-
-        AnimeRepository animeRepo;
-        MangaRepository mangaRepo;
+        private AnimeRepository animeRepo;
+        private MangaRepository mangaRepo;
 
         private List<object> _userSelection;
+
         public List<object> UserSelection
         {
             get { return _userSelection; }
@@ -31,7 +32,6 @@ namespace AKwin32.forms.tools
             mangaRepo = new MangaRepository();
             _userSelection = new List<object>();
         }
-
 
 
         private void frmItemSelector_Load(object sender, EventArgs e)
@@ -61,23 +61,21 @@ namespace AKwin32.forms.tools
 
         private void FillComponents()
         {
-            foreach (Framework.entity.Anime entity in animeRepo.GetAll())
+            foreach (Anime entity in animeRepo.GetAll())
             {
-                DataGridViewRow row = new DataGridViewRow();
+                var row = new DataGridViewRow();
                 row.CreateCells(itemsGridView, false, entity.Name, entity.ToString());
                 row.Tag = entity;
                 itemsGridView.Rows.Add(row);
             }
-            foreach (Framework.entity.Manga entity in mangaRepo.GetAll())
+            foreach (Manga entity in mangaRepo.GetAll())
             {
-                DataGridViewRow row = new DataGridViewRow();
+                var row = new DataGridViewRow();
                 row.SetValues(false, entity.Name, entity.ToString());
                 row.Tag = entity;
                 itemsGridView.Rows.Add(row);
             }
             itemsGridView.Refresh();
         }
-
-
     }
 }

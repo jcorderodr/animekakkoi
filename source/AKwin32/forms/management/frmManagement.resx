@@ -940,6 +940,6 @@
     <value>frmManagement</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.3.1399, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnimeKakkoi.App.forms.frmBase, anime-k, Version=0.1.3.1399, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

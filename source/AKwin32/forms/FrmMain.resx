@@ -297,43 +297,43 @@
     <value>tools</value>
   </data>
   <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>help</value>
   </data>
   <data name="contactToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="contactToolStripMenuItem.Text" xml:space="preserve">
     <value>contact</value>
   </data>
   <data name="searchUpdatesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="searchUpdatesToolStripMenuItem.Text" xml:space="preserve">
     <value>searchUpdates</value>
   </data>
   <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>148, 6</value>
   </data>
   <data name="reportBugToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="reportBugToolStripMenuItem.Text" xml:space="preserve">
     <value>reportBug</value>
   </data>
   <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>148, 6</value>
   </data>
   <data name="versionProToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="versionProToolStripMenuItem.Text" xml:space="preserve">
     <value>versionPro</value>
   </data>
   <data name="aboutAkToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="aboutAkToolStripMenuItem.Text" xml:space="preserve">
     <value>about ak</value>
@@ -412,10 +412,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnManga.Location" type="System.Drawing.Point, System.Drawing">
-    <value>411, 30</value>
+    <value>407, 30</value>
+  </data>
+  <data name="btnManga.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>112, 107</value>
   </data>
   <data name="btnManga.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 107</value>
+    <value>112, 103</value>
   </data>
   <data name="btnManga.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -447,8 +450,11 @@
   <data name="btnAnime.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 30</value>
   </data>
-  <data name="btnAnime.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnAnime.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>112, 107</value>
+  </data>
+  <data name="btnAnime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 103</value>
   </data>
   <data name="btnAnime.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -477,8 +483,11 @@
   <data name="btnSharing.Location" type="System.Drawing.Point, System.Drawing">
     <value>37, 30</value>
   </data>
-  <data name="btnSharing.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSharing.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>112, 107</value>
+  </data>
+  <data name="btnSharing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 103</value>
   </data>
   <data name="btnSharing.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -913,7 +922,7 @@
     <value>641, 322</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>WindowsDefaultLocation</value>
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FrmMain</value>
@@ -1128,23 +1137,29 @@
   <data name="&gt;&gt;searchUpdatesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator9.Name" xml:space="preserve">
+    <value>toolStripSeparator9</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;reportBugToolStripMenuItem.Name" xml:space="preserve">
     <value>reportBugToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;reportBugToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator8.Name" xml:space="preserve">
+    <value>toolStripSeparator8</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;versionProToolStripMenuItem.Name" xml:space="preserve">
     <value>versionProToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;versionProToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator9.Name" xml:space="preserve">
-    <value>toolStripSeparator9</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;aboutAkToolStripMenuItem.Name" xml:space="preserve">
     <value>aboutAkToolStripMenuItem</value>
@@ -1158,16 +1173,10 @@
   <data name="&gt;&gt;stripStatusUser.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator8.Name" xml:space="preserve">
-    <value>toolStripSeparator8</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMain</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, anime-k, Version=0.1.3.2099, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnimeKakkoi.App.Forms.frmBase, anime-k, Version=0.1.3.24752, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

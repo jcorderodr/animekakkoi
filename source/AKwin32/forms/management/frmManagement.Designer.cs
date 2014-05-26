@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms.management
+﻿namespace AnimeKakkoi.App.forms.management
 {
     partial class frmManagement
     {
@@ -139,7 +139,7 @@
             // lbl_Favorite
             // 
             resources.ApplyResources(this.lbl_Favorite, "lbl_Favorite");
-            this.lbl_Favorite.Image = global::AKwin32.Properties.Resources.fav_no_media;
+            this.lbl_Favorite.Image = global::AnimeKakkoi.App.Properties.Resources.fav_no_media;
             this.lbl_Favorite.MinimumSize = new System.Drawing.Size(16, 16);
             this.lbl_Favorite.Name = "lbl_Favorite";
             this.lbl_Favorite.Click += new System.EventHandler(this.lblFavorite_Click);

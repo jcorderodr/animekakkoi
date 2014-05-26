@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Globalization;
 using System.IO;
 
-namespace Framework.io
+namespace AnimeKakkoi.Framework.IO
 {
     /// <summary>
     /// Provides mechanism for controling the outgoing localization.
@@ -13,15 +11,15 @@ namespace Framework.io
     public class Language
     {
 
-        private static String languageFilePath = "Language.lsp";
+        private const String LanguageFilePath = "Language.lsp";
 
-        private const String COMMENT_TAG = "#";
+        private const String CommentTag = "#";
 
-        private string[] splitters = new string[] { "=", "\r\n" };
+        private readonly string[] _splitters = new string[] { "=", "\r\n" };
 
-        Dictionary<string, string> messagesLibrary;
+        Dictionary<string, string> _messagesLibrary;
 
-        CultureInfo cultureInfo;
+        CultureInfo _cultureInfo;
 
         #region Properties
 
@@ -29,7 +27,7 @@ namespace Framework.io
         {
             get
             {
-                return messagesLibrary;
+                return _messagesLibrary;
             }
         }
 
@@ -37,7 +35,7 @@ namespace Framework.io
         {
             get
             {
-                return messagesLibrary;
+                return _messagesLibrary;
             }
         }
 
@@ -53,16 +51,18 @@ namespace Framework.io
             try
             {
                 InitComponents();
-                Load(cultureInfo);
+                Load(_cultureInfo);
             }
             catch (Exception ex) { throw new Exception("LSP Load. " + ex.Message, ex); }
         }
 
+        #region Functions
+
         private void InitComponents()
         {
-            //another way: cultureInfo = new System.Globalization.CultureInfo(Framework.io.Configuration.GetSetting("lang"));
-            cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-            messagesLibrary = new Dictionary<string, string>();
+            //another way: cultureInfo = new System.Globalization.CultureInfo(Framework.io.AkConfiguration.GetSetting("lang"));
+            _cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            _messagesLibrary = new Dictionary<string, string>();
         }
 
         /// <exception cref="System.IO.IOException">reaching the lang file.</exception>
@@ -73,7 +73,7 @@ namespace Framework.io
         /// <param name="culture"></param>
         protected void Load(CultureInfo culture)
         {
-            string file = Configuration.ApplicationDataFolder + languageFilePath;
+            string file = AkConfiguration.ApplicationDataFolder + LanguageFilePath;
             System.IO.StreamReader reader = null;
 
             try
@@ -115,23 +115,24 @@ namespace Framework.io
 
         public void Reload(CultureInfo newCulture)
         {
-            cultureInfo = newCulture;
-            Load(cultureInfo);
+            _cultureInfo = newCulture;
+            Load(_cultureInfo);
         }
 
         private void SplitWords(string text)
         {
-            string[] words = text.Split(splitters, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = text.Split(_splitters, StringSplitOptions.RemoveEmptyEntries);
 
             for (int i = 0; i < words.Length; i++)
             {
-                if (words[i].StartsWith(COMMENT_TAG))
+                if (words[i].StartsWith(CommentTag))
                     continue;
 
-                messagesLibrary.Add(words[i].Trim(), words[++i].Trim());
+                _messagesLibrary.Add(words[i].Trim(), words[++i].Trim());
             }
         }
 
+        #endregion
 
     }
 }

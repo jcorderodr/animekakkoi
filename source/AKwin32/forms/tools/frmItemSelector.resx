@@ -230,7 +230,7 @@
     <value>name</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=0.1.3.40762, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnimeKakkoi.App.forms.frmBaseToolbox, anime-k, Version=0.1.3.40762, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>panel1</value>

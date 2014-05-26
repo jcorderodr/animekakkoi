@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms.maintenance
+﻿namespace AnimeKakkoi.App.Forms.Maintenance
 {
     partial class frmCatalog
     {

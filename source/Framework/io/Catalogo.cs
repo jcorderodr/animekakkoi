@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
 
-namespace Framework.io
+namespace AnimeKakkoi.Framework.IO
 {
     /// <summary>
     /// Represent a Catalog and Provides mechanism for getting Configurables values.
@@ -35,7 +32,7 @@ namespace Framework.io
 
             //list.Add(new Catalog() { Id = 0 + "", Value = "--" });
 
-            string aux = io.Configuration.GetSetting("entities");
+            string aux = AkConfiguration.GetSetting("entities");
             string[] aux2 = aux.Split(',');
             for (int i = 0; i < aux2.Length; i++)
                 list.Add(new Catalog()
@@ -58,7 +55,7 @@ namespace Framework.io
 
             // list.Add(new Catalog() { Id = 0 + "", Value = "--" });
 
-            string aux = io.Configuration.GetSetting("entities_types");
+            string aux = AkConfiguration.GetSetting("entities_types");
             string[] aux2 = aux.Split(',');
             for (int i = 0; i < aux2.Length; i++)
                 list.Add(new Catalog()
@@ -80,7 +77,7 @@ namespace Framework.io
         {
             List<Catalog> list = new List<Catalog>();
 
-            string aux = io.Configuration.GetSetting("entities_types");
+            string aux = AkConfiguration.GetSetting("entities_types");
 
             Language lg = new Language();
 
@@ -109,7 +106,7 @@ namespace Framework.io
 
             // list.Add(new Catalog() { Id = 0 + "", Value = "--" });
 
-            string aux = io.Configuration.GetSetting("anime_categories");
+            string aux = AkConfiguration.GetSetting("anime_categories");
             string[] aux2 = aux.Split(',');
             for (int i = 0; i < aux2.Length; i++)
                 list.Add(new Catalog()
@@ -132,7 +129,7 @@ namespace Framework.io
 
             //list.Add(new Catalog() { Id = 0 + "", Value = "--" });
 
-            string aux = io.Configuration.GetSetting("manga_categories");
+            string aux = AkConfiguration.GetSetting("manga_categories");
             string[] aux2 = aux.Split(',');
             for (int i = 0; i < aux2.Length; i++)
                 list.Add(new Catalog()

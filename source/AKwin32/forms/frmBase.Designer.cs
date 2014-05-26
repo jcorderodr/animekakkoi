@@ -1,6 +1,6 @@
-﻿namespace AKwin32.forms
+﻿namespace AnimeKakkoi.App.Forms
 {
-    partial class frmBase
+    partial class FrmBase
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBase));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBase));
             this.SuspendLayout();
             // 
             // frmBase
@@ -38,7 +38,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "frmBase";
+            this.Name = "FrmBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmBase";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBase_FormClosed);

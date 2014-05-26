@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace AKwin32.forms.management
+﻿namespace AnimeKakkoi.App.Forms.Management
 {
     /// <summary>
     /// 
     /// </summary>
-    interface INewItem
+    internal interface INewItem
     {
         /// <summary>
         /// 

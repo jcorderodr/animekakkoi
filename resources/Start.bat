@@ -1,6 +1,6 @@
-mkdir %AppData%\BluegleTek\AnimeKakkoi
+mkdir %UserProfile%\Documents\Corderoski\AnimeKakkoi
 Call Install.bat
-cd %AppData%\BluegleTek\AnimeKakkoi
+cd %UserProfile%\Documents\Corderoski\AnimeKakkoi
 if exist ak_data.b (
 ren *.ak *.akm
 ren *.b *.bin

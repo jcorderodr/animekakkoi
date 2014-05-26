@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using AnimeKakkoi.Framework.util;
 using HtmlAgilityPack;
-using Framework.entity;
-using Framework.util;
 
-namespace Framework.media
+namespace AnimeKakkoi.Framework.media
 {
     public class MyAnimeList : SourceBase, ISource
     {
@@ -35,7 +32,7 @@ namespace Framework.media
 
                 aux = section.InnerText;
                 if (!this.StateCategories.ContainsKey(aux)) continue; //avoiding some references inexistent like 'All Anime'
-                Framework.entity.ENTITY_STATE state = this.StateCategories[aux];
+                global::AnimeKakkoi.Framework.Entities.EntityState state = this.StateCategories[aux];
 
                 string uri = "http://myanimelist.net" + section.Attributes["href"].Value;
                 WebImporter requester = new WebImporter();
@@ -44,7 +41,7 @@ namespace Framework.media
                 HtmlNode inner_node = HtmlNode.CreateNode(request_html);
                 HtmlNodeCollection inner_form = inner_node.SelectNodes(FORM_SEARCH_EXPRESSION);
 
-                entity.Anime temp;
+                global::AnimeKakkoi.Framework.Entities.Anime temp;
                 foreach (HtmlNode item in inner_form)
                 {
                     HtmlNode item_section = item.SelectSingleNode(item.XPath + ELEMENTS_SEARCH_EXPRESSION);
@@ -53,7 +50,7 @@ namespace Framework.media
 
                     item_section = item.SelectSingleNode(item.XPath + "//tr");
 
-                    temp = new entity.Anime();
+                    temp = new global::AnimeKakkoi.Framework.Entities.Anime();
                     temp.Name = item_section.SelectSingleNode(item_section.XPath + "//span[1]").InnerText;
                     temp.State = state;
 
@@ -87,7 +84,7 @@ namespace Framework.media
             {
                 aux = section.InnerText;
                 if (!this.StateCategories.ContainsKey(aux)) continue; //avoing some reference inexistent like 'All Manga'
-                Framework.entity.ENTITY_STATE state = this.StateCategories[aux];
+                global::AnimeKakkoi.Framework.Entities.EntityState state = this.StateCategories[aux];
 
                 string uri = "http://myanimelist.net" + section.Attributes["href"].Value;
                 WebImporter requester = new WebImporter();
@@ -96,7 +93,7 @@ namespace Framework.media
                 HtmlNode inner_node = HtmlNode.CreateNode(request_html);
                 HtmlNodeCollection inner_form = inner_node.SelectNodes(FORM_SEARCH_EXPRESSION);
 
-                entity.Manga temp;
+                global::AnimeKakkoi.Framework.Entities.Manga temp;
                 foreach (HtmlNode item in inner_form)
                 {
 
@@ -106,7 +103,7 @@ namespace Framework.media
 
                     item_section = item.SelectSingleNode(item.XPath + "//tr");
 
-                    temp = new entity.Manga();
+                    temp = new global::AnimeKakkoi.Framework.Entities.Manga();
                     temp.Name = item_section.SelectSingleNode(item_section.XPath + "//span[1]").InnerText;
                     temp.State = state;
 

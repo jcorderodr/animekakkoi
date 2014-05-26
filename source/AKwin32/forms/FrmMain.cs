@@ -1,18 +1,26 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AKwin32.com.util;
+using AnimeKakkoi.App.Forms.Maintenance;
+using AnimeKakkoi.App.Forms.maintenance;
+using AnimeKakkoi.App.Forms.tools;
+using AnimeKakkoi.App.Helpers;
+using AnimeKakkoi.App.IO;
+using AnimeKakkoi.App.Net;
+using AnimeKakkoi.Framework.Entities;
+using AnimeKakkoi.Framework.IO;
+using AnimeKakkoi.Framework.util;
 
-namespace AKwin32.forms
+#endregion
+
+namespace AnimeKakkoi.App.Forms
 {
-    public partial class FrmMain : frmBase
+    public partial class FrmMain : FrmBase
     {
-
         public FrmMain()
         {
             InitializeComponent();
@@ -20,19 +28,18 @@ namespace AKwin32.forms
             archivoAkToolStripMenuItem.Enabled = false;
         }
 
-
         #region GUI Events
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            maintenance.frmUsers frmUsr = new maintenance.frmUsers();
-            if (frmUsr.ShowDialog(this) != System.Windows.Forms.DialogResult.OK)
+            var frmUsr = new frmUsers();
+            if (frmUsr.ShowDialog(this) != DialogResult.OK)
             {
                 this.Close();
                 return;
             }
             this.OnPropertiesChange();
-            EventLogger.Write(Configuration.ApplicationLoggerFile, "system_start");
+            EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, "system_start");
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -43,22 +50,21 @@ namespace AKwin32.forms
 
         #region File Menu
 
-
         private void quickSearchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tools.frmQuickSearch frm = new tools.frmQuickSearch();
+            var frm = new AnimeKakkoi.App.forms.tools.frmQuickSearch();
             frm.Show();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            maintenance.frmUsers frm = new maintenance.frmUsers();
+            var frm = new frmUsers();
             frm.ShowDialog(this);
         }
 
         private void userActionhistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tools.frmActionHistory frm = new tools.frmActionHistory();
+            var frm = new frmActionHistory();
             frm.ShowDialog(this);
         }
 
@@ -69,7 +75,7 @@ namespace AKwin32.forms
 
         private void listForSharingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            forms.tools.frmExporter frm = new tools.frmExporter();
+            var frm = new AnimeKakkoi.App.forms.tools.frmExporter();
             frm.Show();
         }
 
@@ -85,27 +91,27 @@ namespace AKwin32.forms
 
         private void newAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            management.frmNewItem frm = new management.frmNewItem();
-            frm.SetEntity(typeof(Framework.entity.Anime));
+            var frm = new AnimeKakkoi.App.forms.management.frmNewItem();
+            frm.SetEntity(typeof (Anime));
             frm.ShowDialog(this);
         }
 
         private void manageAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            management.frmMgmtAnime frm = new management.frmMgmtAnime();
+            var frm = new AnimeKakkoi.App.forms.management.frmMgmtAnime();
             frm.Show(this);
         }
 
         private void newMangaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            management.frmNewItem frm = new management.frmNewItem();
-            frm.SetEntity(typeof(Framework.entity.Manga));
+            var frm = new AnimeKakkoi.App.forms.management.frmNewItem();
+            frm.SetEntity(typeof (Manga));
             frm.ShowDialog(this);
         }
 
         private void manageMangaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            forms.management.frmMgmtManga frm = new management.frmMgmtManga();
+            var frm = new AnimeKakkoi.App.forms.management.frmMgmtManga();
             frm.Show(this);
         }
 
@@ -115,35 +121,35 @@ namespace AKwin32.forms
 
         private void archivoAkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
+            var fileDialog = new OpenFileDialog();
             fileDialog.Title = Program.AppTitle;
             fileDialog.AddExtension = true;
             fileDialog.AutoUpgradeEnabled = true;
-            fileDialog.Filter = Framework.io.FileProperties.AppSharingFileFilterName;
+            fileDialog.Filter = FileProperties.AppSharingFileFilterName;
             if (fileDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
 
-            Framework.util.FileManager importer;
-            importer = new Framework.util.FileManager(fileDialog.FileName);
+            FileManager importer;
+            importer = new FileManager(fileDialog.FileName);
             importer.Load();
 
-            base.ShowInformation(this, base.Messages[Framework.io.LanguageExpressions.OPERATION_SUCESS]);
+            base.ShowInformation(this, base.Messages[LanguageExpressions.OPERATION_SUCESS]);
         }
 
         private void mcAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            management.frmImporter frm = new management.frmImporter();
-            frm.ImportMethod = Framework.util.IMPORT_SOURCES.MCANIME;
+            var frm = new AnimeKakkoi.App.forms.management.frmImporter();
+            frm.ImportMethod = IMPORT_SOURCES.MCANIME;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 if (frm.ResultedList.Count < 1 || frm.MediaType == null) return;
-                management.frmManagement frmMg = null;
-                if (frm.MediaType == typeof(Framework.entity.Anime))
+                AnimeKakkoi.App.forms.management.frmManagement frmMg = null;
+                if (frm.MediaType == typeof (Anime))
                 {
-                    frmMg = new management.frmMgmtAnime();
+                    frmMg = new AnimeKakkoi.App.forms.management.frmMgmtAnime();
                 }
-                else if (frm.MediaType == typeof(Framework.entity.Manga))
+                else if (frm.MediaType == typeof (Manga))
                 {
-                    frmMg = new management.frmMgmtManga();
+                    frmMg = new AnimeKakkoi.App.forms.management.frmMgmtManga();
                 }
                 frmMg.SetItemsList(frm.ResultedList, frm.MediaType);
                 frmMg.Show();
@@ -152,18 +158,18 @@ namespace AKwin32.forms
 
         private void mcAnimeKronosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            management.frmImporter frm = new management.frmImporter();
-            frm.ImportMethod = Framework.util.IMPORT_SOURCES.MCANIME_KRONOS;
+            var frm = new forms.management.frmImporter();
+            frm.ImportMethod = IMPORT_SOURCES.MCANIME_KRONOS;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                management.frmManagement frmMg = null;
-                if (frm.MediaType == typeof(Framework.entity.Anime))
+                forms.management.frmManagement frmMg = null;
+                if (frm.MediaType == typeof (Anime))
                 {
-                    frmMg = new management.frmMgmtAnime();
+                    frmMg = new forms.management.frmMgmtAnime();
                 }
-                else if (frm.MediaType == typeof(Framework.entity.Manga))
+                else if (frm.MediaType == typeof (Manga))
                 {
-                    frmMg = new management.frmMgmtManga();
+                    frmMg = new forms.management.frmMgmtManga();
                 }
                 frmMg.SetItemsList(frm.ResultedList, frm.MediaType);
                 frmMg.Show();
@@ -172,19 +178,19 @@ namespace AKwin32.forms
 
         private void myAnimeListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            management.frmImporter frm = new management.frmImporter();
-            frm.ImportMethod = Framework.util.IMPORT_SOURCES.MY_ANIME_LIST;
+            var frm = new AnimeKakkoi.App.forms.management.frmImporter();
+            frm.ImportMethod = IMPORT_SOURCES.MY_ANIME_LIST;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 if (frm.ResultedList.Count < 1 || frm.MediaType == null) return;
-                management.frmManagement frmMg = null;
-                if (frm.MediaType == typeof(Framework.entity.Anime))
+                AnimeKakkoi.App.forms.management.frmManagement frmMg = null;
+                if (frm.MediaType == typeof (Anime))
                 {
-                    frmMg = new management.frmMgmtAnime();
+                    frmMg = new AnimeKakkoi.App.forms.management.frmMgmtAnime();
                 }
-                else if (frm.MediaType == typeof(Framework.entity.Manga))
+                else if (frm.MediaType == typeof (Manga))
                 {
-                    frmMg = new management.frmMgmtManga();
+                    frmMg = new AnimeKakkoi.App.forms.management.frmMgmtManga();
                 }
                 frmMg.SetItemsList(frm.ResultedList, frm.MediaType);
                 frmMg.Show();
@@ -203,19 +209,19 @@ namespace AKwin32.forms
 
         private void backUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            forms.tools.frmBackUp frm = new tools.frmBackUp();
+            var frm = new frmBackUp();
             frm.Show();
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            forms.maintenance.frmPreferences frm = new maintenance.frmPreferences();
+            var frm = new FrmPreferences();
             frm.ShowDialog(this);
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            maintenance.frmOptions frm = new maintenance.frmOptions();
+            var frm = new frmOptions();
             frm.ShowDialog(this);
         }
 
@@ -227,9 +233,11 @@ namespace AKwin32.forms
         {
             try
             {
-                System.Diagnostics.Process.Start(base.Configuration.ProductUrl);
+                System.Diagnostics.Process.Start(AppAkConfiguration.ProductUrl);
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void contactToolStripMenuItem_Click(object sender, EventArgs e)
@@ -239,49 +247,47 @@ namespace AKwin32.forms
             {
                 System.Diagnostics.Process.Start(route);
             }
-            catch { }
+            catch
+            {
+            }
         }
 
 
         private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string route = Properties.Settings.Default.ApplicationBugReport;
+            string route = AkConfiguration.GetSetting("ApplicationBugReport");
             try
             {
                 System.Diagnostics.Process.Start(route);
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void searchUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string metadata = Properties.Settings.Default.ApplicationMetadataUrl;
+            string metadata = AkConfiguration.GetSetting("ApplicationMetadataUrl");
             try
             {
-                com.net.Update upd = com.net.Update.CheckForUpdate(metadata);
+                Update upd = Net.Update.CheckForUpdate(metadata);
 
                 if (upd.IsNewVersion)
                     base.ShowInformation(this, base.Messages["update_available"] + upd.Version);
                 else
                     base.ShowInformation(this, base.Messages["last_version"] + upd.Version);
-
             }
-            catch { base.ShowError(this, base.Errors["error_search_update"]); }
-
+            catch
+            {
+                base.ShowError(this, base.Errors["error_search_update"]);
+            }
         }
 
         private void versionProToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
             builder.AppendLine("=== AnimeKakkoi Pro ===");
-            builder.AppendLine("La Versión Pro es una versión más completa, de funcionalidad más amplia y atractiva.");
-            builder.AppendLine();
-            builder.AppendLine("# Features #");
-            builder.AppendLine("- Datos guardados en la nube/Information in the cloud");
-            builder.AppendLine("- Actualización automática de la base de datos/Automatic updates of info based on sources");
-            builder.AppendLine("- Comprobración de integridad de los registros/Check out of data's integration");
-            builder.AppendLine("- Integración con Redes Sociales/Integration with Social Networks");
             builder.AppendLine("");
 
             base.ShowInformation(this, builder.ToString());
@@ -289,7 +295,7 @@ namespace AKwin32.forms
 
         private void aboutAkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (maintenance.AboutBox fbox = new maintenance.AboutBox())
+            using (var fbox = new AboutBox())
             {
                 fbox.ShowDialog(this);
             }
@@ -316,7 +322,6 @@ namespace AKwin32.forms
             this.manageMangaToolStripMenuItem_Click(sender, e);
         }
 
-
         #endregion
 
         #region Functions
@@ -338,7 +343,7 @@ namespace AKwin32.forms
         {
             #region Selection
 
-            SaveFileDialog saveDialog = new SaveFileDialog();
+            var saveDialog = new SaveFileDialog();
             saveDialog.Title = Program.AppTitle;
             saveDialog.AddExtension = true;
             saveDialog.AutoUpgradeEnabled = true;
@@ -354,17 +359,17 @@ namespace AKwin32.forms
 
             #region Load Data
 
-            StringBuilder buffer = new StringBuilder();
+            var buffer = new StringBuilder();
 
             buffer.AppendLine();
             buffer.AppendLine(DateTime.Now.ToLongDateString());
             buffer.AppendLine();
 
-            Framework.repo.xml.AnimeRepository animeRepo = new Framework.repo.xml.AnimeRepository();
-            List<Framework.entity.Anime> animes = animeRepo.GetAll().ToList();
+            var animeRepo = new global::AnimeKakkoi.Framework.Repo.xml.AnimeRepository();
+            List<Anime> animes = animeRepo.GetAll().ToList();
 
             buffer.AppendLine("#######------- Animes -------#######");
-            foreach (Framework.entity.Anime item in animes)
+            foreach (Anime item in animes)
                 buffer.AppendLine(item.ToString());
 
             animeRepo = null;
@@ -374,11 +379,11 @@ namespace AKwin32.forms
             buffer.AppendLine("[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]");
             buffer.AppendLine();
 
-            Framework.repo.xml.MangaRepository mangaRepo = new Framework.repo.xml.MangaRepository();
-            List<Framework.entity.Manga> mangas = mangaRepo.GetAll().ToList();
+            var mangaRepo = new global::AnimeKakkoi.Framework.Repo.xml.MangaRepository();
+            List<Manga> mangas = mangaRepo.GetAll().ToList();
 
             buffer.AppendLine("#######------- Mangas/Comics -------#######");
-            foreach (Framework.entity.Manga item in mangas)
+            foreach (Manga item in mangas)
                 buffer.AppendLine(item.ToString());
 
             mangaRepo = null;
@@ -399,35 +404,17 @@ namespace AKwin32.forms
             //--wBox.Stop();
             try
             {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter(saveDialog.FileName);
+                var writer = new System.IO.StreamWriter(saveDialog.FileName);
                 writer.Write(buffer.ToString());
                 writer.Flush();
                 writer.Close();
                 base.ShowInformation(this, base.Messages["sharing_file"]);
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         #endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
-

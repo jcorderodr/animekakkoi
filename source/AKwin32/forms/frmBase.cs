@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿#region
 
-namespace AKwin32.forms
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+using AnimeKakkoi.App.IO;
+using AnimeKakkoi.Framework.IO;
+
+#endregion
+
+namespace AnimeKakkoi.App.Forms
 {
     /// <summary>
     /// 
     /// </summary>
-    public partial class frmBase : Form
+    public partial class FrmBase : Form
     {
-
         #region Constants & Inherit vars
 
         /// <summary>
@@ -22,18 +23,11 @@ namespace AKwin32.forms
         /// </summary>
         protected internal const Char CharacterNameSeparator = '_';
 
-
         #endregion
 
         #region Properties
 
-        public com.io.AkConfiguration Configuration
-        {
-            get;
-            set;
-        }
-
-        public FORM_USING_STATE Form_State { get; set; }
+        public FormUsingState Form_State { get; set; }
 
         protected internal Dictionary<string, string> Messages
         {
@@ -42,24 +36,21 @@ namespace AKwin32.forms
 
         protected internal Dictionary<string, string> Errors
         {
-            get { return Program.Language.ErrorsLibrary; }
+            get { return Program.Language.MessagesLibrary; }
         }
 
         #endregion
 
-
-        public frmBase()
+        public FrmBase()
         {
             InitializeComponent();
-            Form_State = FORM_USING_STATE.LISTENING;
-            Configuration = new com.io.AkConfiguration();
+            Form_State = FormUsingState.Listening;
         }
 
-        ~frmBase()
+        ~FrmBase()
         {
-            //Configuration.Save();
+            //AkConfiguration.Save();
         }
-
 
         #region Handler & Events
 
@@ -81,40 +72,40 @@ namespace AKwin32.forms
             {
                 Application.OpenForms[Application.OpenForms.Count - 1].Focus();
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         #endregion
-
 
         #region UI Messages
 
         protected DialogResult ShowError(IWin32Window parent, string text)
         {
             return MessageBox.Show(parent, text, Program.AppTitle,
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         protected DialogResult ShowInformation(IWin32Window parent, string text)
         {
             return MessageBox.Show(parent, text, Program.AppTitle,
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         protected DialogResult ShowQuestion(IWin32Window parent, string text)
         {
             return MessageBox.Show(parent, text, Program.AppTitle,
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         protected DialogResult ShowCustomMessage(IWin32Window parent, string text, MessageBoxIcon icon)
         {
             return MessageBox.Show(parent, text, Program.AppTitle,
-                MessageBoxButtons.OKCancel, icon);
+                                   MessageBoxButtons.OKCancel, icon);
         }
 
         #endregion
-
 
         #region Functions
 
@@ -136,31 +127,32 @@ namespace AKwin32.forms
                 foreach (Control inner in ctrl.Controls)
                     CleanInheritUIControl(inner);
 
-            if (ctrl.GetType() == typeof(TextBox))
+            if (ctrl.GetType() == typeof (TextBox))
                 ctrl.Text = String.Empty;
-            else if (ctrl.GetType() == typeof(ComboBox))
+            else if (ctrl.GetType() == typeof (ComboBox))
                 //ctrl.Text = "--";
-                ((ComboBox)ctrl).SelectedIndex = 0;
-            else if (ctrl.GetType() == typeof(ListView))
-                ((ListView)ctrl).Items.Clear();
+                ((ComboBox) ctrl).SelectedIndex = 0;
+            else if (ctrl.GetType() == typeof (ListView))
+                ((ListView) ctrl).Items.Clear();
         }
 
         protected void FillComboBoxCatalog(ComboBox ctrl, object dataSource)
         {
             try
             {
-                ((List<Framework.io.Catalog>)dataSource).Insert(0, new Framework.io.Catalog { Id = "0", Description = "--" });
+                ((List<Catalog>) dataSource).Insert(0, new Catalog {Id = "0", Description = "--"});
                 ctrl.DataSource = dataSource;
                 ctrl.ValueMember = "Id";
                 ctrl.DisplayMember = "Description";
             }
             catch
             {
-                this.ShowError(this, Program.Language.ErrorsLibrary["loading_catalog"]);
+                this.ShowError(this, Program.Language.MessagesLibrary["loading_catalog"]);
             }
         }
 
-        bool usedColorIndicator;
+        private bool usedColorIndicator;
+
         protected internal Color GetAlternateItemColor()
         {
             if (usedColorIndicator)
@@ -177,37 +169,37 @@ namespace AKwin32.forms
 
         protected void SetStyleToControl(Control.ControlCollection co)
         {
-            this.BackColor = Configuration.FormBackGroundColor;
-            
+            this.BackColor = AppAkConfiguration.FormBackGroundColor;
+
             foreach (Control ctrl in co)
             {
                 if (ctrl.HasChildren)
                     SetStyleToControl(ctrl.Controls);
 
                 //ctrl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                ctrl.Font = Configuration.UiControlsFontStyle;
+                ctrl.Font = AppAkConfiguration.UiControlsFontStyle;
 
                 if (ctrl is ListView)
                 {
-                    ListView lv = ((ListView)ctrl);
+                    var lv = ((ListView) ctrl);
                     lv.AllowColumnReorder = true;
                     lv.FullRowSelect = true;
                     lv.GridLines = true;
                     lv.HideSelection = false;
                     lv.MultiSelect = false;
                     lv.Name = "listViewItems";
-                    lv.Sorting = System.Windows.Forms.SortOrder.Ascending;
+                    lv.Sorting = SortOrder.Ascending;
                     lv.UseCompatibleStateImageBehavior = false;
-                    lv.View = System.Windows.Forms.View.Details;
+                    lv.View = View.Details;
                     SizeLastColumn(lv);
                 }
 
-                Label lbl = ctrl as Label;
+                var lbl = ctrl as Label;
                 if (lbl != null)
                 {
                     //new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    lbl.Font = Configuration.UiFontsStyle;
-                    lbl.ForeColor = Configuration.UiFontsColor;
+                    lbl.Font = AppAkConfiguration.UiFontsStyle;
+                    lbl.ForeColor = AppAkConfiguration.UiFontsColor;
                 }
             }
         }
@@ -218,20 +210,17 @@ namespace AKwin32.forms
         }
 
         #endregion
-
-
     }
 
     /// <summary>
     /// 
     /// </summary>
-    public enum FORM_USING_STATE
+    public enum FormUsingState
     {
-        EDITING,
-        LISTENING,
-        LOADED,
-        MANAGING,
-        READY
+        Editing,
+        Listening,
+        Loaded,
+        Managing,
+        Ready
     }
-
 }

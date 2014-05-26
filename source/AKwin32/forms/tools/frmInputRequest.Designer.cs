@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms.tools
+﻿namespace AnimeKakkoi.App.forms.tools
 {
     partial class frmInputRequest
     {

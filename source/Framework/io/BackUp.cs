@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.IO;
-using System.IO.Compression;
 using System.IO.Packaging;
 
-namespace Framework.io
+namespace AnimeKakkoi.Framework.IO
 {
     /// <summary>
     /// Class that provide the base mechanism for saving & zip the App's files.
@@ -78,12 +75,12 @@ namespace Framework.io
         {
             try
             {
-                string[] files = io.Configuration.GetBackUpFiles();
+                string[] files = AkConfiguration.GetBackUpFiles();
 
                 using (zip = System.IO.Packaging.Package.Open(zipStore, FileMode.Create))
                 {
 
-                    zip.PackageProperties.Creator = io.Configuration.ApplicationName;
+                    zip.PackageProperties.Creator = AkConfiguration.APPLICATION_NAME;
                     zip.PackageProperties.Description = "AnimeKakkoi's BackUp file.";
                     zip.PackageProperties.Keywords = "anime, manga, stats, list";
                     zip.PackageProperties.Title = "AK - " + DateTime.Now.ToLocalTime();
@@ -91,7 +88,7 @@ namespace Framework.io
                     int count = 0;
                     foreach (string s in files)
                     {
-                        FileInfo file = new FileInfo(io.Configuration.ApplicationDataFolder + s);
+                        FileInfo file = new FileInfo(AkConfiguration.ApplicationDataFolder + s);
                         SendFileToZip(file);
                         //
                         bgWoker.ReportProgress((int)Convert.ToSingle(++count * 100 / files.Length));
@@ -112,7 +109,7 @@ namespace Framework.io
 
                 foreach (PackagePart part in collection)
                 {
-                    FileInfo file = new FileInfo(io.Configuration.ApplicationDataFolder + part.Uri.OriginalString);
+                    FileInfo file = new FileInfo(AkConfiguration.ApplicationDataFolder + part.Uri.OriginalString);
                     if (!file.Exists) continue; //some hidden and zip-own files
 
                     using (FileStream destFileStream = new FileStream(file.FullName, FileMode.Create, FileAccess.Write))

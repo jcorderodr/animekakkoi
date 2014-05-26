@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Net;
-using AKwin32.Properties;
+﻿#region
 
-namespace AKwin32.forms.maintenance
+using System;
+using System.Net;
+
+#endregion
+
+namespace AnimeKakkoi.App.Forms.Maintenance
 {
     /// <summary>
     /// 
     /// </summary>
-    public partial class frmOptions : AKwin32.forms.frmBaseToolbox
+    public partial class frmOptions : FrmBaseToolbox
     {
-
-        WebProxy proxy;
+        private WebProxy proxy;
 
         public frmOptions()
         {
@@ -27,9 +23,8 @@ namespace AKwin32.forms.maintenance
 
         private void frmOptions_Load(object sender, EventArgs e)
         {
-            proxy = (WebProxy)Framework.io.Configuration.GetProxy();
+            proxy = (WebProxy) AnimeKakkoi.Framework.IO.AkConfiguration.GetProxy();
             txtHost.Text = proxy.Address.Authority;
-
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -45,15 +40,12 @@ namespace AKwin32.forms.maintenance
 
         #region tabPageUi
 
-
-
         #endregion
 
         #region tabPageConn
 
         private void txtHost_Validated(object sender, EventArgs e)
         {
-
         }
 
         #endregion
@@ -62,7 +54,7 @@ namespace AKwin32.forms.maintenance
 
         private void data_btnCleanItems_Click(object sender, EventArgs e)
         {
-            Framework.repo.RepositoryResources repos = new Framework.repo.RepositoryResources();
+            var repos = new global::AnimeKakkoi.Framework.Repo.RepositoryResources();
             if (repos.ReleaseItems())
                 base.ShowInformation(this, base.Messages["items_erased_sucess"]);
             else
@@ -71,15 +63,16 @@ namespace AKwin32.forms.maintenance
 
         private void data_btnCleanAll_Click(object sender, EventArgs e)
         {
-            if (base.ShowQuestion(this, base.Messages["clean_database_question"]) != System.Windows.Forms.DialogResult.Yes) return;
+            if (base.ShowQuestion(this, base.Messages["clean_database_question"]) !=
+                System.Windows.Forms.DialogResult.Yes) return;
 
-            Framework.repo.RepositoryResources repos = new Framework.repo.RepositoryResources();
+            var repos = new global::AnimeKakkoi.Framework.Repo.RepositoryResources();
             if (repos.ReleaseDatabase())
             {
                 base.ShowInformation(this, base.Messages["database_erased_sucess"]);
                 Program.SystemUser = null;
-                frmUsers frm = new frmUsers();
-                maintenance.frmUsers frmUsr = new maintenance.frmUsers();
+                var frm = new frmUsers();
+                var frmUsr = new frmUsers();
                 if (frmUsr.ShowDialog(this) != System.Windows.Forms.DialogResult.OK)
                 {
                     this.Close();
@@ -92,13 +85,12 @@ namespace AKwin32.forms.maintenance
 
         #endregion
 
-
         private bool isValidInput()
         {
             bool r = true;
 
             string pattern = @"(\d{1,3}\.){3}\d{1,3}:\d{2,5}";
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(pattern);
+            var regex = new System.Text.RegularExpressions.Regex(pattern);
             if (!regex.IsMatch(txtHost.Text))
             {
                 r = false;
@@ -113,21 +105,17 @@ namespace AKwin32.forms.maintenance
         {
             #region Visual
 
-           
-
             #endregion
 
             #region Connection
 
-            WebProxy proxy = new WebProxy(txtHost.Text);
-            System.Net.NetworkCredential cred = new NetworkCredential(txtUser.Text, txtPass.Text, txtDomain.Text);
+            var proxy = new WebProxy(txtHost.Text);
+            var cred = new NetworkCredential(txtUser.Text, txtPass.Text, txtDomain.Text);
             proxy.Credentials = cred;
 
-            Framework.io.Configuration.SetProxy(proxy);
+            AnimeKakkoi.Framework.IO.AkConfiguration.SetProxy(proxy);
 
             #endregion
         }
-
-
     }
 }

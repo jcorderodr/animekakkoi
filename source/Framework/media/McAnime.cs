@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using AnimeKakkoi.Framework.util;
 using HtmlAgilityPack;
-using Framework.entity;
-using Framework.util;
 
-namespace Framework.media
+namespace AnimeKakkoi.Framework.media
 {
     /// <summary>
     /// 
@@ -66,14 +63,14 @@ namespace Framework.media
             {
 
                 aux = form.SelectSingleNode(form.XPath + HEADER_SEARCH_EXPRESSION).InnerText;
-                Framework.entity.ENTITY_STATE state = this.StateCategories[aux];
+                global::AnimeKakkoi.Framework.Entities.EntityState state = this.StateCategories[aux];
 
                 HtmlNodeCollection tag_ul = form.SelectNodes(form.XPath + ELEMENTS_SEARCH_EXPRESSION);
 
-                entity.Anime temp;
+                global::AnimeKakkoi.Framework.Entities.Anime temp;
                 foreach (HtmlNode item in tag_ul)
                 {
-                    temp = new entity.Anime();
+                    temp = new global::AnimeKakkoi.Framework.Entities.Anime();
 
                     temp.Name = Expression.AnalizeNodeValue(item, item.XPath + "//a", "");
                     temp.State = state;
@@ -112,14 +109,14 @@ namespace Framework.media
 
                 aux = form.SelectSingleNode(form.XPath + MANGA_HEADER_SEARCH_EXPRESSION).InnerText;
 
-                Framework.entity.ENTITY_STATE state = this.StateCategories[aux];
+                global::AnimeKakkoi.Framework.Entities.EntityState state = this.StateCategories[aux];
 
                 HtmlNodeCollection tag_ul = form.SelectNodes(form.XPath + MANGA_ELEMENTS_SEARCH_EXPRESSION);
 
-                entity.Manga temp;
+                global::AnimeKakkoi.Framework.Entities.Manga temp;
                 foreach (HtmlNode item in tag_ul)
                 {
-                    temp = new entity.Manga();
+                    temp = new global::AnimeKakkoi.Framework.Entities.Manga();
 
                     temp.Name = Expression.AnalizeNodeValue(item, item.XPath + "//a", "");
                     temp.State = state;
@@ -164,14 +161,14 @@ namespace Framework.media
             {
 
                 aux = form.SelectSingleNode(form.XPath + KRONOS_HEADER_SEARCH_EXPRESSION).InnerText;
-                entity.ENTITY_STATE state = this.StateCategories[aux];
+                global::AnimeKakkoi.Framework.Entities.EntityState state = this.StateCategories[aux];
 
                 HtmlNodeCollection tag_ul = form.SelectNodes(form.XPath + KRONOS_ELEMENTS_SEARCH_EXPRESSION);
 
-                entity.Anime temp;
+                global::AnimeKakkoi.Framework.Entities.Anime temp;
                 foreach (HtmlNode item in tag_ul)
                 {
-                    temp = new entity.Anime();
+                    temp = new global::AnimeKakkoi.Framework.Entities.Anime();
 
                     HtmlNodeCollection fields = item.SelectNodes(item.XPath + "//div");
 
@@ -217,14 +214,14 @@ namespace Framework.media
             {
 
                 aux = form.SelectSingleNode(form.XPath + MANGA_KRONOS_HEADER_SEARCH_EXPRESSION).InnerText;
-                entity.ENTITY_STATE state = this.StateCategories[aux];
+                global::AnimeKakkoi.Framework.Entities.EntityState state = this.StateCategories[aux];
 
                 HtmlNodeCollection tag_ul = form.SelectNodes(form.XPath + MANGA_KRONOS_ELEMENTS_SEARCH_EXPRESSION);
 
-                entity.Manga temp;
+                global::AnimeKakkoi.Framework.Entities.Manga temp;
                 foreach (HtmlNode item in tag_ul)
                 {
-                    temp = new entity.Manga();
+                    temp = new global::AnimeKakkoi.Framework.Entities.Manga();
 
                     HtmlNodeCollection fields = item.SelectNodes(item.XPath + "//div");
 

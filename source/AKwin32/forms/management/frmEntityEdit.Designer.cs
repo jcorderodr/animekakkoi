@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms.management
+﻿namespace AnimeKakkoi.App.forms.management
 {
     partial class frmEntityEdit
     {
@@ -69,7 +69,7 @@
             // lbl_Favorite
             // 
             resources.ApplyResources(this.lbl_Favorite, "lbl_Favorite");
-            this.lbl_Favorite.Image = global::AKwin32.Properties.Resources.fav_no_media;
+            this.lbl_Favorite.Image = global::AnimeKakkoi.App.Properties.Resources.fav_no_media;
             this.lbl_Favorite.MinimumSize = new System.Drawing.Size(16, 16);
             this.lbl_Favorite.Name = "lbl_Favorite";
             this.lbl_Favorite.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbl_Favorite_MouseClick);
@@ -146,7 +146,7 @@
             // btnAccept
             // 
             resources.ApplyResources(this.btnAccept, "btnAccept");
-            this.btnAccept.Image = global::AKwin32.Properties.Resources.button_ok_x16;
+            this.btnAccept.Image = global::AnimeKakkoi.App.Properties.Resources.button_ok_x16;
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
@@ -154,7 +154,7 @@
             // btnCancel
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.Image = global::AKwin32.Properties.Resources.button_cancel__x16;
+            this.btnCancel.Image = global::AnimeKakkoi.App.Properties.Resources.button_cancel__x16;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.IO;
 using System.IO.Packaging;
-using Framework.io;
+using AnimeKakkoi.Framework.IO;
 
-namespace Framework.util
+namespace AnimeKakkoi.Framework.util
 {
 
     /// <summary>
@@ -17,7 +16,7 @@ namespace Framework.util
 
         public List<Object> Elements { get; set; }
 
-        public entity.ENTITY_STATE ElementState { get; set; }
+        public global::AnimeKakkoi.Framework.Entities.EntityState ElementState { get; set; }
 
         private const String TEMP_FILE_EXTENSION = "akt";
 
@@ -121,15 +120,15 @@ namespace Framework.util
 
                 using (zip = System.IO.Packaging.Package.Open(zipStore, FileMode.Create))
                 {
-                    zip.PackageProperties.Creator = io.Configuration.ApplicationName;
-                    zip.PackageProperties.Description = io.Configuration.ApplicationName + "'s Sharing file.";
+                    zip.PackageProperties.Creator = global::AnimeKakkoi.Framework.IO.AkConfiguration.APPLICATION_NAME;
+                    zip.PackageProperties.Description = global::AnimeKakkoi.Framework.IO.AkConfiguration.APPLICATION_NAME + "'s Sharing file.";
                     zip.PackageProperties.Keywords = "anime, manga, stats, list, entertainment";
                     zip.PackageProperties.Title = "AK - " + DateTime.Now.ToLocalTime();
 
                     StringBuilder buffer = new StringBuilder();
                     foreach (Object obj in Elements)
                     {
-                        buffer.AppendLine(String.Format("!{0}{1}{0}{2}{0}{3}", SEPARATOR_CHAR, obj.GetType(), (obj as entity.EntitySource).ToString(), (obj as entity.EntitySource).ProgressString));
+                        buffer.AppendLine(String.Format("!{0}{1}{0}{2}{0}{3}", SEPARATOR_CHAR, obj.GetType(), (obj as global::AnimeKakkoi.Framework.Entities.EntitySource).ToString(), (obj as global::AnimeKakkoi.Framework.Entities.EntitySource).ProgressString));
                     }
 
                     //the temp file contains the information.
@@ -153,11 +152,11 @@ namespace Framework.util
         private void CheckForStateChange()
         {
 
-            if (Enum.IsDefined(typeof(entity.ENTITY_STATE), ElementState))
+            if (Enum.IsDefined(typeof(global::AnimeKakkoi.Framework.Entities.EntityState), ElementState))
             {
                 try
                 {
-                    foreach (entity.EntitySource item in this.Elements)
+                    foreach (global::AnimeKakkoi.Framework.Entities.EntitySource item in this.Elements)
                         item.State = this.ElementState;
 
                 }

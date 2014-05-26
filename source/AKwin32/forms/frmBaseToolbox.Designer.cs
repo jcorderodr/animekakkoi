@@ -1,6 +1,6 @@
-﻿namespace AKwin32.forms
+﻿namespace AnimeKakkoi.App.Forms
 {
-    partial class frmBaseToolbox
+    partial class FrmBaseToolbox
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.MaximizeBox = false;
-            this.Name = "frmBaseToolbox";
+            this.Name = "FrmBaseToolbox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBaseToolbox";
             this.Load += new System.EventHandler(this.frmBaseToolbox_Load);
