@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms
+﻿namespace AnimeKakkoi.App.Forms
 {
     partial class FrmMain
     {
@@ -65,9 +65,10 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.versionProToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.versionProToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
@@ -75,7 +76,6 @@
             this.btnManga = new System.Windows.Forms.Button();
             this.btnAnime = new System.Windows.Forms.Button();
             this.btnSharing = new System.Windows.Forms.Button();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panelShorcuts.SuspendLayout();
@@ -107,7 +107,7 @@
             // 
             // quickSearchToolStripMenuItem
             // 
-            this.quickSearchToolStripMenuItem.Image = global::AKwin32.Properties.Resources.filefind_x16;
+            this.quickSearchToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.filefind_x16;
             this.quickSearchToolStripMenuItem.Name = "quickSearchToolStripMenuItem";
             resources.ApplyResources(this.quickSearchToolStripMenuItem, "quickSearchToolStripMenuItem");
             this.quickSearchToolStripMenuItem.Click += new System.EventHandler(this.quickSearchToolStripMenuItem_Click);
@@ -125,7 +125,7 @@
             // 
             // userActionhistoryToolStripMenuItem
             // 
-            this.userActionhistoryToolStripMenuItem.Image = global::AKwin32.Properties.Resources.applications_x16;
+            this.userActionhistoryToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.applications_x16;
             this.userActionhistoryToolStripMenuItem.Name = "userActionhistoryToolStripMenuItem";
             resources.ApplyResources(this.userActionhistoryToolStripMenuItem, "userActionhistoryToolStripMenuItem");
             this.userActionhistoryToolStripMenuItem.Click += new System.EventHandler(this.userActionhistoryToolStripMenuItem_Click);
@@ -140,7 +140,7 @@
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formattedTextToolStripMenuItem,
             this.listForSharingToolStripMenuItem});
-            this.exportToolStripMenuItem.Image = global::AKwin32.Properties.Resources.sharing_overlay_x16;
+            this.exportToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.sharing_overlay_x16;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             resources.ApplyResources(this.exportToolStripMenuItem, "exportToolStripMenuItem");
             // 
@@ -180,14 +180,14 @@
             // 
             // newAnimeToolStripMenuItem
             // 
-            this.newAnimeToolStripMenuItem.Image = global::AKwin32.Properties.Resources.files_edit_x16;
+            this.newAnimeToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.files_edit_x16;
             this.newAnimeToolStripMenuItem.Name = "newAnimeToolStripMenuItem";
             resources.ApplyResources(this.newAnimeToolStripMenuItem, "newAnimeToolStripMenuItem");
             this.newAnimeToolStripMenuItem.Click += new System.EventHandler(this.newAnimeToolStripMenuItem_Click);
             // 
             // manageAnimeToolStripMenuItem
             // 
-            this.manageAnimeToolStripMenuItem.Image = global::AKwin32.Properties.Resources.files_text_x16;
+            this.manageAnimeToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.files_text_x16;
             this.manageAnimeToolStripMenuItem.Name = "manageAnimeToolStripMenuItem";
             resources.ApplyResources(this.manageAnimeToolStripMenuItem, "manageAnimeToolStripMenuItem");
             this.manageAnimeToolStripMenuItem.Click += new System.EventHandler(this.manageAnimeToolStripMenuItem_Click);
@@ -199,14 +199,14 @@
             // 
             // newMangaToolStripMenuItem
             // 
-            this.newMangaToolStripMenuItem.Image = global::AKwin32.Properties.Resources.files_edit_x16;
+            this.newMangaToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.files_edit_x16;
             this.newMangaToolStripMenuItem.Name = "newMangaToolStripMenuItem";
             resources.ApplyResources(this.newMangaToolStripMenuItem, "newMangaToolStripMenuItem");
             this.newMangaToolStripMenuItem.Click += new System.EventHandler(this.newMangaToolStripMenuItem_Click);
             // 
             // manageMangaToolStripMenuItem
             // 
-            this.manageMangaToolStripMenuItem.Image = global::AKwin32.Properties.Resources.files_text_x16;
+            this.manageMangaToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.files_text_x16;
             this.manageMangaToolStripMenuItem.Name = "manageMangaToolStripMenuItem";
             resources.ApplyResources(this.manageMangaToolStripMenuItem, "manageMangaToolStripMenuItem");
             this.manageMangaToolStripMenuItem.Click += new System.EventHandler(this.manageMangaToolStripMenuItem_Click);
@@ -233,7 +233,7 @@
             this.mcAnimeToolStripMenuItem,
             this.mcAnimeKronosToolStripMenuItem,
             this.myAnimeListToolStripMenuItem});
-            this.importerToolStripMenuItem.Image = global::AKwin32.Properties.Resources.network_find_x16;
+            this.importerToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.network_find_x16;
             this.importerToolStripMenuItem.Name = "importerToolStripMenuItem";
             resources.ApplyResources(this.importerToolStripMenuItem, "importerToolStripMenuItem");
             // 
@@ -268,7 +268,7 @@
             // 
             // updateSourcesToolStripMenuItem
             // 
-            this.updateSourcesToolStripMenuItem.Image = global::AKwin32.Properties.Resources.network_downloads_x16;
+            this.updateSourcesToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.network_downloads_x16;
             this.updateSourcesToolStripMenuItem.Name = "updateSourcesToolStripMenuItem";
             resources.ApplyResources(this.updateSourcesToolStripMenuItem, "updateSourcesToolStripMenuItem");
             this.updateSourcesToolStripMenuItem.Click += new System.EventHandler(this.updateSourcesToolStripMenuItem_Click);
@@ -286,7 +286,7 @@
             // 
             // backUpToolStripMenuItem
             // 
-            this.backUpToolStripMenuItem.Image = global::AKwin32.Properties.Resources.floppy_x16;
+            this.backUpToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.floppy_x16;
             this.backUpToolStripMenuItem.Name = "backUpToolStripMenuItem";
             resources.ApplyResources(this.backUpToolStripMenuItem, "backUpToolStripMenuItem");
             this.backUpToolStripMenuItem.Click += new System.EventHandler(this.backUpToolStripMenuItem_Click);
@@ -298,14 +298,14 @@
             // 
             // preferencesToolStripMenuItem
             // 
-            this.preferencesToolStripMenuItem.Image = global::AKwin32.Properties.Resources.control_panel_x16;
+            this.preferencesToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.control_panel_x16;
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             resources.ApplyResources(this.preferencesToolStripMenuItem, "preferencesToolStripMenuItem");
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
-            this.optionsToolStripMenuItem.Image = global::AKwin32.Properties.Resources.configuration_settings_x16;
+            this.optionsToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.configuration_settings_x16;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
@@ -326,24 +326,29 @@
             // 
             // helpToolStripMenuItem
             // 
-            this.helpToolStripMenuItem.Image = global::AKwin32.Properties.Resources.help1_x16;
+            this.helpToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.help1_x16;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // contactToolStripMenuItem
             // 
-            this.contactToolStripMenuItem.Image = global::AKwin32.Properties.Resources.mail_x16;
+            this.contactToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.mail_x16;
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
             resources.ApplyResources(this.contactToolStripMenuItem, "contactToolStripMenuItem");
             this.contactToolStripMenuItem.Click += new System.EventHandler(this.contactToolStripMenuItem_Click);
             // 
             // searchUpdatesToolStripMenuItem
             // 
-            this.searchUpdatesToolStripMenuItem.Image = global::AKwin32.Properties.Resources.network_find_x16;
+            this.searchUpdatesToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.network_find_x16;
             this.searchUpdatesToolStripMenuItem.Name = "searchUpdatesToolStripMenuItem";
             resources.ApplyResources(this.searchUpdatesToolStripMenuItem, "searchUpdatesToolStripMenuItem");
             this.searchUpdatesToolStripMenuItem.Click += new System.EventHandler(this.searchUpdatesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
             // 
             // reportBugToolStripMenuItem
             // 
@@ -351,17 +356,17 @@
             resources.ApplyResources(this.reportBugToolStripMenuItem, "reportBugToolStripMenuItem");
             this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
             // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
+            // 
             // versionProToolStripMenuItem
             // 
-            this.versionProToolStripMenuItem.Image = global::AKwin32.Properties.Resources.unlock_x16;
+            this.versionProToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.unlock_x16;
             this.versionProToolStripMenuItem.Name = "versionProToolStripMenuItem";
             resources.ApplyResources(this.versionProToolStripMenuItem, "versionProToolStripMenuItem");
             this.versionProToolStripMenuItem.Click += new System.EventHandler(this.versionProToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
             // 
             // aboutAkToolStripMenuItem
             // 
@@ -394,8 +399,7 @@
             // 
             resources.ApplyResources(this.btnManga, "btnManga");
             this.btnManga.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnManga.Image = global::AKwin32.Properties.Resources.manga;
-            this.btnManga.MaximumSize = new System.Drawing.Size(112, 107);
+            this.btnManga.Image = global::AnimeKakkoi.App.Properties.Resources.manga;
             this.btnManga.Name = "btnManga";
             this.btnManga.UseVisualStyleBackColor = false;
             this.btnManga.Click += new System.EventHandler(this.btnManga_Click);
@@ -404,8 +408,7 @@
             // 
             resources.ApplyResources(this.btnAnime, "btnAnime");
             this.btnAnime.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnAnime.Image = global::AKwin32.Properties.Resources.anime;
-            this.btnAnime.MaximumSize = new System.Drawing.Size(112, 107);
+            this.btnAnime.Image = global::AnimeKakkoi.App.Properties.Resources.anime;
             this.btnAnime.Name = "btnAnime";
             this.btnAnime.UseVisualStyleBackColor = false;
             this.btnAnime.Click += new System.EventHandler(this.btnAnime_Click);
@@ -414,16 +417,10 @@
             // 
             resources.ApplyResources(this.btnSharing, "btnSharing");
             this.btnSharing.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnSharing.Image = global::AKwin32.Properties.Resources.chat;
-            this.btnSharing.MaximumSize = new System.Drawing.Size(112, 107);
+            this.btnSharing.Image = global::AnimeKakkoi.App.Properties.Resources.chat;
             this.btnSharing.Name = "btnSharing";
             this.btnSharing.UseVisualStyleBackColor = false;
             this.btnSharing.Click += new System.EventHandler(this.btnSharing_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
             // 
             // FrmMain
             // 

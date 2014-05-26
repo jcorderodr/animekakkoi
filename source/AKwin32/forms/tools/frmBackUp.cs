@@ -1,42 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using System.IO.Compression;
+﻿#region
 
-namespace AKwin32.forms.tools
+using System;
+using AnimeKakkoi.Framework.IO;
+
+#endregion
+
+namespace AnimeKakkoi.App.Forms.tools
 {
-    public partial class frmBackUp : AKwin32.forms.frmBaseToolbox
+    public partial class frmBackUp : FrmBaseToolbox
     {
-        Framework.io.BackUp bk;
+        private BackUp bk;
 
         public frmBackUp()
         {
             InitializeComponent();
-            bk = new Framework.io.BackUp();
+            bk = new BackUp();
         }
 
         private void frmBackUp_Load(object sender, EventArgs e)
         {
             saveFileDialog.Title = Program.AppTitle;
-            saveFileDialog.Filter = Framework.io.FileProperties.AppBackUpFilterName;
+            saveFileDialog.Filter = FileProperties.AppBackUpFilterName;
             openFileDialog.Title = Program.AppTitle;
-            openFileDialog.Filter = Framework.io.FileProperties.AppBackUpFilterName;
-            bk.BackUpProgressChanged += new EventHandler<System.ComponentModel.ProgressChangedEventArgs>(bk_BackUpProgressChanged);
-            bk.BackUpProgressFinished += new EventHandler<System.ComponentModel.RunWorkerCompletedEventArgs>(bk_BackUpProgressFinished);
+            openFileDialog.Filter = FileProperties.AppBackUpFilterName;
+            bk.BackUpProgressChanged += bk_BackUpProgressChanged;
+            bk.BackUpProgressFinished += bk_BackUpProgressFinished;
         }
 
 
-        void bk_BackUpProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        private void bk_BackUpProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
         }
 
-        void bk_BackUpProgressFinished(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        private void bk_BackUpProgressFinished(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             if (!e.Cancelled)
             {
@@ -73,8 +70,5 @@ namespace AKwin32.forms.tools
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
         }
-
-
-
     }
 }

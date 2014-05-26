@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms.maintenance
+﻿namespace AnimeKakkoi.App.Forms.Maintenance
 {
     partial class frmOptions
     {
@@ -148,7 +148,7 @@
             // 
             // data_btnCleanItems
             // 
-            this.data_btnCleanItems.Image = global::AKwin32.Properties.Resources.trash_full_x48;
+            this.data_btnCleanItems.Image = global::AnimeKakkoi.App.Properties.Resources.trash_full_x48;
             resources.ApplyResources(this.data_btnCleanItems, "data_btnCleanItems");
             this.data_btnCleanItems.Name = "data_btnCleanItems";
             this.data_btnCleanItems.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@
             // 
             // data_btnCleanAll
             // 
-            this.data_btnCleanAll.Image = global::AKwin32.Properties.Resources.trash_full_x48;
+            this.data_btnCleanAll.Image = global::AnimeKakkoi.App.Properties.Resources.trash_full_x48;
             resources.ApplyResources(this.data_btnCleanAll, "data_btnCleanAll");
             this.data_btnCleanAll.Name = "data_btnCleanAll";
             this.data_btnCleanAll.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             // btnAccept
             // 
             resources.ApplyResources(this.btnAccept, "btnAccept");
-            this.btnAccept.Image = global::AKwin32.Properties.Resources.button_ok_x16;
+            this.btnAccept.Image = global::AnimeKakkoi.App.Properties.Resources.button_ok_x16;
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
@@ -174,7 +174,7 @@
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::AKwin32.Properties.Resources.button_cancel__x16;
+            this.btnCancel.Image = global::AnimeKakkoi.App.Properties.Resources.button_cancel__x16;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 

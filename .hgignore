@@ -1,18 +1,8 @@
 syntax: glob
-source/AKwin32/bin
-source/AKwin32/obj
-source/Framework/bin
-source/Framework/obj
-source/packages/HtmlAgilityPack.1.4.6/lib/winrt45/
-source/packages/HtmlAgilityPack.1.4.6/lib/sl5/
-source/packages/HtmlAgilityPack.1.4.6/lib/Net40/
-source/packages/HtmlAgilityPack.1.4.6/lib/Net45/
-source/packages/HtmlAgilityPack.1.4.6/lib/sl3-wp/
-source/packages/HtmlAgilityPack.1.4.6/lib/sl4-windowsphone71/
-source/packages/HtmlAgilityPack.1.4.6/lib/sl4/
-source/packages/HtmlAgilityPack.1.4.6/lib/Net40-client/
+
+*/bin/
+*/obj/
 *.pdb
-source/Setup1/Setup1/Express/
 resources/reset-resource/
 release
 releases-versioning/

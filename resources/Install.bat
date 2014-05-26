@@ -1,9 +1,9 @@
 
-move /v ak_queue.ak %AppData%\BluegleTek\AnimeKakkoi 
-move ak_takeddowm.ak %AppData%\BluegleTek\AnimeKakkoi
-move ak_wantsee.ak %AppData%\BluegleTek\AnimeKakkoi 
-move ak_watched.ak %AppData%\BluegleTek\AnimeKakkoi 
-move ak_watching.ak %AppData%\BluegleTek\AnimeKakkoi 
-move ak_data.b %AppData%\BluegleTek\AnimeKakkoi
-move /v Framework.config %AppData%\BluegleTek\AnimeKakkoi
-copy Language.lsp /v %AppData%\BluegleTek\AnimeKakkoi
+move /v ak_queue.ak %UserProfile%\Documents\Corderoski\AnimeKakkoi 
+move ak_takeddowm.ak %UserProfile%\Documents\Corderoski\AnimeKakkoi
+move ak_wantsee.ak %UserProfile%\Documents\Corderoski\AnimeKakkoi 
+move ak_watched.ak %UserProfile%\Documents\Corderoski\AnimeKakkoi 
+move ak_watching.ak %UserProfile%\Documents\Corderoski\AnimeKakkoi 
+move ak_data.b %UserProfile%\Documents\Corderoski\AnimeKakkoi
+move /v Framework.config %UserProfile%\Documents\Corderoski\AnimeKakkoi
+copy Language.lsp /v %UserProfile%\Documents\Corderoski\AnimeKakkoi

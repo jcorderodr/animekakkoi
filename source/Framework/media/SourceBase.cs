@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Framework.entity;
+﻿using System.Collections.Generic;
+using AnimeKakkoi.Framework.Entities;
 
-namespace Framework.media
+namespace AnimeKakkoi.Framework.media
 {
     public abstract class SourceBase
     {
@@ -13,7 +10,7 @@ namespace Framework.media
 
         public readonly Dictionary<string, ANIME_TYPE> AnimeTypesCategories;
 
-        public readonly Dictionary<string, ENTITY_STATE> StateCategories;
+        public readonly Dictionary<string, EntityState> StateCategories;
 
         public List<object> Items { get; set; }
 
@@ -33,43 +30,43 @@ namespace Framework.media
              * TODO: Make this configurable and not 100% programming.
              * PD: There are some reapeated labels.
              */
-            StateCategories = new Dictionary<string, ENTITY_STATE>();
+            StateCategories = new Dictionary<string, EntityState>();
             //
             // - McAnime
             //
-            StateCategories.Add("La abandone", ENTITY_STATE.TAKED_DOWN);
-            StateCategories.Add("La quiero ver", ENTITY_STATE.WANT_TO);
-            StateCategories.Add("La deje de ver temporalmente", ENTITY_STATE.QUEUE);
-            StateCategories.Add("La estoy viendo", ENTITY_STATE.WATCHING);
-            StateCategories.Add("La vi completa", ENTITY_STATE.WATCHED);
-            StateCategories.Add("La quiero leer", ENTITY_STATE.WANT_TO);
-            StateCategories.Add("La estoy leyendo", ENTITY_STATE.WATCHING);
-            StateCategories.Add("La leí completa", ENTITY_STATE.WATCHED);
-            StateCategories.Add("La deje de leer temporalmente", ENTITY_STATE.QUEUE);
+            StateCategories.Add("La abandone", EntityState.TakedDown);
+            StateCategories.Add("La quiero ver", EntityState.WantTo);
+            StateCategories.Add("La deje de ver temporalmente", EntityState.Queue);
+            StateCategories.Add("La estoy viendo", EntityState.Watching);
+            StateCategories.Add("La vi completa", EntityState.Watched);
+            StateCategories.Add("La quiero leer", EntityState.WantTo);
+            StateCategories.Add("La estoy leyendo", EntityState.Watching);
+            StateCategories.Add("La leí completa", EntityState.Watched);
+            StateCategories.Add("La deje de leer temporalmente", EntityState.Queue);
             //-repeat StateCategories.Add("La abandone", ENTITY_STATE.TAKED_DOWN);
             //
             //- McAnime Kronos
             //
-            StateCategories.Add("Viendo", ENTITY_STATE.WATCHING);
-            StateCategories.Add("Completadas", ENTITY_STATE.WATCHED);
-            StateCategories.Add("Pausadas/En espera", ENTITY_STATE.QUEUE);
-            StateCategories.Add("Quiere ver", ENTITY_STATE.WANT_TO);
-            StateCategories.Add("Abandonadas", ENTITY_STATE.TAKED_DOWN);
-            StateCategories.Add("Leyendo", ENTITY_STATE.WATCHING);
+            StateCategories.Add("Viendo", EntityState.Watching);
+            StateCategories.Add("Completadas", EntityState.Watched);
+            StateCategories.Add("Pausadas/En espera", EntityState.Queue);
+            StateCategories.Add("Quiere ver", EntityState.WantTo);
+            StateCategories.Add("Abandonadas", EntityState.TakedDown);
+            StateCategories.Add("Leyendo", EntityState.Watching);
             //-repeat StateCategories.Add("Completadas", ENTITY_STATE.WATCHED);
             //-repeat StateCategories.Add("Abandonadas", ENTITY_STATE.TAKED_DOWN);
-            StateCategories.Add("Quiere leer", ENTITY_STATE.WANT_TO);
+            StateCategories.Add("Quiere leer", EntityState.WantTo);
             //-repeat StateCategories.Add("Pausadas/En espera", ENTITY_STATE.QUEUE);
             //
             //- My Anime List
             //
-            StateCategories.Add("Dropped", ENTITY_STATE.TAKED_DOWN);
-            StateCategories.Add("Plan to Watch", ENTITY_STATE.WANT_TO);
-            StateCategories.Add("On Hold", ENTITY_STATE.QUEUE);
-            StateCategories.Add("Currently Watching", ENTITY_STATE.WATCHING);
-            StateCategories.Add("Completed", ENTITY_STATE.WATCHED);
-            StateCategories.Add("Plan to Read", ENTITY_STATE.WANT_TO);
-            StateCategories.Add("Currently Reading", ENTITY_STATE.WATCHING);
+            StateCategories.Add("Dropped", EntityState.TakedDown);
+            StateCategories.Add("Plan to Watch", EntityState.WantTo);
+            StateCategories.Add("On Hold", EntityState.Queue);
+            StateCategories.Add("Currently Watching", EntityState.Watching);
+            StateCategories.Add("Completed", EntityState.Watched);
+            StateCategories.Add("Plan to Read", EntityState.WantTo);
+            StateCategories.Add("Currently Reading", EntityState.Watching);
             //-repeat StateCategories.Add("Completed", ENTITY_STATE.WATCHED);
             //-repeat StateCategories.Add("On Hold", ENTITY_STATE.QUEUE);
             /*

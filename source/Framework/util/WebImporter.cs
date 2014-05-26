@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net;
 using System.IO;
-using Framework.media;
-using Framework.entity;
+using AnimeKakkoi.Framework.Entities;
+using AnimeKakkoi.Framework.media;
 
-namespace Framework.util
+namespace AnimeKakkoi.Framework.util
 {
     /// <summary>
     /// A web importer for loading media from web-based resources.
@@ -35,7 +32,7 @@ namespace Framework.util
             bool useProxy = !string.Equals(System.Net.WebRequest.DefaultWebProxy.GetProxy(new Uri(sampleURL)), sampleURL);
             if (useProxy)
             {
-                client.Proxy = io.Configuration.GetProxy();
+                client.Proxy = global::AnimeKakkoi.Framework.IO.AkConfiguration.GetProxy();
             }
 
             try
@@ -63,7 +60,7 @@ namespace Framework.util
         /// <param name="typeName">the Entity's name.</param>
         /// <param name="rType"></param>
         /// <returns></returns>
-        public Framework.media.ISource GetSource(string typeName, ref Type rType)
+        public global::AnimeKakkoi.Framework.media.ISource GetSource(string typeName, ref Type rType)
         {
             if (String.IsNullOrEmpty(this.HTML))
                 throw new NullReferenceException("The 'HTML' propertie is empty.");
@@ -88,7 +85,7 @@ namespace Framework.util
             return AnalizeSource(type);
         }
 
-        private Framework.media.ISource AnalizeSource(Type type)
+        private global::AnimeKakkoi.Framework.media.ISource AnalizeSource(Type type)
         {
             try
             {

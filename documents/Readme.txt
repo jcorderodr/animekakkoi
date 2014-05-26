@@ -1,7 +1,7 @@
 	¬ README
 
 
-AnimeKakkoi v0.1.3 – BluegleTek 
+AnimeKakkoi v0.1.3 – Corderoski 
 
 
 AnimeKakkoi es una aplicación Open Source. Se permite su distribución e instalación en número ilimitado de terminales. Para más información visita el proyecto en SourceForge.
@@ -59,5 +59,4 @@ Requisitos / Requerimientos:
 
 
 https://sourceforge.net/p/animekakkoi/
-http://BluegleTek.com/
-Contacto: BluegleTek@Gmail.com
+

@@ -224,7 +224,7 @@
     <value>0</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=1.0.1.30037, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnimeKakkoi.App.forms.frmBaseToolbox, anime-k, Version=1.0.1.30037, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>

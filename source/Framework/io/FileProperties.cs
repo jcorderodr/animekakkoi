@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Framework.io
+namespace AnimeKakkoi.Framework.IO
 {
     /// <summary>
     /// Constant values.

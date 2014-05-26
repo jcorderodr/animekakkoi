@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms.tools
+﻿namespace AnimeKakkoi.App.forms.tools
 {
     partial class frmExporter
     {
@@ -90,7 +90,7 @@
             // btnDoSelection
             // 
             resources.ApplyResources(this.btnDoSelection, "btnDoSelection");
-            this.btnDoSelection.Image = global::AKwin32.Properties.Resources.filefind_x16;
+            this.btnDoSelection.Image = global::AnimeKakkoi.App.Properties.Resources.filefind_x16;
             this.btnDoSelection.Name = "btnDoSelection";
             this.btnDoSelection.UseVisualStyleBackColor = true;
             this.btnDoSelection.Click += new System.EventHandler(this.btnDoSelection_Click);
@@ -123,7 +123,7 @@
             // btnAccept
             // 
             resources.ApplyResources(this.btnAccept, "btnAccept");
-            this.btnAccept.Image = global::AKwin32.Properties.Resources.button_ok_x16;
+            this.btnAccept.Image = global::AnimeKakkoi.App.Properties.Resources.button_ok_x16;
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
@@ -132,7 +132,7 @@
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::AKwin32.Properties.Resources.button_cancel__x16;
+            this.btnCancel.Image = global::AnimeKakkoi.App.Properties.Resources.button_cancel__x16;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

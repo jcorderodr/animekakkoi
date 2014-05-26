@@ -865,6 +865,6 @@
     <value>frmImporter</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBase, anime-k, Version=1.0.1.30037, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnimeKakkoi.App.forms.frmBase, anime-k, Version=1.0.1.30037, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

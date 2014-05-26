@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿#region
+
+using System;
 using System.Windows.Forms;
+using AnimeKakkoi.App.Forms;
 
-namespace AKwin32.forms.tools
+#endregion
+
+namespace AnimeKakkoi.App.forms.tools
 {
-    public partial class frmInputRequest : AKwin32.forms.frmBaseToolbox
+    public partial class frmInputRequest : FrmBaseToolbox
     {
-
-        bool allowNullInput;
+        private bool allowNullInput;
 
         public frmInputRequest()
         {
@@ -22,12 +21,8 @@ namespace AKwin32.forms.tools
 
         public String UserInput
         {
-            get
-            {
-                return txtUserInput.Text;
-            }
+            get { return txtUserInput.Text; }
         }
-
 
         #region GUI Events
 
@@ -66,9 +61,9 @@ namespace AKwin32.forms.tools
         private bool isValidInput()
         {
             return (
-                (allowNullInput || String.IsNullOrEmpty(txtUserInput.Text)) ||
-                (!allowNullInput && !String.IsNullOrEmpty(txtUserInput.Text))
-                );
+                       (allowNullInput || String.IsNullOrEmpty(txtUserInput.Text)) ||
+                       (!allowNullInput && !String.IsNullOrEmpty(txtUserInput.Text))
+                   );
         }
 
         public void SetUIProperties(string request, bool allowNull)
@@ -83,14 +78,5 @@ namespace AKwin32.forms.tools
             lblRequest.Text = request + ":";
             this.allowNullInput = allowNull;
         }
-
-
-
-
-
-
-
-
-
     }
 }

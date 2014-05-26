@@ -458,6 +458,6 @@
     <value>frmUsers</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AKwin32.forms.frmBaseToolbox, anime-k, Version=1.0.1.22041, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnimeKakkoi.App.forms.frmBaseToolbox, anime-k, Version=1.0.1.22041, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

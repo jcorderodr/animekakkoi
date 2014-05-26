@@ -1,23 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿#region
+
+using System;
 using System.Windows.Forms;
-using Framework.entity;
-using Framework.io;
-using Framework.util;
+using AnimeKakkoi.App.Forms;
+using AnimeKakkoi.App.Forms.Management;
+using AnimeKakkoi.App.Helpers;
+using AnimeKakkoi.Framework.Entities;
+using AnimeKakkoi.Framework.IO;
+using AnimeKakkoi.Framework.Repo.xml;
+using AnimeKakkoi.Framework.util;
 
-namespace AKwin32.forms.management
+#endregion
+
+namespace AnimeKakkoi.App.forms.management
 {
-    public partial class frmNewItem : AKwin32.forms.frmBaseToolbox, INewItem
+    public partial class frmNewItem : FrmBaseToolbox, INewItem
     {
+        private object entity;
+        private Type entityType;
 
-        object entity;
-        Type entityType;
-
-        Framework.io.Catalog catalog;
+        private Catalog catalog;
 
         public frmNewItem()
         {
@@ -34,7 +36,7 @@ namespace AKwin32.forms.management
                 base.ShowError(this, base.Errors["entity_missed"]);
                 this.Close();
             }
-            ((INewItem)this).DoVisualChanges();
+            ((INewItem) this).DoVisualChanges();
         }
 
         private void txt_Progress_Validated(object sender, EventArgs e)
@@ -52,10 +54,10 @@ namespace AKwin32.forms.management
         private void btnAccept_Click(object sender, EventArgs e)
         {
             if (ValidateInput())
-                if (((INewItem)this).ToRegisterItem())
+                if (((INewItem) this).ToRegisterItem())
                 {
                     string evt_change = " (+) " + entity.GetType().GetMethod("ToString").Invoke(entity, null);
-                    AKwin32.com.util.EventLogger.Write(Configuration.ApplicationLoggerFile, evt_change);
+                    EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, evt_change);
                     //
                     base.ShowInformation(this, base.Messages["item_affected"]);
                     base.CleanUIComponents();
@@ -76,63 +78,67 @@ namespace AKwin32.forms.management
 
         #region Functions
 
-
         void INewItem.DoVisualChanges()
         {
             cb_State.DataSource = Catalog.GetEntitiesTypesByLanguage();
             cb_State.ValueMember = "Id";
             cb_State.DisplayMember = "Description";
 
-            txt_Progress.Mask = Configuration.ApplicationProgressMask;
+            txt_Progress.Mask = AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationProgressMask;
         }
 
         private bool isAnimeType()
         {
-            Anime item = new Anime();
+            var item = new Anime();
             item.Name = txt_Name.Text;
             item.Favorite = chkBox_Favorite.Checked;
 
-            item.Category = (ANIME_TYPE)Enum.Parse(typeof(ANIME_TYPE), cb_Category.SelectedValue + "");
-            item.State = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), cb_State.SelectedValue + "");
+            item.Category = (ANIME_TYPE) Enum.Parse(typeof (ANIME_TYPE), cb_Category.SelectedValue + "");
+            item.State = (EntityState) Enum.Parse(typeof (EntityState), cb_State.SelectedValue + "");
 
             item.Comment = txt_Comment.Text;
             item.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
             item.ProgressString = Expression.StringIfNull(txt_Progress.Text, "0/0");
 
-            Framework.repo.xml.AnimeRepository repo;
-            repo = new Framework.repo.xml.AnimeRepository();
+            var repo = new AnimeRepository();
             try
             {
                 repo.Add(item);
                 entity = item;
                 return true;
             }
-            catch { return false; }
+            catch
+            {
+                return false;
+            }
         }
 
         private bool isMangaType()
         {
-            Manga item = new Manga();
+            var item = new Manga();
             item.Name = txt_Name.Text;
             item.Favorite = chkBox_Favorite.Checked;
 
-            item.Category = (MANGA_TYPE)Enum.Parse(typeof(MANGA_TYPE), cb_Category.SelectedValue + "");
-            item.State = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), cb_State.SelectedValue + "");
+            item.Category = (MANGA_TYPE) Enum.Parse(typeof (MANGA_TYPE), cb_Category.SelectedValue + "");
+            item.State = (EntityState) Enum.Parse(typeof (EntityState), cb_State.SelectedValue + "");
 
             item.Comment = txt_Comment.Text;
             item.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
             //if doesnt cotains '/' it ends 01/?, otherwise x/y
             item.ProgressString = txt_Progress.Text;
 
-            Framework.repo.xml.MangaRepository repo;
-            repo = new Framework.repo.xml.MangaRepository();
+            MangaRepository repo;
+            repo = new MangaRepository();
             try
             {
                 repo.Add(item);
                 entity = item;
                 return true;
             }
-            catch { return false; }
+            catch
+            {
+                return false;
+            }
         }
 
         internal void SetEntity(Type entityType)
@@ -169,11 +175,12 @@ namespace AKwin32.forms.management
             }
         }
 
-        bool ValidateInput()
+        private bool ValidateInput()
         {
             bool r = true;
 
-            if (String.IsNullOrEmpty(txt_Name.Text) || String.IsNullOrEmpty(txt_Progress.Text) || String.IsNullOrEmpty(txt_Rating.Text))
+            if (String.IsNullOrEmpty(txt_Name.Text) || String.IsNullOrEmpty(txt_Progress.Text) ||
+                String.IsNullOrEmpty(txt_Rating.Text))
                 r = false;
 
             if (cb_Category.Text == "--" || cb_State.Text == "--")
@@ -183,9 +190,5 @@ namespace AKwin32.forms.management
         }
 
         #endregion
-
-
-
-
     }
 }

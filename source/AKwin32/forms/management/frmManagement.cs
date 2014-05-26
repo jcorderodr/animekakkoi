@@ -1,20 +1,21 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Framework.repo;
-using Framework.io;
-using Framework.entity;
+using AnimeKakkoi.App.Forms;
+using AnimeKakkoi.App.Forms.Management;
+using AnimeKakkoi.App.Helpers;
+using AnimeKakkoi.Framework.Entities;
+using AnimeKakkoi.Framework.IO;
 
-namespace AKwin32.forms.management
+#endregion
+
+namespace AnimeKakkoi.App.forms.management
 {
-    public abstract partial class frmManagement : AKwin32.forms.frmBase
+    public abstract partial class frmManagement : FrmBase
     {
-
         protected List<object> OriginalDataSource;
 
         protected Catalog catalog;
@@ -32,45 +33,45 @@ namespace AKwin32.forms.management
 
         #region GUI Events
 
-        void frmManagement_Load(object sender, EventArgs e)
+        private void frmManagement_Load(object sender, EventArgs e)
         {
-            this.listViewItems.Resize += new System.EventHandler(listViewItems_Resize);
+            this.listViewItems.Resize += listViewItems_Resize;
             foreach (Control ctrl in panel1.Controls)
                 if (ctrl is TextBox || ctrl is ComboBox)
-                    ctrl.Validated += new System.EventHandler(this.guiField_Validated);
+                    ctrl.Validated += this.guiField_Validated;
 
-            if (this.Form_State == FORM_USING_STATE.LOADED)
-                ((IUIManagement)this).setReadOnlyMode();
+            if (this.Form_State == FormUsingState.Loaded)
+                ((IUIManagement) this).setReadOnlyMode();
 
             else
-                ((IUIManagement)this).PrepareDataFromRepo();
+                ((IUIManagement) this).PrepareDataFromRepo();
 
             this.LoadDataToControls();
-            ((IUIManagement)this).LoadDataToControls();
+            ((IUIManagement) this).LoadDataToControls();
 
             DoVisualChanges();
-            ((IUIManagement)this).DoVisualChanges();
-
+            ((IUIManagement) this).DoVisualChanges();
         }
 
 
-        void cbBoxItemType_SelectedValueChanged(object sender, EventArgs e)
+        private void cbBoxItemType_SelectedValueChanged(object sender, EventArgs e)
         {
-
-            Catalog item = (filter_cbBoxItemType.SelectedItem as Catalog);
+            var item = (filter_cbBoxItemType.SelectedItem as Catalog);
             if (item == null || OriginalDataSource == null)
                 return;
 
             if (item.Description == "--")
             {
                 listViewItems.Items.Clear();
-                ((IUIManagement)this).LoadDataToControls();
+                ((IUIManagement) this).LoadDataToControls();
             }
             else
             {
                 listViewItems.Items.Clear();
-                ENTITY_STATE state = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), item.Id);
-                ((IUIManagement)this).FilterData(OriginalDataSource.Where(c => (ENTITY_STATE)c.GetType().GetProperty("State").GetValue(c, null) == state).ToList());
+                var state = (EntityState) Enum.Parse(typeof (EntityState), item.Id);
+                ((IUIManagement) this).FilterData(
+                    OriginalDataSource.Where(
+                        c => (EntityState) c.GetType().GetProperty("State").GetValue(c, null) == state).ToList());
             }
         }
 
@@ -79,7 +80,7 @@ namespace AKwin32.forms.management
             listViewItems_Resize(sender, e);
         }
 
-        void listViewItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void listViewItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (e.Item == null)
             {
@@ -103,7 +104,7 @@ namespace AKwin32.forms.management
 
                     if (p == null) // if P = null, this property must be unique
                     {
-                        ((IUIManagement)this).InheritControlSelection(ctrl, name, item);
+                        ((IUIManagement) this).InheritControlSelection(ctrl, name, item);
                         continue;
                     }
                     if (ctrl is Label) // if lbl is Favorite
@@ -114,13 +115,17 @@ namespace AKwin32.forms.management
                     }
                     if (ctrl is ComboBox)
                     {
-                        List<Catalog> temp = (ctrl as ComboBox).DataSource as List<Catalog>;
-                        (ctrl as ComboBox).Text = temp.FirstOrDefault(c => c.Value == p.GetValue(item, null).ToString()).Description;
+                        var temp = (ctrl as ComboBox).DataSource as List<Catalog>;
+                        (ctrl as ComboBox).Text =
+                            temp.FirstOrDefault(c => c.Value == p.GetValue(item, null).ToString()).Description;
                         continue;
                     }
                     ctrl.Text = p.GetValue(item, null).ToString();
                 }
-                catch { continue; }
+                catch
+                {
+                    continue;
+                }
             }
         }
 
@@ -128,7 +133,7 @@ namespace AKwin32.forms.management
         {
             if (listViewItems.SelectedItems.Count <= 0) return;
 
-            Control ctrl = sender as Control;
+            var ctrl = sender as Control;
 
             if (!ctrl.Name.Contains(CharacterNameSeparator)) return;
 
@@ -141,14 +146,14 @@ namespace AKwin32.forms.management
 
             if (ctrl is ComboBox)
             {
-                if (p.PropertyType == typeof(ENTITY_STATE))
+                if (p.PropertyType == typeof (EntityState))
                 {
-                    ENTITY_STATE s = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), (ctrl as ComboBox).SelectedValue + "");
-                    p.SetValue(entity, (int)s, null);
+                    var s = (EntityState) Enum.Parse(typeof (EntityState), (ctrl as ComboBox).SelectedValue + "");
+                    p.SetValue(entity, (int) s, null);
                 }
                 else //Sends to inherits class for check out.
                 {
-                    ((IUIManagement)this).InheritControlValidation(ctrl, p, entity);
+                    ((IUIManagement) this).InheritControlValidation(ctrl, p, entity);
                 }
             }
             else if (ctrl is Label)
@@ -157,18 +162,21 @@ namespace AKwin32.forms.management
             }
             else if (p == null) // if P = null, this property must be unique
             {
-                ((IUIManagement)this).InheritControlValidation(ctrl, p, entity);
+                ((IUIManagement) this).InheritControlValidation(ctrl, p, entity);
             }
             else
                 p.SetValue(entity, Convert.ChangeType(ctrl.Text, p.PropertyType), null);
 
             item.Tag = entity;
-            item.SubItems[1] = new ListViewItem.ListViewSubItem(item, entity.GetType().GetMethod("ToString").Invoke(entity, null) + "");
+            item.SubItems[1] = new ListViewItem.ListViewSubItem(item,
+                                                                entity.GetType()
+                                                                      .GetMethod("ToString")
+                                                                      .Invoke(entity, null) + "");
             listViewItems.Items[listViewItems.SelectedItems[0].Index] = item;
 
             // save a log
             evt_change += entity.GetType().GetMethod("ToString").Invoke(entity, null);
-            AKwin32.com.util.EventLogger.Write(Configuration.ApplicationLoggerFile, evt_change);
+            EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, evt_change);
         }
 
         private void lblFavorite_Click(object sender, EventArgs e)
@@ -204,11 +212,11 @@ namespace AKwin32.forms.management
         public void DoVisualChanges()
         {
             this.groupBox1.Text = entityType.Name + "s";
-            this.listViewItems.Resize += new EventHandler(this.listViewItems_Resize);
-            this.filter_cbBoxItemType.SelectedValueChanged += new EventHandler(cbBoxItemType_SelectedValueChanged);
+            this.listViewItems.Resize += this.listViewItems_Resize;
+            this.filter_cbBoxItemType.SelectedValueChanged += cbBoxItemType_SelectedValueChanged;
 
             AlternateControlsEnability();
-            txt_ProgressString.Mask = Configuration.ApplicationProgressMask;
+            txt_ProgressString.Mask = AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationProgressMask;
         }
 
         public void LoadDataToControls()
@@ -218,17 +226,28 @@ namespace AKwin32.forms.management
             base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesTypesByLanguage());
         }
 
-        public void PrepareDataFromRepo() { }
+        public void PrepareDataFromRepo()
+        {
+        }
 
-        public void FilterData(List<object> list) { }
+        public void FilterData(List<object> list)
+        {
+        }
 
-        public void setReadOnlyMode() { throw new NotImplementedException(); }
+        public void setReadOnlyMode()
+        {
+            throw new NotImplementedException();
+        }
 
-        public void SaveItemsToRepository() { throw new NotImplementedException(); }
+        public void SaveItemsToRepository()
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
 
-        bool controlEnabled;
+        private bool controlEnabled;
+
         protected void AlternateControlsEnability()
         {
             foreach (Control ctrl in this.panel1.Controls)
@@ -238,7 +257,8 @@ namespace AKwin32.forms.management
             controlEnabled = !controlEnabled;
         }
 
-        bool favoriteIndicator;
+        private bool favoriteIndicator;
+
         protected void AlternateFavoriteControl()
         {
             favoriteIndicator = !favoriteIndicator;
@@ -248,9 +268,9 @@ namespace AKwin32.forms.management
         protected void AlternateFavoriteControl(bool favoriteIndicator)
         {
             if (favoriteIndicator)
-                lbl_Favorite.Image = Properties.Resources.fav_media;
+                lbl_Favorite.Image = AnimeKakkoi.App.Properties.Resources.fav_media;
             else
-                lbl_Favorite.Image = Properties.Resources.fav_no_media;
+                lbl_Favorite.Image = AnimeKakkoi.App.Properties.Resources.fav_no_media;
         }
 
 
@@ -258,16 +278,11 @@ namespace AKwin32.forms.management
         {
             this.entityType = type;
             this.OriginalDataSource = source;
-            this.Form_State = FORM_USING_STATE.LOADED;
-            ((IUIManagement)this).ConvertItemsToDefaultType();
-            ((IUIManagement)this).SaveItemsToRepository(true);
+            this.Form_State = FormUsingState.Loaded;
+            ((IUIManagement) this).ConvertItemsToDefaultType();
+            ((IUIManagement) this).SaveItemsToRepository(true);
         }
 
-
         #endregion
-
-
-
-
     }
 }

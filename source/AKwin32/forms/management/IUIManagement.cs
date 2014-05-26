@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿#region
 
-namespace AKwin32.forms.management
+using System.Collections.Generic;
+
+#endregion
+
+namespace AnimeKakkoi.App.Forms.Management
 {
     /// <summary>
     /// 
     /// </summary>
-    interface IUIManagement
+    internal interface IUIManagement
     {
         /// <summary>
         /// Implements the convert mechanism from the source to the Entity.
@@ -57,8 +58,7 @@ namespace AKwin32.forms.management
         /// </summary>
         void setReadOnlyMode();
 
- 
-        void SaveItemsToRepository(bool newItems);
 
+        void SaveItemsToRepository(bool newItems);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace AKwin32.forms.management
+﻿namespace AnimeKakkoi.App.forms.management
 {
     partial class frmMgmtManga
     {

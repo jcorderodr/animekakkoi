@@ -1,6 +1,6 @@
-﻿namespace AKwin32.forms.maintenance
+﻿namespace AnimeKakkoi.App.Forms.Maintenance
 {
-    partial class frmPreferences
+    partial class FrmPreferences
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPreferences));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPreferences));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -175,7 +175,7 @@
             // btnAccept
             // 
             resources.ApplyResources(this.btnAccept, "btnAccept");
-            this.btnAccept.Image = global::AKwin32.Properties.Resources.button_ok_x16;
+            this.btnAccept.Image = global::AnimeKakkoi.App.Properties.Resources.button_ok_x16;
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
@@ -184,7 +184,7 @@
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::AKwin32.Properties.Resources.button_cancel__x16;
+            this.btnCancel.Image = global::AnimeKakkoi.App.Properties.Resources.button_cancel__x16;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -208,7 +208,7 @@
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "frmPreferences";
+            this.Name = "FrmPreferences";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmPreferences_Load);
             this.tabControl1.ResumeLayout(false);

@@ -1,52 +1,53 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Linq;
-using Framework.entity;
+using System.Windows.Forms;
+using AnimeKakkoi.App.Forms.Management;
+using AnimeKakkoi.App.Helpers;
+using AnimeKakkoi.Framework.Entities;
+using AnimeKakkoi.Framework.IO;
+using AnimeKakkoi.Framework.Repo.xml;
 
-namespace AKwin32.forms.management
+#endregion
+
+namespace AnimeKakkoi.App.forms.management
 {
-    public partial class frmMgmtAnime : AKwin32.forms.management.frmManagement, IUIManagement
+    public partial class frmMgmtAnime : AnimeKakkoi.App.forms.management.frmManagement, IUIManagement
     {
+        private AnimeRepository repo;
 
-        Framework.repo.xml.AnimeRepository repo;
-
-        List<Anime> dataSource;
+        private List<Anime> dataSource;
 
         public frmMgmtAnime()
         {
             InitializeComponent();
             this.Text = "Anime";
-            entityType = typeof(Anime);
-            repo = new Framework.repo.xml.AnimeRepository();
+            entityType = typeof (Anime);
+            repo = new AnimeRepository();
         }
-
 
         #region GUI Events
 
         protected override void btnRemoveItem_Click(object sender, EventArgs e)
         {
             if (listViewItems.SelectedItems.Count < 1) return;
-            Anime anime = listViewItems.SelectedItems[0].Tag as Anime;
+            var anime = listViewItems.SelectedItems[0].Tag as Anime;
             listViewItems.SelectedItems[0].Remove();
             repo.Remove(anime);
 
-            string evt_change = " (-) " + anime.ToString();
-            AKwin32.com.util.EventLogger.Write(Configuration.ApplicationLoggerFile, evt_change);
+            string evt_change = " (-) " + anime;
+            EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, evt_change);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-
             //
             dataSource.Clear();
             foreach (ListViewItem item in listViewItems.Items)
                 dataSource.Add(ObjectToType(item.Tag));
-            ((IUIManagement)this).SaveItemsToRepository(false);
+            ((IUIManagement) this).SaveItemsToRepository(false);
             //
             this.Close();
         }
@@ -58,28 +59,27 @@ namespace AKwin32.forms.management
         void IUIManagement.ConvertItemsToDefaultType()
         {
             this.dataSource = OriginalDataSource.ConvertAll(
-            new Converter<object, Anime>(ObjectToType));
+                ObjectToType);
         }
 
         void IUIManagement.DoVisualChanges()
         {
-            btnRemoveItem.Click += new EventHandler(btnRemoveItem_Click);
-            btnAccept.Click += new EventHandler(btnAccept_Click);
+            btnRemoveItem.Click += btnRemoveItem_Click;
+            btnAccept.Click += btnAccept_Click;
 
-            base.FillComboBoxCatalog(cb_Category, Framework.io.Catalog.GetAnimeCategoriesTypes());
+            base.FillComboBoxCatalog(cb_Category, Catalog.GetAnimeCategoriesTypes());
         }
 
         void IUIManagement.InheritControlSelection(System.Windows.Forms.Control ctrl, string pName, object entity)
         {
-
         }
 
         void IUIManagement.InheritControlValidation(Control ctrl, System.Reflection.PropertyInfo p, object entity)
         {
-            if (p.PropertyType == typeof(ANIME_TYPE))
+            if (p.PropertyType == typeof (ANIME_TYPE))
             {
-                ANIME_TYPE s = (ANIME_TYPE)Enum.Parse(typeof(ANIME_TYPE), ctrl.Text);
-                p.SetValue(entity, (int)s, null);
+                var s = (ANIME_TYPE) Enum.Parse(typeof (ANIME_TYPE), ctrl.Text);
+                p.SetValue(entity, (int) s, null);
             }
         }
 
@@ -88,7 +88,7 @@ namespace AKwin32.forms.management
             ListViewItem item;
             foreach (Anime anime in this.dataSource)
             {
-                item = new ListViewItem(new string[] { anime.Name, anime.ToString() });
+                item = new ListViewItem(new[] {anime.Name, anime.ToString()});
                 item.Tag = anime;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);
@@ -99,7 +99,7 @@ namespace AKwin32.forms.management
         {
             this.dataSource = repo.GetAll().ToList();
             OriginalDataSource = dataSource.ConvertAll(
-            new Converter<Anime, object>(TypeToObject));
+                TypeToObject);
         }
 
         void IUIManagement.FilterData(List<object> list)
@@ -107,7 +107,7 @@ namespace AKwin32.forms.management
             ListViewItem item;
             foreach (Anime anime in list)
             {
-                item = new ListViewItem(new string[] { anime.Name, anime.ToString() });
+                item = new ListViewItem(new[] {anime.Name, anime.ToString()});
                 item.Tag = anime;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);
@@ -128,7 +128,7 @@ namespace AKwin32.forms.management
                 result = repo.Change(dataSource);
 
             base.ShowInformation(this,
-                base.Messages["items_saved"] + String.Format(" ({0})", result));
+                                 base.Messages["items_saved"] + String.Format(" ({0})", result));
         }
 
         #endregion
@@ -137,15 +137,14 @@ namespace AKwin32.forms.management
 
         private Anime ObjectToType(object obj)
         {
-            return (Anime)obj;
+            return (Anime) obj;
         }
 
         private object TypeToObject(Anime item)
         {
-            return (object)item;
+            return item;
         }
 
         #endregion
-
     }
 }

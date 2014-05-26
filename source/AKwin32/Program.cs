@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿#region
+
+using System;
 using System.Windows.Forms;
+using AnimeKakkoi.App.Forms;
+using AnimeKakkoi.App.IO;
+using AnimeKakkoi.Framework.Entities;
+using AnimeKakkoi.Framework.IO;
 
-namespace AKwin32
+#endregion
+
+namespace AnimeKakkoi.App
 {
-    static class Program
+    internal static class Program
     {
+        internal static Framework.IO.Language Language;
 
-        internal static Framework.io.Language Language;
+        private static User _user;
 
-        internal static com.io.AkConfiguration AkConfiguration = new com.io.AkConfiguration();
-
-        private static Framework.entity.User _user;
-        public static Framework.entity.User SystemUser
+        public static User SystemUser
         {
             get { return _user; }
             set
@@ -24,23 +28,21 @@ namespace AKwin32
         }
 
 
-        static forms.FrmMain frmMain;
+        private static FrmMain frmMain;
 
-        //static forms.tools.WaitingBox wBox;
-
-        static bool varsErrorLoading = false;
+        private static bool varsErrorLoading;
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(String[] args)
+        private static void Main(String[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            System.Threading.Thread.CurrentThread.CurrentCulture = AkConfiguration.ApplicationCulture;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = AkConfiguration.ApplicationCulture;
+            System.Threading.Thread.CurrentThread.CurrentCulture = AppAkConfiguration.ApplicationCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = AppAkConfiguration.ApplicationCulture;
 
             CheckIsFirstRunning();
 
@@ -49,7 +51,7 @@ namespace AKwin32
 
             if (args.Length > 0)
             {
-                com.io.CommandLine cmd = new com.io.CommandLine();
+                var cmd = new CommandLine();
                 cmd.SetProperties(frmMain, args);
                 cmd.ExecActions();
             }
@@ -62,29 +64,26 @@ namespace AKwin32
         /// </summary>
         private static void CheckIsFirstRunning()
         {
-            bool isFirst = Properties.Settings.Default.ApplicationFirstRunning;
-            string path = Application.StartupPath + System.IO.Path.DirectorySeparatorChar + "Start.bat";
-            try
-            {
-                if (isFirst)
-                {
-                    System.Diagnostics.Process.Start(path);
-                    Properties.Settings.Default.ApplicationFirstRunning = false;
-                    Properties.Settings.Default.Save();
-                    System.IO.File.Delete(path);
-                }
-            }
-            catch { }
+            //TODO: Implement this mechanism...
 
+            //var isFirstRun = AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationFirstRunning;
+            //var path = Application.StartupPath + System.IO.Path.DirectorySeparatorChar + "Start.bat";
+
+            //if (!isFirstRun) return;
+
+            //System.Diagnostics.Process.Start(path);
+            //Properties.Settings.Default.ApplicationFirstRunning = false;
+            //Properties.Settings.Default.Save();
+            //System.IO.File.Delete(path);
         }
 
         private static void LoadVariables()
         {
             try
             {
-                Language = new Framework.io.Language();
+                Language = new Language();
 
-                varsErrorLoading = !Framework.io.Configuration.TryFileInspection();
+                varsErrorLoading = !Framework.IO.AkConfiguration.TryFileInspection();
             }
             catch (Exception ex)
             {
@@ -99,24 +98,15 @@ namespace AKwin32
             //LoadVariables();
         }
 
-        private static void SplitWords(string text)
-        {
-
-        }
-
         private static void StartUI()
         {
             //wBox = new forms.tools.WaitingBox();
             //wBox.StartUntilStopped(null);
-            frmMain = new forms.FrmMain();
-            frmMain.Configuration = AkConfiguration;
+            frmMain = new FrmMain();
 
             Application.Run(frmMain);
         }
 
-
-        public const String AppTitle = "AnimeKakkoi 0.1.3";
-
-
+        public const String AppTitle = AkConfiguration.APPLICATION_NAME;
     }
 }

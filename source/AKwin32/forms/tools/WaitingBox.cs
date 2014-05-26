@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿#region
+
+using System;
 using System.Windows.Forms;
+using AnimeKakkoi.App.Forms;
 
-namespace AKwin32.forms.tools
+#endregion
+
+namespace AnimeKakkoi.App.forms.tools
 {
-    public partial class WaitingBox : AKwin32.forms.frmBaseToolbox
+    public partial class WaitingBox : FrmBaseToolbox
     {
-
-        System.ComponentModel.BackgroundWorker underThread;
+        private readonly System.ComponentModel.BackgroundWorker underThread;
 
         public WaitingBox()
         {
@@ -19,9 +18,8 @@ namespace AKwin32.forms.tools
             underThread = new System.ComponentModel.BackgroundWorker();
             underThread.WorkerSupportsCancellation = true;
 
-            WaitingBox.CheckForIllegalCrossThreadCalls = false;
-            underThread.DoWork += new System.ComponentModel.DoWorkEventHandler(underThread_DoWork);
-
+            Control.CheckForIllegalCrossThreadCalls = false;
+            underThread.DoWork += underThread_DoWork;
 
             this.TopMost = true;
         }
@@ -33,18 +31,19 @@ namespace AKwin32.forms.tools
         }
 
         private delegate void Starter(object sender, System.ComponentModel.DoWorkEventArgs e);
-        void underThread_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+
+        private void underThread_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             if (this.InvokeRequired)
             {
-                Starter del = new Starter(underThread_DoWork);
-                object[] values = { sender, e };
+                Starter del = underThread_DoWork;
+                object[] values = {sender, e};
                 this.Invoke(del, values);
             }
             else
             {
-                if (e.Argument != null && e.Argument.GetType() == typeof(IWin32Window))
-                    this.ShowDialog((IWin32Window)e.Argument);
+                if (e.Argument != null && e.Argument.GetType() == typeof (IWin32Window))
+                    this.ShowDialog((IWin32Window) e.Argument);
                 else
                     this.ShowDialog();
             }
@@ -85,7 +84,5 @@ namespace AKwin32.forms.tools
             underThread.CancelAsync();
             this.Hide();
         }
-
-
     }
 }

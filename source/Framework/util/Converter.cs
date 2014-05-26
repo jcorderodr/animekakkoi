@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using AnimeKakkoi.Framework.Entities;
 
-namespace Framework.util
+namespace AnimeKakkoi.Framework.util
 {
     /// <summary>
     /// 
@@ -16,9 +15,9 @@ namespace Framework.util
         /// </summary>
         /// <param name="source">List<Object> source</param>
         /// <returns>List<entity.EntitySource></returns>
-        public static List<entity.EntitySource> To(List<Object> source)
+        public static List<EntitySource> To(List<Object> source)
         {
-            return source.ConvertAll(new Converter<object, entity.EntitySource>(ObjectToType));
+            return source.ConvertAll(new Converter<object, EntitySource>(ObjectToType));
         }
 
         /// <summary>
@@ -26,19 +25,19 @@ namespace Framework.util
         /// </summary>
         /// <param name="source">List<entity.EntitySource></param>
         /// <returns>List<Object></returns>
-        public static List<Object> ToObject(List<entity.EntitySource> source)
+        public static List<Object> ToObject(List<EntitySource> source)
         {
-            return source.ConvertAll(new Converter<entity.EntitySource, object>(TypeToObject));
+            return source.ConvertAll(new Converter<EntitySource, object>(TypeToObject));
         }
 
         #region Private Functions
 
-        private static entity.EntitySource ObjectToType(object obj)
+        private static global::AnimeKakkoi.Framework.Entities.EntitySource ObjectToType(object obj)
         {
-            return (entity.EntitySource)obj;
+            return (global::AnimeKakkoi.Framework.Entities.EntitySource)obj;
         }
 
-        private static object TypeToObject(entity.EntitySource item)
+        private static object TypeToObject(global::AnimeKakkoi.Framework.Entities.EntitySource item)
         {
             return (object)item;
         }

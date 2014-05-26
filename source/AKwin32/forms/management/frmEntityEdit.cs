@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿#region
+
+using System;
 using System.Windows.Forms;
-using Framework.repo;
-using Framework.entity;
-using Framework.io;
+using AnimeKakkoi.App.Forms;
+using AnimeKakkoi.App.Forms.Management;
+using AnimeKakkoi.Framework.Entities;
+using AnimeKakkoi.Framework.IO;
+using AnimeKakkoi.Framework.repo;
 
-namespace AKwin32.forms.management
+#endregion
+
+namespace AnimeKakkoi.App.forms.management
 {
-    public partial class frmEntityEdit : AKwin32.forms.frmBaseToolbox
+    public partial class frmEntityEdit : FrmBaseToolbox
     {
+        private object repo;
 
-        object repo;
+        private Type entityType;
+        private object entityContent;
 
-        Type entityType;
-        object entityContent;
-
-        bool favoriteIndicator;
+        private bool favoriteIndicator;
 
         public frmEntityEdit()
         {
@@ -32,11 +32,11 @@ namespace AKwin32.forms.management
         {
             base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesTypesByLanguage());
 
-            if (entityType.Name == typeof(Anime).Name)
+            if (entityType.Name == typeof (Anime).Name)
             {
                 base.FillComboBoxCatalog(cb_Category, Catalog.GetAnimeCategoriesTypes());
             }
-            else if (entityType.Name == typeof(Manga).Name)
+            else if (entityType.Name == typeof (Manga).Name)
             {
                 base.FillComboBoxCatalog(cb_Category, Catalog.GetMangaCategoriesTypes());
             }
@@ -46,7 +46,7 @@ namespace AKwin32.forms.management
 
         private void guiField_Validated(object sender, EventArgs e)
         {
-            Control ctrl = sender as Control;
+            var ctrl = sender as Control;
 
             if (!ctrl.Name.Contains(CharacterNameSeparator + "")) return;
 
@@ -55,14 +55,14 @@ namespace AKwin32.forms.management
 
             if (ctrl is ComboBox)
             {
-                if (p.PropertyType == typeof(ENTITY_STATE))
+                if (p.PropertyType == typeof (EntityState))
                 {
-                    ENTITY_STATE s = (ENTITY_STATE)Enum.Parse(typeof(ENTITY_STATE), ctrl.Text);
-                    p.SetValue(entityContent, (int)s, null);
+                    var s = (EntityState) Enum.Parse(typeof (EntityState), ctrl.Text);
+                    p.SetValue(entityContent, (int) s, null);
                 }
                 else //Sends to inherits class for check out.
                 {
-                    ((IUIManagement)this).InheritControlValidation(ctrl, p, entityContent);
+                    ((IUIManagement) this).InheritControlValidation(ctrl, p, entityContent);
                 }
             }
             else if (ctrl is Label)
@@ -81,33 +81,33 @@ namespace AKwin32.forms.management
                 p.SetValue(entityContent, Convert.ChangeType(ctrl.Text, p.PropertyType), null);
             }
 
-            this.Form_State = FORM_USING_STATE.EDITING;
+            this.Form_State = FormUsingState.Editing;
         }
 
         private void lbl_Favorite_MouseClick(object sender, MouseEventArgs e)
         {
             favoriteIndicator = !favoriteIndicator;
             if (favoriteIndicator)
-                lbl_Favorite.Image = Properties.Resources.fav_media;
+                lbl_Favorite.Image = AnimeKakkoi.App.Properties.Resources.fav_media;
             else
-                lbl_Favorite.Image = Properties.Resources.fav_no_media;
+                lbl_Favorite.Image = AnimeKakkoi.App.Properties.Resources.fav_no_media;
             guiField_Validated(sender, e);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
             string repoNameType = entityContent.GetType().Name;
-            if (entityType.Name == typeof(Anime).Name)
+            if (entityType.Name == typeof (Anime).Name)
             {
-                ((IRepository<Anime>)repo).Change(entityContent as Anime);
+                ((IRepository<Anime>) repo).Change(entityContent as Anime);
             }
-            else if (entityType.Name == typeof(Manga).Name)
+            else if (entityType.Name == typeof (Manga).Name)
             {
-                ((IRepository<Manga>)repo).Change(entityContent as Manga);
+                ((IRepository<Manga>) repo).Change(entityContent as Manga);
             }
-            else if (entityType.Name == typeof(EntitySource).Name)
+            else if (entityType.Name == typeof (EntitySource).Name)
             {
-                ((IRepository<EntitySource>)repo).Change(entityContent as EntitySource);
+                ((IRepository<EntitySource>) repo).Change(entityContent as EntitySource);
             }
             else
             {
@@ -130,14 +130,13 @@ namespace AKwin32.forms.management
         protected void AlternateFavoriteControl(bool favoriteIndicator)
         {
             if (favoriteIndicator)
-                lbl_Favorite.Image = Properties.Resources.fav_media;
+                lbl_Favorite.Image = AnimeKakkoi.App.Properties.Resources.fav_media;
             else
-                lbl_Favorite.Image = Properties.Resources.fav_no_media;
+                lbl_Favorite.Image = AnimeKakkoi.App.Properties.Resources.fav_no_media;
         }
 
         private void LoadItem()
         {
-
             foreach (Control ctrl in this.panel1.Controls)
             {
                 if (!ctrl.Name.Contains(CharacterNameSeparator + "")) continue;
@@ -191,10 +190,6 @@ namespace AKwin32.forms.management
             this.repo = repo;
         }
 
-
         #endregion
-
-
     }
-
 }
