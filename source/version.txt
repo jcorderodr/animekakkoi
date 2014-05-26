@@ -1,0 +1,39 @@
+
+AnimeKakkoi - 0.2.0 Beta
+
+# Junio, 2014
+
+- Cambio de Plataforma
+- Almacenamiento en Sqlite agregado
+
+# Junio 22, 2013
+- Preservación de información al desintalar y/o actualizar.
+- Búsqueda de actualizaciones disponibles.
+- Carga de archivo físico.
+- Agregada funcionalidad para compartir archivo personalizado del aplicativo.
+- Agregado Exportado de Archivo para Compartir (*.akl).
+- Agregado Historial de Acciones del usuario.
+- Agregado Links del Producto [contacto, updates, report].
+- fix Error al iniciar sistema en lenguaje 'EN'.
+- fix menores de Interfaz de Usuario y funcionalidad.
+
+AnimeKakkoi - 0.1.2 Alpha
+
+# Mayo 20, 2013
+- Agregada las opciones para uso de proxy
+- Configuración y corrección de idioma preferido por usuario
+- Agregada función de eliminar usuarios
+- Agregadas configuraciones de estilos de fuentes y colores
+- Agregado formulario de preferencias
+- AGREGADO nueva fuente externa MyAnimeList
+- Revision Idioma Ingles
+- Fixes menores
+
+AnimeKakkoi - version 0.1.000 Alpha -DEV
+
+# May 13, 2013
+-First Release
+-Basics Functions
+-Media Types Anime & Manga
+
+#		End		#

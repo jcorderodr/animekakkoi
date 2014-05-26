@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E077774-536F-4D31-A5CF-F3A29504CA53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnimeKakkoi.Framework</RootNamespace>
+    <AssemblyName>AnimeKakkoi.Framework</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\MS_VS_rules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net20\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Comic.cs" />
+    <Compile Include="Entities\Custom.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\EntitySource.cs" />
+    <Compile Include="Entities\Manga.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="IO\BackUp.cs" />
+    <Compile Include="IO\Catalogo.cs" />
+    <Compile Include="IO\FileProperties.cs" />
+    <Compile Include="IO\Language.cs" />
+    <Compile Include="IO\LanguageExpressions.cs" />
+    <Compile Include="IO\Zipper.cs" />
+    <Compile Include="Media\ISource.cs" />
+    <Compile Include="Media\McAnime.cs" />
+    <Compile Include="Media\MediaResourceException.cs" />
+    <Compile Include="Media\MyAnimeList.cs" />
+    <Compile Include="Media\SourceBase.cs" />
+    <Compile Include="Data\Xml\RepositoryResources.cs" />
+    <Compile Include="Data\Xml\AnimeRepository.cs" />
+    <Compile Include="Data\Xml\GenericRepository.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\Xml\MangaRepository.cs" />
+    <Compile Include="Data\Xml\Repository.cs" />
+    <Compile Include="Entities\Anime.cs" />
+    <Compile Include="IO\AkConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\Xml\UserRepository.cs" />
+    <Compile Include="Util\Converter.cs" />
+    <Compile Include="Util\Expression.cs" />
+    <Compile Include="Util\FileImporter.cs" />
+    <Compile Include="Util\IImporter.cs" />
+    <Compile Include="Util\WebImporter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Sqlite\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Framework.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
