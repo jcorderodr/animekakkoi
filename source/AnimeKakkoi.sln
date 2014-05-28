@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimeKakkoi.Framework", "Fr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimeKakkoi.Core", "AnimeKakkoi.Core\AnimeKakkoi.Core.csproj", "{F9C29E44-89B9-4FBB-8F74-7659916632E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks", "Frameworks", "{4CAC47C7-F124-4645-A4D5-D43BADE04230}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{CF3BD02C-05BE-4D86-93A1-8824A7B2F66B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -73,5 +77,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F9C29E44-89B9-4FBB-8F74-7659916632E4} = {4CAC47C7-F124-4645-A4D5-D43BADE04230}
+		{2E077774-536F-4D31-A5CF-F3A29504CA53} = {4CAC47C7-F124-4645-A4D5-D43BADE04230}
+		{DE5E93FB-E406-43AB-ADFD-CA3FE86E170D} = {CF3BD02C-05BE-4D86-93A1-8824A7B2F66B}
 	EndGlobalSection
 EndGlobal
