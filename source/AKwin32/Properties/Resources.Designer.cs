@@ -382,7 +382,12 @@ namespace AnimeKakkoi.App.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to 
-        ///AnimeKakkoi - 0.1.3 Beta
+        ///AnimeKakkoi - 0.2.0 Beta
+        ///
+        ///# Junio, 2014
+        ///
+        ///- Cambio de Plataforma
+        ///- Almacenamiento en Sqlite agregado
         ///
         ///# Junio 22, 2013
         ///- Preservación de información al desintalar y/o actualizar.
@@ -392,8 +397,7 @@ namespace AnimeKakkoi.App.Properties {
         ///- Agregado Exportado de Archivo para Compartir (*.akl).
         ///- Agregado Historial de Acciones del usuario.
         ///- Agregado Links del Producto [contacto, updates, report].
-        ///- fix Error al iniciar sistema en lenguaje &apos;EN&apos;.
-        ///- fix menores de Interfaz de Usuario y [rest of string was truncated]&quot;;.
+        ///- fix Er [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string version {
             get {

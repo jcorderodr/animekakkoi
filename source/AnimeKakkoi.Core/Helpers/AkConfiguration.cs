@@ -59,23 +59,6 @@ namespace AnimeKakkoi.Core.IO
             };
         }
 
-        public static System.Net.IWebProxy GetProxy()
-        {
-            //TODO: Implement
-            /*
-            var proxy_host = GetSetting("proxy_host");
-            var proxy = new System.Net.WebProxy(proxy_host);
-
-            var proxy_credentials = GetSetting("proxy_credentials").Split(',');
-            var credentials = new System.Net.NetworkCredential(proxy_credentials[0], proxy_credentials[1]);
-            if (proxy_credentials.Length > 2 && String.IsNullOrEmpty(proxy_credentials[2])) credentials.Domain = proxy_credentials[2];
-            proxy.Credentials = credentials;
-
-            return proxy;
-             * */
-            return null;
-        }
-
         public static bool IsUsingProxy()
         {
             var value = GetSetting("useProxy");
@@ -90,31 +73,6 @@ namespace AnimeKakkoi.Core.IO
         public static void SaveSetting(string key, string value)
         {
             //TODO: Implement
-        }
-
-        /// <exception cref="InvalidCastException"></exception>
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="proxy"></param>
-        public static void SetProxy(System.Net.IWebProxy proxy, string host)
-        {
-            System.Net.NetworkCredential credentials;
-            
-            try
-            {
-                credentials = proxy.Credentials as System.Net.NetworkCredential;
-                var proxyCredentials = String.Format("{0},{1},{2}", credentials.UserName, credentials.Password, credentials.Domain);
-                var proxyHost = host;
-
-                SaveSetting("proxy_credentials", proxyCredentials);
-                SaveSetting("proxy_host", proxyHost);
-            }
-            catch (InvalidCastException ex)
-            {
-                throw ex;
-            }
-
         }
 
         /// <summary>
