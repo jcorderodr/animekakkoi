@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace AnimeKakkoi.Framework.Entities
+namespace AnimeKakkoi.Core.Entities
 {
     public class Comic : EntitySource
     {
 
-        public COMIC_TYPE Category { get; set; }
+        public ComicType Category { get; set; }
 
         /// <summary>
         /// Gets or sets the values that represents the progress.
@@ -15,16 +15,14 @@ namespace AnimeKakkoi.Framework.Entities
             get { return Episodes; } 
             set { Episodes = value; }
         }
-
-     
         
     }
 
 
-    public enum COMIC_TYPE
+    public enum ComicType
     {
-        COMIC = 1,
-        GRAPHIC_NOVEL = 3
+        Comic = 1,
+        GraphicNovel = 3
     }
 
 }
