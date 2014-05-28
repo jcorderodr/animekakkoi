@@ -45,12 +45,14 @@ namespace AnimeKakkoi.Core.IO
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns>The file's content.</returns>
-        public async static Task<String> OpenStream(String fileName)
+        public static Task<string> OpenStream(String fileName)
         {
             var file = FileSystem.Current.GetFileFromPathAsync(fileName);
-            
+
             if (file != null)
-                return await file.Result.ReadAllTextAsync();
+            {
+                return file.Result.ReadAllTextAsync();
+            }
 
             return null;
         }

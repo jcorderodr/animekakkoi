@@ -84,6 +84,7 @@ namespace AnimeKakkoi.App
                 Language = new Language();
 
                 varsErrorLoading = !Framework.IO.AkConfiguration.TryFileInspection();
+                varsErrorLoading = !Core.IO.AkConfiguration.TryFileInspection();
             }
             catch (Exception ex)
             {
