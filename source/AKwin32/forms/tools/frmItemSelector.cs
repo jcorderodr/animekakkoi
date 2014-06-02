@@ -1,20 +1,18 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using AnimeKakkoi.App.Forms;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.Repo.xml;
+using AnimeKakkoi.Core.Data;
+using AnimeKakkoi.Core.Data.Json;
+using AnimeKakkoi.Core.Entities;
 
-#endregion
 
-namespace AnimeKakkoi.App.forms.tools
+namespace AnimeKakkoi.App.Forms.tools
 {
-    public partial class frmItemSelector : FrmBaseToolbox
+    public partial class frmItemSelector : BaseToolbox
     {
-        private AnimeRepository animeRepo;
-        private MangaRepository mangaRepo;
+        private IAnimeRepository animeRepo;
+        private IMangaRepository mangaRepo;
 
         private List<object> _userSelection;
 

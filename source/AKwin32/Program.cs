@@ -1,36 +1,23 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Windows.Forms;
-using AnimeKakkoi.App.Forms;
-using AnimeKakkoi.App.IO;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.IO;
-
-#endregion
+using AnimeKakkoi.Core.IO;
+using AnimeKakkoi.Core.Lang;
 
 namespace AnimeKakkoi.App
 {
     internal static class Program
     {
-        internal static Framework.IO.Language Language;
 
-        private static User _user;
+        internal static Language Language;
 
-        public static User SystemUser
+        private static Forms.FrmMain _frmMain;
+
+        private static bool _hasErrorLoading;
+
+        public static String SystemUser
         {
-            get { return _user; }
-            set
-            {
-                _user = value;
-                frmMain.OnPropertiesChange();
-            }
+            get { return Environment.UserName; }
         }
-
-
-        private static FrmMain frmMain;
-
-        private static bool varsErrorLoading;
 
         /// <summary>
         /// The main entry point for the application.
@@ -41,22 +28,24 @@ namespace AnimeKakkoi.App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            System.Threading.Thread.CurrentThread.CurrentCulture = AppAkConfiguration.ApplicationCulture;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = AppAkConfiguration.ApplicationCulture;
-
             CheckIsFirstRunning();
 
             LoadVariables();
-            if (varsErrorLoading) return;
+            if (_hasErrorLoading)
+            {
+                Helpers.MessageHandler.ShowError("App cannot start.");
+                return;
+            }
 
+            /*
             if (args.Length > 0)
             {
                 var cmd = new CommandLine();
                 cmd.SetProperties(frmMain, args);
                 cmd.ExecActions();
-            }
+            }*/
 
-            StartUI();
+            StartUi();
         }
 
         /// <summary>
@@ -81,33 +70,33 @@ namespace AnimeKakkoi.App
         {
             try
             {
-                Language = new Language();
+                _hasErrorLoading = !AkConfiguration.TryFileInspection();
 
-                varsErrorLoading = !Framework.IO.AkConfiguration.TryFileInspection();
-                varsErrorLoading = !Core.IO.AkConfiguration.TryFileInspection();
+                var userDefaultCulture = AkConfiguration.ApplicationDefaultCulture;
+                System.Threading.Thread.CurrentThread.CurrentCulture = userDefaultCulture;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = userDefaultCulture;
+
+                Language = new Language(userDefaultCulture);
             }
             catch (Exception ex)
             {
-                varsErrorLoading = true;
-                MessageBox.Show("Error loading configuration, system or app files: " + ex.Message, AppTitle);
+                _hasErrorLoading = true;
+                MessageBox.Show("Error loading configuration, system or app files: " + ex.Message, APP_TITLE);
             }
         }
 
         public static void RestartApp()
         {
             Application.Restart();
-            //LoadVariables();
         }
 
-        private static void StartUI()
+        private static void StartUi()
         {
-            //wBox = new forms.tools.WaitingBox();
-            //wBox.StartUntilStopped(null);
-            frmMain = new FrmMain();
-
-            Application.Run(frmMain);
+            _frmMain = new Forms.FrmMain();
+            Application.Run(_frmMain);
         }
 
-        public const String AppTitle = AkConfiguration.APPLICATION_NAME;
+        public const String APP_TITLE = AkConfiguration.APPLICATION_NAME;
+
     }
 }

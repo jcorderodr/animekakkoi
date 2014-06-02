@@ -1,35 +1,32 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using AnimeKakkoi.App.Forms;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.IO;
-using AnimeKakkoi.Framework.util;
+using AnimeKakkoi.Core.Entities;
+using AnimeKakkoi.Core.IO;
+using AnimeKakkoi.Core.Lang;
 
-#endregion
 
-namespace AnimeKakkoi.App.forms.tools
+namespace AnimeKakkoi.App.Forms.tools
 {
-    public partial class frmExporter : FrmBaseToolbox
+    public partial class FrmExporter : BaseToolbox
     {
-        private List<object> elements;
+        private List<object> _elements;
 
-        public frmExporter()
+        public FrmExporter()
         {
             InitializeComponent();
 
-            elements = new List<object>();
+            _elements = new List<object>();
         }
 
         private void frmExporter_Load(object sender, EventArgs e)
         {
-            saveFileDialog.Title = Program.AppTitle;
-            saveFileDialog.Filter = FileProperties.AppSharingFileFilterName;
+            saveFileDialog.Title = Program.APP_TITLE;
+            //saveFileDialog.Filter = FileProperties.AppSharingFileFilterName;
 
-            List<Catalog> cbValues = Catalog.GetEntitiesTypesByLanguage();
+            List<Catalog> cbValues = Catalog.GetEntitiesValidTypes();
 
             int id = Convert.ToInt32(cbValues.LastOrDefault().Id) + 1;
             cbValues.Add(new Catalog {Id = id + "", Description = "by own"});
@@ -44,7 +41,7 @@ namespace AnimeKakkoi.App.forms.tools
 
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                elements = frm.UserSelection;
+                _elements = frm.UserSelection;
                 Analize();
             }
         }
@@ -69,7 +66,7 @@ namespace AnimeKakkoi.App.forms.tools
 
         private void Analize()
         {
-            lblItemsSelected.Text = elements.Count + "";
+            lblItemsSelected.Text = _elements.Count + "";
         }
 
         public void SetProperties(string title)
@@ -82,16 +79,16 @@ namespace AnimeKakkoi.App.forms.tools
             var state = cb_OptionOutputState.SelectedItem as Catalog;
 
             FileManager mgr;
-            mgr = new FileManager(saveFileDialog.FileName);
-            try
-            {
-                mgr.ElementState = (EntityState) Enum.Parse(typeof (EntityState), state.Value);
-            }
-            catch
-            {
-            }
-            mgr.Elements = elements;
-            mgr.Save();
+            //mgr = new FileManager(saveFileDialog.FileName);
+            //try
+            //{
+            //    mgr.ElementState = (EntityState) Enum.Parse(typeof (EntityState), state.Value);
+            //}
+            //catch
+            //{
+            //}
+            //mgr.Elements = elements;
+            //mgr.Save();
             this.progressBar.Value = 100;
 
             return true;

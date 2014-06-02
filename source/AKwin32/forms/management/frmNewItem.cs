@@ -1,37 +1,33 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Windows.Forms;
 using AnimeKakkoi.App.Forms;
 using AnimeKakkoi.App.Forms.Management;
 using AnimeKakkoi.App.Helpers;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.IO;
-using AnimeKakkoi.Framework.Repo.xml;
-using AnimeKakkoi.Framework.util;
+using AnimeKakkoi.Core.Data.Json;
+using AnimeKakkoi.Core.Entities;
+using AnimeKakkoi.Core.Helpers;
 
-#endregion
-
-namespace AnimeKakkoi.App.forms.management
+namespace AnimeKakkoi.App.Forms.Management
 {
-    public partial class frmNewItem : FrmBaseToolbox, INewItem
+    public partial class FrmNewItem : BaseToolbox, INewItem
     {
-        private object entity;
-        private Type entityType;
+        
+        private object _entity;
+        private Type _entityType;
 
-        private Catalog catalog;
+        private Catalog _catalog;
 
-        public frmNewItem()
+        public FrmNewItem()
         {
             InitializeComponent();
-            catalog = new Catalog();
+            _catalog = new Catalog();
         }
 
         #region GUI Events
 
         private void frmNewItem_Load(object sender, EventArgs e)
         {
-            if (entityType == null)
+            if (_entityType == null)
             {
                 base.ShowError(this, base.Errors["entity_missed"]);
                 this.Close();
@@ -46,7 +42,7 @@ namespace AnimeKakkoi.App.forms.management
 
         private void txt_Rating_Validated(object sender, EventArgs e)
         {
-            txt_Rating.Text = Expression.GetOnlyNumbers(txt_Rating.Text) + "";
+            txt_Rating.Text = StringHelper.GetOnlyNumbers(txt_Rating.Text) + "";
             if (Convert.ToInt32(txt_Rating.Text) > 10)
                 txt_Rating.Focus();
         }
@@ -56,7 +52,7 @@ namespace AnimeKakkoi.App.forms.management
             if (ValidateInput())
                 if (((INewItem) this).ToRegisterItem())
                 {
-                    string evt_change = " (+) " + entity.GetType().GetMethod("ToString").Invoke(entity, null);
+                    string evt_change = " (+) " + _entity.GetType().GetMethod("ToString").Invoke(_entity, null);
                     EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, evt_change);
                     //
                     base.ShowInformation(this, base.Messages["item_affected"]);
@@ -80,7 +76,7 @@ namespace AnimeKakkoi.App.forms.management
 
         void INewItem.DoVisualChanges()
         {
-            cb_State.DataSource = Catalog.GetEntitiesTypesByLanguage();
+            cb_State.DataSource = Catalog.GetEntitiesValidTypes();
             cb_State.ValueMember = "Id";
             cb_State.DisplayMember = "Description";
 
@@ -93,18 +89,18 @@ namespace AnimeKakkoi.App.forms.management
             item.Name = txt_Name.Text;
             item.Favorite = chkBox_Favorite.Checked;
 
-            item.Category = (ANIME_TYPE) Enum.Parse(typeof (ANIME_TYPE), cb_Category.SelectedValue + "");
+            item.Category = (AnimeType)Enum.Parse(typeof(AnimeType), cb_Category.SelectedValue + "");
             item.State = (EntityState) Enum.Parse(typeof (EntityState), cb_State.SelectedValue + "");
 
             item.Comment = txt_Comment.Text;
-            item.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
-            item.ProgressString = Expression.StringIfNull(txt_Progress.Text, "0/0");
+            item.Rating = StringHelper.IfIntegerNull(txt_Rating.Text, 0);
+            item.ProgressString = StringHelper.StringIfNull(txt_Progress.Text, "0/0");
 
             var repo = new AnimeRepository();
             try
             {
                 repo.Add(item);
-                entity = item;
+                _entity = item;
                 return true;
             }
             catch
@@ -119,20 +115,19 @@ namespace AnimeKakkoi.App.forms.management
             item.Name = txt_Name.Text;
             item.Favorite = chkBox_Favorite.Checked;
 
-            item.Category = (MANGA_TYPE) Enum.Parse(typeof (MANGA_TYPE), cb_Category.SelectedValue + "");
+            item.Category = (MangaType)Enum.Parse(typeof(MangaType), cb_Category.SelectedValue + "");
             item.State = (EntityState) Enum.Parse(typeof (EntityState), cb_State.SelectedValue + "");
 
             item.Comment = txt_Comment.Text;
-            item.Rating = Expression.IfIntegerNull(txt_Rating.Text, 0);
+            item.Rating = StringHelper.IfIntegerNull(txt_Rating.Text, 0);
             //if doesnt cotains '/' it ends 01/?, otherwise x/y
             item.ProgressString = txt_Progress.Text;
 
-            MangaRepository repo;
-            repo = new MangaRepository();
+            MangaRepository repo = new MangaRepository();
             try
             {
                 repo.Add(item);
-                entity = item;
+                _entity = item;
                 return true;
             }
             catch
@@ -143,7 +138,7 @@ namespace AnimeKakkoi.App.forms.management
 
         internal void SetEntity(Type entityType)
         {
-            this.entityType = entityType;
+            this._entityType = entityType;
 
             switch (entityType.Name)
             {
@@ -164,7 +159,7 @@ namespace AnimeKakkoi.App.forms.management
 
         bool INewItem.ToRegisterItem()
         {
-            switch (entityType.Name)
+            switch (_entityType.Name)
             {
                 case "Anime":
                     return isAnimeType();

@@ -706,7 +706,7 @@
     <value>6, 13</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmNewItem</value>
+    <value>FrmNewItem</value>
   </data>
   <data name="btnAccept.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>

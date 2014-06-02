@@ -10,7 +10,7 @@ namespace AnimeKakkoi.App.IO
     /// <summary>
     /// 
     /// </summary>
-    public sealed class AppAkConfiguration : Framework.IO.AkConfiguration
+    public sealed class AppAkConfiguration : Core.IO.AkConfiguration
     {
         #region Application
 

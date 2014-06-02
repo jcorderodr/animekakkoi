@@ -1,34 +1,29 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using AnimeKakkoi.App.Forms;
-using AnimeKakkoi.App.Forms.Management;
 using AnimeKakkoi.App.Helpers;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.IO;
+using AnimeKakkoi.Core.Entities;
 
-#endregion
 
-namespace AnimeKakkoi.App.forms.management
+namespace AnimeKakkoi.App.Forms.Management
 {
-    public abstract partial class frmManagement : FrmBase
+    public abstract partial class FrmManagement : Base
     {
-        protected List<object> OriginalDataSource;
 
-        protected Catalog catalog;
+        protected IEnumerable<object> OriginalDataSource;
 
-        protected Type entityType;
+        protected Catalog Catalog;
 
-        public frmManagement()
+        protected Type EntityType;
+
+        protected FrmManagement()
         {
             if (!(this is IUIManagement))
-                throw new NotImplementedException("The Inherit class must implements IUIManagement interface.");
+                throw new NotImplementedException("The Inherit class must implement IUIManagement interface.");
 
             InitializeComponent();
-            catalog = new Catalog();
+            Catalog = new Catalog();
         }
 
         #region GUI Events
@@ -88,7 +83,7 @@ namespace AnimeKakkoi.App.forms.management
                 return;
             }
 
-            if (listViewItems.SelectedItems.Count > 0) controlEnabled = true;
+            if (listViewItems.SelectedItems.Count > 0) _controlEnabled = true;
             AlternateControlsEnability();
 
             object item = e.Item.Tag;
@@ -109,8 +104,8 @@ namespace AnimeKakkoi.App.forms.management
                     }
                     if (ctrl is Label) // if lbl is Favorite
                     {
-                        favoriteIndicator = bool.Parse(p.GetValue(item, null).ToString());
-                        AlternateFavoriteControl(favoriteIndicator);
+                        _favoriteIndicator = bool.Parse(p.GetValue(item, null).ToString());
+                        AlternateFavoriteControl(_favoriteIndicator);
                         continue;
                     }
                     if (ctrl is ComboBox)
@@ -158,7 +153,7 @@ namespace AnimeKakkoi.App.forms.management
             }
             else if (ctrl is Label)
             {
-                p.SetValue(entity, Convert.ChangeType(favoriteIndicator, p.PropertyType), null);
+                p.SetValue(entity, Convert.ChangeType(_favoriteIndicator, p.PropertyType), null);
             }
             else if (p == null) // if P = null, this property must be unique
             {
@@ -211,19 +206,19 @@ namespace AnimeKakkoi.App.forms.management
 
         public void DoVisualChanges()
         {
-            this.groupBox1.Text = entityType.Name + "s";
+            this.groupBox1.Text = EntityType.Name + "s";
             this.listViewItems.Resize += this.listViewItems_Resize;
             this.filter_cbBoxItemType.SelectedValueChanged += cbBoxItemType_SelectedValueChanged;
 
             AlternateControlsEnability();
-            txt_ProgressString.Mask = AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationProgressMask;
+            txt_ProgressString.Mask = IO.AppAkConfiguration.ApplicationProgressMask;
         }
 
         public void LoadDataToControls()
         {
-            base.FillComboBoxCatalog(filter_cbBoxItemType, Catalog.GetEntitiesTypesByLanguage());
+            base.FillComboBoxCatalog(filter_cbBoxItemType, Catalog.GetEntitiesValidTypes());
 
-            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesTypesByLanguage());
+            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesStateTypes());
         }
 
         public void PrepareDataFromRepo()
@@ -234,7 +229,7 @@ namespace AnimeKakkoi.App.forms.management
         {
         }
 
-        public void setReadOnlyMode()
+        public void SetReadOnlyMode()
         {
             throw new NotImplementedException();
         }
@@ -246,37 +241,34 @@ namespace AnimeKakkoi.App.forms.management
 
         #endregion
 
-        private bool controlEnabled;
+        private bool _controlEnabled;
 
         protected void AlternateControlsEnability()
         {
             foreach (Control ctrl in this.panel1.Controls)
             {
-                ctrl.Enabled = controlEnabled;
+                ctrl.Enabled = _controlEnabled;
             }
-            controlEnabled = !controlEnabled;
+            _controlEnabled = !_controlEnabled;
         }
 
-        private bool favoriteIndicator;
+        private bool _favoriteIndicator;
 
         protected void AlternateFavoriteControl()
         {
-            favoriteIndicator = !favoriteIndicator;
-            AlternateFavoriteControl(favoriteIndicator);
+            _favoriteIndicator = !_favoriteIndicator;
+            AlternateFavoriteControl(_favoriteIndicator);
         }
 
         protected void AlternateFavoriteControl(bool favoriteIndicator)
         {
-            if (favoriteIndicator)
-                lbl_Favorite.Image = AnimeKakkoi.App.Properties.Resources.fav_media;
-            else
-                lbl_Favorite.Image = AnimeKakkoi.App.Properties.Resources.fav_no_media;
+            lbl_Favorite.Image = favoriteIndicator ? Properties.Resources.fav_media : Properties.Resources.fav_no_media;
         }
 
 
-        internal void SetItemsList(List<object> source, Type type)
+        internal void SetItemsList(IEnumerable<object> source, Type type)
         {
-            this.entityType = type;
+            this.EntityType = type;
             this.OriginalDataSource = source;
             this.Form_State = FormUsingState.Loaded;
             ((IUIManagement) this).ConvertItemsToDefaultType();

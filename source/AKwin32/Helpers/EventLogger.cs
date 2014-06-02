@@ -1,10 +1,7 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Diagnostics;
-using AnimeKakkoi.Framework.IO;
+using AnimeKakkoi.Core.IO;
 
-#endregion
 
 namespace AnimeKakkoi.App.Helpers
 {
@@ -22,6 +19,15 @@ namespace AnimeKakkoi.App.Helpers
             catch
             {
             }
+        }
+        public static void Write(string text)
+        {
+
+            System.IO.File.AppendAllText(IO.AppAkConfiguration.ApplicationLoggerFile,
+                                         String.Format("{1:dd/mm/yyyy hh:mm} # {0}{2}", text,
+                                                       DateTimeOffset.Now.DateTime,
+                                                       Environment.NewLine));
+
         }
 
 

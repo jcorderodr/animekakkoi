@@ -6,13 +6,15 @@ using System;
 
 namespace AnimeKakkoi.App.Net
 {
+
     /// <summary>
     /// 
-    /// @version 1.0
     /// </summary>
     public class Update
     {
+
         public bool IsNewVersion { get; set; }
+
         public Version Version { get; set; }
 
         public static Update CheckForUpdate(string metaUrl)

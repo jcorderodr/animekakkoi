@@ -1,6 +1,6 @@
 ﻿namespace AnimeKakkoi.App.Forms.tools
 {
-    partial class frmBackUp
+    partial class FrmBackUp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBackUp));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBackUp));
             this.btnExport = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -102,7 +102,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnExport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "frmBackUp";
+            this.Name = "FrmBackUp";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmBackUp_Load);
             this.panel1.ResumeLayout(false);

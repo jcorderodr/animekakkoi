@@ -12,7 +12,11 @@ namespace AnimeKakkoi.Core.Media
         public readonly String FORM_SEARCH_EXPRESSION = "//div[@id=\"list_surround\"]//table";
         public readonly String HEADER_SEARCH_EXPRESSION = "//div[@id=\"list_surround\"]//table[1]//a";
         public readonly String ELEMENTS_SEARCH_EXPRESSION = "//a[@class=\"animetitle\"]";
-
+        
+        public IEnumerable<object> ResultedItems
+        {
+            get { return Items; }
+        }
 
         public MyAnimeList()
         {
@@ -120,7 +124,6 @@ namespace AnimeKakkoi.Core.Media
                 }
             }
         }
-
-
+        
     }
 }

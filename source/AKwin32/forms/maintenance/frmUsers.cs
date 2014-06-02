@@ -1,17 +1,13 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.Repo.xml;
+using AnimeKakkoi.Core.Entities;
 
-#endregion
 
 namespace AnimeKakkoi.App.Forms.Maintenance
 {
-    public partial class frmUsers : FrmBaseToolbox
+    public partial class frmUsers : BaseToolbox
     {
         public User SelectedUser { get; set; }
 
@@ -83,7 +79,6 @@ namespace AnimeKakkoi.App.Forms.Maintenance
         {
             if (isValid())
             {
-                Program.SystemUser = cboxUsers.SelectedItem as User;
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
             else
@@ -94,7 +89,7 @@ namespace AnimeKakkoi.App.Forms.Maintenance
         {
             var frmReq = new AnimeKakkoi.App.forms.tools.frmInputRequest();
             frmReq.SetUIProperties(base.Messages["new_user"], base.Messages["new_user_request"],
-                                   !(Program.SystemUser == null));
+                                   Program.SystemUser != null);
             if (frmReq.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 var user = new User {Name = frmReq.UserInput};

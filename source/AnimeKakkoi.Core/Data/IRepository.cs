@@ -9,9 +9,13 @@ namespace AnimeKakkoi.Core.Data
 
         T Add(T item);
 
-        int AddRange(IList<T> items);
+        int AddRange(IEnumerable<T> items);
 
         void Change(T item);
+
+        int Change(IEnumerable<T> items);
+
+        IEnumerable<T> LookUp(String nameCriteria);
 
         void Remove(T item);
 

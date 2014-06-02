@@ -14,17 +14,8 @@ namespace AnimeKakkoi.Core.Media
 
         public List<object> Items { get; set; }
 
-        public void Dispose()
+        protected SourceBase()
         {
-            this.Items = null;
-            StateCategories.Clear();
-            AnimeTypesCategories.Clear();
-            MangaTypeCategories.Clear();
-        }
-
-        public SourceBase()
-        {
-
             /*
              * Categories & Labels
              * TODO: Make this configurable and not 100% programming.
@@ -72,22 +63,35 @@ namespace AnimeKakkoi.Core.Media
             /*
              * TypeAnimeCategories Dictionary<string, <media_type>_TYPE>
              */
-            AnimeTypesCategories = new Dictionary<string, AnimeType>();
-            AnimeTypesCategories.Add("Serie", AnimeType.Serie);
-            AnimeTypesCategories.Add("TV", AnimeType.Serie);
-            AnimeTypesCategories.Add("OVA", AnimeType.Ova);
-            AnimeTypesCategories.Add("Pelicula", AnimeType.Movie);
-            AnimeTypesCategories.Add("Movie", AnimeType.Movie);
-            AnimeTypesCategories.Add("Especial", AnimeType.Special);
-            AnimeTypesCategories.Add("Special", AnimeType.Special);
-            AnimeTypesCategories.Add("Web", AnimeType.Web);
-            AnimeTypesCategories.Add("ONA", AnimeType.Web);
+            AnimeTypesCategories = new Dictionary<string, AnimeType>
+                {
+                    {"Serie", AnimeType.Serie},
+                    {"TV", AnimeType.Serie},
+                    {"OVA", AnimeType.Ova},
+                    {"Pelicula", AnimeType.Movie},
+                    {"Movie", AnimeType.Movie},
+                    {"Especial", AnimeType.Special},
+                    {"Special", AnimeType.Special},
+                    {"Web", AnimeType.Web},
+                    {"ONA", AnimeType.Web}
+                };
             // - Manga Below
-            MangaTypeCategories = new Dictionary<string, MangaType>();
-            MangaTypeCategories.Add("Manga", MangaType.Manga);
-            MangaTypeCategories.Add("Manhwa", MangaType.Manhwa);
+            MangaTypeCategories = new Dictionary<string, MangaType>
+                {
+                    {"Manga", MangaType.Manga},
+                    {"Manhwa", MangaType.Manhwa},
+                    {"Novela", MangaType.Novel},
+                    {"one-shot", MangaType.OneShot}
+                };
         }
 
+        public void Dispose()
+        {
+            this.Items = null;
+            StateCategories.Clear();
+            AnimeTypesCategories.Clear();
+            MangaTypeCategories.Clear();
+        }
 
     }
 }

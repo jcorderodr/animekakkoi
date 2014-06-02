@@ -1,0 +1,25 @@
+{
+	"ApplicationFirstRunning" : "False",
+
+	"ApplicationCulture" : "es-ES",
+	"entities_types" : "Anime, Manga, Comic",
+	"entities" : "Anime,Manga",
+	"custom_entities" : "xxx",
+
+	"ApplicationProductUrl" : "https://bitbucket.org/jcordero/animekakkoi",
+	"ApplicationMetadataUrl" : "https://bitbucket.org/jcordero/animekakkoi",
+	"ApplicationBugReport" : "https://bitbucket.org/jcordero/animekakkoi",
+
+	"UserfrmBackGroundColor" : "255, 255, 192",
+	"UserUiFontsColor" : "DimGray",
+
+	"UserUiControlsFontsStyle" : "Arial Narrow, 9pt, style=Bold",
+	"UserUiFontsStyles" : "Comic Sans MS, 9pt, style=Bold",
+
+	"UserInstantSearch" : "False",
+	"ApplicationEntityProgressMask" : "990/99#",
+
+	"anime_categories" : "SERIE,OVA,MOVIE,SPECIAL,WEB",
+	"manga_categories" : "MANGA,MANHWA",
+
+}

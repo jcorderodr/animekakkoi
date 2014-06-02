@@ -12,7 +12,7 @@ namespace AnimeKakkoi.Core.Data.Json
 
         protected ICollection<T> RepositoryContent;
 
-        public Repository(ICollection<T> repositoryContent = null)
+        protected Repository(ICollection<T> repositoryContent = null)
         {
             RepositoryContent = repositoryContent ?? new Collection<T>();
         }
@@ -21,8 +21,8 @@ namespace AnimeKakkoi.Core.Data.Json
         {
             throw new NotImplementedException();
         }
-
-        public int AddRange(IList<T> items)
+        
+        public int AddRange(IEnumerable<T> items)
         {
             throw new NotImplementedException();
         }
@@ -30,6 +30,16 @@ namespace AnimeKakkoi.Core.Data.Json
         public void Change(T item)
         {
             throw new NotImplementedException();
+        }
+
+        public int Change(IEnumerable<T> items)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<T> LookUp(String nameCriteria)
+        {
+            return RepositoryContent.Where(p => p.ToString().Contains(nameCriteria));
         }
 
         public void Remove(T item)
@@ -53,6 +63,7 @@ namespace AnimeKakkoi.Core.Data.Json
         }
 
         protected abstract void SaveChanges();
+
 
     }
 

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using AnimeKakkoi.Core.Entities;
 using AnimeKakkoi.Core.Helpers;
 using AnimeKakkoi.Core.Util;
 using HtmlAgilityPack;
 
 namespace AnimeKakkoi.Core.Media
 {
-   
+
     public class McAnime : SourceBase, ISource
     {
 
@@ -32,13 +33,17 @@ namespace AnimeKakkoi.Core.Media
         public readonly String MangaKronosHeaderSearchExpression = "//h3";
         public readonly String MangaKronosElementsSearchExpression = "//div[contains(@class, 'series-row')]";
 
+        public IEnumerable<object> ResultedItems
+        {
+            get { return Items; }
+            private set { }
+        }
 
         #endregion
 
         public McAnime()
         {
             Items = new List<object>();
-
         }
 
         /// <exception cref="System.ArgumentException">When the web content hasen't the correct data.</exception>
@@ -68,24 +73,24 @@ namespace AnimeKakkoi.Core.Media
 
                 foreach (HtmlNode item in tag_ul)
                 {
-                    Entities.Anime temp = new Entities.Anime();
+                    var entity = new Entities.Anime();
 
-                    temp.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//a", "");
-                    temp.State = state;
-                    temp.Comment = "";
+                    entity.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//a", "");
+                    entity.State = state;
+                    entity.Comment = "";
 
                     aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//i", "Serie");
                     aux = aux.Replace("(", "").Replace(")", ""); ;
-                    temp.Category = this.AnimeTypesCategories[aux];
+                    entity.Category = this.AnimeTypesCategories[aux];
 
                     aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//li[@class=\"current_rating\"]", "0/0");
-                    temp.Rating = StringHelper.GetOnlyNumbers(aux);
+                    entity.Rating = StringHelper.GetOnlyNumbers(aux);
 
                     if (HNodeHelper.AnalizeNodeHtmlValue(item, item.XPath + "//li[@class=\"favorite\"]", "").Contains("fav"))
-                        temp.Favorite = true;
+                        entity.Favorite = true;
 
 
-                    this.Items.Add(temp);
+                    this.Items.Add(entity);
                 }
             }
         }
@@ -113,27 +118,27 @@ namespace AnimeKakkoi.Core.Media
 
                 foreach (HtmlNode item in tagUl)
                 {
-                    Entities.Manga temp = new Entities.Manga();
+                    var entity = new Entities.Manga();
 
-                    temp.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//a", "");
-                    temp.State = state;
+                    entity.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//a", "");
+                    entity.State = state;
 
                     // MCAnime v1 doesn't give the progress
-                    temp.Chapters = new string[] { "-", "-" };
+                    entity.Chapters = new string[] { "-", "-" };
 
                     aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//i", "Serie");
                     aux = aux.Replace("(", "").Replace(")", ""); ;
-                    temp.Category = this.MangaTypeCategories[StringHelper.ToCapCase(aux)];
+                    entity.Category = this.MangaTypeCategories[StringHelper.ToCapCase(aux)];
 
                     aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//li[@class=\"current_rating\"]", "0/0");
-                    temp.Rating = StringHelper.GetOnlyNumbers(aux);
+                    entity.Rating = StringHelper.GetOnlyNumbers(aux);
 
                     if (HNodeHelper.AnalizeNodeHtmlValue(item, item.XPath + "//li[@class=\"favorite\"]", "").Contains("fav"))
-                        temp.Favorite = true;
+                        entity.Favorite = true;
 
-                    temp.Comment = "";
+                    entity.Comment = "";
 
-                    this.Items.Add(temp);
+                    this.Items.Add(entity);
                 }
             }
 
@@ -153,41 +158,48 @@ namespace AnimeKakkoi.Core.Media
 
             if (nodes == null) throw new MediaResourceException(new ArgumentException("the data given from the web wasn't the correct."));
 
-            string aux;
             foreach (HtmlNode form in nodes)
             {
 
-                aux = form.SelectSingleNode(form.XPath + KronosHeaderSearchExpression).InnerText;
-                Entities.EntityState state = this.StateCategories[aux];
+                var aux = form.SelectSingleNode(form.XPath + KronosHeaderSearchExpression).InnerText;
+                var state = this.StateCategories[aux];
 
                 HtmlNodeCollection tag_ul = form.SelectNodes(form.XPath + KronosElementsSearchExpression);
 
                 foreach (HtmlNode item in tag_ul)
                 {
-                    Entities.Anime temp = new Entities.Anime();
+                    var entity = new Entities.Anime();
 
                     HtmlNodeCollection fields = item.SelectNodes(item.XPath + "//div");
 
                     if (fields[0].InnerText.Contains("#"))
                         continue;
 
-                    temp.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[2]/a[1]", "");
+                    entity.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[2]/a[1]", "");
 
                     if (HNodeHelper.AnalizeNodeHtmlValue(item, item.XPath + "//div[3]", "").Contains("fav"))
-                        temp.Favorite = true;
+                        entity.Favorite = true;
 
-                    temp.Rating = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[4]", 0);
-                    temp.State = state;
+                    entity.Rating = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[4]", 0);
+                    entity.State = state;
 
-                    aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[5]", "Serie");
-                    temp.Category = this.AnimeTypesCategories[aux];
+                    try
+                    {
+                        aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[5]", "Serie");
+                        entity.Category = this.AnimeTypesCategories[aux];
+                    }
+                    catch (Exception)
+                    {
+                        entity.Category = AnimeType.Serie;
+                        //TODO: Register error
+                    }
 
                     aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
-                    temp.ProgressString = StringHelper.GetTextInChapterFormat(aux);
+                    entity.ProgressString = StringHelper.GetTextInChapterFormat(aux);
 
-                    temp.Comment = "";
+                    entity.Comment = "";
 
-                    this.Items.Add(temp);
+                    this.Items.Add(entity);
                 }
             }
         }
@@ -208,40 +220,41 @@ namespace AnimeKakkoi.Core.Media
             foreach (HtmlNode form in nodes)
             {
 
-                string aux = form.SelectSingleNode(form.XPath + MangaKronosHeaderSearchExpression).InnerText;
-                Entities.EntityState state = this.StateCategories[aux];
+                var aux = form.SelectSingleNode(form.XPath + MangaKronosHeaderSearchExpression).InnerText;
+                var state = this.StateCategories[aux];
 
-                HtmlNodeCollection tag_ul = form.SelectNodes(form.XPath + MangaKronosElementsSearchExpression);
+                var tagUl = form.SelectNodes(form.XPath + MangaKronosElementsSearchExpression);
 
-                foreach (HtmlNode item in tag_ul)
+                foreach (HtmlNode item in tagUl)
                 {
-                    Entities.Manga temp = new Entities.Manga();
+                    var entity = new Entities.Manga();
 
                     HtmlNodeCollection fields = item.SelectNodes(item.XPath + "//div");
 
                     if (fields[0].InnerText.Contains("#"))
                         continue;
 
-                    temp.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[2]/a[1]", "");
+                    entity.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[2]/a[1]", "");
 
                     if (HNodeHelper.AnalizeNodeHtmlValue(item, item.XPath + "//div[3]", "").Contains("fav"))
-                        temp.Favorite = true;
+                        entity.Favorite = true;
 
-                    temp.Rating = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[4]", 0);
-                    temp.State = state;
+                    entity.Rating = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[4]", 0);
+                    entity.State = state;
 
                     aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[5]", "Serie");
-                    temp.Category = this.MangaTypeCategories[StringHelper.ToCapCase(aux)];
+                    entity.Category = this.MangaTypeCategories[StringHelper.ToCapCase(aux)];
 
                     aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
-                    temp.ProgressString = aux;
+                    entity.ProgressString = aux;
 
-                    temp.Comment = "";
+                    entity.Comment = "";
 
-                    this.Items.Add(temp);
+                    this.Items.Add(entity);
                 }
             }
         }
+
 
     }
 }

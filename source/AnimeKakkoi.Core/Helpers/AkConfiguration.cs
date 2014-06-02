@@ -6,7 +6,7 @@ namespace AnimeKakkoi.Core.IO
     /// <summary>
     /// Provides access, properties and settings.
     /// </summary>
-    public sealed class AkConfiguration
+    public class AkConfiguration
     {
 
         public const String COMPANY_NAME = "Corderoski";
@@ -22,16 +22,6 @@ namespace AnimeKakkoi.Core.IO
         internal const String PROPERTIES_SECTION_MAIN_DATA = "Properties";
         internal const bool APP_REPO_AUTOSAVE = true;
 
-        public static String ApplicationDataFolder
-        {
-            get
-            {
-                var path = IO.FileManager.GetFolder(String.Format("{1}{0}{2}{0}",
-                    IO.FileManager.GetPathSeparatorChar(), COMPANY_NAME, APPLICATION_NAME));
-                return path;
-            }
-        }
-
         internal static String AppConfigurationFile
         {
             get
@@ -40,9 +30,30 @@ namespace AnimeKakkoi.Core.IO
             }
         }
 
+        internal static String ApplicationLoggerFile
+        {
+            get { return ApplicationDataFolder + "usr-h.log"; }
+        }
+
+        public static String ApplicationDataFolder
+        {
+            get
+            {
+                var path = IO.FileManager.GetFolder(String.Format("..\\",
+                    IO.FileManager.GetPathSeparatorChar(), COMPANY_NAME, APPLICATION_NAME));
+                return path;
+            }
+        }
+        
+        public static System.Globalization.CultureInfo ApplicationDefaultCulture
+        {
+            get { return new System.Globalization.CultureInfo(GetSetting("ApplicationCulture")); }
+        }
+
+
         #region Functions
 
-        public static String GetSetting(string key)
+        protected internal static String GetSetting(string key)
         {
             var openStreamResult = IO.FileManager.OpenStream(AppConfigurationFile);
 
@@ -83,7 +94,7 @@ namespace AnimeKakkoi.Core.IO
         {
             return FileManager.FileExists(AppConfigurationFile);
         }
-
+        
         #endregion
 
 

@@ -4,15 +4,14 @@ using System;
 using System.Windows.Forms;
 using AnimeKakkoi.App.Forms;
 using AnimeKakkoi.App.Forms.Management;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.IO;
-using AnimeKakkoi.Framework.repo;
+using AnimeKakkoi.Core.Data;
+using AnimeKakkoi.Core.Entities;
 
 #endregion
 
-namespace AnimeKakkoi.App.forms.management
+namespace AnimeKakkoi.App.Forms.Management
 {
-    public partial class frmEntityEdit : FrmBaseToolbox
+    public partial class frmEntityEdit : BaseToolbox
     {
         private object repo;
 
@@ -30,7 +29,7 @@ namespace AnimeKakkoi.App.forms.management
 
         private void frmEntityEdit_Load(object sender, EventArgs e)
         {
-            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesTypesByLanguage());
+            base.FillComboBoxCatalog(cb_State, Catalog.GetEntitiesValidTypes());
 
             if (entityType.Name == typeof (Anime).Name)
             {

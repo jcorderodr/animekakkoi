@@ -6,7 +6,7 @@ using System;
 
 namespace AnimeKakkoi.App.Forms.tools
 {
-    public partial class frmActionHistory : FrmBaseToolbox
+    public partial class frmActionHistory : BaseToolbox
     {
         public frmActionHistory()
         {

@@ -16,7 +16,9 @@
     public enum MangaType
     {
         Manga = 1,
-        Manhwa = 2
+        Manhwa = 2,
+        Novel = 3,
+        OneShot = 4
     }
 
 }

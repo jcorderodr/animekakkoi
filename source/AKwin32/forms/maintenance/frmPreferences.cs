@@ -7,7 +7,7 @@ using AnimeKakkoi.App.IO;
 
 namespace AnimeKakkoi.App.Forms.Maintenance
 {
-    public partial class FrmPreferences : FrmBaseToolbox
+    public partial class FrmPreferences : BaseToolbox
     {
         public FrmPreferences()
         {
