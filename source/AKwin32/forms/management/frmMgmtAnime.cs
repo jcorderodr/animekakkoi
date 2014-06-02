@@ -1,31 +1,26 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using AnimeKakkoi.App.Forms.Management;
 using AnimeKakkoi.App.Helpers;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.IO;
-using AnimeKakkoi.Framework.Repo.xml;
+using AnimeKakkoi.Core.Data.Json;
+using AnimeKakkoi.Core.Entities;
+using AnimeKakkoi.Core.Data;
 
-#endregion
-
-namespace AnimeKakkoi.App.forms.management
+namespace AnimeKakkoi.App.Forms.Management
 {
-    public partial class frmMgmtAnime : AnimeKakkoi.App.forms.management.frmManagement, IUIManagement
+    public partial class FrmMgmtAnime : FrmManagement, IUIManagement
     {
-        private AnimeRepository repo;
+        private readonly IAnimeRepository _repo;
 
-        private List<Anime> dataSource;
+        private IList<Anime> _dataSource;
 
-        public frmMgmtAnime()
+        public FrmMgmtAnime()
         {
             InitializeComponent();
             this.Text = "Anime";
-            entityType = typeof (Anime);
-            repo = new AnimeRepository();
+            EntityType = typeof (Anime);
+            _repo = new AnimeRepository();
         }
 
         #region GUI Events
@@ -35,18 +30,18 @@ namespace AnimeKakkoi.App.forms.management
             if (listViewItems.SelectedItems.Count < 1) return;
             var anime = listViewItems.SelectedItems[0].Tag as Anime;
             listViewItems.SelectedItems[0].Remove();
-            repo.Remove(anime);
+            _repo.Remove(anime);
 
-            string evt_change = " (-) " + anime;
-            EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, evt_change);
+            var evtChange = " (-) " + anime;
+            EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, evtChange);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
             //
-            dataSource.Clear();
+            _dataSource.Clear();
             foreach (ListViewItem item in listViewItems.Items)
-                dataSource.Add(ObjectToType(item.Tag));
+                _dataSource.Add(ObjectToType(item.Tag));
             ((IUIManagement) this).SaveItemsToRepository(false);
             //
             this.Close();
@@ -58,7 +53,7 @@ namespace AnimeKakkoi.App.forms.management
 
         void IUIManagement.ConvertItemsToDefaultType()
         {
-            this.dataSource = OriginalDataSource.ConvertAll(
+            this._dataSource = OriginalDataSource.ConvertAll(
                 ObjectToType);
         }
 
@@ -72,23 +67,23 @@ namespace AnimeKakkoi.App.forms.management
 
         void IUIManagement.InheritControlSelection(System.Windows.Forms.Control ctrl, string pName, object entity)
         {
+
         }
 
         void IUIManagement.InheritControlValidation(Control ctrl, System.Reflection.PropertyInfo p, object entity)
         {
-            if (p.PropertyType == typeof (ANIME_TYPE))
+            if (p.PropertyType == typeof (AnimeType))
             {
-                var s = (ANIME_TYPE) Enum.Parse(typeof (ANIME_TYPE), ctrl.Text);
+                var s = (AnimeType)Enum.Parse(typeof(AnimeType), ctrl.Text);
                 p.SetValue(entity, (int) s, null);
             }
         }
 
         void IUIManagement.LoadDataToControls()
         {
-            ListViewItem item;
-            foreach (Anime anime in this.dataSource)
+            foreach (Anime anime in this._dataSource)
             {
-                item = new ListViewItem(new[] {anime.Name, anime.ToString()});
+                ListViewItem item = new ListViewItem(new[] {anime.Name, anime.ToString()});
                 item.Tag = anime;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);
@@ -97,17 +92,16 @@ namespace AnimeKakkoi.App.forms.management
 
         void IUIManagement.PrepareDataFromRepo()
         {
-            this.dataSource = repo.GetAll().ToList();
-            OriginalDataSource = dataSource.ConvertAll(
+            this._dataSource = _repo.GetAll().ToList();
+            OriginalDataSource = _dataSource.ConvertAll(
                 TypeToObject);
         }
 
         void IUIManagement.FilterData(List<object> list)
         {
-            ListViewItem item;
             foreach (Anime anime in list)
             {
-                item = new ListViewItem(new[] {anime.Name, anime.ToString()});
+                ListViewItem item = new ListViewItem(new[] {anime.Name, anime.ToString()});
                 item.Tag = anime;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);
@@ -122,10 +116,7 @@ namespace AnimeKakkoi.App.forms.management
         void IUIManagement.SaveItemsToRepository(bool newItems)
         {
             int result;
-            if (newItems)
-                result = repo.AddRange(dataSource);
-            else
-                result = repo.Change(dataSource);
+            result = newItems ? _repo.AddRange(_dataSource) : _repo.Change(_dataSource);
 
             base.ShowInformation(this,
                                  base.Messages["items_saved"] + String.Format(" ({0})", result));

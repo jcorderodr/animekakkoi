@@ -1,6 +1,6 @@
 ﻿namespace AnimeKakkoi.App.Forms
 {
-    partial class FrmBaseToolbox
+    partial class BaseToolbox
     {
         /// <summary>
         /// Required designer variable.

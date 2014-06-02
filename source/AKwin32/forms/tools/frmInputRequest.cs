@@ -6,9 +6,9 @@ using AnimeKakkoi.App.Forms;
 
 #endregion
 
-namespace AnimeKakkoi.App.forms.tools
+namespace AnimeKakkoi.App.Forms.tools
 {
-    public partial class frmInputRequest : FrmBaseToolbox
+    public partial class frmInputRequest : BaseToolbox
     {
         private bool allowNullInput;
 

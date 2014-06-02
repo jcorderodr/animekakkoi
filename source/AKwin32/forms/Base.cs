@@ -1,20 +1,16 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using AnimeKakkoi.App.IO;
-using AnimeKakkoi.Framework.IO;
-
-#endregion
+using AnimeKakkoi.Core.Entities;
 
 namespace AnimeKakkoi.App.Forms
 {
     /// <summary>
     /// 
     /// </summary>
-    public partial class FrmBase : Form
+    public partial class Base : Form
     {
         #region Constants & Inherit vars
 
@@ -41,15 +37,10 @@ namespace AnimeKakkoi.App.Forms
 
         #endregion
 
-        public FrmBase()
+        public Base()
         {
             InitializeComponent();
             Form_State = FormUsingState.Listening;
-        }
-
-        ~FrmBase()
-        {
-            //AkConfiguration.Save();
         }
 
         #region Handler & Events
@@ -57,8 +48,8 @@ namespace AnimeKakkoi.App.Forms
         private void frmBase_Load(object sender, EventArgs e)
         {
             SetStyleToControl(this.Controls);
-            this.Icon = Properties.Resources.bluegletek_beta_icon;
-            this.Text = Program.AppTitle + " @ " + this.Text;
+            this.Icon = Properties.Resources.logo_icon;
+            this.Text = Program.APP_TITLE + " @ " + this.Text;
         }
 
         protected internal void listViewItems_Resize(object sender, EventArgs e)
@@ -68,13 +59,7 @@ namespace AnimeKakkoi.App.Forms
 
         private void frmBase_FormClosed(object sender, FormClosedEventArgs e)
         {
-            try
-            {
-                Application.OpenForms[Application.OpenForms.Count - 1].Focus();
-            }
-            catch
-            {
-            }
+            Application.OpenForms[Application.OpenForms.Count - 1].Focus();
         }
 
         #endregion
@@ -83,25 +68,25 @@ namespace AnimeKakkoi.App.Forms
 
         protected DialogResult ShowError(IWin32Window parent, string text)
         {
-            return MessageBox.Show(parent, text, Program.AppTitle,
+            return MessageBox.Show(parent, text, Program.APP_TITLE,
                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         protected DialogResult ShowInformation(IWin32Window parent, string text)
         {
-            return MessageBox.Show(parent, text, Program.AppTitle,
+            return MessageBox.Show(parent, text, Program.APP_TITLE,
                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         protected DialogResult ShowQuestion(IWin32Window parent, string text)
         {
-            return MessageBox.Show(parent, text, Program.AppTitle,
+            return MessageBox.Show(parent, text, Program.APP_TITLE,
                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         protected DialogResult ShowCustomMessage(IWin32Window parent, string text, MessageBoxIcon icon)
         {
-            return MessageBox.Show(parent, text, Program.AppTitle,
+            return MessageBox.Show(parent, text, Program.APP_TITLE,
                                    MessageBoxButtons.OKCancel, icon);
         }
 
@@ -127,20 +112,20 @@ namespace AnimeKakkoi.App.Forms
                 foreach (Control inner in ctrl.Controls)
                     CleanInheritUIControl(inner);
 
-            if (ctrl.GetType() == typeof (TextBox))
+            if (ctrl.GetType() == typeof(TextBox))
                 ctrl.Text = String.Empty;
-            else if (ctrl.GetType() == typeof (ComboBox))
+            else if (ctrl.GetType() == typeof(ComboBox))
                 //ctrl.Text = "--";
-                ((ComboBox) ctrl).SelectedIndex = 0;
-            else if (ctrl.GetType() == typeof (ListView))
-                ((ListView) ctrl).Items.Clear();
+                ((ComboBox)ctrl).SelectedIndex = 0;
+            else if (ctrl.GetType() == typeof(ListView))
+                ((ListView)ctrl).Items.Clear();
         }
 
         protected void FillComboBoxCatalog(ComboBox ctrl, object dataSource)
         {
             try
             {
-                ((List<Catalog>) dataSource).Insert(0, new Catalog {Id = "0", Description = "--"});
+                ((List<Catalog>)dataSource).Insert(0, new Catalog { Id = "0", Description = "--" });
                 ctrl.DataSource = dataSource;
                 ctrl.ValueMember = "Id";
                 ctrl.DisplayMember = "Description";
@@ -181,7 +166,7 @@ namespace AnimeKakkoi.App.Forms
 
                 if (ctrl is ListView)
                 {
-                    var lv = ((ListView) ctrl);
+                    var lv = ((ListView)ctrl);
                     lv.AllowColumnReorder = true;
                     lv.FullRowSelect = true;
                     lv.GridLines = true;
@@ -223,4 +208,5 @@ namespace AnimeKakkoi.App.Forms
         Managing,
         Ready
     }
+
 }

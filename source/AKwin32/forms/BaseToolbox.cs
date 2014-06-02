@@ -6,9 +6,9 @@ using System;
 
 namespace AnimeKakkoi.App.Forms
 {
-    public partial class FrmBaseToolbox : FrmBase
+    public partial class BaseToolbox : Base
     {
-        public FrmBaseToolbox()
+        public BaseToolbox()
         {
             InitializeComponent();
         }

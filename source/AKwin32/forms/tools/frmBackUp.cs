@@ -1,17 +1,18 @@
 ﻿#region
 
 using System;
-using AnimeKakkoi.Framework.IO;
+using AnimeKakkoi.Core.IO;
 
 #endregion
 
 namespace AnimeKakkoi.App.Forms.tools
 {
-    public partial class frmBackUp : FrmBaseToolbox
+    //TODO: Implement class
+    public partial class FrmBackUp : BaseToolbox
     {
         private BackUp bk;
 
-        public frmBackUp()
+        public FrmBackUp()
         {
             InitializeComponent();
             bk = new BackUp();
@@ -19,14 +20,13 @@ namespace AnimeKakkoi.App.Forms.tools
 
         private void frmBackUp_Load(object sender, EventArgs e)
         {
-            saveFileDialog.Title = Program.AppTitle;
-            saveFileDialog.Filter = FileProperties.AppBackUpFilterName;
-            openFileDialog.Title = Program.AppTitle;
-            openFileDialog.Filter = FileProperties.AppBackUpFilterName;
-            bk.BackUpProgressChanged += bk_BackUpProgressChanged;
-            bk.BackUpProgressFinished += bk_BackUpProgressFinished;
+            saveFileDialog.Title = Program.APP_TITLE;
+            //saveFileDialog.Filter = FileProperties.AppBackUpFilterName;
+            //openFileDialog.Title = Program.APP_TITLE;
+            //openFileDialog.Filter = FileProperties.AppBackUpFilterName;
+            //bk.BackUpProgressChanged += bk_BackUpProgressChanged;
+            //bk.BackUpProgressFinished += bk_BackUpProgressFinished;
         }
-
 
         private void bk_BackUpProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
@@ -55,14 +55,14 @@ namespace AnimeKakkoi.App.Forms.tools
             else
                 return;
 
-            bk.AsyncLoadBackUp(openFileDialog.FileName);
+            //bk.AsyncLoadBackUp(openFileDialog.FileName);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
             if (saveFileDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
 
-            bk.AsyncMakeBackUp(saveFileDialog.FileName);
+            //bk.AsyncMakeBackUp(saveFileDialog.FileName);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -1,6 +1,6 @@
-﻿namespace AnimeKakkoi.App.forms.management
+﻿namespace AnimeKakkoi.App.Forms.Management
 {
-    partial class frmMgmtAnime
+    partial class FrmMgmtAnime
     {
         /// <summary>
         /// Required designer variable.

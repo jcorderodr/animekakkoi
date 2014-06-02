@@ -1,29 +1,26 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using AnimeKakkoi.App.Forms;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.Repo.xml;
+using AnimeKakkoi.Core.Data;
+using AnimeKakkoi.Core.Data.Json;
+using AnimeKakkoi.Core.Entities;
 
-#endregion
 
-namespace AnimeKakkoi.App.forms.tools
+namespace AnimeKakkoi.App.Forms.tools
 {
-    public partial class frmQuickSearch : FrmBaseToolbox
+    public partial class frmQuickSearch : BaseToolbox
     {
-        private AnimeRepository animeRepo;
-        private MangaRepository mangaRepo;
-        //GenericRepository genericRepo;
+        private readonly IAnimeRepository _animeRepo;
+        private IMangaRepository mangaRepo;
 
-        private string searchCriteria;
+        private string _searchCriteria;
 
         public frmQuickSearch()
         {
             InitializeComponent();
-            animeRepo = new AnimeRepository();
-            mangaRepo = new MangaRepository();
+            _animeRepo = new AnimeRepository();
+            //mangaRepo = new MangaRepository();
         }
 
         private void frmQuickSearch_Load(object sender, EventArgs e)
@@ -47,14 +44,10 @@ namespace AnimeKakkoi.App.forms.tools
             ListViewItem item = listViewItems.SelectedItems[0];
             if (item == null) return;
 
-            var frm = new management.frmEntityEdit();
+            var frm = new Management.frmEntityEdit();
             frm.SetEntityObject(item.Tag);
             if (item.Tag.GetType() == typeof (Anime))
-                frm.SetRepository(animeRepo);
-            else if (item.Tag.GetType() == typeof (Manga))
-                frm.SetRepository(mangaRepo);
-                //else if (item.Tag.GetType() == typeof(Framework.entity.EntitySource))
-                //    frm.SetRepository(null);
+                frm.SetRepository(_animeRepo);
             else
             {
                 base.ShowError(this, base.Errors["entity_missed"]);
@@ -78,21 +71,21 @@ namespace AnimeKakkoi.App.forms.tools
 
         private void DoSearch()
         {
-            searchCriteria = txtSearchCriteria.Text;
+            _searchCriteria = txtSearchCriteria.Text;
             ValidateInput();
         }
 
         private void ValidateInput()
         {
-            if (String.IsNullOrEmpty(searchCriteria.Trim())) return;
+            if (String.IsNullOrEmpty(_searchCriteria.Trim())) return;
 
             listViewItems.Items.Clear();
-            LoadDataToControls_Anime(animeRepo.LookUp(searchCriteria));
-            LoadDataToControls_Manga(mangaRepo.LookUp(searchCriteria));
+            LoadDataToControls_Anime(_animeRepo.LookUp(_searchCriteria));
+            LoadDataToControls_Manga(mangaRepo.LookUp(_searchCriteria));
             //--LoadDataToControls_Generic(genericRepo.LookUp(searchCriteria));
         }
 
-        private void LoadDataToControls_Anime(IList<Anime> data)
+        private void LoadDataToControls_Anime(IEnumerable<Anime> data)
         {
             ListViewItem item;
             foreach (Anime entity in data)
@@ -104,7 +97,7 @@ namespace AnimeKakkoi.App.forms.tools
             }
         }
 
-        private void LoadDataToControls_Manga(IList<Manga> data)
+        private void LoadDataToControls_Manga(IEnumerable<Manga> data)
         {
             ListViewItem item;
             foreach (Manga entity in data)
@@ -116,7 +109,7 @@ namespace AnimeKakkoi.App.forms.tools
             }
         }
 
-        private void LoadDataToControls_Generic(IList<EntitySource> data)
+        private void LoadDataToControls_Generic(IEnumerable<EntitySource> data)
         {
             ListViewItem item;
             foreach (EntitySource entity in data)

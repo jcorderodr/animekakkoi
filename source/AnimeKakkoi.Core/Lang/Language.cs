@@ -39,23 +39,18 @@ namespace AnimeKakkoi.Core.Lang
         /// </summary>
         /// <exception cref="IOException">IOException</exception>
         /// <exception cref="NotImplementedException">NotImplementedException</exception>
-        public Language()
+        public Language(CultureInfo cultureInfo)
         {
             try
             {
-                InitComponents();
+                _cultureInfo = cultureInfo;
+                MessagesLibrary = new Dictionary<string, string>();
                 Load(_cultureInfo);
             }
-            catch (Exception ex) { throw new Exception("LSP Load. " + ex.Message, ex); }
+            catch { throw; }
         }
 
         #region Private Functions
-
-        private void InitComponents()
-        {
-            _cultureInfo = CultureInfo.DefaultThreadCurrentCulture;
-            MessagesLibrary = new Dictionary<string, string>();
-        }
 
         private void SplitWords(string text)
         {

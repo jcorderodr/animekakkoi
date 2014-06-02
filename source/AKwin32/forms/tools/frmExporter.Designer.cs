@@ -1,6 +1,6 @@
-﻿namespace AnimeKakkoi.App.forms.tools
+﻿namespace AnimeKakkoi.App.Forms.tools
 {
-    partial class frmExporter
+    partial class FrmExporter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExporter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExporter));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -145,7 +145,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.panel1);
-            this.Name = "frmExporter";
+            this.Name = "FrmExporter";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmExporter_Load);
             this.panel1.ResumeLayout(false);

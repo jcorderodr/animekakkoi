@@ -1,4 +1,4 @@
-﻿namespace AnimeKakkoi.App.forms.tools
+﻿namespace AnimeKakkoi.App.Forms.tools
 {
     partial class WaitingBox
     {

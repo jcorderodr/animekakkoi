@@ -1,30 +1,25 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using AnimeKakkoi.App.Forms.Management;
 using AnimeKakkoi.App.Helpers;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.IO;
-using AnimeKakkoi.Framework.Repo.xml;
+using AnimeKakkoi.Core.Data;
+using AnimeKakkoi.Core.Data.Json;
+using AnimeKakkoi.Core.Entities;
 
-#endregion
-
-namespace AnimeKakkoi.App.forms.management
+namespace AnimeKakkoi.App.Forms.Management
 {
-    public partial class frmMgmtManga : AnimeKakkoi.App.forms.management.frmManagement, IUIManagement
+    public partial class FrmMgmtManga : FrmManagement, IUIManagement
     {
-        private List<Manga> dataSource;
+        private IList<Manga> _dataSource;
 
-        private MangaRepository repo;
+        private readonly IMangaRepository _repo;
 
-        public frmMgmtManga()
+        public FrmMgmtManga()
         {
             InitializeComponent();
-            entityType = typeof (Manga);
-            repo = new MangaRepository();
+            EntityType = typeof (Manga);
+            _repo = new MangaRepository();
         }
 
         #region GUI Events
@@ -34,17 +29,17 @@ namespace AnimeKakkoi.App.forms.management
             if (listViewItems.SelectedItems.Count < 1) return;
             var manga = listViewItems.SelectedItems[0].Tag as Manga;
             listViewItems.SelectedItems[0].Remove();
-            repo.Remove(manga);
+            _repo.Remove(manga);
 
-            string evt_change = " (-) " + manga;
-            EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, evt_change);
+            var evtChange = " (-) " + manga;
+            EventLogger.Write(IO.AppAkConfiguration.ApplicationLoggerFile, evtChange);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            dataSource.Clear();
+            _dataSource.Clear();
             foreach (ListViewItem item in listViewItems.Items)
-                dataSource.Add(ObjectToType(item.Tag));
+                _dataSource.Add(ObjectToType(item.Tag));
             ((IUIManagement) this).SaveItemsToRepository(false);
             //
             this.Close();
@@ -56,7 +51,7 @@ namespace AnimeKakkoi.App.forms.management
 
         void IUIManagement.ConvertItemsToDefaultType()
         {
-            dataSource = OriginalDataSource.ConvertAll(
+            _dataSource = OriginalDataSource.ConvertAll(
                 ObjectToType);
         }
 
@@ -85,9 +80,9 @@ namespace AnimeKakkoi.App.forms.management
         void IUIManagement.InheritControlValidation(System.Windows.Forms.Control ctrl, System.Reflection.PropertyInfo p,
                                                     object entity)
         {
-            if (p.PropertyType == typeof (MANGA_TYPE))
+            if (p.PropertyType == typeof (MangaType))
             {
-                var s = (MANGA_TYPE) Enum.Parse(typeof (MANGA_TYPE), ctrl.Text);
+                var s = (MangaType)Enum.Parse(typeof(MangaType), ctrl.Text);
                 p.SetValue(entity, (int) s, null);
             }
         }
@@ -95,7 +90,7 @@ namespace AnimeKakkoi.App.forms.management
         void IUIManagement.LoadDataToControls()
         {
             ListViewItem item;
-            foreach (Manga manga in this.dataSource)
+            foreach (Manga manga in this._dataSource)
             {
                 item = new ListViewItem(new[] {manga.Name, manga.ToString()});
                 item.Tag = manga;
@@ -106,7 +101,7 @@ namespace AnimeKakkoi.App.forms.management
 
         void IUIManagement.PrepareDataFromRepo()
         {
-            this.dataSource = repo.GetAll().ToList();
+            this._dataSource = _repo.GetAll().ToList();
         }
 
         void IUIManagement.FilterData(List<object> list)
@@ -130,11 +125,11 @@ namespace AnimeKakkoi.App.forms.management
         {
             int result;
             if (newItems)
-                result = repo.AddRange(dataSource);
+                result = _repo.AddRange(_dataSource);
             else
-                result = repo.Change(dataSource);
+                result = _repo.Change(_dataSource);
 
-            if (result != dataSource.Count)
+            if (result != _dataSource.Count)
                 base.ShowInformation(this,
                                      base.Messages["items_saved"] + String.Format(" ({0})", result));
         }

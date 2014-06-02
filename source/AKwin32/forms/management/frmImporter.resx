@@ -862,7 +862,7 @@
     <value>frmImporter</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmImporter</value>
+    <value>FrmImporter</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>AnimeKakkoi.App.forms.frmBase, anime-k, Version=1.0.1.30037, Culture=neutral, PublicKeyToken=null</value>

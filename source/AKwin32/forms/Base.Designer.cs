@@ -1,6 +1,6 @@
 ﻿namespace AnimeKakkoi.App.Forms
 {
-    partial class FrmBase
+    partial class Base
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBase));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Base));
             this.SuspendLayout();
             // 
             // frmBase

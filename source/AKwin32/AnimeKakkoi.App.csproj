@@ -93,7 +93,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>beta.ico</ApplicationIcon>
+    <ApplicationIcon>logo_win.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -106,6 +106,14 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="PCLStorage, Version=0.9.6.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PCLStorage.0.9.6\lib\net45\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=0.9.6.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PCLStorage.0.9.6\lib\net45\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -115,21 +123,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\MessageHandler.cs" />
     <Compile Include="IO\AppAkConfiguration.cs" />
-    <Compile Include="IO\CommandLine.cs" />
     <Compile Include="Net\Updater.cs" />
     <Compile Include="Helpers\EventLogger.cs" />
-    <Compile Include="Forms\FrmBase.cs">
+    <Compile Include="Forms\Base.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmBase.Designer.cs">
-      <DependentUpon>FrmBase.cs</DependentUpon>
+    <Compile Include="Forms\Base.Designer.cs">
+      <DependentUpon>Base.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmBaseToolbox.cs">
+    <Compile Include="Forms\BaseToolbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmBaseToolbox.Designer.cs">
-      <DependentUpon>FrmBaseToolbox.cs</DependentUpon>
+    <Compile Include="Forms\BaseToolbox.Designer.cs">
+      <DependentUpon>BaseToolbox.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmMain.cs">
       <SubType>Form</SubType>
@@ -160,12 +168,6 @@
     </Compile>
     <Compile Include="Forms\Maintenance\frmPreferences.Designer.cs">
       <DependentUpon>frmPreferences.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Maintenance\frmUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Maintenance\frmUsers.Designer.cs">
-      <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Management\frmEntityEdit.cs">
       <SubType>Form</SubType>
@@ -249,11 +251,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FrmBase.resx">
-      <DependentUpon>FrmBase.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Base.resx">
+      <DependentUpon>Base.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmBaseToolbox.resx">
-      <DependentUpon>FrmBaseToolbox.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\BaseToolbox.resx">
+      <DependentUpon>BaseToolbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.en.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -288,15 +290,6 @@
     <EmbeddedResource Include="Forms\Maintenance\frmPreferences.resx">
       <DependentUpon>frmPreferences.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Maintenance\frmUsers.en.resx">
-      <DependentUpon>frmUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Maintenance\frmUsers.es.resx">
-      <DependentUpon>frmUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Maintenance\frmUsers.resx">
-      <DependentUpon>frmUsers.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management\frmEntityEdit.en.resx">
       <DependentUpon>frmEntityEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +301,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management\frmImporter.en.resx">
       <DependentUpon>frmImporter.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management\frmManagement.en.resx">
       <DependentUpon>frmManagement.cs</DependentUpon>
@@ -317,6 +311,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management\frmManagement.resx">
       <DependentUpon>frmManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management\frmMgmtManga.resx">
       <DependentUpon>frmMgmtManga.cs</DependentUpon>
@@ -347,6 +342,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tools\frmBackUp.resx">
       <DependentUpon>frmBackUp.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tools\frmExporter.en.resx">
       <DependentUpon>frmExporter.cs</DependentUpon>
@@ -412,10 +408,6 @@
       <Project>{f9c29e44-89b9-4fbb-8f74-7659916632e4}</Project>
       <Name>AnimeKakkoi.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Framework\AnimeKakkoi.Framework.csproj">
-      <Project>{2E077774-536F-4D31-A5CF-F3A29504CA53}</Project>
-      <Name>AnimeKakkoi.Framework</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\version.txt" />
@@ -426,13 +418,12 @@
   <ItemGroup>
     <None Include="Resources\fav_media.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\fav-no_media.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="beta.ico" />
     <Content Include="bluegletek_128.ico" />
+    <Content Include="logo_win.ico" />
     <Content Include="Resources\back.png" />
     <None Include="Resources\button_cancel.png" />
     <None Include="Resources\button_cancel1.png" />
@@ -448,6 +439,7 @@
     <None Include="Resources\mail.png" />
     <None Include="Resources\network_downloads.png" />
     <None Include="Resources\network_find.png" />
+    <None Include="Resources\logo_win.ico" />
     <Content Include="Resources\redo.png" />
     <None Include="Resources\sharing_overlay.png" />
     <Content Include="Resources\stop.png" />

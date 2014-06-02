@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Data\IMangaRepository.cs" />
     <Compile Include="Data\IRepository.cs" />
-    <Compile Include="Data\Json\AnimeRpository.cs" />
+    <Compile Include="Data\Json\AnimeRepository.cs" />
+    <Compile Include="Data\IAnimeRepository.cs" />
+    <Compile Include="Data\Json\MangaRepository.cs" />
     <Compile Include="Data\Json\Repository.cs" />
     <Compile Include="Entities\Anime.cs" />
     <Compile Include="Entities\Comic.cs" />
@@ -45,6 +48,7 @@
     <Compile Include="Entities\Manga.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Helpers\AkConfiguration.cs" />
+    <Compile Include="Helpers\CoreEventLogger.cs" />
     <Compile Include="Helpers\HNodeHelper.cs" />
     <Compile Include="IO\BackUp.cs" />
     <Compile Include="Entities\Catalogo.cs" />

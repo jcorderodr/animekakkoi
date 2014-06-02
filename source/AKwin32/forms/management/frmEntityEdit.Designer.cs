@@ -1,4 +1,4 @@
-﻿namespace AnimeKakkoi.App.forms.management
+﻿namespace AnimeKakkoi.App.Forms.Management
 {
     partial class frmEntityEdit
     {

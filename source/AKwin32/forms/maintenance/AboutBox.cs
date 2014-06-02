@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace AnimeKakkoi.App.Forms.maintenance
 {
-    partial class AboutBox : FrmBaseToolbox
+    partial class AboutBox : BaseToolbox
     {
         public AboutBox()
         {
@@ -98,7 +98,7 @@ namespace AnimeKakkoi.App.Forms.maintenance
 
         private void AboutBox_Load(object sender, EventArgs e)
         {
-            linkLabelTitle.Text = Program.AppTitle;
+            linkLabelTitle.Text = Program.APP_TITLE;
         }
     }
 }

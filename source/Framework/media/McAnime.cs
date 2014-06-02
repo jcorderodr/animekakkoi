@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AnimeKakkoi.Framework.Entities;
 using AnimeKakkoi.Framework.util;
 using HtmlAgilityPack;
 
@@ -182,9 +183,16 @@ namespace AnimeKakkoi.Framework.media
 
                     temp.Rating = Expression.AnalizeNodeValue(item, item.XPath + "//div[4]", 0);
                     temp.State = state;
-
-                    aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[5]", "Serie");
-                    temp.Category = this.AnimeTypesCategories[aux];
+                    try
+                    {
+                        aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[5]", "Serie");
+                        temp.Category = this.AnimeTypesCategories[aux];
+                    }
+                    catch (Exception)
+                    {
+                        temp.Category = ANIME_TYPE.SERIE; //Default
+                        
+                    }
 
                     aux = Expression.AnalizeNodeValue(item, item.XPath + "//div[6]", "0/0");
                     temp.ProgressString = Expression.GetTextInChapterFormat(aux);

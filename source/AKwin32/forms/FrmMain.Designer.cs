@@ -68,7 +68,6 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.versionProToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
@@ -319,7 +318,6 @@
             this.toolStripSeparator9,
             this.reportBugToolStripMenuItem,
             this.toolStripSeparator8,
-            this.versionProToolStripMenuItem,
             this.aboutAkToolStripMenuItem});
             this.aboutToolStripMenu.Name = "aboutToolStripMenu";
             resources.ApplyResources(this.aboutToolStripMenu, "aboutToolStripMenu");
@@ -360,13 +358,6 @@
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
-            // 
-            // versionProToolStripMenuItem
-            // 
-            this.versionProToolStripMenuItem.Image = global::AnimeKakkoi.App.Properties.Resources.unlock_x16;
-            this.versionProToolStripMenuItem.Name = "versionProToolStripMenuItem";
-            resources.ApplyResources(this.versionProToolStripMenuItem, "versionProToolStripMenuItem");
-            this.versionProToolStripMenuItem.Click += new System.EventHandler(this.versionProToolStripMenuItem_Click);
             // 
             // aboutAkToolStripMenuItem
             // 
@@ -484,7 +475,6 @@
         private System.Windows.Forms.ToolStripMenuItem myAnimeListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchUpdatesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem versionProToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem updateSourcesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportBugToolStripMenuItem;

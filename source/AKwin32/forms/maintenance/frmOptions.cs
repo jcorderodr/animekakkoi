@@ -1,16 +1,13 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Net;
 
-#endregion
 
 namespace AnimeKakkoi.App.Forms.Maintenance
 {
     /// <summary>
     /// 
     /// </summary>
-    public partial class frmOptions : FrmBaseToolbox
+    public partial class frmOptions : BaseToolbox
     {
         private WebProxy proxy;
 
@@ -23,13 +20,13 @@ namespace AnimeKakkoi.App.Forms.Maintenance
 
         private void frmOptions_Load(object sender, EventArgs e)
         {
-            proxy = (WebProxy) AnimeKakkoi.Framework.IO.AkConfiguration.GetProxy();
-            txtHost.Text = proxy.Address.Authority;
+            //proxy = (WebProxy) Core.IO.AkConfiguration.GetProxy();
+            //txtHost.Text = proxy.Address.Authority;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (isValidInput())
+            if (IsValidInput())
             {
                 SaveChanges();
                 this.Close();
@@ -54,42 +51,32 @@ namespace AnimeKakkoi.App.Forms.Maintenance
 
         private void data_btnCleanItems_Click(object sender, EventArgs e)
         {
-            var repos = new global::AnimeKakkoi.Framework.Repo.RepositoryResources();
-            if (repos.ReleaseItems())
-                base.ShowInformation(this, base.Messages["items_erased_sucess"]);
-            else
-                base.ShowInformation(this, base.Messages["items_erased_error"]);
+            //var repos = new global::AnimeKakkoi.Framework.Repo.RepositoryResources();
+            //if (repos.ReleaseItems())
+            //    base.ShowInformation(this, base.Messages["items_erased_sucess"]);
+            //else
+            //    base.ShowInformation(this, base.Messages["items_erased_error"]);
         }
 
         private void data_btnCleanAll_Click(object sender, EventArgs e)
         {
-            if (base.ShowQuestion(this, base.Messages["clean_database_question"]) !=
-                System.Windows.Forms.DialogResult.Yes) return;
+            //if (base.ShowQuestion(this, base.Messages["clean_database_question"]) !=
+            //    System.Windows.Forms.DialogResult.Yes) return;
 
-            var repos = new global::AnimeKakkoi.Framework.Repo.RepositoryResources();
-            if (repos.ReleaseDatabase())
-            {
-                base.ShowInformation(this, base.Messages["database_erased_sucess"]);
-                Program.SystemUser = null;
-                var frm = new frmUsers();
-                var frmUsr = new frmUsers();
-                if (frmUsr.ShowDialog(this) != System.Windows.Forms.DialogResult.OK)
-                {
-                    this.Close();
-                    return;
-                }
-            }
-            else
-                base.ShowInformation(this, base.Messages["database_erased_error"]);
+            //var repos = new global::AnimeKakkoi.Framework.Repo.RepositoryResources();
+            //base.ShowInformation(this,
+            //                     repos.ReleaseDatabase()
+            //                         ? base.Messages["database_erased_sucess"]
+            //                         : base.Messages["database_erased_error"]);
         }
 
         #endregion
 
-        private bool isValidInput()
+        private bool IsValidInput()
         {
-            bool r = true;
+            var r = true;
 
-            string pattern = @"(\d{1,3}\.){3}\d{1,3}:\d{2,5}";
+            const string pattern = @"(\d{1,3}\.){3}\d{1,3}:\d{2,5}";
             var regex = new System.Text.RegularExpressions.Regex(pattern);
             if (!regex.IsMatch(txtHost.Text))
             {
@@ -103,17 +90,14 @@ namespace AnimeKakkoi.App.Forms.Maintenance
 
         private void SaveChanges()
         {
-            #region Visual
-
-            #endregion
-
+            
             #region Connection
 
             var proxy = new WebProxy(txtHost.Text);
             var cred = new NetworkCredential(txtUser.Text, txtPass.Text, txtDomain.Text);
             proxy.Credentials = cred;
 
-            AnimeKakkoi.Framework.IO.AkConfiguration.SetProxy(proxy);
+            //Core.IO.AkConfiguration.SetProxy(proxy);
 
             #endregion
         }

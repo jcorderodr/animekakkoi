@@ -11,15 +11,17 @@ using AnimeKakkoi.App.Forms.tools;
 using AnimeKakkoi.App.Helpers;
 using AnimeKakkoi.App.IO;
 using AnimeKakkoi.App.Net;
-using AnimeKakkoi.Framework.Entities;
-using AnimeKakkoi.Framework.IO;
-using AnimeKakkoi.Framework.util;
+using AnimeKakkoi.Core.Entities;
+using AnimeKakkoi.Core.IO;
+using AnimeKakkoi.Core.Lang;
+using AnimeKakkoi.Core.Util;
+using FileManager = AnimeKakkoi.Core.IO.FileManager;
 
 #endregion
 
 namespace AnimeKakkoi.App.Forms
 {
-    public partial class FrmMain : FrmBase
+    public partial class FrmMain : Base
     {
         public FrmMain()
         {
@@ -32,12 +34,6 @@ namespace AnimeKakkoi.App.Forms
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            var frmUsr = new frmUsers();
-            if (frmUsr.ShowDialog(this) != DialogResult.OK)
-            {
-                this.Close();
-                return;
-            }
             this.OnPropertiesChange();
             EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, "system_start");
         }
@@ -52,14 +48,13 @@ namespace AnimeKakkoi.App.Forms
 
         private void quickSearchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new AnimeKakkoi.App.forms.tools.frmQuickSearch();
+            var frm = new AnimeKakkoi.App.Forms.tools.frmQuickSearch();
             frm.Show();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new frmUsers();
-            frm.ShowDialog(this);
+            throw new NotImplementedException();
         }
 
         private void userActionhistoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,7 +70,7 @@ namespace AnimeKakkoi.App.Forms
 
         private void listForSharingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new AnimeKakkoi.App.forms.tools.frmExporter();
+            var frm = new AnimeKakkoi.App.Forms.tools.FrmExporter();
             frm.Show();
         }
 
@@ -91,27 +86,27 @@ namespace AnimeKakkoi.App.Forms
 
         private void newAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new AnimeKakkoi.App.forms.management.frmNewItem();
+            var frm = new AnimeKakkoi.App.Forms.Management.FrmNewItem();
             frm.SetEntity(typeof (Anime));
             frm.ShowDialog(this);
         }
 
         private void manageAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new AnimeKakkoi.App.forms.management.frmMgmtAnime();
+            var frm = new AnimeKakkoi.App.Forms.Management.FrmMgmtAnime();
             frm.Show(this);
         }
 
         private void newMangaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new AnimeKakkoi.App.forms.management.frmNewItem();
+            var frm = new AnimeKakkoi.App.Forms.Management.FrmNewItem();
             frm.SetEntity(typeof (Manga));
             frm.ShowDialog(this);
         }
 
         private void manageMangaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new AnimeKakkoi.App.forms.management.frmMgmtManga();
+            var frm = new AnimeKakkoi.App.Forms.Management.FrmMgmtManga();
             frm.Show(this);
         }
 
@@ -121,35 +116,38 @@ namespace AnimeKakkoi.App.Forms
 
         private void archivoAkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fileDialog = new OpenFileDialog();
-            fileDialog.Title = Program.AppTitle;
-            fileDialog.AddExtension = true;
-            fileDialog.AutoUpgradeEnabled = true;
-            fileDialog.Filter = FileProperties.AppSharingFileFilterName;
+            throw  new NotImplementedException();
+
+            var fileDialog = new OpenFileDialog
+                {
+                    Title = Program.APP_TITLE,
+                    AddExtension = true,
+                    AutoUpgradeEnabled = true,
+                    //Filter = FileProperties.AppSharingFileFilterName
+                };
             if (fileDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
 
-            FileManager importer;
-            importer = new FileManager(fileDialog.FileName);
-            importer.Load();
+            //var importer = new FileManager(fileDialog.FileName);
+            //importer.Load();
 
             base.ShowInformation(this, base.Messages[LanguageExpressions.OPERATION_SUCESS]);
         }
 
         private void mcAnimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new AnimeKakkoi.App.forms.management.frmImporter();
-            frm.ImportMethod = IMPORT_SOURCES.MCANIME;
+            var frm = new Forms.Management.FrmImporter();
+            frm.ImportMethod = ImportSources.MCANIME;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                if (frm.ResultedList.Count < 1 || frm.MediaType == null) return;
-                AnimeKakkoi.App.forms.management.frmManagement frmMg = null;
+                if (!frm.ResultedList.Any() || frm.MediaType == null) return;
+                Management.FrmManagement frmMg = null;
                 if (frm.MediaType == typeof (Anime))
                 {
-                    frmMg = new AnimeKakkoi.App.forms.management.frmMgmtAnime();
+                    frmMg = new Management.FrmMgmtAnime();
                 }
                 else if (frm.MediaType == typeof (Manga))
                 {
-                    frmMg = new AnimeKakkoi.App.forms.management.frmMgmtManga();
+                    frmMg = new AnimeKakkoi.App.Forms.Management.FrmMgmtManga();
                 }
                 frmMg.SetItemsList(frm.ResultedList, frm.MediaType);
                 frmMg.Show();
@@ -158,18 +156,18 @@ namespace AnimeKakkoi.App.Forms
 
         private void mcAnimeKronosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new forms.management.frmImporter();
-            frm.ImportMethod = IMPORT_SOURCES.MCANIME_KRONOS;
+            var frm = new Forms.Management.FrmImporter();
+            frm.ImportMethod = ImportSources.MCANIME_KRONOS;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                forms.management.frmManagement frmMg = null;
+                Forms.Management.FrmManagement frmMg = null;
                 if (frm.MediaType == typeof (Anime))
                 {
-                    frmMg = new forms.management.frmMgmtAnime();
+                    frmMg = new Forms.Management.FrmMgmtAnime();
                 }
                 else if (frm.MediaType == typeof (Manga))
                 {
-                    frmMg = new forms.management.frmMgmtManga();
+                    frmMg = new Forms.Management.FrmMgmtManga();
                 }
                 frmMg.SetItemsList(frm.ResultedList, frm.MediaType);
                 frmMg.Show();
@@ -178,19 +176,19 @@ namespace AnimeKakkoi.App.Forms
 
         private void myAnimeListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new AnimeKakkoi.App.forms.management.frmImporter();
-            frm.ImportMethod = IMPORT_SOURCES.MY_ANIME_LIST;
+            var frm = new AnimeKakkoi.App.Forms.Management.FrmImporter();
+            frm.ImportMethod = ImportSources.MY_ANIME_LIST;
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                if (frm.ResultedList.Count < 1 || frm.MediaType == null) return;
-                AnimeKakkoi.App.forms.management.frmManagement frmMg = null;
+                if (!frm.ResultedList.Any() || frm.MediaType == null) return;
+                AnimeKakkoi.App.Forms.Management.FrmManagement frmMg = null;
                 if (frm.MediaType == typeof (Anime))
                 {
-                    frmMg = new AnimeKakkoi.App.forms.management.frmMgmtAnime();
+                    frmMg = new AnimeKakkoi.App.Forms.Management.FrmMgmtAnime();
                 }
                 else if (frm.MediaType == typeof (Manga))
                 {
-                    frmMg = new AnimeKakkoi.App.forms.management.frmMgmtManga();
+                    frmMg = new AnimeKakkoi.App.Forms.Management.FrmMgmtManga();
                 }
                 frmMg.SetItemsList(frm.ResultedList, frm.MediaType);
                 frmMg.Show();
@@ -209,7 +207,7 @@ namespace AnimeKakkoi.App.Forms
 
         private void backUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new frmBackUp();
+            var frm = new FrmBackUp();
             frm.Show();
         }
 
@@ -235,19 +233,19 @@ namespace AnimeKakkoi.App.Forms
             {
                 System.Diagnostics.Process.Start(AppAkConfiguration.ProductUrl);
             }
-            catch
+            catch (Exception)
             {
             }
         }
 
         private void contactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string route = "mailto:blugletek@gmail.com?subject=AnimeKakkoi+Contact";
+            const string route = "mailto:aniboware@gmail.com?subject=AnimeKakkoi+Contact";
             try
             {
                 System.Diagnostics.Process.Start(route);
             }
-            catch
+            catch (Exception)
             {
             }
         }
@@ -255,7 +253,7 @@ namespace AnimeKakkoi.App.Forms
 
         private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string route = AkConfiguration.GetSetting("ApplicationBugReport");
+            string route = "encrypted.google.com"; // IO.AppAkConfiguration.GetSetting("ApplicationBugReport");
             try
             {
                 System.Diagnostics.Process.Start(route);
@@ -267,7 +265,7 @@ namespace AnimeKakkoi.App.Forms
 
         private void searchUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string metadata = AkConfiguration.GetSetting("ApplicationMetadataUrl");
+            string metadata = "encrypted.google.com"; //AkConfiguration.GetSetting("ApplicationMetadataUrl");
             try
             {
                 Update upd = Net.Update.CheckForUpdate(metadata);
@@ -281,16 +279,6 @@ namespace AnimeKakkoi.App.Forms
             {
                 base.ShowError(this, base.Errors["error_search_update"]);
             }
-        }
-
-        private void versionProToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var builder = new StringBuilder();
-
-            builder.AppendLine("=== AnimeKakkoi Pro ===");
-            builder.AppendLine("");
-
-            base.ShowInformation(this, builder.ToString());
         }
 
         private void aboutAkToolStripMenuItem_Click(object sender, EventArgs e)
@@ -328,15 +316,12 @@ namespace AnimeKakkoi.App.Forms
 
         private bool checkForExit()
         {
-            //Framework.repo.xml.UserRepository repo = new Framework.repo.xml.UserRepository();
-            //if (Program.SystemUser != null)
-            //    repo.Change(Program.SystemUser);
             return true;
         }
 
         protected internal void OnPropertiesChange()
         {
-            stripStatusUser.Text = Program.SystemUser.Name;
+
         }
 
         private void CreateSharingTextFile()
@@ -344,7 +329,7 @@ namespace AnimeKakkoi.App.Forms
             #region Selection
 
             var saveDialog = new SaveFileDialog();
-            saveDialog.Title = Program.AppTitle;
+            saveDialog.Title = Program.APP_TITLE;
             saveDialog.AddExtension = true;
             saveDialog.AutoUpgradeEnabled = true;
             saveDialog.Filter = "Texto (*.txt) | *.txt";
@@ -365,6 +350,8 @@ namespace AnimeKakkoi.App.Forms
             buffer.AppendLine(DateTime.Now.ToLongDateString());
             buffer.AppendLine();
 
+            //TODO: Implement Sharing file
+            /*
             var animeRepo = new global::AnimeKakkoi.Framework.Repo.xml.AnimeRepository();
             List<Anime> animes = animeRepo.GetAll().ToList();
 
@@ -388,7 +375,7 @@ namespace AnimeKakkoi.App.Forms
 
             mangaRepo = null;
             mangas = null;
-
+            */
             #endregion
 
             #region Rev

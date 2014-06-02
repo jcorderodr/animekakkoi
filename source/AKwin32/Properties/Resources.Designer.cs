@@ -83,16 +83,6 @@ namespace AnimeKakkoi.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon bluegletek_beta_icon {
-            get {
-                object obj = ResourceManager.GetObject("bluegletek_beta_icon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
         internal static System.Drawing.Icon bluegletek_eagle_icon {
             get {
                 object obj = ResourceManager.GetObject("bluegletek_eagle_icon", resourceCulture);
@@ -287,6 +277,16 @@ namespace AnimeKakkoi.App.Properties {
             get {
                 object obj = ResourceManager.GetObject("loader_blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon logo_icon {
+            get {
+                object obj = ResourceManager.GetObject("logo_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

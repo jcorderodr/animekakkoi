@@ -1,6 +1,6 @@
-﻿namespace AnimeKakkoi.App.forms.management
+﻿namespace AnimeKakkoi.App.Forms.Management
 {
-    partial class frmNewItem
+    partial class FrmNewItem
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewItem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewItem));
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_Progress = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -179,7 +179,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "frmNewItem";
+            this.Name = "FrmNewItem";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmNewItem_Load);
             this.panel1.ResumeLayout(false);

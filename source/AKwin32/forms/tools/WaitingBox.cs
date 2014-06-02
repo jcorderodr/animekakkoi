@@ -6,9 +6,9 @@ using AnimeKakkoi.App.Forms;
 
 #endregion
 
-namespace AnimeKakkoi.App.forms.tools
+namespace AnimeKakkoi.App.Forms.tools
 {
-    public partial class WaitingBox : FrmBaseToolbox
+    public partial class WaitingBox : BaseToolbox
     {
         private readonly System.ComponentModel.BackgroundWorker underThread;
 

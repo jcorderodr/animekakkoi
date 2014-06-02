@@ -1,6 +1,6 @@
-﻿namespace AnimeKakkoi.App.forms.management
+﻿namespace AnimeKakkoi.App.Forms.Management
 {
-    partial class frmManagement
+    partial class FrmManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManagement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManagement));
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -234,7 +234,7 @@
             // 
             resources.ApplyResources(this.itemCategory, "itemCategory");
             // 
-            // frmManagement
+            // FrmManagement
             // 
             this.AcceptButton = this.btnAccept;
             resources.ApplyResources(this, "$this");
@@ -244,7 +244,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
-            this.Name = "frmManagement";
+            this.Name = "FrmManagement";
             this.Load += new System.EventHandler(this.frmManagement_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

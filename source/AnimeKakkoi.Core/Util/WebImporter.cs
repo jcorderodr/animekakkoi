@@ -1,19 +1,26 @@
 ﻿using System;
+using System.Net;
+using System.Threading.Tasks;
 using AnimeKakkoi.Core.Entities;
 using AnimeKakkoi.Core.Media;
 
 namespace AnimeKakkoi.Core.Util
 {
-    //TODO: re-create
+
     /// <summary>
     /// A web importer for loading media from web-based resources.
     /// </summary>
     public class WebImporter : IImporter
     {
 
-        public IMPORT_SOURCES Type { get; set; }
+        public ImportSources Type { get; set; }
 
         public String Html { get; set; }
+
+        public String TryRequest(string uri)
+        {
+            return TryRequestAsync(uri).Result;
+        }
 
         /// <exception cref="System.Net.WebException">Trying to reach the indicated Uri.</exception>
         /// <summary>
@@ -21,30 +28,36 @@ namespace AnimeKakkoi.Core.Util
         /// </summary>
         /// <param name="uri"></param>
         /// <returns></returns>
-        public string TryRequest(string uri)
+        public async Task<String> TryRequestAsync(string uri)
         {
-            //WebClient client = new WebClient();
             string html = null;
 
-            //string sampleURL = "http://google.com";
-            //bool useProxy = !string.Equals(System.Net.WebRequest.DefaultWebProxy.GetProxy(new Uri(sampleURL)), sampleURL);
-            //if (useProxy)
-            //{
-            //    client.Proxy = IO.AkConfiguration.GetProxy();
-            //}
+            var webRequest = WebRequest.Create(uri);
+            webRequest.Credentials = CredentialCache.DefaultCredentials;
 
-            //try
-            //{
-            //    Stream data = client.OpenRead(uri);
-            //    StreamReader reader = new StreamReader(data);
-            //    html = reader.ReadToEnd();
-            //    int init = html.IndexOf("<body");
-            //    int end = html.IndexOf("</body>");
-            //    html = html.Substring(init, end - init);
-            //    data.Close();
-            //    reader.Close();
-            //}
-            //catch (WebException ex) { throw ex; }
+            const string sampleUrl = "http://google.com";
+            var useProxy = !string.Equals(objA: WebRequest.DefaultWebProxy.GetProxy(new Uri(sampleUrl)), objB: sampleUrl);
+            if (useProxy)
+            {
+                //client.Proxy = IO.AkConfiguration.GetProxy();
+            }
+
+            var response = (HttpWebResponse)webRequest.GetResponseAsync().Result;
+            var stream = response.GetResponseStream();
+            
+            try
+            {
+                using (var reader = new System.IO.StreamReader(stream))
+                {
+                    html = reader.ReadToEnd();
+                    reader.Dispose();
+                    //
+                    var init = html.IndexOf("<body", System.StringComparison.Ordinal);
+                    var end = html.IndexOf("</body>", System.StringComparison.Ordinal);
+                    html = html.Substring(init, end - init);
+                }
+            }
+            catch (WebException ex) { throw; }
 
             return html;
         }
@@ -54,14 +67,13 @@ namespace AnimeKakkoi.Core.Util
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="html"></param>
         /// <param name="typeName">the Entity's name.</param>
         /// <param name="rType"></param>
         /// <returns></returns>
         public ISource GetSource(string typeName, ref Type rType)
         {
             if (String.IsNullOrEmpty(this.Html))
-                throw new NullReferenceException("The 'HTML' propertie is empty.");
+                throw new NullReferenceException("The HTML property's empty.");
 
             Type type;
 
@@ -70,11 +82,9 @@ namespace AnimeKakkoi.Core.Util
                 case "anime":
                     type = typeof(Anime);
                     break;
-
                 case "manga":
                     type = typeof(Manga);
                     break;
-
                 default:
                     type = typeof(EntitySource);
                     break;
@@ -89,29 +99,29 @@ namespace AnimeKakkoi.Core.Util
             {
                 switch (Type)
                 {
-                    case IMPORT_SOURCES.MCANIME:
-                        McAnime mcanime = new McAnime();
+                    case ImportSources.MCANIME:
+                        var mcanime = new McAnime();
                         if (type == typeof(Anime))
                             mcanime.DisassembleSource(this.Html);
                         else if (type == typeof(Manga))
                             mcanime.DisassembleSource_Manga(this.Html); ;
                         return mcanime;
 
-                    case IMPORT_SOURCES.MCANIME_KRONOS:
-                        McAnime mcanime_k = new McAnime();
+                    case ImportSources.MCANIME_KRONOS:
+                        var mcanimeK = new McAnime();
                         if (type == typeof(Anime))
-                            mcanime_k.DisassembleSourceKronos(this.Html);
+                            mcanimeK.DisassembleSourceKronos(this.Html);
                         else if (type == typeof(Manga))
-                            mcanime_k.DisassembleSourceKronos_Manga(this.Html); ;
-                        return mcanime_k;
+                            mcanimeK.DisassembleSourceKronos_Manga(this.Html); ;
+                        return mcanimeK;
 
-                    case IMPORT_SOURCES.MY_ANIME_LIST:
-                        MyAnimeList resx = new MyAnimeList();
+                    case ImportSources.MY_ANIME_LIST:
+                        var animeList = new MyAnimeList();
                         if (type == typeof(Anime))
-                            resx.DisassembleSource_Anime(this.Html);
+                            animeList.DisassembleSource_Anime(this.Html);
                         else if (type == typeof(Manga))
-                            resx.DisassembleSource_Manga(this.Html); ;
-                        return resx;
+                            animeList.DisassembleSource_Manga(this.Html); ;
+                        return animeList;
 
                     default:
                         return null;
@@ -127,29 +137,25 @@ namespace AnimeKakkoi.Core.Util
             }
         }
 
-        public static bool isValidateSources(IMPORT_SOURCES sources, string resource)
+        public static bool IsValidateSources(ImportSources sources, string resource)
         {
-            bool r = true;
-
             switch (sources)
             {
-                case IMPORT_SOURCES.MCANIME:
+                case ImportSources.MCANIME:
                     return resource.Contains("mcanime");
-                case IMPORT_SOURCES.MCANIME_KRONOS:
+                case ImportSources.MCANIME_KRONOS:
                     return resource.Contains("kronos");
-                case IMPORT_SOURCES.MY_ANIME_LIST:
+                case ImportSources.MY_ANIME_LIST:
                     return resource.Contains("myanimelist");
-
                 default:
-                    r = false;
-                    break;
+                    return false;
             }
-            return r;
+            return false;
         }
 
     }
 
-    public enum IMPORT_SOURCES
+    public enum ImportSources
     {
         MCANIME = 1,
         MCANIME_KRONOS = 2,

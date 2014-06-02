@@ -1,46 +1,45 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using AnimeKakkoi.App.Forms;
-using AnimeKakkoi.Framework.IO;
-using AnimeKakkoi.Framework.Repo.xml;
-using AnimeKakkoi.Framework.media;
-using AnimeKakkoi.Framework.util;
+using AnimeKakkoi.Core.Entities;
+using AnimeKakkoi.Core.Media;
+using AnimeKakkoi.Core.Util;
 
-#endregion
-
-namespace AnimeKakkoi.App.forms.management
+namespace AnimeKakkoi.App.Forms.Management
 {
-    public partial class frmImporter : FrmBase
+
+    public partial class FrmImporter : Base
     {
-        private WebImporter import;
 
-        private ISource source;
+        private readonly WebImporter _import;
 
-        private Uri link;
+        private ISource _source;
 
-        private Type mediaType;
+        private Uri _link;
+
+        private Type _mediaType;
 
         #region Properties
 
-        public IMPORT_SOURCES ImportMethod { get; set; }
+        public ImportSources ImportMethod { get; set; }
 
-        public List<object> ResultedList { get; set; }
+        public IEnumerable<object> ResultedList
+        {
+            get { return _source.ResultedItems; }
+        }
 
         public Type MediaType
         {
-            get { return mediaType; }
-            set { mediaType = value; }
+            get { return _mediaType; }
+            set { _mediaType = value; }
         }
 
         #endregion
 
-        public frmImporter()
+        public FrmImporter()
         {
             InitializeComponent();
-            import = new WebImporter();
+            _import = new WebImporter();
         }
 
         #region UI Events
@@ -53,16 +52,15 @@ namespace AnimeKakkoi.App.forms.management
 
         private void lblType_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (link != null)
-                System.Diagnostics.Process.Start(link.OriginalString);
-            ;
+            if (_link != null)
+                System.Diagnostics.Process.Start(_link.OriginalString);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
             if (Form_State == FormUsingState.Ready)
             {
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
 
@@ -91,26 +89,25 @@ namespace AnimeKakkoi.App.forms.management
 
         private bool CheckInput()
         {
-            if (cbSourceType.SelectedIndex == -1 || cbSourceType.Text == "--") return false;
+            if (cbSourceType.SelectedIndex == -1 || cbSourceType.Text.Equals("--"))
+                return false;
 
             string uri = txtUrl.Text;
-            if (Uri.IsWellFormedUriString(uri, UriKind.Absolute))
-            {
-                link = new Uri(uri);
-                return WebImporter.isValidateSources(this.ImportMethod, uri);
-            }
-            else
+            if (!Uri.IsWellFormedUriString(uri, UriKind.Absolute))
                 return false;
+
+            _link = new Uri(uri);
+            return WebImporter.IsValidateSources(this.ImportMethod, uri);
         }
 
         private void BeginProcess()
         {
             try
             {
-                string response = import.TryRequest(link.AbsoluteUri);
-                import.Type = this.ImportMethod;
-                import.HTML = response;
-                source = import.GetSource(cbSourceType.Text, ref mediaType);
+                var response = _import.TryRequest(_link.AbsoluteUri);
+                _import.Type = this.ImportMethod;
+                _import.Html = response;
+                _source = _import.GetSource(cbSourceType.Text, ref _mediaType);
             }
             catch (Exception we)
             {
@@ -124,13 +121,13 @@ namespace AnimeKakkoi.App.forms.management
         {
             switch (ImportMethod)
             {
-                case IMPORT_SOURCES.MCANIME:
-                case IMPORT_SOURCES.MCANIME_KRONOS:
-                    var mcanime = source as McAnime;
+                case ImportSources.MCANIME:
+                case ImportSources.MCANIME_KRONOS:
+                    var mcanime = _source as McAnime;
                     ShowResult(mcanime.Items);
                     break;
-                case IMPORT_SOURCES.MY_ANIME_LIST:
-                    var resx = source as MyAnimeList;
+                case ImportSources.MY_ANIME_LIST:
+                    var resx = _source as MyAnimeList;
                     ShowResult(resx.Items);
                     break;
 
@@ -141,15 +138,14 @@ namespace AnimeKakkoi.App.forms.management
 
         private void SaveSourceToUser()
         {
-            Program.SystemUser.AddSource(link.AbsoluteUri);
-            var repo = new UserRepository();
-            repo.Change(Program.SystemUser);
+            //TODO: Save the source (link.AbsoluteUri) for  future uses
+
         }
 
         private void StartProcess()
         {
             BeginProcess();
-            if (source != null)
+            if (_source != null)
             {
                 EndProcess();
 
