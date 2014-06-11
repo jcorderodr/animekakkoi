@@ -12,7 +12,7 @@ namespace AnimeKakkoi.Core.Lang
     public class Language
     {
 
-        private const String LanguageFilePath = "Language.lsp";
+        internal const String LanguageFileName = "Language.lsp";
 
         private const String CommentTag = "#";
 
@@ -56,8 +56,6 @@ namespace AnimeKakkoi.Core.Lang
         {
             var words = text.Split(_splitters, StringSplitOptions.RemoveEmptyEntries);
 
-            //MessagesLibrary = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(string.Join(Environment.NewLine, words))
-
             for (int i = 0; i < words.Length; i++)
             {
                 if (words[i].StartsWith(CommentTag, StringComparison.CurrentCultureIgnoreCase))
@@ -79,7 +77,7 @@ namespace AnimeKakkoi.Core.Lang
         /// <param name="culture"></param>
         protected void Load(CultureInfo culture)
         {
-            var file = AkConfiguration.ApplicationDataFolder + LanguageFilePath;
+            var file = AkConfiguration.ApplicationDataFolder + LanguageFileName;
 
             var taskStream = FileManager.OpenStream(file);
             var stream = taskStream.Result;

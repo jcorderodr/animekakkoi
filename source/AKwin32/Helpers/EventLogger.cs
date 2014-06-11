@@ -23,10 +23,10 @@ namespace AnimeKakkoi.App.Helpers
         public static void Write(string text)
         {
 
-            System.IO.File.AppendAllText(IO.AppAkConfiguration.ApplicationLoggerFile,
-                                         String.Format("{1:dd/mm/yyyy hh:mm} # {0}{2}", text,
-                                                       DateTimeOffset.Now.DateTime,
-                                                       Environment.NewLine));
+            //System.IO.File.AppendAllText(IO.AppAkConfiguration.AppLoggerFile,
+            //                             String.Format("{1:dd/mm/yyyy hh:mm} # {0}{2}", text,
+            //                                           DateTimeOffset.Now.DateTime,
+            //                                           Environment.NewLine));
 
         }
 

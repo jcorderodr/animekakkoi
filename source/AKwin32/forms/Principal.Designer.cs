@@ -1,6 +1,6 @@
 ﻿namespace AnimeKakkoi.App.Forms
 {
-    partial class Base
+    partial class Principal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Base));
             this.SuspendLayout();
             // 
-            // frmBase
+            // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.KeyPreview = true;
-            this.Name = "FrmBase";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmBase";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBase_FormClosed);
-            this.Load += new System.EventHandler(this.frmBase_Load);
+            this.ClientSize = new System.Drawing.Size(433, 262);
+            this.Name = "Principal";
+            this.Text = "Principal";
             this.ResumeLayout(false);
 
         }

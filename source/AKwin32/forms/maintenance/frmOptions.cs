@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeKakkoi.App.Helpers;
+using System;
 using System.Net;
 
 
@@ -60,14 +61,13 @@ namespace AnimeKakkoi.App.Forms.Maintenance
 
         private void data_btnCleanAll_Click(object sender, EventArgs e)
         {
-            //if (base.ShowQuestion(this, base.Messages["clean_database_question"]) !=
-            //    System.Windows.Forms.DialogResult.Yes) return;
+            if (MessageHandler.ShowQuestion(this, base.Messages["clean_database_question"]) !=
+                System.Windows.Forms.DialogResult.Yes) return;
 
-            //var repos = new global::AnimeKakkoi.Framework.Repo.RepositoryResources();
-            //base.ShowInformation(this,
-            //                     repos.ReleaseDatabase()
-            //                         ? base.Messages["database_erased_sucess"]
-            //                         : base.Messages["database_erased_error"]);
+            var result = Core.IO.AkConfiguration.ReleaseAllApplicationResources();
+            MessageHandler.ShowInformation(result ?
+                                      base.Messages["database_erased_sucess"]
+                                     : base.Messages["database_erased_error"]);
         }
 
         #endregion
@@ -81,7 +81,7 @@ namespace AnimeKakkoi.App.Forms.Maintenance
             if (!regex.IsMatch(txtHost.Text))
             {
                 r = false;
-                base.ShowError(this, "proxy!");
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowError(this, "proxy!");
                 txtHost.Focus();
             }
 
@@ -90,7 +90,7 @@ namespace AnimeKakkoi.App.Forms.Maintenance
 
         private void SaveChanges()
         {
-            
+
             #region Connection
 
             var proxy = new WebProxy(txtHost.Text);

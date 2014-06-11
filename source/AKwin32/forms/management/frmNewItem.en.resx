@@ -112,14 +112,23 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="btnAccept.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txt_Progress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>316, 112</value>
+  </data>
   <data name="chkBox_Favorite.Location" type="System.Drawing.Point, System.Drawing">
-    <value>301, 71</value>
+    <value>316, 73</value>
   </data>
   <data name="chkBox_Favorite.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 17</value>
@@ -128,7 +137,7 @@
     <value>Is Favorite?</value>
   </data>
   <data name="lblEpi.Location" type="System.Drawing.Point, System.Drawing">
-    <value>204, 107</value>
+    <value>246, 113</value>
   </data>
   <data name="lblEpi.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 16</value>
@@ -165,12 +174,6 @@
   </data>
   <data name="lblName.Text" xml:space="preserve">
     <value>Name:</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
-  <data name="btnAccept.Text" xml:space="preserve">
-    <value>&amp;OK</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

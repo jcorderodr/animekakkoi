@@ -46,7 +46,7 @@ namespace AnimeKakkoi.App.Forms.tools
             }
             else
             {
-                base.ShowError(this, base.Errors["invalid_input"]);
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowError(this, base.Errors["invalid_input"]);
             }
         }
 

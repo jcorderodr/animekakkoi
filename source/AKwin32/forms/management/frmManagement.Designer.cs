@@ -36,7 +36,6 @@
             this.lblType = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_ProgressString = new System.Windows.Forms.MaskedTextBox();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.lbl_Favorite = new System.Windows.Forms.Label();
             this.cb_State = new System.Windows.Forms.ComboBox();
@@ -53,6 +52,7 @@
             this.listViewItems = new System.Windows.Forms.ListView();
             this.itemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.itemCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txt_Progress = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -104,7 +104,7 @@
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Controls.Add(this.txt_ProgressString);
+            this.panel1.Controls.Add(this.txt_Progress);
             this.panel1.Controls.Add(this.btnRemoveItem);
             this.panel1.Controls.Add(this.lbl_Favorite);
             this.panel1.Controls.Add(this.cb_State);
@@ -120,15 +120,6 @@
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Name = "panel1";
             // 
-            // txt_ProgressString
-            // 
-            this.txt_ProgressString.Culture = new System.Globalization.CultureInfo("");
-            resources.ApplyResources(this.txt_ProgressString, "txt_ProgressString");
-            this.txt_ProgressString.Name = "txt_ProgressString";
-            this.txt_ProgressString.SkipLiterals = false;
-            this.txt_ProgressString.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.txt_ProgressString.Validated += new System.EventHandler(this.guiField_Validated);
-            // 
             // btnRemoveItem
             // 
             resources.ApplyResources(this.btnRemoveItem, "btnRemoveItem");
@@ -140,7 +131,6 @@
             // 
             resources.ApplyResources(this.lbl_Favorite, "lbl_Favorite");
             this.lbl_Favorite.Image = global::AnimeKakkoi.App.Properties.Resources.fav_no_media;
-            this.lbl_Favorite.MinimumSize = new System.Drawing.Size(16, 16);
             this.lbl_Favorite.Name = "lbl_Favorite";
             this.lbl_Favorite.Click += new System.EventHandler(this.lblFavorite_Click);
             // 
@@ -234,6 +224,15 @@
             // 
             resources.ApplyResources(this.itemCategory, "itemCategory");
             // 
+            // txt_Progress
+            // 
+            resources.ApplyResources(this.txt_Progress, "txt_Progress");
+            this.txt_Progress.Culture = new System.Globalization.CultureInfo("en-029");
+            this.txt_Progress.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txt_Progress.HidePromptOnLeave = true;
+            this.txt_Progress.Name = "txt_Progress";
+            this.txt_Progress.ResetOnSpace = false;
+            // 
             // FrmManagement
             // 
             this.AcceptButton = this.btnAccept;
@@ -280,6 +279,6 @@
         protected internal System.Windows.Forms.ComboBox cb_State;
         protected internal System.Windows.Forms.Label label2;
         protected internal System.Windows.Forms.Button btnRemoveItem;
-        protected internal System.Windows.Forms.MaskedTextBox txt_ProgressString;
+        protected internal System.Windows.Forms.MaskedTextBox txt_Progress;
     }
 }

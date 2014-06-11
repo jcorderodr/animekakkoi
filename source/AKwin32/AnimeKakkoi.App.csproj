@@ -13,6 +13,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,7 +31,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,7 +61,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <CodeAnalysisLogFile>bin\Debug\AKwin32.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
@@ -105,6 +105,12 @@
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Apps_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PCLStorage, Version=0.9.6.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -117,12 +123,19 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\MessageHandler.cs" />
     <Compile Include="IO\AppAkConfiguration.cs" />
     <Compile Include="Net\Updater.cs" />
@@ -145,10 +158,10 @@
     <Compile Include="Forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Maintenance\AboutBox.cs">
+    <Compile Include="Forms\Tools\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Maintenance\AboutBox.Designer.cs">
+    <Compile Include="Forms\Tools\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Maintenance\frmCatalog.cs">
@@ -201,10 +214,10 @@
     </Compile>
     <Compile Include="Forms\Management\INewItem.cs" />
     <Compile Include="Forms\Management\IUIManagement.cs" />
-    <Compile Include="Forms\Maintenance\frmActionHistory.cs">
+    <Compile Include="Forms\Tools\frmActionHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Maintenance\frmActionHistory.Designer.cs">
+    <Compile Include="Forms\Tools\frmActionHistory.Designer.cs">
       <DependentUpon>frmActionHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Tools\frmBackUp.cs">
@@ -219,10 +232,10 @@
     <Compile Include="Forms\Tools\frmExporter.Designer.cs">
       <DependentUpon>frmExporter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Management\frmImporter.cs">
+    <Compile Include="Forms\Tools\frmImporter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Management\frmImporter.Designer.cs">
+    <Compile Include="Forms\Tools\frmImporter.Designer.cs">
       <DependentUpon>frmImporter.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Tools\frmInputRequest.cs">
@@ -266,7 +279,7 @@
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Maintenance\AboutBox.resx">
+    <EmbeddedResource Include="Forms\Tools\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Maintenance\frmCatalog.resx">
@@ -299,7 +312,7 @@
     <EmbeddedResource Include="Forms\Management\frmEntityEdit.resx">
       <DependentUpon>frmEntityEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Management\frmImporter.en.resx">
+    <EmbeddedResource Include="Forms\Tools\frmImporter.en.resx">
       <DependentUpon>frmImporter.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -325,14 +338,17 @@
     <EmbeddedResource Include="Forms\Management\frmNewItem.resx">
       <DependentUpon>frmNewItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Maintenance\frmActionHistory.en.resx">
+    <EmbeddedResource Include="Forms\Tools\frmActionHistory.en.resx">
       <DependentUpon>frmActionHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Maintenance\frmActionHistory.es.resx">
+    <EmbeddedResource Include="Forms\Tools\frmActionHistory.es.resx">
       <DependentUpon>frmActionHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Maintenance\frmActionHistory.resx">
+    <EmbeddedResource Include="Forms\Tools\frmActionHistory.resx">
       <DependentUpon>frmActionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tools\frmBackUp.en.resx">
       <DependentUpon>frmBackUp.cs</DependentUpon>
@@ -353,10 +369,10 @@
     <EmbeddedResource Include="Forms\Tools\frmExporter.resx">
       <DependentUpon>frmExporter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Management\frmImporter.es.resx">
+    <EmbeddedResource Include="Forms\Tools\frmImporter.es.resx">
       <DependentUpon>frmImporter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Management\frmImporter.resx">
+    <EmbeddedResource Include="Forms\Tools\frmImporter.resx">
       <DependentUpon>frmImporter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tools\frmInputRequest.en.resx">
@@ -410,6 +426,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Apps_TemporaryKey.pfx" />
     <None Include="Resources\version.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -440,6 +457,8 @@
     <None Include="Resources\network_downloads.png" />
     <None Include="Resources\network_find.png" />
     <None Include="Resources\logo_win.ico" />
+    <None Include="Resources\logo_w24x24.ico" />
+    <None Include="Resources\logo.png" />
     <Content Include="Resources\redo.png" />
     <None Include="Resources\sharing_overlay.png" />
     <Content Include="Resources\stop.png" />

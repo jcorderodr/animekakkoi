@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using AnimeKakkoi.Core.Helpers;
 
 namespace AnimeKakkoi.Core.Entities
@@ -6,11 +7,26 @@ namespace AnimeKakkoi.Core.Entities
     public abstract class EntitySource : Entity
     {
 
+        public EntitySource()
+        {
+            Episode = new Episodes();
+        }
+
+        public class Episodes
+        {
+            [System.ComponentModel.DefaultValue("0")]
+            public String Progress;
+
+            [System.ComponentModel.DefaultValue(EntityProperties.EPISODE_EMPTYCHAR)]
+            public String Last;
+        }
+
         public EntityState State { get; set; }
 
+        [System.ComponentModel.DefaultValue(0)]
         public int Rating { get; set; }
 
-        public String[] Episodes { get; set; }
+        public Episodes Episode { get; set; }
 
         public bool Favorite { get; set; }
 
@@ -23,16 +39,17 @@ namespace AnimeKakkoi.Core.Entities
         {
             get
             {
-                return String.Format("{0}{2}{1}", Episodes[0], Episodes[1], EntityProperties.EPISODE_CHAPTER_SEPARATOR);
+                return String.Format("{0}{2}{1}", Episode.Progress, Episode.Last, EntityProperties.EPISODE_SEPARATOR);
             }
             set
             {
-                string[] temp = value.Contains(EntityProperties.EPISODE_CHAPTER_SEPARATOR.ToString())
-                                    ? value.Split(EntityProperties.EPISODE_CHAPTER_SEPARATOR)
-                                    : String.Format("{0}{2}{1}", value, EntityProperties.EPISODE_CHAPTER_EMPTYCHAR,
-                                                    EntityProperties.EPISODE_CHAPTER_SEPARATOR)
-                                            .Split(EntityProperties.EPISODE_CHAPTER_SEPARATOR);
-                Episodes = temp;
+                string[] temp = value.Contains(EntityProperties.EPISODE_SEPARATOR.ToString())
+                                    ? value.Split(EntityProperties.EPISODE_SEPARATOR)
+                                    : String.Format("{0}{2}{1}", value, EntityProperties.EPISODE_EMPTYCHAR,
+                                                    EntityProperties.EPISODE_SEPARATOR)
+                                            .Split(EntityProperties.EPISODE_SEPARATOR);
+                Episode.Progress = temp.First().Trim();
+                Episode.Last = temp.Last().Trim();
             }
         }
 
@@ -47,8 +64,8 @@ namespace AnimeKakkoi.Core.Entities
             int init = 0, end = 0;
 
             this.Favorite = text.Contains(EntityProperties.ENTITY_FAVORITE_MARK);
-            this.Name = this.Favorite ? 
-                text.Substring(0, text.IndexOf(EntityProperties.ENTITY_FAVORITE_MARK, System.StringComparison.Ordinal) - 1) 
+            this.Name = this.Favorite ?
+                text.Substring(0, text.IndexOf(EntityProperties.ENTITY_FAVORITE_MARK, System.StringComparison.Ordinal) - 1)
                 : text.Substring(0, text.IndexOf("[", System.StringComparison.Ordinal) - 1);
 
             init = text.LastIndexOf(":", System.StringComparison.Ordinal);

@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewItem));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_Rating = new System.Windows.Forms.MaskedTextBox();
             this.txt_Progress = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_Category = new System.Windows.Forms.ComboBox();
             this.chkBox_Favorite = new System.Windows.Forms.CheckBox();
             this.cb_State = new System.Windows.Forms.ComboBox();
             this.txt_Comment = new System.Windows.Forms.TextBox();
-            this.txt_Rating = new System.Windows.Forms.TextBox();
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.lblEpi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,44 +46,60 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblState = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAccept = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // btnCancel
             // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txt_Progress);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.cb_Category);
-            this.panel1.Controls.Add(this.chkBox_Favorite);
-            this.panel1.Controls.Add(this.cb_State);
-            this.panel1.Controls.Add(this.txt_Comment);
-            this.panel1.Controls.Add(this.txt_Rating);
-            this.panel1.Controls.Add(this.txt_Name);
-            this.panel1.Controls.Add(this.lblEpi);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblComment);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lblState);
-            this.panel1.Controls.Add(this.lblName);
-            this.panel1.Name = "panel1";
+            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::AnimeKakkoi.App.Properties.Resources.button_cancel__x16;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnAccept
+            // 
+            resources.ApplyResources(this.btnAccept, "btnAccept");
+            this.btnAccept.Image = global::AnimeKakkoi.App.Properties.Resources.button_ok_x16;
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txt_Rating);
+            this.groupBox1.Controls.Add(this.txt_Progress);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cb_Category);
+            this.groupBox1.Controls.Add(this.chkBox_Favorite);
+            this.groupBox1.Controls.Add(this.cb_State);
+            this.groupBox1.Controls.Add(this.txt_Comment);
+            this.groupBox1.Controls.Add(this.txt_Name);
+            this.groupBox1.Controls.Add(this.lblEpi);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lblComment);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblState);
+            this.groupBox1.Controls.Add(this.lblName);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // txt_Rating
+            // 
+            resources.ApplyResources(this.txt_Rating, "txt_Rating");
+            this.txt_Rating.Name = "txt_Rating";
+            this.txt_Rating.Validated += new System.EventHandler(this.txt_Rating_Validated);
             // 
             // txt_Progress
             // 
             resources.ApplyResources(this.txt_Progress, "txt_Progress");
-            this.txt_Progress.Culture = new System.Globalization.CultureInfo("");
+            this.txt_Progress.Culture = new System.Globalization.CultureInfo("en-029");
+            this.txt_Progress.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txt_Progress.HidePromptOnLeave = true;
             this.txt_Progress.Name = "txt_Progress";
-            this.txt_Progress.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            this.txt_Progress.ResetOnSpace = false;
             // 
             // label3
             // 
@@ -113,12 +130,6 @@
             // 
             resources.ApplyResources(this.txt_Comment, "txt_Comment");
             this.txt_Comment.Name = "txt_Comment";
-            // 
-            // txt_Rating
-            // 
-            resources.ApplyResources(this.txt_Rating, "txt_Rating");
-            this.txt_Rating.Name = "txt_Rating";
-            this.txt_Rating.Validated += new System.EventHandler(this.txt_Rating_Validated);
             // 
             // txt_Name
             // 
@@ -155,58 +166,40 @@
             resources.ApplyResources(this.lblName, "lblName");
             this.lblName.Name = "lblName";
             // 
-            // btnCancel
-            // 
-            resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::AnimeKakkoi.App.Properties.Resources.button_cancel__x16;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnAccept
-            // 
-            resources.ApplyResources(this.btnAccept, "btnAccept");
-            this.btnAccept.Image = global::AnimeKakkoi.App.Properties.Resources.button_ok_x16;
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
-            // frmNewItem
+            // FrmNewItem
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrmNewItem";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmNewItem_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblComment;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblState;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MaskedTextBox txt_Progress;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cb_Category;
         private System.Windows.Forms.CheckBox chkBox_Favorite;
         private System.Windows.Forms.ComboBox cb_State;
         private System.Windows.Forms.TextBox txt_Comment;
-        private System.Windows.Forms.TextBox txt_Rating;
         private System.Windows.Forms.TextBox txt_Name;
         private System.Windows.Forms.Label lblEpi;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblComment;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblState;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.MaskedTextBox txt_Rating;
     }
 }

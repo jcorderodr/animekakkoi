@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using AnimeKakkoi.App.IO;
 using AnimeKakkoi.Core.Entities;
+using AnimeKakkoi.App.Helpers;
 
 namespace AnimeKakkoi.App.Forms
 {
@@ -12,6 +13,7 @@ namespace AnimeKakkoi.App.Forms
     /// </summary>
     public partial class Base : Form
     {
+
         #region Constants & Inherit vars
 
         /// <summary>
@@ -47,6 +49,7 @@ namespace AnimeKakkoi.App.Forms
 
         private void frmBase_Load(object sender, EventArgs e)
         {
+            //  Calling this here, cause an error in-design
             SetStyleToControl(this.Controls);
             this.Icon = Properties.Resources.logo_icon;
             this.Text = Program.APP_TITLE + " @ " + this.Text;
@@ -59,38 +62,13 @@ namespace AnimeKakkoi.App.Forms
 
         private void frmBase_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[Application.OpenForms.Count - 1].Focus();
+            if (Application.OpenForms.Count > 0)
+                Application.OpenForms[Application.OpenForms.Count - 1].Focus();
         }
 
         #endregion
 
-        #region UI Messages
-
-        protected DialogResult ShowError(IWin32Window parent, string text)
-        {
-            return MessageBox.Show(parent, text, Program.APP_TITLE,
-                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        protected DialogResult ShowInformation(IWin32Window parent, string text)
-        {
-            return MessageBox.Show(parent, text, Program.APP_TITLE,
-                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        protected DialogResult ShowQuestion(IWin32Window parent, string text)
-        {
-            return MessageBox.Show(parent, text, Program.APP_TITLE,
-                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        }
-
-        protected DialogResult ShowCustomMessage(IWin32Window parent, string text, MessageBoxIcon icon)
-        {
-            return MessageBox.Show(parent, text, Program.APP_TITLE,
-                                   MessageBoxButtons.OKCancel, icon);
-        }
-
-        #endregion
+       
 
         #region Functions
 
@@ -115,7 +93,6 @@ namespace AnimeKakkoi.App.Forms
             if (ctrl.GetType() == typeof(TextBox))
                 ctrl.Text = String.Empty;
             else if (ctrl.GetType() == typeof(ComboBox))
-                //ctrl.Text = "--";
                 ((ComboBox)ctrl).SelectedIndex = 0;
             else if (ctrl.GetType() == typeof(ListView))
                 ((ListView)ctrl).Items.Clear();
@@ -132,7 +109,7 @@ namespace AnimeKakkoi.App.Forms
             }
             catch
             {
-                this.ShowError(this, Program.Language.MessagesLibrary["loading_catalog"]);
+                MessageHandler.ShowError(this, Program.Language.MessagesLibrary["loading_catalog"]);
             }
         }
 
@@ -154,15 +131,14 @@ namespace AnimeKakkoi.App.Forms
 
         protected void SetStyleToControl(Control.ControlCollection co)
         {
-            this.BackColor = AppAkConfiguration.FormBackGroundColor;
+            this.BackColor = Color.FromArgb(255, 255, 192);
 
             foreach (Control ctrl in co)
             {
                 if (ctrl.HasChildren)
                     SetStyleToControl(ctrl.Controls);
 
-                //ctrl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                ctrl.Font = AppAkConfiguration.UiControlsFontStyle;
+                //ctrl.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
 
                 if (ctrl is ListView)
                 {
@@ -182,7 +158,27 @@ namespace AnimeKakkoi.App.Forms
                 var lbl = ctrl as Label;
                 if (lbl != null)
                 {
-                    //new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    var font = new Font("Comic Sans MS", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+                    lbl.Font = font;
+                    lbl.ForeColor = Color.DimGray;
+                }
+            }
+        }
+
+        protected void SetPersonalStyleToControl(Control.ControlCollection co)
+        {
+            this.BackColor = Color.FromArgb(255, 255, 192);
+
+            foreach (Control ctrl in co)
+            {
+                if (ctrl.HasChildren)
+                    SetStyleToControl(ctrl.Controls);
+
+                ctrl.Font = AppAkConfiguration.UiControlsFontStyle;
+
+                var lbl = ctrl as Label;
+                if (lbl != null)
+                {
                     lbl.Font = AppAkConfiguration.UiFontsStyle;
                     lbl.ForeColor = AppAkConfiguration.UiFontsColor;
                 }

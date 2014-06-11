@@ -1,6 +1,4 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +14,6 @@ using AnimeKakkoi.Core.IO;
 using AnimeKakkoi.Core.Lang;
 using AnimeKakkoi.Core.Util;
 using FileManager = AnimeKakkoi.Core.IO.FileManager;
-
-#endregion
 
 namespace AnimeKakkoi.App.Forms
 {
@@ -35,7 +31,8 @@ namespace AnimeKakkoi.App.Forms
         private void FrmMain_Load(object sender, EventArgs e)
         {
             this.OnPropertiesChange();
-            EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, "system_start");
+            stripStatusUser.Text = Environment.UserName;
+            //EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.AppLoggerFile, "system_start");
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -130,7 +127,7 @@ namespace AnimeKakkoi.App.Forms
             //var importer = new FileManager(fileDialog.FileName);
             //importer.Load();
 
-            base.ShowInformation(this, base.Messages[LanguageExpressions.OPERATION_SUCESS]);
+            MessageHandler.ShowInformation(this, base.Messages[LanguageExpressions.OPERATION_SUCESS]);
         }
 
         private void mcAnimeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -197,12 +194,12 @@ namespace AnimeKakkoi.App.Forms
 
         private void updateSourcesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            base.ShowInformation(this, base.Messages["version_pro"]);
+            
         }
 
         private void dataCheckerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            base.ShowInformation(this, base.Messages["version_pro"]);
+            MessageHandler.ShowInformation(this, base.Messages["version_pro"]);
         }
 
         private void backUpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -271,13 +268,13 @@ namespace AnimeKakkoi.App.Forms
                 Update upd = Net.Update.CheckForUpdate(metadata);
 
                 if (upd.IsNewVersion)
-                    base.ShowInformation(this, base.Messages["update_available"] + upd.Version);
+                    MessageHandler.ShowInformation(this, base.Messages["update_available"] + upd.Version);
                 else
-                    base.ShowInformation(this, base.Messages["last_version"] + upd.Version);
+                    MessageHandler.ShowInformation(this, base.Messages["last_version"] + upd.Version);
             }
             catch
             {
-                base.ShowError(this, base.Errors["error_search_update"]);
+                MessageHandler.ShowError(this, base.Errors["error_search_update"]);
             }
         }
 
@@ -395,7 +392,7 @@ namespace AnimeKakkoi.App.Forms
                 writer.Write(buffer.ToString());
                 writer.Flush();
                 writer.Close();
-                base.ShowInformation(this, base.Messages["sharing_file"]);
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowInformation(this, base.Messages["sharing_file"]);
             }
             catch
             {
@@ -403,5 +400,6 @@ namespace AnimeKakkoi.App.Forms
         }
 
         #endregion
+
     }
 }

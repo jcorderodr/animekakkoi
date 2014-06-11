@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,24 +8,47 @@ using System.Threading.Tasks;
 namespace AnimeKakkoi.Core.Data.Json
 {
 
-    public abstract class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T> : IDisposable, IRepository<T> where T : Entities.Entity
     {
 
         protected ICollection<T> RepositoryContent;
+
+        //ApplicationDataFolder + Repo
+        private String _nameOrLocation;
 
         protected Repository(ICollection<T> repositoryContent = null)
         {
             RepositoryContent = repositoryContent ?? new Collection<T>();
         }
 
+        protected Repository(String nameOrLocation)
+        {
+            _nameOrLocation = IO.AkConfiguration.ApplicationDataFolder + nameOrLocation;
+            var content = IO.FileManager.OpenOrCreateStream(_nameOrLocation);
+            var context = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<T>>(content.Result) ?? new T[] { };
+            RepositoryContent = context.ToList();
+        }
+
+        public void Dispose()
+        {
+            RepositoryContent = null;
+        }
+
         public T Add(T item)
         {
-            throw new NotImplementedException();
+
+            return item;
         }
-        
+
         public int AddRange(IEnumerable<T> items)
         {
-            throw new NotImplementedException();
+            foreach (var item in items)
+            {
+                item.Codigo = GetNewId();
+                RepositoryContent.Add(item);
+            }
+            this.SaveChanges();
+            return items.Count();
         }
 
         public void Change(T item)
@@ -49,21 +73,26 @@ namespace AnimeKakkoi.Core.Data.Json
 
         public IEnumerable<T> Get(int id)
         {
-            throw new NotImplementedException();
+            return RepositoryContent.Where(p => p.Codigo == id);
         }
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return RepositoryContent;
         }
 
         public Type RepositoryType()
         {
-            throw new NotImplementedException();
+            return typeof(T);
         }
 
-        protected abstract void SaveChanges();
+        protected virtual void SaveChanges()
+        {
+            var content = JsonConvert.SerializeObject(RepositoryContent, Formatting.Indented);
+            IO.FileManager.SaveStream(_nameOrLocation, content);
+        }
 
+        protected abstract int GetNewId();
 
     }
 

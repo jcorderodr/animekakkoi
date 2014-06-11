@@ -6,11 +6,11 @@
 ###
 #	Mensajes
 ###
-welcome = Que lo que?
+welcome = Que lo qué!?
 select_user = Debe seleccionar un usuario.
 items_saved = Los registros se han guardado exitosamente!
 item_affected = Se ha modificado/guardado el ítem exitosamente.
-exit_question = ¿Desea realmente salir?
+exit_question = ¿Desea salir sin guardar?
 sharing_file = Se ha creado exitosamente el archivo para compartir.
 new_user_request = Ingrese nuevo usuario
 clean_database_question = ¿Está seguro que desea limpiar por completo la base de datos?
@@ -39,11 +39,11 @@ operation_failed = La operación ha fallado.
 ###
 #	Textos / Palabras
 ###
-QUEUE = En cola
-WATCHING = Actualmente
-WATCHED = Terminado
-TAKED_DOWN = Abandonado
-WANT_TO = Pendiente
+Queue = En cola
+Watching = Actualmente
+Watched = Terminado
+TakedDown = Abandonado
+WantTo = Pendiente
 save = Guardar
 cancel = Cancelar
 new_user = Nuevo Usuario
@@ -85,11 +85,11 @@ operation_failed = The operation has failed.
 ###
 #	Textos / Palabras
 ###
-QUEUE = Queue
-WATCHING = Watching
-WATCHED = Finished
-TAKED_DOWN = Taked Down
-WANT_TO = Want it
+Queue = Queue
+Watching = Watching
+Watched = Finished
+TakedDown = Taked Down
+WantTo = Want it
 save = Save
 cancel = Cancel
 new_user = New User

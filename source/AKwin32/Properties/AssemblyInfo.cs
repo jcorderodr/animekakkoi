@@ -1,9 +1,7 @@
-﻿#region
-
+﻿
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-#endregion
 
 [assembly: AssemblyTitle("AnimeKakkoi")]
 [assembly: AssemblyDescription("")]

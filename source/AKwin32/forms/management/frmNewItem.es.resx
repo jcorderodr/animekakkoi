@@ -112,14 +112,23 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancelar</value>
+  </data>
+  <data name="btnAccept.Text" xml:space="preserve">
+    <value>&amp;Guardar</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txt_Progress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 114</value>
+  </data>
   <data name="chkBox_Favorite.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 69</value>
+    <value>330, 73</value>
   </data>
   <data name="chkBox_Favorite.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 17</value>
@@ -128,7 +137,7 @@
     <value>Favorito</value>
   </data>
   <data name="lblEpi.Location" type="System.Drawing.Point, System.Drawing">
-    <value>204, 107</value>
+    <value>231, 115</value>
   </data>
   <data name="lblEpi.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 16</value>
@@ -137,7 +146,7 @@
     <value>Progreso:</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 70</value>
+    <value>23, 70</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 16</value>
@@ -146,7 +155,7 @@
     <value>Categoría:</value>
   </data>
   <data name="lblComment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 187</value>
+    <value>23, 187</value>
   </data>
   <data name="lblComment.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 16</value>
@@ -155,13 +164,13 @@
     <value>Comentario:</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 109</value>
+    <value>23, 114</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Rating:</value>
   </data>
   <data name="lblState.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 148</value>
+    <value>23, 148</value>
   </data>
   <data name="lblState.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 16</value>
@@ -170,19 +179,13 @@
     <value>Estado:</value>
   </data>
   <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 31</value>
+    <value>23, 31</value>
   </data>
   <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 16</value>
   </data>
   <data name="lblName.Text" xml:space="preserve">
     <value>Nombre:</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>&amp;Cancelar</value>
-  </data>
-  <data name="btnAccept.Text" xml:space="preserve">
-    <value>&amp;Guardar</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

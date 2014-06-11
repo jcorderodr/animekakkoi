@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace AnimeKakkoi.Core.IO
 {
+
     /// <summary>
     /// Provides access, properties and settings.
     /// </summary>
@@ -14,14 +15,9 @@ namespace AnimeKakkoi.Core.IO
 
         private const String AppConfigFileName = "anime_k.akc";
 
-        internal const String RS_CENTRAL = "ak_data.bin";
-        internal const String RS_ANIMES = "ak_animes.akm";
-        internal const String RS_MANGAS = "ak_mangas.akm";
-
-
-        internal const String PROPERTIES_SECTION_MAIN_DATA = "Properties";
-        internal const bool APP_REPO_AUTOSAVE = true;
-
+        /// <summary>
+        /// 
+        /// </summary>
         internal static String AppConfigurationFile
         {
             get
@@ -30,11 +26,17 @@ namespace AnimeKakkoi.Core.IO
             }
         }
 
-        internal static String ApplicationLoggerFile
+        /// <summary>
+        /// 
+        /// </summary>
+        internal static String AppLoggerFile
         {
             get { return ApplicationDataFolder + "usr-h.log"; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static String ApplicationDataFolder
         {
             get
@@ -45,9 +47,16 @@ namespace AnimeKakkoi.Core.IO
             }
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public static System.Globalization.CultureInfo ApplicationDefaultCulture
         {
-            get { return new System.Globalization.CultureInfo(GetSetting("ApplicationCulture")); }
+            get 
+            { 
+                var cultureInfo = new System.Globalization.CultureInfo(GetSetting("ApplicationCulture"));
+                return cultureInfo ?? new System.Globalization.CultureInfo("en");
+            }
         }
 
 
@@ -57,23 +66,28 @@ namespace AnimeKakkoi.Core.IO
         {
             var openStreamResult = IO.FileManager.OpenStream(AppConfigurationFile);
 
+            if (openStreamResult.IsFaulted || openStreamResult.Result == null)
+            {
+                var content = Newtonsoft.Json.JsonConvert.SerializeObject(new Entities.Configuration());
+                IO.FileManager.SaveStream(AppConfigurationFile, content);
+                openStreamResult = IO.FileManager.OpenStream(AppConfigurationFile);
+            }
+
             var dictionary = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(openStreamResult.Result);
 
-            return dictionary[key];
-        }
-
-        internal static String[] GetBackUpFiles()
-        {
-            return new string[] 
-            {
-                RS_CENTRAL, RS_ANIMES, RS_MANGAS
-            };
+            return dictionary.ContainsKey(key) ? dictionary[key] : String.Empty;
         }
 
         public static bool IsUsingProxy()
         {
             var value = GetSetting("useProxy");
             return Boolean.Parse(value);
+        }
+
+        public static bool ReleaseAllApplicationResources()
+        {
+            IO.FileManager.CleanApplicationData();
+            return true;
         }
 
         /// <summary>
@@ -92,7 +106,7 @@ namespace AnimeKakkoi.Core.IO
         /// <returns>true - if files exists, otherwise false.</returns>
         public static bool TryFileInspection()
         {
-            return FileManager.FileExists(AppConfigurationFile);
+            return FileManager.FileExists(AkConfiguration.ApplicationDataFolder + Lang.Language.LanguageFileName);
         }
         
         #endregion

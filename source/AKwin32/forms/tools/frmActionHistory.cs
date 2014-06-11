@@ -1,8 +1,4 @@
-﻿#region
-
-using System;
-
-#endregion
+﻿using System;
 
 namespace AnimeKakkoi.App.Forms.tools
 {
@@ -15,8 +11,8 @@ namespace AnimeKakkoi.App.Forms.tools
 
         private void frmActionHistory_Load(object sender, EventArgs e)
         {
-            string text = System.IO.File.ReadAllText(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile);
-            txt_history.AppendText(text);
+            //string text = System.IO.File.ReadAllText(AnimeKakkoi.App.IO.AppAkConfiguration.AppLoggerFile);
+            //txt_history.AppendText(text);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)

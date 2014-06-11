@@ -1,14 +1,11 @@
-﻿#region
-
-using System;
+﻿using System;
 using AnimeKakkoi.App.IO;
-
-#endregion
 
 namespace AnimeKakkoi.App.Forms.Maintenance
 {
     public partial class FrmPreferences : BaseToolbox
     {
+
         public FrmPreferences()
         {
             InitializeComponent();
@@ -20,7 +17,6 @@ namespace AnimeKakkoi.App.Forms.Maintenance
 
             chkBoxInstantSearch.Checked = AppAkConfiguration.UserUsingInstantSearch;
             // -
-            panelColorSample.BackColor = AppAkConfiguration.FormBackGroundColor;
             linkLabelFontColor.LinkColor = AppAkConfiguration.UiFontsColor;
 
             linkLabelFontsStyle.Font = AppAkConfiguration.UiFontsStyle;

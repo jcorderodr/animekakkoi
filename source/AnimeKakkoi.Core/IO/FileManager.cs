@@ -11,6 +11,15 @@ namespace AnimeKakkoi.Core.IO
     {
 
         /// <summary>
+        /// Deletes the Application's principal folder.
+        /// </summary>
+        internal static void CleanApplicationData()
+        {
+            var ifolder = FileSystem.Current.LocalStorage.GetFolderAsync(IO.AkConfiguration.ApplicationDataFolder);
+            ifolder.Result.DeleteAsync();
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="files"></param>
@@ -45,7 +54,7 @@ namespace AnimeKakkoi.Core.IO
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns>The file's content.</returns>
-        public static Task<string> OpenStream(String fileName)
+        internal static Task<string> OpenStream(String fileName)
         {
             var file = FileSystem.Current.GetFileFromPathAsync(fileName);
 
@@ -62,17 +71,33 @@ namespace AnimeKakkoi.Core.IO
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns>The file's content.</returns>
-        public static Task<string> OpenOrCreateStream(String fileName)
+        internal static Task<string> OpenOrCreateStream(String fileName)
         {
-            var file = FileSystem.Current.GetFileFromPathAsync(fileName) ??
-                       FileSystem.Current.LocalStorage.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
+            var file = FileSystem.Current.GetFileFromPathAsync(fileName);
 
-            if (file != null)
+            if (file.Result == null)
+               file = FileSystem.Current.LocalStorage.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
+
+            if (file.Result != null)
             {
                 return file.Result.ReadAllTextAsync();
             }
 
             return null;
+        }
+
+
+        internal static void SaveStream(string filename, string content)
+        {
+            var file = FileSystem.Current.GetFileFromPathAsync(filename);
+
+            if (file.Result == null)
+                file = FileSystem.Current.LocalStorage.CreateFileAsync(filename, CreationCollisionOption.OpenIfExists);
+
+            if (file.Result != null)
+            {
+                file.Result.WriteAllTextAsync(content);
+            }
         }
 
     }

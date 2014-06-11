@@ -20,11 +20,9 @@ namespace AnimeKakkoi.Core.Entities
 
         public const String ENTITY_FAVORITE_MARK = "<3";
 
-        public const Char EPISODE_CHAPTER_SEPARATOR = '/';
+        public const Char EPISODE_SEPARATOR = '/';
 
-        public const Char EPISODE_CHAPTER_EMPTYCHAR = '-';
-
-        public const Int32 EPISODE_CHAPTER_EMPTYINT = 0;
+        public const Char EPISODE_EMPTYCHAR = '-';
     }
 
     public enum EntityState
@@ -50,4 +48,5 @@ namespace AnimeKakkoi.Core.Entities
         /// </summary>
         TakedDown = 5
     }
+
 }

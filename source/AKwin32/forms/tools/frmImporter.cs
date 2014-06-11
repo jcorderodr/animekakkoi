@@ -111,7 +111,7 @@ namespace AnimeKakkoi.App.Forms.Management
             }
             catch (Exception we)
             {
-                base.ShowError(this,
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowError(this,
                                String.Format("{1} : {0}",
                                              we.Message, base.Errors["communication_failed"]));
             }
@@ -159,7 +159,6 @@ namespace AnimeKakkoi.App.Forms.Management
         private void ShowResult(List<object> list)
         {
             lblElementsCount.Text = list.Count + "";
-            this.ResultedList = list;
         }
 
         #endregion
