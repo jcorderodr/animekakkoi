@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Apps_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Data\IMangaRepository.cs" />
     <Compile Include="Data\IRepository.cs" />
@@ -41,6 +47,7 @@
     <Compile Include="Data\Json\Repository.cs" />
     <Compile Include="Entities\Anime.cs" />
     <Compile Include="Entities\Comic.cs" />
+    <Compile Include="Entities\Configuration.cs" />
     <Compile Include="Entities\Custom.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\EntitySource.cs" />
@@ -50,6 +57,7 @@
     <Compile Include="Helpers\AkConfiguration.cs" />
     <Compile Include="Helpers\CoreEventLogger.cs" />
     <Compile Include="Helpers\HNodeHelper.cs" />
+    <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="IO\BackUp.cs" />
     <Compile Include="Entities\Catalogo.cs" />
     <Compile Include="IO\FileManager.cs" />
@@ -69,6 +77,7 @@
     <Compile Include="Util\WebImporter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Apps_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

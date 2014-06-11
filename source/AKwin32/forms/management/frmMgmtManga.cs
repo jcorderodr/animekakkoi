@@ -22,24 +22,25 @@ namespace AnimeKakkoi.App.Forms.Management
             _repo = new MangaRepository();
         }
 
-        #region GUI Events
+        #region UI Events
 
         protected override void btnRemoveItem_Click(object sender, EventArgs e)
         {
             if (listViewItems.SelectedItems.Count < 1) return;
+
             var manga = listViewItems.SelectedItems[0].Tag as Manga;
             listViewItems.SelectedItems[0].Remove();
             _repo.Remove(manga);
 
             var evtChange = " (-) " + manga;
-            EventLogger.Write(IO.AppAkConfiguration.ApplicationLoggerFile, evtChange);
+            //EventLogger.Write(IO.AppAkConfiguration.AppLoggerFile, evtChange);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
             _dataSource.Clear();
             foreach (ListViewItem item in listViewItems.Items)
-                _dataSource.Add(ObjectToType(item.Tag));
+                _dataSource.Add(item.Tag as Manga);
             ((IUIManagement) this).SaveItemsToRepository(false);
             //
             this.Close();
@@ -51,8 +52,7 @@ namespace AnimeKakkoi.App.Forms.Management
 
         void IUIManagement.ConvertItemsToDefaultType()
         {
-            _dataSource = OriginalDataSource.ConvertAll(
-                ObjectToType);
+            _dataSource = OriginalDataSource.Select(obj => obj as Manga).ToList();
         }
 
         void IUIManagement.DoVisualChanges()
@@ -104,7 +104,7 @@ namespace AnimeKakkoi.App.Forms.Management
             this._dataSource = _repo.GetAll().ToList();
         }
 
-        void IUIManagement.FilterData(List<object> list)
+        void IUIManagement.FilterData(IEnumerable<object> list)
         {
             ListViewItem item;
             foreach (Manga manga in list)
@@ -130,19 +130,18 @@ namespace AnimeKakkoi.App.Forms.Management
                 result = _repo.Change(_dataSource);
 
             if (result != _dataSource.Count)
-                base.ShowInformation(this,
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowInformation(this,
                                      base.Messages["items_saved"] + String.Format(" ({0})", result));
         }
 
         #endregion
 
-        #region Functions
 
-        private Manga ObjectToType(object obj)
+
+
+        public void ShowItem<T>(T item)
         {
-            return (Manga) obj;
+            throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

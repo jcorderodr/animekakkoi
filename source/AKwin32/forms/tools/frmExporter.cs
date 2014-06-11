@@ -26,7 +26,7 @@ namespace AnimeKakkoi.App.Forms.tools
             saveFileDialog.Title = Program.APP_TITLE;
             //saveFileDialog.Filter = FileProperties.AppSharingFileFilterName;
 
-            List<Catalog> cbValues = Catalog.GetEntitiesValidTypes();
+            var cbValues = new List<Catalog>(Catalog.GetEntitiesValidTypes());
 
             int id = Convert.ToInt32(cbValues.LastOrDefault().Id) + 1;
             cbValues.Add(new Catalog {Id = id + "", Description = "by own"});
@@ -55,7 +55,7 @@ namespace AnimeKakkoi.App.Forms.tools
             }
 
             if (DoOperation())
-                base.ShowInformation(this, base.Messages[LanguageExpressions.OPERATION_SUCESS]);
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowInformation(this, base.Messages[LanguageExpressions.OPERATION_SUCESS]);
             this.Close();
         }
 

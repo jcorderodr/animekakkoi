@@ -7,14 +7,7 @@ namespace AnimeKakkoi.Core.Entities
 
         public ComicType Category { get; set; }
 
-        /// <summary>
-        /// Gets or sets the values that represents the progress.
-        /// </summary>
-        public String[] Chapters
-        {
-            get { return Episodes; } 
-            set { Episodes = value; }
-        }
+       
         
     }
 

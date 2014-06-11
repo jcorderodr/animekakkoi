@@ -123,8 +123,9 @@ namespace AnimeKakkoi.Core.Media
                     entity.Name = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//a", "");
                     entity.State = state;
 
+                    //TODO: Check this out
                     // MCAnime v1 doesn't give the progress
-                    entity.Chapters = new string[] { "-", "-" };
+                    //entity.Chapters = new string[] { "-", "-" };
 
                     aux = HNodeHelper.AnalizeNodeValue(item, item.XPath + "//i", "Serie");
                     aux = aux.Replace("(", "").Replace(")", ""); ;

@@ -26,12 +26,12 @@ namespace AnimeKakkoi.Core.Entities
         public String Description { get; set; }
 
         /// <summary>
-        /// Gets the valids types of entities.
+        /// Gets the valids types of Entities.
         /// </summary>
         /// <returns></returns>
-        public static List<Catalog> GetEntitiesValidTypes()
+        public static IEnumerable<Catalog> GetEntitiesValidTypes()
         {
-            var values = AkConfiguration.GetSetting("entities");
+            var values = AkConfiguration.GetSetting("Entities");
 
             var aux2 = values.Split(',');
 
@@ -43,16 +43,11 @@ namespace AnimeKakkoi.Core.Entities
                 }).ToList();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public static List<Catalog> GetEntitiesStateTypes()
+        public static IEnumerable<Catalog> GetEntitiesStateTypes()
         {
-            string values = AkConfiguration.GetSetting("entities_types");
-            string[] aux2 = values.Split(',');
+            var values = Enum.GetNames(typeof(Entities.EntityState));
 
-            return aux2.Select((t, i) => new Catalog()
+            return values.Select((t, i) => new Catalog()
                 {
                     Id = i + 1 + "",
                     Value = t.Trim(),
@@ -60,13 +55,25 @@ namespace AnimeKakkoi.Core.Entities
                 }).ToList();
         }
 
+        public static IEnumerable<Catalog> GetEntitiesStateTypes(Lang.Language language)
+        {
+            var values = Enum.GetNames(typeof(Entities.EntityState));
+
+            return values.Select((t, i) => new Catalog()
+            {
+                Id = i + 1 + "",
+                Value = t.Trim(),
+                Description = language.MessagesLibrary[t.Trim()]
+            }).ToList();
+        }
+
         /// <summary>
         /// Gets all the categories types of animes.
         /// </summary>
         /// <returns></returns>
-        public static List<Catalog> GetAnimeCategoriesTypes()
+        public static IEnumerable<Catalog> GetAnimeCategoriesTypes()
         {
-            var values = AkConfiguration.GetSetting("anime_categories");
+            var values = AkConfiguration.GetSetting("AnimeCategories");
 
             var aux2 = values.Split(',');
 
@@ -82,9 +89,9 @@ namespace AnimeKakkoi.Core.Entities
         ///  Gets all the categories types of mangas.
         /// </summary>
         /// <returns></returns>
-        public static List<Catalog> GetMangaCategoriesTypes()
+        public static IEnumerable<Catalog> GetMangaCategoriesTypes()
         {
-            var values = AkConfiguration.GetSetting("manga_categories");
+            var values = AkConfiguration.GetSetting("MangaCategories");
 
             var aux2 = values.Split(',');
 

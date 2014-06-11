@@ -6,11 +6,13 @@ using AnimeKakkoi.App.Helpers;
 using AnimeKakkoi.Core.Data.Json;
 using AnimeKakkoi.Core.Entities;
 using AnimeKakkoi.Core.Data;
+using AnimeKakkoi.Core.Helpers;
 
 namespace AnimeKakkoi.App.Forms.Management
 {
     public partial class FrmMgmtAnime : FrmManagement, IUIManagement
     {
+
         private readonly IAnimeRepository _repo;
 
         private IList<Anime> _dataSource;
@@ -19,7 +21,7 @@ namespace AnimeKakkoi.App.Forms.Management
         {
             InitializeComponent();
             this.Text = "Anime";
-            EntityType = typeof (Anime);
+            EntityType = typeof(Anime);
             _repo = new AnimeRepository();
         }
 
@@ -31,18 +33,14 @@ namespace AnimeKakkoi.App.Forms.Management
             var anime = listViewItems.SelectedItems[0].Tag as Anime;
             listViewItems.SelectedItems[0].Remove();
             _repo.Remove(anime);
-
-            var evtChange = " (-) " + anime;
-            EventLogger.Write(AnimeKakkoi.App.IO.AppAkConfiguration.ApplicationLoggerFile, evtChange);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            //
             _dataSource.Clear();
             foreach (ListViewItem item in listViewItems.Items)
-                _dataSource.Add(ObjectToType(item.Tag));
-            ((IUIManagement) this).SaveItemsToRepository(false);
+                _dataSource.Add(item.Tag as Anime);
+            ((IUIManagement)this).SaveItemsToRepository(false);
             //
             this.Close();
         }
@@ -53,8 +51,7 @@ namespace AnimeKakkoi.App.Forms.Management
 
         void IUIManagement.ConvertItemsToDefaultType()
         {
-            this._dataSource = OriginalDataSource.ConvertAll(
-                ObjectToType);
+            this._dataSource = OriginalDataSource.Select(obj => obj as Anime).ToList();
         }
 
         void IUIManagement.DoVisualChanges()
@@ -72,10 +69,10 @@ namespace AnimeKakkoi.App.Forms.Management
 
         void IUIManagement.InheritControlValidation(Control ctrl, System.Reflection.PropertyInfo p, object entity)
         {
-            if (p.PropertyType == typeof (AnimeType))
+            if (p.PropertyType == typeof(AnimeType))
             {
                 var s = (AnimeType)Enum.Parse(typeof(AnimeType), ctrl.Text);
-                p.SetValue(entity, (int) s, null);
+                p.SetValue(entity, (int)s, null);
             }
         }
 
@@ -83,7 +80,7 @@ namespace AnimeKakkoi.App.Forms.Management
         {
             foreach (Anime anime in this._dataSource)
             {
-                ListViewItem item = new ListViewItem(new[] {anime.Name, anime.ToString()});
+                ListViewItem item = new ListViewItem(new[] { anime.Name, anime.ToString() });
                 item.Tag = anime;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);
@@ -93,15 +90,14 @@ namespace AnimeKakkoi.App.Forms.Management
         void IUIManagement.PrepareDataFromRepo()
         {
             this._dataSource = _repo.GetAll().ToList();
-            OriginalDataSource = _dataSource.ConvertAll(
-                TypeToObject);
+            OriginalDataSource = _dataSource.Select(obj => obj as Anime).ToList();
         }
 
-        void IUIManagement.FilterData(List<object> list)
+        void IUIManagement.FilterData(IEnumerable<object> list)
         {
             foreach (Anime anime in list)
             {
-                ListViewItem item = new ListViewItem(new[] {anime.Name, anime.ToString()});
+                ListViewItem item = new ListViewItem(new[] { anime.Name, anime.ToString() });
                 item.Tag = anime;
                 item.BackColor = GetAlternateItemColor();
                 listViewItems.Items.Add(item);
@@ -118,24 +114,27 @@ namespace AnimeKakkoi.App.Forms.Management
             int result;
             result = newItems ? _repo.AddRange(_dataSource) : _repo.Change(_dataSource);
 
-            base.ShowInformation(this,
+            AnimeKakkoi.App.Helpers.MessageHandler.ShowInformation(this,
                                  base.Messages["items_saved"] + String.Format(" ({0})", result));
         }
 
         #endregion
 
-        #region Functions
-
-        private Anime ObjectToType(object obj)
+        public void ShowItem<T>(T item)
         {
-            return (Anime) obj;
+            var value = item as Core.Entities.Anime;
+
+            AlternateFavoriteControl(value.Favorite);
+
+            txt_Name.Text = value.Name;
+            txt_Rating.Text = value.Rating + "";
+            txt_Comment.Text = value.Comment;
+            txt_Progress.Text = value.ProgressString;
+
+            cb_Category.SelectedText = value.Category + "";
+            cb_State.SelectedText = value.State.ToString();
         }
 
-        private object TypeToObject(Anime item)
-        {
-            return item;
-        }
-
-        #endregion
     }
+
 }

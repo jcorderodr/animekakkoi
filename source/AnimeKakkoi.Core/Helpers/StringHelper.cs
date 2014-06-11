@@ -10,9 +10,9 @@ namespace AnimeKakkoi.Core.Helpers
     public abstract class StringHelper
     {
        
-        public static String StringIfNull(object item, string ifnull)
+        public static String IfStringNull(object item, string ifnull)
         {
-            try { return item.ToString(); }
+            try { return String.IsNullOrWhiteSpace(item.ToString()) ? ifnull : item.ToString(); }
             catch { return ifnull; }
         }
 
@@ -25,7 +25,7 @@ namespace AnimeKakkoi.Core.Helpers
         public static int GetOnlyNumbers(string text)
         {
             var reg = new System.Text.RegularExpressions.Regex("([^0-9])");
-            text = reg.Replace(text, "");
+            text = reg.Replace(text, String.Empty);
             try { return Convert.ToInt32(text); }
             catch { return 0; }
         }
@@ -34,14 +34,14 @@ namespace AnimeKakkoi.Core.Helpers
         {
             text = text.Replace("-", "0");
             var reg = new System.Text.RegularExpressions.Regex("([^0-9+/][^-]|-)");
-            text = reg.Replace(text, "");
+            text = reg.Replace(text, String.Empty);
             return text;
         }
 
         public static String GetOnlyText(string text)
         {
             var reg = new System.Text.RegularExpressions.Regex("([^A-Za-z]+' ')");
-            text = reg.Replace(text, "");
+            text = reg.Replace(text, String.Empty);
             return text;
         }
 

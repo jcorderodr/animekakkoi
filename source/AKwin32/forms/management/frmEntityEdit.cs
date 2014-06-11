@@ -110,7 +110,7 @@ namespace AnimeKakkoi.App.Forms.Management
             }
             else
             {
-                base.ShowError(this, base.Errors["save_method_unknown"]);
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowError(this, base.Errors["save_method_unknown"]);
                 return;
             }
 

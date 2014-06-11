@@ -33,7 +33,6 @@
             this.fileToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.quickSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userActionhistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +55,6 @@
             this.myAnimeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateSourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dataCheckerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,7 +93,6 @@
             this.fileToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quickSearchToolStripMenuItem,
             this.toolStripSeparator5,
-            this.usersToolStripMenuItem,
             this.userActionhistoryToolStripMenuItem,
             this.toolStripSeparator3,
             this.exportToolStripMenuItem,
@@ -115,12 +112,6 @@
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            resources.ApplyResources(this.usersToolStripMenuItem, "usersToolStripMenuItem");
-            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // userActionhistoryToolStripMenuItem
             // 
@@ -216,7 +207,6 @@
             this.importerToolStripMenuItem,
             this.updateSourcesToolStripMenuItem,
             this.toolStripSeparator2,
-            this.dataCheckerToolStripMenuItem,
             this.backUpToolStripMenuItem,
             this.toolStripSeparator4,
             this.preferencesToolStripMenuItem,
@@ -276,12 +266,6 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
-            // 
-            // dataCheckerToolStripMenuItem
-            // 
-            this.dataCheckerToolStripMenuItem.Name = "dataCheckerToolStripMenuItem";
-            resources.ApplyResources(this.dataCheckerToolStripMenuItem, "dataCheckerToolStripMenuItem");
-            this.dataCheckerToolStripMenuItem.Click += new System.EventHandler(this.dataCheckerToolStripMenuItem_Click);
             // 
             // backUpToolStripMenuItem
             // 
@@ -455,11 +439,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem mcAnimeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mcAnimeKronosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel stripStatusUser;
-        private System.Windows.Forms.ToolStripMenuItem dataCheckerToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem quickSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;

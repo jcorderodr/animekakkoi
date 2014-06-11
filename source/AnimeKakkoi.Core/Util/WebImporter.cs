@@ -30,34 +30,7 @@ namespace AnimeKakkoi.Core.Util
         /// <returns></returns>
         public async Task<String> TryRequestAsync(string uri)
         {
-            string html = null;
-
-            var webRequest = WebRequest.Create(uri);
-            webRequest.Credentials = CredentialCache.DefaultCredentials;
-
-            const string sampleUrl = "http://google.com";
-            var useProxy = !string.Equals(objA: WebRequest.DefaultWebProxy.GetProxy(new Uri(sampleUrl)), objB: sampleUrl);
-            if (useProxy)
-            {
-                //client.Proxy = IO.AkConfiguration.GetProxy();
-            }
-
-            var response = (HttpWebResponse)webRequest.GetResponseAsync().Result;
-            var stream = response.GetResponseStream();
-            
-            try
-            {
-                using (var reader = new System.IO.StreamReader(stream))
-                {
-                    html = reader.ReadToEnd();
-                    reader.Dispose();
-                    //
-                    var init = html.IndexOf("<body", System.StringComparison.Ordinal);
-                    var end = html.IndexOf("</body>", System.StringComparison.Ordinal);
-                    html = html.Substring(init, end - init);
-                }
-            }
-            catch (WebException ex) { throw; }
+            string html = await Helpers.WebHelper.RequestHtmlBody(uri);
 
             return html;
         }

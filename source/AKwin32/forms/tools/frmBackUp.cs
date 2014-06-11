@@ -2,6 +2,7 @@
 
 using System;
 using AnimeKakkoi.Core.IO;
+using AnimeKakkoi.App.Helpers;
 
 #endregion
 
@@ -37,18 +38,18 @@ namespace AnimeKakkoi.App.Forms.tools
         {
             if (!e.Cancelled)
             {
-                base.ShowInformation(this, base.Messages["operation_sucess"]);
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowInformation(this, base.Messages["operation_sucess"]);
             }
             else
             {
-                base.ShowInformation(this, base.Messages["operation_failed"]);
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowInformation(this, base.Messages["operation_failed"]);
             }
             this.Close();
         }
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            if (base.ShowQuestion(this, base.Messages["backup_question"]) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageHandler.ShowQuestion(this, base.Messages["backup_question"]) == System.Windows.Forms.DialogResult.Yes)
             {
                 if (openFileDialog.ShowDialog(this) != System.Windows.Forms.DialogResult.OK) return;
             }

@@ -12,21 +12,12 @@ namespace AnimeKakkoi.App.IO
     /// </summary>
     public sealed class AppAkConfiguration : Core.IO.AkConfiguration
     {
+        
         #region Application
 
         internal static String ApplicationBasePath
         {
             get { return ApplicationDataFolder; }
-        }
-
-        internal static String ApplicationLoggerFile
-        {
-            get { return ApplicationBasePath + "usr-h.log"; }
-        }
-
-        internal static String ApplicationProgressMask
-        {
-            get { return GetSetting("ApplicationEntityProgressMask"); }
         }
 
         internal static String ProductUrl
@@ -41,17 +32,6 @@ namespace AnimeKakkoi.App.IO
         internal static System.Globalization.CultureInfo ApplicationCulture
         {
             get { return new System.Globalization.CultureInfo(GetSetting("UserCultureLanguage")); }
-        }
-
-        internal static Color FormBackGroundColor
-        {
-            get
-            {
-                var text = GetSetting("UserfrmBackGroundColor");
-
-                var values = text.Split(',');
-                return Color.FromArgb(Convert.ToInt32(values[0]), Convert.ToInt32(values[1]), Convert.ToInt32(values[2]));
-            }
         }
 
         internal static Font UiControlsFontStyle

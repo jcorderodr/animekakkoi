@@ -1,8 +1,5 @@
-﻿#region
+﻿using System.Collections.Generic;
 
-using System.Collections.Generic;
-
-#endregion
 
 namespace AnimeKakkoi.App.Forms.Management
 {
@@ -51,14 +48,16 @@ namespace AnimeKakkoi.App.Forms.Management
         /// Implements mechanism for filtering the showed (in-time) data.
         /// </summary>
         /// <param name="list"></param>
-        void FilterData(List<object> list);
+        void FilterData(IEnumerable<object> list);
 
         /// <summary>
         /// Implements mechanism to apply the ReadOnly mode.
         /// </summary>
         void setReadOnlyMode();
 
-
         void SaveItemsToRepository(bool newItems);
+
+        void ShowItem<T>(T item);
+
     }
 }

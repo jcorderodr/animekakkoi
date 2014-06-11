@@ -50,7 +50,7 @@ namespace AnimeKakkoi.App.Forms.tools
                 frm.SetRepository(_animeRepo);
             else
             {
-                base.ShowError(this, base.Errors["entity_missed"]);
+                AnimeKakkoi.App.Helpers.MessageHandler.ShowError(this, base.Errors["entity_missed"]);
                 return;
             }
 

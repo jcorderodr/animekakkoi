@@ -20,7 +20,7 @@ namespace AnimeKakkoi.Core.Helpers
         public static void Write(string text)
         {
 
-            //System.IO.File.AppendAllText(IO.AkConfiguration.ApplicationLoggerFile,
+            //System.IO.File.AppendAllText(IO.AkConfiguration.AppLoggerFile,
             //                             String.Format("{1:dd/mm/yyyy hh:mm} # {0}{2}", text,
             //                                           DateTimeOffset.Now.DateTime,
             //                                           Environment.NewLine));
